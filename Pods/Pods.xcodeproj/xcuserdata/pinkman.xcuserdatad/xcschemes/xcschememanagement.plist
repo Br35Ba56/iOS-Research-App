@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Breast Feeding NFP.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Breast Feeding NFPTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Breast Feeding NFPUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ResearchKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>75D91CBCFC37020A3E05983215A219C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98935E0CA3B4DAAE35E4D187A6271D27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5B94F2F6E0F61D9AA1D22D837C71AFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDE220EE2FA599B136C956EC245314FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

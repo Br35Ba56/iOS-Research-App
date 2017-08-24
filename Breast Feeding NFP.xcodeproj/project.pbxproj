@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403B1A9D9C3CB8EA0BF2F04D /* Pods_Breast_Feeding_NFPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */; };
 		BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AD1F4F3072006629AC /* AppDelegate.swift */; };
 		BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AF1F4F3072006629AC /* FirstViewController.swift */; };
 		BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3B11F4F3072006629AC /* SecondViewController.swift */; };
@@ -15,6 +16,16 @@
 		BC21F3BA1F4F3072006629AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */; };
 		BC21F3C51F4F3072006629AC /* Breast_Feeding_NFPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3C41F4F3072006629AC /* Breast_Feeding_NFPTests.swift */; };
 		BC21F3D01F4F3072006629AC /* Breast_Feeding_NFPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3CF1F4F3072006629AC /* Breast_Feeding_NFPUITests.swift */; };
+		BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */; };
+		BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */; };
+		BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */; };
+		BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */; };
+		BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */; };
+		BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */; };
+		BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759621F4F619000AF2FC6 /* StudyTasks.swift */; };
+		BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */; };
+		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
+		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B603C43252FC7AA920637A4 /* Pods-Breast Feeding NFPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPUITests/Pods-Breast Feeding NFPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57A7D7FA1E58A5061F4EBF73 /* Pods-Breast Feeding NFPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPUITests/Pods-Breast Feeding NFPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CECEBE3AA6C3A109BA502A3 /* Pods-Breast Feeding NFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.release.xcconfig"; sourceTree = "<group>"; };
+		B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3AA1F4F3072006629AC /* Breast Feeding NFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Feeding NFP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3AD1F4F3072006629AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC21F3AF1F4F3072006629AC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +66,17 @@
 		BC21F3CB1F4F3072006629AC /* Breast Feeding NFPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breast Feeding NFPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3CF1F4F3072006629AC /* Breast_Feeding_NFPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breast_Feeding_NFPUITests.swift; sourceTree = "<group>"; };
 		BC21F3D11F4F3072006629AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
+		BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerViewController.swift; sourceTree = "<group>"; };
+		BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
+		BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		BC7759621F4F619000AF2FC6 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
+		BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
+		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
+		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403B1A9D9C3CB8EA0BF2F04D /* Pods_Breast_Feeding_NFPUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		929E612B744B720460C03DF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */,
+				53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */,
+				B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC21F3A11F4F3072006629AC = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +124,8 @@
 				BC21F3C31F4F3072006629AC /* Breast Feeding NFPTests */,
 				BC21F3CE1F4F3072006629AC /* Breast Feeding NFPUITests */,
 				BC21F3AB1F4F3072006629AC /* Products */,
+				F494FE643A2D84102897AA90 /* Pods */,
+				929E612B744B720460C03DF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +142,14 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
+				BC77595B1F4F591500AF2FC6 /* Survey Steps */,
 				BC21F3AD1F4F3072006629AC /* AppDelegate.swift */,
+				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
+				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
+				BC21F3DD1F4F3138006629AC /* Onboarding */,
+				BC21F3DE1F4F314E006629AC /* Activities */,
+				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
+				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
 				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
 				BC21F3B31F4F3072006629AC /* Main.storyboard */,
@@ -128,6 +178,60 @@
 			path = "Breast Feeding NFPUITests";
 			sourceTree = "<group>";
 		};
+		BC21F3DD1F4F3138006629AC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
+				BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		BC21F3DE1F4F314E006629AC /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */,
+				BC7759621F4F619000AF2FC6 /* StudyTasks.swift */,
+			);
+			name = Activities;
+			sourceTree = "<group>";
+		};
+		BC7759551F4F539F00AF2FC6 /* Withdrawl */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */,
+			);
+			name = Withdrawl;
+			sourceTree = "<group>";
+		};
+		BC77595A1F4F57AB00AF2FC6 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		BC77595B1F4F591500AF2FC6 /* Survey Steps */ = {
+			isa = PBXGroup;
+			children = (
+				BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */,
+			);
+			name = "Survey Steps";
+			sourceTree = "<group>";
+		};
+		F494FE643A2D84102897AA90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */,
+				7CECEBE3AA6C3A109BA502A3 /* Pods-Breast Feeding NFP.release.xcconfig */,
+				E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */,
+				D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */,
+				3B603C43252FC7AA920637A4 /* Pods-Breast Feeding NFPUITests.debug.xcconfig */,
+				57A7D7FA1E58A5061F4EBF73 /* Pods-Breast Feeding NFPUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +239,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC21F3D41F4F3072006629AC /* Build configuration list for PBXNativeTarget "Breast Feeding NFP" */;
 			buildPhases = (
+				C927D449E832CEFD17EF1420 /* [CP] Check Pods Manifest.lock */,
 				BC21F3A61F4F3072006629AC /* Sources */,
 				BC21F3A71F4F3072006629AC /* Frameworks */,
 				BC21F3A81F4F3072006629AC /* Resources */,
+				43A76B40C8437B708E8A903F /* [CP] Embed Pods Frameworks */,
+				619EBB8319A9B11EBED8D1B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC21F3D71F4F3072006629AC /* Build configuration list for PBXNativeTarget "Breast Feeding NFPTests" */;
 			buildPhases = (
+				27E476E067193CA8858F2E18 /* [CP] Check Pods Manifest.lock */,
 				BC21F3BC1F4F3072006629AC /* Sources */,
 				BC21F3BD1F4F3072006629AC /* Frameworks */,
 				BC21F3BE1F4F3072006629AC /* Resources */,
+				27B8FAF25F07D3ED87246CE0 /* [CP] Embed Pods Frameworks */,
+				D8E8E29213CA23CAFBA41A7D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC21F3DA1F4F3072006629AC /* Build configuration list for PBXNativeTarget "Breast Feeding NFPUITests" */;
 			buildPhases = (
+				2C0BF523F60708F73004034D /* [CP] Check Pods Manifest.lock */,
 				BC21F3C71F4F3072006629AC /* Sources */,
 				BC21F3C81F4F3072006629AC /* Frameworks */,
 				BC21F3C91F4F3072006629AC /* Resources */,
+				C2EB3DEF20E2C899B528F8E4 /* [CP] Embed Pods Frameworks */,
+				FC3DFDF287AAAB848142AB3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,14 +373,172 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27B8FAF25F07D3ED87246CE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27E476E067193CA8858F2E18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Breast Feeding NFPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C0BF523F60708F73004034D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Breast Feeding NFPUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43A76B40C8437B708E8A903F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		619EBB8319A9B11EBED8D1B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2EB3DEF20E2C899B528F8E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFPUITests/Pods-Breast Feeding NFPUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C927D449E832CEFD17EF1420 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Breast Feeding NFP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8E8E29213CA23CAFBA41A7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3DFDF287AAAB848142AB3A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFPUITests/Pods-Breast Feeding NFPUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BC21F3A61F4F3072006629AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
+				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
+				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
+				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
+				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
 				BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */,
+				BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */,
+				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
+				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +688,7 @@
 		};
 		BC21F3D51F4F3072006629AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JF376C6YXK;
@@ -430,6 +702,7 @@
 		};
 		BC21F3D61F4F3072006629AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CECEBE3AA6C3A109BA502A3 /* Pods-Breast Feeding NFP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JF376C6YXK;
@@ -443,6 +716,7 @@
 		};
 		BC21F3D81F4F3072006629AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +732,7 @@
 		};
 		BC21F3D91F4F3072006629AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +748,7 @@
 		};
 		BC21F3DB1F4F3072006629AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B603C43252FC7AA920637A4 /* Pods-Breast Feeding NFPUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JF376C6YXK;
@@ -487,6 +763,7 @@
 		};
 		BC21F3DC1F4F3072006629AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57A7D7FA1E58A5061F4EBF73 /* Pods-Breast Feeding NFPUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JF376C6YXK;
@@ -518,6 +795,7 @@
 				BC21F3D61F4F3072006629AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC21F3D71F4F3072006629AC /* Build configuration list for PBXNativeTarget "Breast Feeding NFPTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +804,7 @@
 				BC21F3D91F4F3072006629AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC21F3DA1F4F3072006629AC /* Build configuration list for PBXNativeTarget "Breast Feeding NFPUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +813,7 @@
 				BC21F3DC1F4F3072006629AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
