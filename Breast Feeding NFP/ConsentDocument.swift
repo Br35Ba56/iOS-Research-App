@@ -35,7 +35,7 @@ class ConsentDocument: ORKConsentDocument {
   
   let ipsum = [
     //Overview
-    "You are invited to participate in a research study evaluating natural family planning and breastfeeding.",
+    "Great! We have determined that you are eligible to participate in our research study evaluating breast feeding.",
     //dataGathering
     "The data you are providing will gathered daily when you complete daily tasks.",
     //Privacy

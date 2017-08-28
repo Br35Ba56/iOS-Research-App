@@ -1,4 +1,33 @@
-//
+/*
+ Copyright (c) 2015, Apple Inc. All rights reserved.
+ 
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
+ 
+ 1.  Redistributions of source code must retain the above copyright notice, this
+ list of conditions and the following disclaimer.
+ 
+ 2.  Redistributions in binary form must reproduce the above copyright notice,
+ this list of conditions and the following disclaimer in the documentation and/or
+ other materials provided with the distribution.
+ 
+ 3.  Neither the name of the copyright holder(s) nor the names of any contributors
+ may be used to endorse or promote products derived from this software without
+ specific prior written permission. No license is granted to the trademarks of
+ the copyright holders even if such marks are included in this software.
+ 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 //  StudyTasks.swift
 //  Breast Feeding NFP
 //
@@ -8,83 +37,86 @@
 
 import ResearchKit
 struct StudyTasks {
-  static let surveyTask: ORKOrderedTask = {
+  static let dailySurveyTask: ORKNavigableOrderedTask = {
     var steps = [ORKStep]()
     
-    // Instruction step
+    
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-    instructionStep.title = "Knoweledge of the Universe Survey"
-    instructionStep.text = "Please answer these 6 questions to the best of your ability. It's okay to skip a question if you don't know the answer."
-    
+    instructionStep.title = "Daily Survey"
+    instructionStep.text = "Please provide information about your cycle."
     steps += [instructionStep]
+
     
-    // Quest question using text choice
-    let questQuestionStepTitle = "Which of the following is not a planet?"
-    let textChoices = [
-      ORKTextChoice(text: "Saturn", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Uranus", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Pluto", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Mars", value: 3 as NSCoding & NSCopying & NSObjectProtocol)
-    ]
-    let questAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
-    let questQuestionStep = ORKQuestionStep(identifier: "TextChoiceQuestionStep", title: questQuestionStepTitle, answer: questAnswerFormat)
+    let clearBlueMontitorAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: DailyCycleSurvey.clearBlueMonitorTextChoices)
+    let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: DailyCycleSurvey.clearBlueMonitorStepTitle, answer: clearBlueMontitorAnswerFormat)
+    clearBlueMonitorQuestionStep.isOptional = false
+    steps += [clearBlueMonitorQuestionStep]
     
-    steps += [questQuestionStep]
     
-    // Name question using text input
-    let nameAnswerFormat = ORKTextAnswerFormat(maximumLength: 25)
-    nameAnswerFormat.multipleLines = false
-    let nameQuestionStepTitle = "What do you think the next comet that's discovered should be named?"
-    let nameQuestionStep = ORKQuestionStep(identifier: "NameQuestionStep", title: nameQuestionStepTitle, answer: nameAnswerFormat)
+    let progesteroneAnswerFormat = ORKBooleanAnswerFormat()
+    let progesteroneQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: DailyCycleSurvey.progesteroneStepTitle, answer: progesteroneAnswerFormat)
+    progesteroneQuestionStep.isOptional = false
+    steps += [progesteroneQuestionStep]
     
-    steps += [nameQuestionStep]
+    let progesteroneResultAnswerFormat = ORKBooleanAnswerFormat(yesString: "Positive", noString: "Negative")
+    let progesteroneResultQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneResultStepID, title: DailyCycleSurvey.progesteroneResultStepTitle, answer: progesteroneResultAnswerFormat)
+    progesteroneResultQuestionStep.isOptional = false
+    steps += [progesteroneResultQuestionStep]
     
-    let shapeQuestionStepTitle = "Which shape is the closest to the shape of Messier object 101?"
-    let shapeTuples = [
-      (UIImage(named: "square")!, "Square"),
-      (UIImage(named: "pinwheel")!, "Pinwheel"),
-      (UIImage(named: "pentagon")!, "Pentagon"),
-      (UIImage(named: "circle")!, "Circle")
-    ]
-    let imageChoices : [ORKImageChoice] = shapeTuples.map {
-      return ORKImageChoice(normalImage: $0.0, selectedImage: nil, text: $0.1, value: $0.1 as NSCoding & NSCopying & NSObjectProtocol)
-    }
-    let shapeAnswerFormat: ORKImageChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: imageChoices)
-    let shapeQuestionStep = ORKQuestionStep(identifier: "ImageChoiceQuestionStep", title: shapeQuestionStepTitle, answer: shapeAnswerFormat)
     
-    steps += [shapeQuestionStep]
-    
-    // Date question
-    let today = NSDate()
-    let dateAnswerFormat =  ORKAnswerFormat.dateAnswerFormat(withDefaultDate: nil, minimumDate: today as Date, maximumDate: nil, calendar: nil)
-    let dateQuestionStepTitle = "When is the next solar eclipse?"
-    let dateQuestionStep = ORKQuestionStep(identifier: "DateQuestionStep", title: dateQuestionStepTitle, answer: dateAnswerFormat)
-    
-    steps += [dateQuestionStep]
-    
-    // Boolean question
-    let booleanAnswerFormat = ORKBooleanAnswerFormat()
-    let booleanQuestionStepTitle = "Is Venus larger than Saturn?"
-    let booleanQuestionStep = ORKQuestionStep(identifier: "BooleanQuestionStep", title: booleanQuestionStepTitle, answer: booleanAnswerFormat)
-    
-    steps += [booleanQuestionStep]
-    
-    // Continuous question
-    let continuousAnswerFormat = ORKAnswerFormat.scale(withMaximumValue: 150, minimumValue: 30, defaultValue: 20, step: 10, vertical: false, maximumValueDescription: "Objects", minimumValueDescription: " ")
-    let continuousQuestionStepTitle = "How many objects are in Messier's catalog?"
-    let continuousQuestionStep = ORKQuestionStep(identifier: "ContinuousQuestionStep", title: continuousQuestionStepTitle, answer: continuousAnswerFormat)
-    
-    steps += [continuousQuestionStep]
+    let menstruationAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: DailyCycleSurvey.menstruationTextChoices)
+    let menstruationQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.menstruationQuestionStepID, title: DailyCycleSurvey.menstruationStepTitle, answer: menstruationAnswerFormat)
+    menstruationQuestionStep.isOptional = false
+    steps += [menstruationQuestionStep]
     
     // Summary step
-    
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Thank you."
     summaryStep.text = "We appreciate your time."
-    
     steps += [summaryStep]
     
-    return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
+    let resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
+    let predicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.menstruationQuestionStepID)])
+    
+    let dailySurvey = ORKNavigableOrderedTask(identifier: DailyCycleSurvey.dailySurveyID, steps: steps)
+    dailySurvey.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
+    return dailySurvey
   }()
+  
+}
 
+struct DailyCycleSurvey {
+  static let dailySurveyID = "DailySurveyID"
+  static let instructionID = "CycleDataIntroStepID"
+  
+  //Clear Blue Monitor
+  static let clearBlueMonitorStepID = "ClearBlueMonitorStepID"
+  static let clearBlueMonitorStepTitle = "Clear Blue Monitor Low, Peek, or High"
+  static let clearBlueMonitorTextChoices = [
+    ORKTextChoice(text: "Low Fertility", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "High Fertility", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "Peek Fertility", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+    ]
+  
+  //Progestorone test yes or no
+  static let progesteroneQuestionStepID = "ProgesteroneQuestionStepID"
+  static let progesteroneStepTitle = "Did you take a progestorone test?"
+  
+  //Progestorone result if taken
+  static let progesteroneResultStepID = "ProgesteroneResultStepID"
+  static let progesteroneResultStepTitle = "What was the result of the progestorone test?"
+  
+  //Menstruation Question
+  static let menstruationQuestionStepID = "MenstruationQuestionStepID"
+  static let menstruationStepTitle = "Are you experiencing any bleeding?"
+  static let menstruationTextChoices = [
+    ORKTextChoice(text: "None", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "Moderate", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
+    ORKTextChoice(text: "Heavy", value: 4 as NSCoding & NSCopying & NSObjectProtocol)
+  ]
+  
+  
 }

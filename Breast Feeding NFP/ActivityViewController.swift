@@ -87,7 +87,7 @@ class ActivityViewController: UITableViewController {
     let taskViewController: ORKTaskViewController
     switch activity {
     case .survey:
-      taskViewController = ORKTaskViewController(task: StudyTasks.surveyTask, taskRun: NSUUID() as UUID)
+      taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
       
       
       do {
@@ -106,7 +106,6 @@ class ActivityViewController: UITableViewController {
         fatalError("The output directory for the task with UUID: \(taskViewController.taskRunUUID.uuidString) could not be created. Error: \(error.localizedDescription)")
       }
       
- 
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)
@@ -117,6 +116,9 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
   
   func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     // Handle results using taskViewController.result
+    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)!)
+    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)!)
+    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.menstruationQuestionStepID)!)
     taskViewController.dismiss(animated: true, completion: nil)
   }
 }
