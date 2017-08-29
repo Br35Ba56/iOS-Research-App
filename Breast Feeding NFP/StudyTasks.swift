@@ -117,6 +117,4 @@ struct DailyCycleSurvey {
     ORKTextChoice(text: "Moderate", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
     ORKTextChoice(text: "Heavy", value: 4 as NSCoding & NSCopying & NSObjectProtocol)
   ]
-  
-  
 }
