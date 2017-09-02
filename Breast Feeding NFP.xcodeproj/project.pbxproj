@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		403B1A9D9C3CB8EA0BF2F04D /* Pods_Breast_Feeding_NFPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */; };
+		BC048EF11F581393003B8631 /* BreastFeedingActiveStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC048EF01F581393003B8631 /* BreastFeedingActiveStepViewController.swift */; };
 		BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AD1F4F3072006629AC /* AppDelegate.swift */; };
 		BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AF1F4F3072006629AC /* FirstViewController.swift */; };
 		BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3B11F4F3072006629AC /* SecondViewController.swift */; };
@@ -53,6 +54,7 @@
 		783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CECEBE3AA6C3A109BA502A3 /* Pods-Breast Feeding NFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.release.xcconfig"; sourceTree = "<group>"; };
 		B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC048EF01F581393003B8631 /* BreastFeedingActiveStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreastFeedingActiveStepViewController.swift; sourceTree = "<group>"; };
 		BC21F3AA1F4F3072006629AC /* Breast Feeding NFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Feeding NFP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3AD1F4F3072006629AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC21F3AF1F4F3072006629AC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
+				BC048EF01F581393003B8631 /* BreastFeedingActiveStepViewController.swift */,
 				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
 				BC21F3B31F4F3072006629AC /* Main.storyboard */,
 				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
@@ -184,8 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
-				BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */,
+				BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */,
 				BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */,
+				BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -217,7 +221,6 @@
 		BC77595B1F4F591500AF2FC6 /* Survey Steps */ = {
 			isa = PBXGroup;
 			children = (
-				BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */,
 			);
 			name = "Survey Steps";
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
 				BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */,
 				BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */,
+				BC048EF11F581393003B8631 /* BreastFeedingActiveStepViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
 				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,

@@ -34,19 +34,17 @@
 //  Created by Anthony Schneider on 8/24/17.
 //  Copyright © 2017 Anthony Schneider. All rights reserved.
 //
-
+//TODO: Refactor to be formatted as onboarding survey.
 import ResearchKit
 struct StudyTasks {
   static let dailySurveyTask: ORKNavigableOrderedTask = {
     var steps = [ORKStep]()
-    
     
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
     instructionStep.title = "Daily Survey"
     instructionStep.text = "Please provide information about your cycle."
     steps += [instructionStep]
 
-    
     let clearBlueMontitorAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: DailyCycleSurvey.clearBlueMonitorTextChoices)
     let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: DailyCycleSurvey.clearBlueMonitorStepTitle, answer: clearBlueMontitorAnswerFormat)
     clearBlueMonitorQuestionStep.isOptional = false
@@ -84,6 +82,32 @@ struct StudyTasks {
     return dailySurvey
   }()
   
+  static let manualBreastFeedTask: ORKOrderedTask = {
+    let instructionStep = ORKInstructionStep(identifier: "Instructions")
+    instructionStep.title = "Breast Feeding Entry"
+    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
+    let userCalendar = Calendar.current
+    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
+    let answerStyle = ORKDateAnswerStyle.dateAndTime
+    
+    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
+    let manualBreastFedStartStep = ORKQuestionStep(identifier: "Start", title: "Start Time", answer: answerFormat)
+    manualBreastFedStartStep.isOptional = false
+    let manualBreastFedStopStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", answer: answerFormat)
+    manualBreastFedStopStep.isOptional = false
+    let completionStep = ORKCompletionStep(identifier: "CompletionStep")
+    completionStep.title = "Thank you for your entry!"
+    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
+    
+    let orderedTask = ORKOrderedTask(identifier: "BreastFeedingManual", steps: [
+      instructionStep,
+      manualBreastFedStartStep,
+      manualBreastFedStopStep,
+      reviewStep,
+      completionStep
+      ])
+    return orderedTask
+  }()
 }
 
 struct DailyCycleSurvey {

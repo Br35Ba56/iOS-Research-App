@@ -96,7 +96,6 @@ struct Onboarding {
     
     resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.maritalStatusStepID)
     let predicate9 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
-    
 
 
     let rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate1, EligibilitySteps.ineligibleStepID),
@@ -119,7 +118,6 @@ struct Onboarding {
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.clearBlueMonitorStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.maritalStatusStepID)
     
-    
     let directRule = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
     orderedTask.setNavigationRule(directRule, forTriggerStepIdentifier: "CompletionStep")
     return orderedTask
@@ -133,7 +131,7 @@ struct Onboarding {
   }()
   
   private static let biologicalInfantStep: ORKStep = {
-    let title = "Are you breastfeeding your biological infant?"
+    let title = "Did you give birth to the infant you are beastfeeding?"
     let biologicalInfantStep = ORKQuestionStep(identifier: EligibilitySteps.biologicalInfantStepID, title: title, answer: boolAnswerFormat)
     biologicalInfantStep.isOptional = false
     return biologicalInfantStep
@@ -154,15 +152,15 @@ struct Onboarding {
   }()
   
   private static let momHealthStep: ORKStep = {
-    let title = "Have you been diagnosed with any of the following?"
-    let text = "Polycystic Ovarian Syndrome or Breast Augmentation"
-    let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, text: text, answer: boolAnswerFormat)
+    let title = "Have you ever been diagnosed with Poly Cystic Ovarian Disorder?"
+    
+    let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, answer: boolAnswerFormat)
     momHealthStep.isOptional = false
     return momHealthStep
   }()
   
   private static let breastSurgeryStep: ORKStep = {
-    let title = "Have you ever had your breasts enlarged or decreased in size?"
+    let title = "Have you ever had breast surgery?"
     let breastSurgeryStep = ORKQuestionStep(identifier: EligibilitySteps.breastSurgeryStepID, title: title, answer: boolAnswerFormat)
     breastSurgeryStep.isOptional = false
     return breastSurgeryStep
@@ -278,7 +276,6 @@ struct EligibilitySteps {
   static let momHealthStepID = "momHealthStepID"
   static let breastSurgeryStepID = "breastSurgeryStepID"
   static let ineligibleStepID = "ineligibleStepID"
-
 }
 
 struct DemographicSteps {

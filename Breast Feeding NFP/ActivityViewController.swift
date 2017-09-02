@@ -33,6 +33,7 @@ import ResearchKit
 
 enum Activity: Int {
   case survey
+  case breastfeedingManual
   static var allValues: [Activity] {
     var index = 0
     return Array (
@@ -48,13 +49,16 @@ enum Activity: Int {
     switch self {
     case .survey:
       return "Survey"
-      
+    case .breastfeedingManual:
+      return "Breast Feeding Entry"
     }
   }
   var subtitle: String {
     switch self {
     case .survey:
       return "Description of survey"
+    case .breastfeedingManual:
+      return "Manual Entry"
     }
   }
 }
@@ -88,7 +92,8 @@ class ActivityViewController: UITableViewController {
     switch activity {
     case .survey:
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
-      
+    case .breastfeedingManual:
+      taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
       
       do {
         let defaultFileManager = FileManager.default
@@ -116,9 +121,6 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
   
   func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     // Handle results using taskViewController.result
-    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)!)
-    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)!)
-    print(taskViewController.result.stepResult(forStepIdentifier: DailyCycleSurvey.menstruationQuestionStepID)!)
     taskViewController.dismiss(animated: true, completion: nil)
   }
 }

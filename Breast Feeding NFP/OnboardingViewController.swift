@@ -32,19 +32,11 @@ import UIKit
 import ResearchKit
 
 class OnboardingViewController: UIViewController {
-    
-
   @IBAction func joinAction(_ sender: Any) {
-    
-    
-    
     let taskViewController = ORKTaskViewController(task: Onboarding.onboardingSurvey, taskRun: nil)
     taskViewController.delegate = self
-    
     present(taskViewController, animated: true, completion: nil)
-  
   }
-
 }
 
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
