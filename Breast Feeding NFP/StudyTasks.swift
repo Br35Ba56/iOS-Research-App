@@ -37,55 +37,81 @@
 //TODO: Refactor to be formatted as onboarding survey.
 import ResearchKit
 struct StudyTasks {
+  
   static let dailySurveyTask: ORKNavigableOrderedTask = {
-    var steps = [ORKStep]()
-    
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-    instructionStep.title = "Daily Survey"
+    instructionStep.title = "Daily Menstrual Cycle Events"
     instructionStep.text = "Please provide information about your cycle."
-    steps += [instructionStep]
-
-    let clearBlueMontitorAnswerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: DailyCycleSurvey.clearBlueMonitorTextChoices)
-    let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: DailyCycleSurvey.clearBlueMonitorStepTitle, answer: clearBlueMontitorAnswerFormat)
-    clearBlueMonitorQuestionStep.isOptional = false
-    steps += [clearBlueMonitorQuestionStep]
     
-    
-    let progesteroneAnswerFormat = ORKBooleanAnswerFormat()
-    let progesteroneQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: DailyCycleSurvey.progesteroneStepTitle, answer: progesteroneAnswerFormat)
-    progesteroneQuestionStep.isOptional = false
-    steps += [progesteroneQuestionStep]
-    
-    let progesteroneResultAnswerFormat = ORKBooleanAnswerFormat(yesString: "Positive", noString: "Negative")
-    let progesteroneResultQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneResultStepID, title: DailyCycleSurvey.progesteroneResultStepTitle, answer: progesteroneResultAnswerFormat)
-    progesteroneResultQuestionStep.isOptional = false
-    steps += [progesteroneResultQuestionStep]
-    
-    
-    let menstruationAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: DailyCycleSurvey.menstruationTextChoices)
-    let menstruationQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.menstruationQuestionStepID, title: DailyCycleSurvey.menstruationStepTitle, answer: menstruationAnswerFormat)
-    menstruationQuestionStep.isOptional = false
-    steps += [menstruationQuestionStep]
-    
-    // Summary step
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Thank you."
     summaryStep.text = "We appreciate your time."
-    steps += [summaryStep]
     
-    let resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
+    let task = ORKNavigableOrderedTask(identifier: "DailyMenstraulCycleEventsID", steps: [
+      instructionStep,
+      clearBlueMonitorStep,
+      progesteroneStep,
+      progesteroneResultStep,
+      menstruationStep,
+      summaryStep])
+    
+    var resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
     let predicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
-    let rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.menstruationQuestionStepID)])
+    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.menstruationQuestionStepID)])
+    task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
     
-    let dailySurvey = ORKNavigableOrderedTask(identifier: DailyCycleSurvey.dailySurveyID, steps: steps)
-    dailySurvey.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
-    return dailySurvey
+    resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)
+    let expectedAnswer1 = 0 as NSCoding & NSCopying & NSObjectProtocol
+    let predicate1 = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: expectedAnswer1)
+    let expectedAnswer2 = 1 as NSCoding & NSCopying & NSObjectProtocol
+    let predicate2 = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: expectedAnswer2)
+    rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate1, DailyCycleSurvey.menstruationQuestionStepID),
+                                                                                          (predicate2, DailyCycleSurvey.menstruationQuestionStepID)])
+    task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)
+    
+    return task
   }()
+  //TODO: Finish Refactor
+  class ORKDurationOrderedTask: ORKOrderedTask {
+    override func step(after step: ORKStep?, with result: ORKTaskResult) -> ORKStep? {
+      if steps.count <= 0 {
+        return nil
+      }
+      let currentStep = step
+      var nextStep: ORKStep? = nil
+      if currentStep == nil {
+        nextStep = steps[0]
+      } else {
+        var index = steps.index(of: step!)
+        if index == nil {
+          index = 2
+        }
+        if NSNotFound != index && index != steps.count - 1 {
+          if index == 1 {
+            //TODO: Refactor
+            //Sets up a Date Question limiting the min/max date bounderies
+            if let taskResult = result.stepResult(forStepIdentifier: "Start") {
+              let answer = taskResult.firstResult
+              let date = answer as? ORKDateQuestionResult
+              if let minimumDate = date?.dateAnswer {
+              let userCalander = Calendar.current
+              let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
+              let answerStyle = ORKDateAnswerStyle.dateAndTime
+              let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: minimumDate, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
+              nextStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", text: nil, answer: answerFormat)
+              nextStep?.isOptional = false
+              }
+            }
+            return nextStep
+          }
+          nextStep = steps[index! + 1]
+        }
+      }
+      return nextStep
+    }
+  }
   
-  static let manualBreastFeedTask: ORKOrderedTask = {
-    let instructionStep = ORKInstructionStep(identifier: "Instructions")
-    instructionStep.title = "Breast Feeding Entry"
-    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
+  private static let manualBreastFedStartStep: ORKStep = {
     let userCalendar = Calendar.current
     let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
     let answerStyle = ORKDateAnswerStyle.dateAndTime
@@ -93,52 +119,88 @@ struct StudyTasks {
     let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
     let manualBreastFedStartStep = ORKQuestionStep(identifier: "Start", title: "Start Time", answer: answerFormat)
     manualBreastFedStartStep.isOptional = false
-    let manualBreastFedStopStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", answer: answerFormat)
-    manualBreastFedStopStep.isOptional = false
+    return manualBreastFedStartStep
+  }()
+  
+  static let manualBreastFeedTask: ORKDurationOrderedTask = {
+    let instructionStep = ORKInstructionStep(identifier: "Instructions")
+    instructionStep.title = "Breast Feeding Entry"
+    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Thank you for your entry!"
     let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
-    
-    let orderedTask = ORKOrderedTask(identifier: "BreastFeedingManual", steps: [
+    let orderedTask = ORKDurationOrderedTask(identifier: "BreastFeedingManualID", steps: [
       instructionStep,
       manualBreastFedStartStep,
       manualBreastFedStopStep,
       reviewStep,
       completionStep
       ])
+    
     return orderedTask
+  }()
+  
+  private static var manualBreastFedStopStep: ORKStep = {
+    let userCalendar = Calendar.current
+    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
+    let answerStyle = ORKDateAnswerStyle.dateAndTime
+    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
+    let manualBreastFedStopStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", answer: answerFormat)
+    manualBreastFedStopStep.isOptional = false
+    return manualBreastFedStopStep
+  }()
+  
+  private static let clearBlueMonitorStep: ORKStep = {
+    var title = "Clear Blue Monitor Low, Peek, or High"
+    let textChoices = [
+      ORKTextChoice(text: "Low Fertility", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "High Fertility", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Peek Fertility", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ]
+    let answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
+    let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: title, answer: answerFormat)
+    clearBlueMonitorQuestionStep.isOptional = false
+    return clearBlueMonitorQuestionStep
+  }()
+  
+  private static let progesteroneStep: ORKStep = {
+    let title = "Did you take a progestorone test?"
+    let answerFormat = ORKBooleanAnswerFormat()
+    let progesteroneStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: title, answer: answerFormat)
+    progesteroneStep.isOptional = false
+    return progesteroneStep
+  }()
+  
+  private static let progesteroneResultStep: ORKStep = {
+    let title = "What was the result of the progestorone test?"
+    let answerFormat = ORKBooleanAnswerFormat(yesString: "Positive", noString: "Negative")
+    let progesteroneResultStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneResultStepID, title: title, answer: answerFormat)
+    progesteroneResultStep.isOptional = false
+    return progesteroneResultStep
+  }()
+  
+  private static let menstruationStep: ORKStep = {
+    let title = "Are you experiencing any bleeding?"
+    let textChoices = [
+      ORKTextChoice(text: "None", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Moderate", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Heavy", value: 4 as NSCoding & NSCopying & NSObjectProtocol)
+    ]
+    let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
+    let menstruationStep = ORKQuestionStep(identifier: DailyCycleSurvey.menstruationQuestionStepID, title: title, answer: answerFormat)
+    menstruationStep.isOptional = false
+    return menstruationStep
   }()
 }
 
 struct DailyCycleSurvey {
   static let dailySurveyID = "DailySurveyID"
   static let instructionID = "CycleDataIntroStepID"
-  
-  //Clear Blue Monitor
   static let clearBlueMonitorStepID = "ClearBlueMonitorStepID"
-  static let clearBlueMonitorStepTitle = "Clear Blue Monitor Low, Peek, or High"
-  static let clearBlueMonitorTextChoices = [
-    ORKTextChoice(text: "Low Fertility", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "High Fertility", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "Peek Fertility", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
-    ]
-  
-  //Progestorone test yes or no
-  static let progesteroneQuestionStepID = "ProgesteroneQuestionStepID"
-  static let progesteroneStepTitle = "Did you take a progestorone test?"
-  
-  //Progestorone result if taken
+  static let progesteroneQuestionStepID = "ProgesteroneStepID"
   static let progesteroneResultStepID = "ProgesteroneResultStepID"
-  static let progesteroneResultStepTitle = "What was the result of the progestorone test?"
-  
-  //Menstruation Question
   static let menstruationQuestionStepID = "MenstruationQuestionStepID"
-  static let menstruationStepTitle = "Are you experiencing any bleeding?"
-  static let menstruationTextChoices = [
-    ORKTextChoice(text: "None", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "Moderate", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
-    ORKTextChoice(text: "Heavy", value: 4 as NSCoding & NSCopying & NSObjectProtocol)
-  ]
+  
 }

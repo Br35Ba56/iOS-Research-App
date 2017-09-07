@@ -48,7 +48,7 @@ enum Activity: Int {
   var title: String {
     switch self {
     case .survey:
-      return "Survey"
+      return "Daily Menstrual Cycle Events"
     case .breastfeedingManual:
       return "Breast Feeding Entry"
     }
@@ -91,10 +91,11 @@ class ActivityViewController: UITableViewController {
     let taskViewController: ORKTaskViewController
     switch activity {
     case .survey:
+      
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .breastfeedingManual:
       taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
-      
+      taskViewController.showsProgressInNavigationBar = false
       do {
         let defaultFileManager = FileManager.default
         
@@ -120,6 +121,21 @@ class ActivityViewController: UITableViewController {
 extension ActivityViewController : ORKTaskViewControllerDelegate {
   
   func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+    switch reason {
+    case .completed:
+        break
+      //if let stepResult = ORKResult(identifier: "")
+      /*if let stepResult = taskViewController.result.stepResult(forStepIdentifier: "Start"),
+        let stepResults = stepResult.results,
+        let stepFirstResult = stepResults.first,
+        let dateResult = stepFirstResult as? ORKDateQuestionResult,
+        let dateAnswer = dateResult.dateAnswer {
+          print(dateAnswer.description)
+ 
+      }*/
+    default: break
+      
+    }
     // Handle results using taskViewController.result
     taskViewController.dismiss(animated: true, completion: nil)
   }
