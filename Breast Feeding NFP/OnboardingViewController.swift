@@ -44,22 +44,16 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
     switch reason {
     case .completed:
       //TODO: Finish determining Eligiblity after task is completed.
-      determineSeque(taskViewController)
-      performSegue(withIdentifier: "unwindToStudy", sender: nil)
+      if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
+        performSegue(withIdentifier: "unwindToStudy", sender: nil)
+      } else {
+        dismiss(animated: true, completion: nil)
+      }
       
     case .discarded, .failed, .saved:
       dismiss(animated: true, completion: nil)
     }
   }
-  public func determineSeque(_ taskViewController: ORKTaskViewController) -> Bool{
-    if let stepResult = taskViewController.result.stepResult(forStepIdentifier: EligibilitySteps.biologicalInfantStepID),
-      let stepResults = stepResult.results,
-      let stepFirstResult = stepResults.first,
-      let booleanResult = stepFirstResult as? ORKBooleanQuestionResult,
-      let booleanAnswer = booleanResult.booleanAnswer {
-      print("Result for question: \(booleanAnswer.boolValue)")
-      }
-    return false
-  }
+
 }
 

@@ -94,12 +94,12 @@ struct StudyTasks {
               let answer = taskResult.firstResult
               let date = answer as? ORKDateQuestionResult
               if let minimumDate = date?.dateAnswer {
-              let userCalander = Calendar.current
-              let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
-              let answerStyle = ORKDateAnswerStyle.dateAndTime
-              let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: minimumDate, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
-              nextStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", text: nil, answer: answerFormat)
-              nextStep?.isOptional = false
+                let userCalander = Calendar.current
+                let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
+                let answerStyle = ORKDateAnswerStyle.dateAndTime
+                let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: minimumDate, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
+                nextStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", text: nil, answer: answerFormat)
+                nextStep?.isOptional = false
               }
             }
             return nextStep
