@@ -59,8 +59,8 @@ struct Onboarding {
       consentStep,
       reviewConsentStep,
       participantBirthDateStep,
-      childBirthDateStep,
-      ethnicityQuestionStep,
+      babysBirthDateStep,
+      ethnicityStep,
       levelOfEducationStep,
       maritalStatusStep,
       marriedLengthStep,
@@ -201,7 +201,7 @@ struct Onboarding {
     return participantBirthDateStep
   }()
   
-  private static let childBirthDateStep: ORKStep = {
+  private static let babysBirthDateStep: ORKStep = {
     let title = "How old is your baby?"
     let dateAnswerStyle = ORKDateAnswerStyle.date
     let userCalender = Calendar.current
@@ -213,7 +213,7 @@ struct Onboarding {
     return childBirthDateStep
   }()
   
-  private static let ethnicityQuestionStep: ORKStep = {
+  private static let ethnicityStep: ORKStep = {
     let title = "What race do you consider yourself to be?"
     let textChoices = [ORKTextChoice(text: "White or European-American", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Black or African American", value: 1 as NSCoding & NSCopying & NSObjectProtocol),

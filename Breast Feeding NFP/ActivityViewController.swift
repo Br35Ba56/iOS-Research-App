@@ -31,55 +31,22 @@
 import UIKit
 import ResearchKit
 
-enum Activity: Int {
-  case survey
-  case breastfeedingManual
-  static var allValues: [Activity] {
-    var index = 0
-    return Array (
-      AnyIterator {
-        let returnedElement = self.init(rawValue: index)
-        index = index + 1
-        return returnedElement
-      }
-    )
-  }
-  
-  var title: String {
-    switch self {
-    case .survey:
-      return "Daily Menstrual Cycle Events"
-    case .breastfeedingManual:
-      return "Breast Feeding Entry"
-    }
-  }
-  var subtitle: String {
-    switch self {
-    case .survey:
-      return "Description of survey"
-    case .breastfeedingManual:
-      return "Manual Entry"
-    }
-  }
-}
-
 class ActivityViewController: UITableViewController {
+  //var taskResults: CycleTaskResult? = CycleTaskResult()
+  
   // MARK: UITableViewDataSource
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard section == 0 else { return 0 }
-    
     return Activity.allValues.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath)
-    
     if let activity = Activity(rawValue: (indexPath as NSIndexPath).row) {
       cell.textLabel?.text = activity.title
       cell.detailTextLabel?.text = activity.subtitle
     }
-    
     return cell
   }
   
@@ -87,7 +54,6 @@ class ActivityViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let activity = Activity(rawValue: (indexPath as NSIndexPath).row) else { return }
-    
     let taskViewController: ORKTaskViewController
     switch activity {
     case .survey:
@@ -96,47 +62,78 @@ class ActivityViewController: UITableViewController {
     case .breastfeedingManual:
       taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
       taskViewController.showsProgressInNavigationBar = false
-      do {
-        let defaultFileManager = FileManager.default
-        
-        // Identify the documents directory.
-        let documentsDirectory = try defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        
-        // Create a directory based on the `taskRunUUID` to store output from the task.
-        let outputDirectory = documentsDirectory.appendingPathComponent(taskViewController.taskRunUUID.uuidString)
-        try defaultFileManager.createDirectory(at: outputDirectory, withIntermediateDirectories: true, attributes: nil)
-        
-        taskViewController.outputDirectory = outputDirectory
-      }
-      catch let error as NSError {
-        fatalError("The output directory for the task with UUID: \(taskViewController.taskRunUUID.uuidString) could not be created. Error: \(error.localizedDescription)")
-      }
+      /*do {
+       let defaultFileManager = FileManager.default
+       
+       // Identify the documents directory.
+       let documentsDirectory = try defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+       
+       // Create a directory based on the `taskRunUUID` to store output from the task.
+       let outputDirectory = documentsDirectory.appendingPathComponent(taskViewController.taskRunUUID.uuidString)
+       try defaultFileManager.createDirectory(at: outputDirectory, withIntermediateDirectories: true, attributes: nil)
+       
+       taskViewController.outputDirectory = outputDirectory
+       }
+       catch let error as NSError {
+       fatalError("The output directory for the task with UUID: \(taskViewController.taskRunUUID.uuidString) could not be created. Error: \(error.localizedDescription)")
+       }*/
       
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)
   }
 }
+/*
+ */
 
 extension ActivityViewController : ORKTaskViewControllerDelegate {
   
   func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+    
     switch reason {
     case .completed:
-        break
-      //if let stepResult = ORKResult(identifier: "")
-      /*if let stepResult = taskViewController.result.stepResult(forStepIdentifier: "Start"),
-        let stepResults = stepResult.results,
-        let stepFirstResult = stepResults.first,
-        let dateResult = stepFirstResult as? ORKDateQuestionResult,
-        let dateAnswer = dateResult.dateAnswer {
-          print(dateAnswer.description)
- 
-      }*/
+      var resultCollector: ResultCollector?
+      if taskViewController.task!.identifier == DailyCycleSurvey.taskID {
+        resultCollector = CycleTaskResult()
+      } else if taskViewController.task!.identifier == DateTimeSurvey.taskID {
+        resultCollector = DateTimeEntryResult()
+      }
+      if let results = taskViewController.result.results as? [ORKStepResult] {
+        for stepResult: ORKStepResult in results {
+          for result in stepResult.results! {
+            if let questionResult = result as? ORKChoiceQuestionResult {
+              let anotherResult = questionResult.answer as! NSObject
+              let stringResult = StringFormatter.buildString(stepResultString: anotherResult.description)
+              resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
+            }
+            if let questionResult = result as? ORKBooleanQuestionResult {
+              if let finalResult = questionResult.booleanAnswer?.intValue {
+                print(questionResult.identifier)
+                resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
+              }
+            }
+            if let questionResult = result as? ORKDateQuestionResult {
+              if let finalResult = questionResult.dateAnswer {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                let dateString = dateFormatter.string(from: finalResult)
+                
+                resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: dateString)
+              }
+            }
+            else {
+              //TODO: Remove
+              print("No printable results.")
+            }
+          }
+        }
+        print(resultCollector!.getEntryString())
+        //Write results to a file
+      }
     default: break
-      
     }
-    // Handle results using taskViewController.result
     taskViewController.dismiss(animated: true, completion: nil)
   }
 }
+
+

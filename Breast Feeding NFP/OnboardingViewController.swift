@@ -43,17 +43,37 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     switch reason {
     case .completed:
-      //TODO: Finish determining Eligiblity after task is completed.
+      let resultCollector: ResultCollector = OnboardingResults()
       if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
+        if let results = taskViewController.result.results as? [ORKStepResult] {
+          for stepResult: ORKStepResult in results {
+            for result in stepResult.results! {
+              if let questionResult = result as? ORKChoiceQuestionResult {
+                let anotherResult = questionResult.answer as! NSObject
+                let stringResult = StringFormatter.buildString(stepResultString: anotherResult.description)
+                resultCollector.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
+              }
+              if let questionResult = result as? ORKBooleanQuestionResult {
+                if let finalResult = questionResult.booleanAnswer?.intValue {
+                  resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
+                }
+              }
+              if let questionResult = result as? ORKDateQuestionResult {
+                if let finalResult = questionResult.dateAnswer {
+                  resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
+                }
+              }
+            }
+          }
+        }
+        print(resultCollector.getEntryString())
         performSegue(withIdentifier: "unwindToStudy", sender: nil)
       } else {
         dismiss(animated: true, completion: nil)
       }
-      
     case .discarded, .failed, .saved:
       dismiss(animated: true, completion: nil)
     }
   }
-
 }
 

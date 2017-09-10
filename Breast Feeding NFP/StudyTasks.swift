@@ -38,6 +38,7 @@
 import ResearchKit
 struct StudyTasks {
   
+  //MARK: Daily Survey Task
   static let dailySurveyTask: ORKNavigableOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
     instructionStep.title = "Daily Menstrual Cycle Events"
@@ -47,7 +48,7 @@ struct StudyTasks {
     summaryStep.title = "Thank you."
     summaryStep.text = "We appreciate your time."
     
-    let task = ORKNavigableOrderedTask(identifier: "DailyMenstraulCycleEventsID", steps: [
+    let task = ORKNavigableOrderedTask(identifier: DailyCycleSurvey.taskID, steps: [
       instructionStep,
       clearBlueMonitorStep,
       progesteroneStep,
@@ -70,84 +71,6 @@ struct StudyTasks {
     task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)
     
     return task
-  }()
-  //TODO: Finish Refactor
-  class ORKDurationOrderedTask: ORKOrderedTask {
-    override func step(after step: ORKStep?, with result: ORKTaskResult) -> ORKStep? {
-      if steps.count <= 0 {
-        return nil
-      }
-      let currentStep = step
-      var nextStep: ORKStep? = nil
-      if currentStep == nil {
-        nextStep = steps[0]
-      } else {
-        var index = steps.index(of: step!)
-        if index == nil {
-          index = 2
-        }
-        if NSNotFound != index && index != steps.count - 1 {
-          if index == 1 {
-            //TODO: Refactor
-            //Sets up a Date Question limiting the min/max date bounderies
-            if let taskResult = result.stepResult(forStepIdentifier: "Start") {
-              let answer = taskResult.firstResult
-              let date = answer as? ORKDateQuestionResult
-              if let minimumDate = date?.dateAnswer {
-                let userCalander = Calendar.current
-                let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
-                let answerStyle = ORKDateAnswerStyle.dateAndTime
-                let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: minimumDate, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
-                nextStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", text: nil, answer: answerFormat)
-                nextStep?.isOptional = false
-              }
-            }
-            return nextStep
-          }
-          nextStep = steps[index! + 1]
-        }
-      }
-      return nextStep
-    }
-  }
-  
-  private static let manualBreastFedStartStep: ORKStep = {
-    let userCalendar = Calendar.current
-    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
-    let answerStyle = ORKDateAnswerStyle.dateAndTime
-    
-    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
-    let manualBreastFedStartStep = ORKQuestionStep(identifier: "Start", title: "Start Time", answer: answerFormat)
-    manualBreastFedStartStep.isOptional = false
-    return manualBreastFedStartStep
-  }()
-  
-  static let manualBreastFeedTask: ORKDurationOrderedTask = {
-    let instructionStep = ORKInstructionStep(identifier: "Instructions")
-    instructionStep.title = "Breast Feeding Entry"
-    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
-    let completionStep = ORKCompletionStep(identifier: "CompletionStep")
-    completionStep.title = "Thank you for your entry!"
-    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
-    let orderedTask = ORKDurationOrderedTask(identifier: "BreastFeedingManualID", steps: [
-      instructionStep,
-      manualBreastFedStartStep,
-      manualBreastFedStopStep,
-      reviewStep,
-      completionStep
-      ])
-    
-    return orderedTask
-  }()
-  
-  private static var manualBreastFedStopStep: ORKStep = {
-    let userCalendar = Calendar.current
-    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
-    let answerStyle = ORKDateAnswerStyle.dateAndTime
-    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
-    let manualBreastFedStopStep = ORKQuestionStep(identifier: "Stop", title: "Stop Time", answer: answerFormat)
-    manualBreastFedStopStep.isOptional = false
-    return manualBreastFedStopStep
   }()
   
   private static let clearBlueMonitorStep: ORKStep = {
@@ -193,14 +116,62 @@ struct StudyTasks {
     menstruationStep.isOptional = false
     return menstruationStep
   }()
+  
+  //MARK: BreastFeedTask
+  static let manualBreastFeedTask: ORKDurationOrderedTask = {
+    let instructionStep = ORKInstructionStep(identifier: "Instructions")
+    instructionStep.title = "Breast Feeding Entry"
+    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
+    let completionStep = ORKCompletionStep(identifier: "CompletionStep")
+    completionStep.title = "Thank you for your entry!"
+    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
+    let orderedTask = ORKDurationOrderedTask(identifier: DateTimeSurvey.taskID, steps: [
+      instructionStep,
+      manualBreastFedStartStep,
+      manualBreastFedStopStep,
+      reviewStep,
+      completionStep
+      ])
+    
+    return orderedTask
+  }()
+  
+  private static let manualBreastFedStartStep: ORKStep = {
+    let userCalendar = Calendar.current
+    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
+    let answerStyle = ORKDateAnswerStyle.dateAndTime
+    
+    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
+    let manualBreastFedStartStep = ORKQuestionStep(identifier: DateTimeSurvey.startTimeID, title: "Start Time", answer: answerFormat)
+    manualBreastFedStartStep.text = "Please enter a start time."
+    manualBreastFedStartStep.isOptional = false
+    return manualBreastFedStartStep
+  }()
+  
+  private static var manualBreastFedStopStep: ORKStep = {
+    let userCalendar = Calendar.current
+    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
+    let answerStyle = ORKDateAnswerStyle.dateAndTime
+    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
+    let manualBreastFedStopStep = ORKQuestionStep(identifier: DateTimeSurvey.stopTimeID, title: "Stop Time", answer: answerFormat)
+    manualBreastFedStopStep.isOptional = false
+    return manualBreastFedStopStep
+  }()
+}
+
+//MARK: Step IDs
+struct DateTimeSurvey {
+  static let taskID = "DateTimeSurveyID"
+  static let startTimeID = "StartTimeID"
+  static let stopTimeID = "StopTimeID"
 }
 
 struct DailyCycleSurvey {
-  static let dailySurveyID = "DailySurveyID"
+  static let taskID = "DailyCycleSurveyID"
+  //static let dailySurveyID = "DailySurveyID"
   static let instructionID = "CycleDataIntroStepID"
   static let clearBlueMonitorStepID = "ClearBlueMonitorStepID"
   static let progesteroneQuestionStepID = "ProgesteroneStepID"
   static let progesteroneResultStepID = "ProgesteroneResultStepID"
   static let menstruationQuestionStepID = "MenstruationQuestionStepID"
-  
 }
