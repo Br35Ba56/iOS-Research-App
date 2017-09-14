@@ -49,9 +49,10 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
           for stepResult: ORKStepResult in results {
             for result in stepResult.results! {
               if let questionResult = result as? ORKChoiceQuestionResult {
-                let anotherResult = questionResult.answer as! NSObject
-                let stringResult = StringFormatter.buildString(stepResultString: anotherResult.description)
-                resultCollector.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
+                if let anotherResult = questionResult.answer {
+                  let stringResult = StringFormatter.buildString(stepResultString: (anotherResult as AnyObject).description)
+                  resultCollector.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
+                }
               }
               if let questionResult = result as? ORKBooleanQuestionResult {
                 if let finalResult = questionResult.booleanAnswer?.intValue {
@@ -60,6 +61,11 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
               }
               if let questionResult = result as? ORKDateQuestionResult {
                 if let finalResult = questionResult.dateAnswer {
+                  resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
+                }
+              }
+              if let questionResult = result as? ORKNumericQuestionResult {
+                if let finalResult = questionResult.numericAnswer {
                   resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
                 }
               }

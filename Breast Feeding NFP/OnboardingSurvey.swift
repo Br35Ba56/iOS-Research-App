@@ -30,8 +30,9 @@
 
 import Foundation
 import ResearchKit
-//TODO:  Add predicates once order has been verified
+
 struct Onboarding {
+  
   private static let boolAnswerFormat = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
   
   static let onboardingSurvey: ORKNavigableOrderedTask = {
@@ -126,7 +127,6 @@ struct Onboarding {
   private static let ineligibleStep: ORKStep = {
     let ineligibleStep = ORKInstructionStep(identifier: EligibilitySteps.ineligibleStepID)
     ineligibleStep.title = "Were sorry, we have determined your are ineligible for this study"
-    
     return ineligibleStep
   }()
   
@@ -153,7 +153,6 @@ struct Onboarding {
   
   private static let momHealthStep: ORKStep = {
     let title = "Have you ever been diagnosed with Poly Cystic Ovarian Disorder?"
-    
     let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, answer: boolAnswerFormat)
     momHealthStep.isOptional = false
     return momHealthStep
@@ -195,7 +194,7 @@ struct Onboarding {
     let userCalander = Calendar.current
     let minimumDate = userCalander.date(byAdding: .year, value: -42, to: Date())
     let maximumDate = userCalander.date(byAdding: .year, value: -18, to: Date())
-    let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
+    let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: minimumDate!, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
     let participantBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.participantBirthDateStepID, title: title, answer: answerFormat)
     participantBirthDateStep.isOptional = false
     return participantBirthDateStep
@@ -207,7 +206,7 @@ struct Onboarding {
     let userCalender = Calendar.current
     let minimumDate = userCalender.date(byAdding: .day, value: -63, to: Date())
     let maximumDate = userCalender.date(byAdding: .day, value: -35, to: Date())
-    let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: Date(), minimumDate: minimumDate!, maximumDate: maximumDate!, calendar: userCalender)
+    let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: maximumDate!, minimumDate: minimumDate!, maximumDate: maximumDate!, calendar: userCalender)
     let childBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.babysBirthDateStepID, title: title, answer: answerFormat)
     childBirthDateStep.isOptional = false
     return childBirthDateStep
@@ -221,7 +220,7 @@ struct Onboarding {
                                ORKTextChoice(text: "Asian / Pacific Islander", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Hispanic or Latino", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Some Other Race", value: 5 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "I don't want to answer", value: 6 as NSCoding & NSCopying & NSObjectProtocol)]
+                               ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
     let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.ethnicityStepID, title: title, answer: answerFormat)
     return ethnicityQuestionStep
@@ -238,7 +237,6 @@ struct Onboarding {
     let levelOfEducationStep = ORKQuestionStep(identifier: DemographicSteps.levelOfEducationStepID, title: title, answer: answerFormat)
     return levelOfEducationStep
   }()
-
   
   private static let maritalStatusStep: ORKStep = {
     let title = "What is your marital status?"

@@ -40,7 +40,7 @@ class DateTimeEntryResult: ResultCollector {
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
   }
-  //TODO: Does timezone need to be reflected for study?
+
   func getEntryString() -> String {
     let dateComponents = getDuration()
     return "\(results[DateTimeSurvey.startTimeID]!), \(results[DateTimeSurvey.stopTimeID]!), \(String(describing: dateComponents.hour!)):\(String(describing: dateComponents.minute!))"
@@ -53,15 +53,6 @@ class DateTimeEntryResult: ResultCollector {
     let endDate: Date! = dateFormatter.date(from: results[DateTimeSurvey.stopTimeID]!)
     let dateComponents = Calendar.current.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: startDate, to: endDate)
     return dateComponents
-  }
-}
-
-struct StringFormatter {
-  static var entryString: NSString = ""
-  static func buildString(stepResultString: String) -> String {
-    let finalResult = stepResultString.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
-    entryString = finalResult + "," as NSString
-    return finalResult
   }
 }
 
@@ -82,23 +73,19 @@ class OnboardingResults: ResultCollector {
                                     DemographicSteps.marriedLengthStepID: "-1",
                                     DemographicSteps.howManyChildrenStepID: "-1",
                                     ]
+  
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
   }
+  
   func getEntryString() -> String {
     return "\(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyHealthStepID]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.maritalStatusStepID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyChildrenStepID]!)"
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+}
+
+struct StringFormatter {
+  static func buildString(stepResultString: String) -> String {
+    return stepResultString.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "")
+  }
 }
