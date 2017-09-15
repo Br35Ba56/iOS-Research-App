@@ -25,6 +25,8 @@
 		BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */; };
 		BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759621F4F619000AF2FC6 /* StudyTasks.swift */; };
 		BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */; };
+		BC81A8B21F6AED3400A69850 /* ResultUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B11F6AED3400A69850 /* ResultUpload.swift */; };
+		BC81A8B41F6AF14900A69850 /* ResultSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B31F6AF14900A69850 /* ResultSave.swift */; };
 		BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */; };
 		BCBBFC1E1F6527F0009AA9B9 /* ResultCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1D1F6527F0009AA9B9 /* ResultCollector.swift */; };
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
@@ -80,6 +82,8 @@
 		BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		BC7759621F4F619000AF2FC6 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
 		BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		BC81A8B11F6AED3400A69850 /* ResultUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultUpload.swift; sourceTree = "<group>"; };
+		BC81A8B31F6AF14900A69850 /* ResultSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSave.swift; sourceTree = "<group>"; };
 		BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSurvey.swift; sourceTree = "<group>"; };
 		BCBBFC1D1F6527F0009AA9B9 /* ResultCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCollector.swift; sourceTree = "<group>"; };
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
@@ -158,7 +162,7 @@
 				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
 				BC21F3DD1F4F3138006629AC /* Onboarding */,
 				BC21F3DE1F4F314E006629AC /* Activities */,
-				BCBBFC1C1F6527CC009AA9B9 /* Result Collection */,
+				BCBBFC1C1F6527CC009AA9B9 /* Results */,
 				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
@@ -234,12 +238,14 @@
 			name = "Survey Steps";
 			sourceTree = "<group>";
 		};
-		BCBBFC1C1F6527CC009AA9B9 /* Result Collection */ = {
+		BCBBFC1C1F6527CC009AA9B9 /* Results */ = {
 			isa = PBXGroup;
 			children = (
 				BCBBFC1D1F6527F0009AA9B9 /* ResultCollector.swift */,
+				BC81A8B11F6AED3400A69850 /* ResultUpload.swift */,
+				BC81A8B31F6AF14900A69850 /* ResultSave.swift */,
 			);
-			name = "Result Collection";
+			name = Results;
 			sourceTree = "<group>";
 		};
 		F494FE643A2D84102897AA90 /* Pods */ = {
@@ -552,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
+				BC81A8B41F6AF14900A69850 /* ResultSave.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
 				BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */,
 				BCBBFC1E1F6527F0009AA9B9 /* ResultCollector.swift in Sources */,
@@ -566,6 +573,7 @@
 				BC048EF11F581393003B8631 /* BreastFeedingActiveStepViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
+				BC81A8B21F6AED3400A69850 /* ResultUpload.swift in Sources */,
 				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -83,8 +83,6 @@ class ActivityViewController: UITableViewController {
     navigationController?.present(taskViewController, animated: true, completion: nil)
   }
 }
-/*
- */
 
 extension ActivityViewController : ORKTaskViewControllerDelegate {
   
@@ -127,8 +125,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
             }
           }
         }
-        print(resultCollector!.getEntryString())
-        //Write results to a file
+        ResultSave.saveResults(resultCollector: resultCollector, uuid: taskViewController.taskRunUUID)
       }
     default: break
     }

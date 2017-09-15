@@ -72,7 +72,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
             }
           }
         }
-        print(resultCollector.getEntryString())
+        ResultSave.saveResults(resultCollector: resultCollector, uuid: taskViewController.taskRunUUID)
         performSegue(withIdentifier: "unwindToStudy", sender: nil)
       } else {
         dismiss(animated: true, completion: nil)
