@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AWSCognito.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCognitoIdentityProvider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AWSS3.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Breast Feeding NFP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>75D91CBCFC37020A3E05983215A219C5</key>
+		<key>162CAD95CC0F402AED98F345659DC633</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52668E19282804AC19EED0DD9BF886FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53C6112213829CB147F47E473C93F271</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9F7098779713B711F6C591B62A41F242</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C83B0F8778708382BFD09745CBCD1CBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D5B94F2F6E0F61D9AA1D22D837C71AFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DDE220EE2FA599B136C956EC245314FD</key>
+		<key>DBA03F3C44BB68ED856D4204FDD94F96</key>
 		<dict>
 			<key>primary</key>
 			<true/>

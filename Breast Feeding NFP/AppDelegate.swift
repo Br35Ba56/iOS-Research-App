@@ -30,6 +30,7 @@
 
 import UIKit
 import ResearchKit
+import AWSS3
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var containerViewController: ResearchContainerViewController? {
     return window?.rootViewController as? ResearchContainerViewController
+  }
+  
+  func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+    /*
+     Store the completion handler.
+     */
+    AWSS3TransferUtility.interceptApplication(application, handleEventsForBackgroundURLSession: identifier, completionHandler: completionHandler)
   }
   
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {

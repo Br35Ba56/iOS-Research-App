@@ -7,6 +7,9 @@ target 'Breast Feeding NFP' do
 
   # Pods for Breast Feeding NFP
   pod 'ResearchKit', '~> 1.0'
+  pod 'AWSCognito'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSS3'
   target 'Breast Feeding NFPTests' do
     inherit! :search_paths
     # Pods for testing
