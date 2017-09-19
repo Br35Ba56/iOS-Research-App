@@ -57,7 +57,6 @@ class ActivityViewController: UITableViewController {
     let taskViewController: ORKTaskViewController
     switch activity {
     case .survey:
-      
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .breastfeedingManual:
       taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
@@ -77,7 +76,6 @@ class ActivityViewController: UITableViewController {
        catch let error as NSError {
        fatalError("The output directory for the task with UUID: \(taskViewController.taskRunUUID.uuidString) could not be created. Error: \(error.localizedDescription)")
        }*/
-      
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)
@@ -90,43 +88,8 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     switch reason {
     case .completed:
-      var resultCollector: ResultCollector?
-      if taskViewController.task!.identifier == DailyCycleSurvey.taskID {
-        resultCollector = CycleTaskResult()
-      } else if taskViewController.task!.identifier == DateTimeSurvey.taskID {
-        resultCollector = DateTimeEntryResult()
-      }
-      if let results = taskViewController.result.results as? [ORKStepResult] {
-        for stepResult: ORKStepResult in results {
-          for result in stepResult.results! {
-            if let questionResult = result as? ORKChoiceQuestionResult {
-              let anotherResult = questionResult.answer as! NSObject
-              let stringResult = StringFormatter.buildString(stepResultString: anotherResult.description)
-              resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
-            }
-            if let questionResult = result as? ORKBooleanQuestionResult {
-              if let finalResult = questionResult.booleanAnswer?.intValue {
-                print(questionResult.identifier)
-                resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
-              }
-            }
-            if let questionResult = result as? ORKDateQuestionResult {
-              if let finalResult = questionResult.dateAnswer {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-                let dateString = dateFormatter.string(from: finalResult)
-                
-                resultCollector?.enterTaskResult(identifier: questionResult.identifier, result: dateString)
-              }
-            }
-            else {
-              //TODO: Remove
-              print("No printable results.")
-            }
-          }
-        }
-        ResultSave.saveResults(resultCollector: resultCollector, uuid: taskViewController.taskRunUUID)
-      }
+      let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
+      ResultSave.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
     default: break
     }
     taskViewController.dismiss(animated: true, completion: nil)

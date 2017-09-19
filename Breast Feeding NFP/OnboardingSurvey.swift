@@ -32,7 +32,7 @@ import Foundation
 import ResearchKit
 
 struct Onboarding {
-  
+  static let task = "OnboardingTaskID"
   private static let boolAnswerFormat = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
   
   static let onboardingSurvey: ORKNavigableOrderedTask = {
@@ -48,7 +48,7 @@ struct Onboarding {
     completionStep.title = "Welcome aboard."
     completionStep.text = "Thank you for joining this study."
 
-    let orderedTask = ORKNavigableOrderedTask(identifier: "Join", steps: [
+    let orderedTask = ORKNavigableOrderedTask(identifier: Onboarding.task, steps: [
       biologicalInfantStep,
       singletonBirthStep,
       babyHealthStep,

@@ -38,16 +38,17 @@
 import ResearchKit
 struct StudyTasks {
   
-  //MARK: Daily Survey Task
+   //MARK: Daily Survey Task
   static let dailySurveyTask: ORKNavigableOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
     instructionStep.title = "Daily Menstrual Cycle Events"
     instructionStep.text = "Please provide information about your cycle."
     
+    
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Thank you."
     summaryStep.text = "We appreciate your time."
-    
+
     let task = ORKNavigableOrderedTask(identifier: DailyCycleSurvey.taskID, steps: [
       instructionStep,
       clearBlueMonitorStep,
@@ -125,6 +126,7 @@ struct StudyTasks {
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Thank you for your entry!"
     let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
+
     let orderedTask = ORKDurationOrderedTask(identifier: DateTimeSurvey.taskID, steps: [
       instructionStep,
       manualBreastFedStartStep,

@@ -40,7 +40,6 @@ class OnboardingViewController: UIViewController {
   }
 }
 
-
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     switch reason {
@@ -48,50 +47,18 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
       let deviceID = UIDevice.current.identifierForVendor!.uuidString
       UserDefaults.standard.set(deviceID, forKey: "User UUID")
       if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
+    
         submitUserConsent(taskViewController: taskViewController)
-        getViewControllerResults(taskViewController: taskViewController)
+        let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
+        ResultSave.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
+  
         performSegue(withIdentifier: "unwindToStudy", sender: nil)
       } else {
         dismiss(animated: true, completion: nil)
       }
-      
     case .discarded, .failed, .saved:
       dismiss(animated: true, completion: nil)
     }
-  }
-  
-  private func getViewControllerResults(taskViewController: ORKTaskViewController) {
-    let resultCollector: ResultCollector = OnboardingResults()
-    if let results = taskViewController.result.results as? [ORKStepResult] {
-      for stepResult: ORKStepResult in results {
-        for result in stepResult.results! {
-          if let questionResult = result as? ORKChoiceQuestionResult {
-            if let anotherResult = questionResult.answer {
-              let stringResult = StringFormatter.buildString(stepResultString: (anotherResult as AnyObject).description)
-              resultCollector.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
-            }
-          }
-          if let questionResult = result as? ORKBooleanQuestionResult {
-            if let finalResult = questionResult.booleanAnswer?.intValue {
-              resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
-            }
-          }
-          if let questionResult = result as? ORKDateQuestionResult {
-            if let finalResult = questionResult.dateAnswer {
-              resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
-            }
-          }
-          if let questionResult = result as? ORKNumericQuestionResult {
-            if let finalResult = questionResult.numericAnswer {
-              resultCollector.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
-            }
-          }
-          
-        }
-      }
-    }
-    
-    ResultSave.saveResults(resultCollector: resultCollector, uuid: taskViewController.taskRunUUID)
   }
   
   private func submitUserConsent(taskViewController: ORKTaskViewController) {
@@ -101,7 +68,6 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
     if let consentStepResult = result.stepResult(forStepIdentifier: "ConsentReviewStep"),
       let signatureResult = consentStepResult.results?.first as? ORKConsentSignatureResult {
       signatureResult.apply(to: consentDocument)
-      //Create Consent Document PDF
       consentDocument.makePDF(completionHandler: { (data, error) -> Void in
         let tempPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
         let path = tempPath.strings(byAppendingPaths: ["consent.pdf"])
@@ -109,12 +75,10 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         var betterPathString = "file://"
         betterPathString += pathString
         let pathURL = URL(string: betterPathString)
-        
         do {
           try data?.write(to: pathURL!)
-          
         } catch {
-          print(error) //TODO: Remove print
+          print(error)
         }
         let pdf = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
         let consentPDF = pdf?.appendingPathComponent("consent.pdf")
@@ -122,7 +86,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         let expression = AWSS3TransferUtilityUploadExpression()
         expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
         let uuidString = UUID().uuidString
-        transferUtility.uploadFile(consentPDF!, bucket: "iosappbucket", key: "\(uuidString)_consent.pdf", contentType: "consent/pdf", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+        transferUtility.uploadFile(consentPDF!, bucket: "iosappbucket", key: "Participant_Consent/Participant_Consent_\(uuidString).pdf", contentType: "consent/pdf", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
           if let error = task.error {
             print(error.localizedDescription)
             

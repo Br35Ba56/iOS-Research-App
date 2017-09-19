@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol ResultCollector {
+protocol TaskResults {
   var results: [String: String] {get}
   func getEntryString() -> String
   func enterTaskResult(identifier: String, result: String)
 }
 
-class CycleTaskResult: ResultCollector {
+class CycleTaskResults: TaskResults {
 
   var results: [String: String] = [
     DailyCycleSurvey.clearBlueMonitorStepID: "-1",
@@ -32,7 +32,7 @@ class CycleTaskResult: ResultCollector {
   }
 }
 
-class DateTimeEntryResult: ResultCollector {
+class BreastFeedingTaskResults: TaskResults {
 
   var results: [String: String] = [DateTimeSurvey.startTimeID : "",
                                    DateTimeSurvey.stopTimeID : ""]
@@ -56,7 +56,7 @@ class DateTimeEntryResult: ResultCollector {
   }
 }
 
-class OnboardingResults: ResultCollector {
+class OnboardingTaskResults: TaskResults {
   var results: [String : String] = [EligibilitySteps.biologicalInfantStepID: "-1",
                                     EligibilitySteps.singletonBirthStepID: "-1",
                                     EligibilitySteps.babyHealthStepID: "-1",

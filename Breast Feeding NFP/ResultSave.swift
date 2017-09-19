@@ -11,7 +11,7 @@ import AWSS3
 
 
 class ResultSave {
-  private var collector: ResultCollector!
+  private var results: TaskResults!
   private let date: Date
   private var uuid: UUID
   private var surveyType: String!
@@ -19,32 +19,31 @@ class ResultSave {
   
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
   let transferUtility = AWSS3TransferUtility.default()
- 
-  
-  private init(resultCollector: ResultCollector!, uuid: UUID!) {
-    
-    if let collector = resultCollector as? CycleTaskResult {
-      self.collector = collector
+
+  private init(taskResults: TaskResults!, uuid: UUID!) {
+    if let results = taskResults as? CycleTaskResults {
+      self.results = results
       self.surveyType = "CycleTask"
     }
-    if let collector = resultCollector as? OnboardingResults {
-      self.collector = collector
+    if let results = taskResults as? OnboardingTaskResults {
+      self.results = results
       self.surveyType = "Onboarding"
     }
-    if let collector = resultCollector as? DateTimeEntryResult {
-      self.collector = collector
+    if let results = taskResults as? BreastFeedingTaskResults {
+      self.results = results
       self.surveyType = "BreastFeedingDateTime"
     }
     self.uuid = uuid
     self.date = Date()
   }
   
-  static func saveResults(resultCollector: ResultCollector!, uuid: UUID!) {
-    resultSave = ResultSave(resultCollector: resultCollector, uuid: uuid)
+  static func saveResults(taskResults: TaskResults!, uuid: UUID!) {
+    resultSave = ResultSave(taskResults: taskResults, uuid: uuid)
     let fileName = resultSave.surveyType + "_" + String(describing: Date()).replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: ":", with: "-") + String(describing: resultSave.uuid).replacingOccurrences(of: "+", with: "") + ".csv"
     let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+    
     do {
-      try resultSave.collector.getEntryString().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+      try resultSave.results.getEntryString().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
     } catch {
       print(error.localizedDescription)
     }
@@ -67,6 +66,7 @@ class ResultSave {
       return nil;
     }
   }
+  
   private static func getUserUUID() -> String {
     if let userUUID = UserDefaults.standard.object(forKey: "User UUID") {
       if let userUUIDString = userUUID as? String {
@@ -76,23 +76,4 @@ class ResultSave {
     return ""
   }
 }
-/* bucket policy for encrypt
- {
- "Version": "2012-10-17",
- "Id": "PutObjPolicy",
- "Statement": [
- {
- "Sid": "DenyUnEncryptedObjectUploads",
- "Effect": "Deny",
- "Principal": "*",
- "Action": "s3:PutObject",
- "Resource": "arn:aws:s3:::iosappbucket/*",
- "Condition": {
- "StringNotEquals": {
- "s3:x-amz-server-side-encryption": "AES256"
- }
- }
- }
- ]
- }
- */*/
+

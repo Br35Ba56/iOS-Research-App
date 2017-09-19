@@ -34,7 +34,7 @@ class ORKDurationOrderedTask: ORKOrderedTask {
             let date = answer as? ORKDateQuestionResult
             if let minimumDate = date?.dateAnswer {
               let userCalander = Calendar.current
-              let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
+              let maximumDate = getMaxDate(minimumDate: minimumDate, userCalander: userCalander)
               let answerStyle = ORKDateAnswerStyle.dateAndTime
               let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: minimumDate, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
               nextStep = ORKQuestionStep(identifier: DateTimeSurvey.stopTimeID, title: "Stop Time", text: nil, answer: answerFormat)
@@ -47,5 +47,19 @@ class ORKDurationOrderedTask: ORKOrderedTask {
       }
     }
     return nextStep
+  }
+  
+  private func getMaxDate(minimumDate: Date, userCalander: Calendar) -> Date {
+    let dateComponents = Calendar.current.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: minimumDate, to: Date())
+    let hour = Int(dateComponents.hour!)
+    let min = Int(dateComponents.minute!)
+    
+    if hour >= 1 {
+      let maximumDate = userCalander.date(byAdding: .hour, value: 1, to: minimumDate)
+      return maximumDate!
+    } else {
+      let maximumDate = userCalander.date(byAdding: .minute, value: min, to: minimumDate)
+      return maximumDate!
+    }
   }
 }
