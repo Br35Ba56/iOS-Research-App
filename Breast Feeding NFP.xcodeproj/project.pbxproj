@@ -25,8 +25,7 @@
 		BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */; };
 		BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759621F4F619000AF2FC6 /* StudyTasks.swift */; };
 		BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */; };
-		BC81A8B21F6AED3400A69850 /* ResultUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B11F6AED3400A69850 /* ResultUpload.swift */; };
-		BC81A8B41F6AF14900A69850 /* ResultSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B31F6AF14900A69850 /* ResultSave.swift */; };
+		BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B31F6AF14900A69850 /* ProcessResults.swift */; };
 		BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */; };
 		BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */; };
 		BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */; };
@@ -83,8 +82,7 @@
 		BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		BC7759621F4F619000AF2FC6 /* StudyTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTasks.swift; sourceTree = "<group>"; };
 		BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
-		BC81A8B11F6AED3400A69850 /* ResultUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultUpload.swift; sourceTree = "<group>"; };
-		BC81A8B31F6AF14900A69850 /* ResultSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultSave.swift; sourceTree = "<group>"; };
+		BC81A8B31F6AF14900A69850 /* ProcessResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessResults.swift; sourceTree = "<group>"; };
 		BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewControllerResults.swift; sourceTree = "<group>"; };
 		BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSurvey.swift; sourceTree = "<group>"; };
 		BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResults.swift; sourceTree = "<group>"; };
@@ -244,8 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */,
-				BC81A8B11F6AED3400A69850 /* ResultUpload.swift */,
-				BC81A8B31F6AF14900A69850 /* ResultSave.swift */,
+				BC81A8B31F6AF14900A69850 /* ProcessResults.swift */,
 				BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */,
 			);
 			name = Results;
@@ -342,17 +339,20 @@
 					BC21F3A91F4F3072006629AC = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = B4LAADES87;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					BC21F3BF1F4F3072006629AC = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JF376C6YXK;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BC21F3A91F4F3072006629AC;
 					};
 					BC21F3CA1F4F3072006629AC = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JF376C6YXK;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = BC21F3A91F4F3072006629AC;
 					};
@@ -569,7 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
-				BC81A8B41F6AF14900A69850 /* ResultSave.swift in Sources */,
+				BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
 				BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */,
 				BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */,
@@ -585,7 +585,6 @@
 				BC048EF11F581393003B8631 /* BreastFeedingActiveStepViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
-				BC81A8B21F6AED3400A69850 /* ResultUpload.swift in Sources */,
 				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,7 +746,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -765,7 +765,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -781,7 +782,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Anthony.Breast-Feeding-NFPTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breast Feeding NFP.app/Breast Feeding NFP";
 			};
 			name = Debug;
@@ -797,7 +799,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Anthony.Breast-Feeding-NFPTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Breast Feeding NFP.app/Breast Feeding NFP";
 			};
 			name = Release;
@@ -812,7 +815,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Anthony.Breast-Feeding-NFPUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Breast Feeding NFP";
 			};
 			name = Debug;
@@ -827,7 +831,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Anthony.Breast-Feeding-NFPUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Breast Feeding NFP";
 			};
 			name = Release;

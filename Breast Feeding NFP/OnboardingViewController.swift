@@ -47,11 +47,9 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
       let deviceID = UIDevice.current.identifierForVendor!.uuidString
       UserDefaults.standard.set(deviceID, forKey: "User UUID")
       if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
-    
         submitUserConsent(taskViewController: taskViewController)
         let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
-        ResultSave.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
-  
+        ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
         performSegue(withIdentifier: "unwindToStudy", sender: nil)
       } else {
         dismiss(animated: true, completion: nil)

@@ -89,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.makeKeyAndVisible()
     
     let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Welcome back to the Natural Family Planning Breastfeeding Research Study", delegate: self)
+    print("%%%%%%%%%%%%%Passcode view controller presented%%%%%%%%%%%%%%")
     containerViewController?.present(passcodeViewController, animated: false, completion: nil)
   }
 }
@@ -96,6 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: ORKPasscodeDelegate {
   func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
     containerViewController?.contentHidden = false
+    print("!!!!!!Passcode entered!!!!")
     viewController.dismiss(animated: true, completion: nil)
   }
   

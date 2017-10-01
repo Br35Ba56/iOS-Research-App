@@ -33,7 +33,6 @@ import ResearchKit
 
 class ResearchContainerViewController: UIViewController {
   
-  
   //MARK: Properties
   var contentHidden = false {
     didSet {
@@ -50,7 +49,6 @@ class ResearchContainerViewController: UIViewController {
     } else {
       toOnboarding()
     }
-
   }
   
   override func didReceiveMemoryWarning() {
@@ -59,10 +57,8 @@ class ResearchContainerViewController: UIViewController {
   }
   
   // MARK: Navigation
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     super.prepare(for: segue, sender: sender)
-    
   }
   
   //MARK: segues
@@ -72,7 +68,9 @@ class ResearchContainerViewController: UIViewController {
   @IBAction func unwindToWithdrawl(_ segue: UIStoryboardSegue) {
     toWithdrawl()
   }
-  
+  func toLoginOrSignup() {
+    performSegue(withIdentifier: "toLoginOrSignup", sender: self)
+  }
   //MARK: Transitions
   func toOnboarding() {
     performSegue(withIdentifier: "toOnboarding", sender: self)
@@ -87,7 +85,6 @@ class ResearchContainerViewController: UIViewController {
     viewController.delegate = self
     present(viewController, animated: true, completion: nil)
   }
-  
 }
 
 extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
@@ -95,7 +92,6 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
     if taskViewController is WithdrawViewController {
       /*
        User withdrew from the study,
-       
        */
       if reason == .completed {
         ORKPasscodeViewController.removePasscodeFromKeychain()
@@ -103,8 +99,5 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
       }
     dismiss(animated: true, completion: nil)
     }
-  
   }
-  
-  
 }

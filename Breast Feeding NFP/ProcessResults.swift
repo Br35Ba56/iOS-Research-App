@@ -10,12 +10,12 @@ import Foundation
 import AWSS3
 
 
-class ResultSave {
+class ProcessResults {
   private var results: TaskResults!
   private let date: Date
   private var uuid: UUID
   private var surveyType: String!
-  static private var resultSave: ResultSave!
+  static private var processResults: ProcessResults!
   
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
   let transferUtility = AWSS3TransferUtility.default()
@@ -38,16 +38,16 @@ class ResultSave {
   }
   
   static func saveResults(taskResults: TaskResults!, uuid: UUID!) {
-    resultSave = ResultSave(taskResults: taskResults, uuid: uuid)
-    let fileName = resultSave.surveyType + "_" + String(describing: Date()).replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: ":", with: "-") + String(describing: resultSave.uuid).replacingOccurrences(of: "+", with: "") + ".csv"
+    processResults = ProcessResults(taskResults: taskResults, uuid: uuid)
+    let fileName = processResults.surveyType + "_" + String(describing: Date()).replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: ":", with: "-") + String(describing: processResults.uuid).replacingOccurrences(of: "+", with: "") + ".csv"
     let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     
     do {
-      try resultSave.results.getEntryString().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+      try processResults.results.getEntryString().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
     } catch {
       print(error.localizedDescription)
     }
-    resultSave.uploadResults(path: path! as NSURL, fileName: fileName)
+    processResults.uploadResults(path: path! as NSURL, fileName: fileName)
   }
   
   func uploadResults(path: NSURL, fileName: String) {
@@ -56,7 +56,7 @@ class ResultSave {
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
     print(expression.description)
-    transferUtility.uploadFile(path as URL, bucket: "iosappbucket", key: ResultSave.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+    transferUtility.uploadFile(path as URL, bucket: "iosappbucket", key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
       }

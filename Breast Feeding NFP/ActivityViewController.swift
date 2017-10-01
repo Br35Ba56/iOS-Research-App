@@ -89,7 +89,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     switch reason {
     case .completed:
       let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
-      ResultSave.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
+      ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
     default: break
     }
     taskViewController.dismiss(animated: true, completion: nil)
