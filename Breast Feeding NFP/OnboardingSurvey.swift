@@ -44,6 +44,7 @@ struct Onboarding {
     reviewConsentStep.reasonForConsent = "Consent to join the Natural Family Planning Breast Feeding Study."
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
     passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
+    let registrationStep = ORKRegistrationStep(identifier: "Registration")
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Welcome aboard."
     completionStep.text = "Thank you for joining this study."

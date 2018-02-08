@@ -7,6 +7,7 @@ target 'Breast Feeding NFP' do
 
   # Pods for Breast Feeding NFP
   pod 'ResearchKit', '~> 1.0'
+  pod 'AWSCore'
   pod 'AWSCognito'
   pod 'AWSCognitoIdentityProvider'
   pod 'AWSS3'

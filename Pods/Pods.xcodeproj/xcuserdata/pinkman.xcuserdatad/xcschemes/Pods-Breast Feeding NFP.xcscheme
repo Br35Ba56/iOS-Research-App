@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52668E19282804AC19EED0DD9BF886FE"
+               BlueprintIdentifier = "835D57E5841EBCEA83252225E35E89C8"
                BuildableName = "Pods_Breast_Feeding_NFP.framework"
                BlueprintName = "Pods-Breast Feeding NFP"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52668E19282804AC19EED0DD9BF886FE"
+            BlueprintIdentifier = "835D57E5841EBCEA83252225E35E89C8"
             BuildableName = "Pods_Breast_Feeding_NFP.framework"
             BlueprintName = "Pods-Breast Feeding NFP"
             ReferencedContainer = "container:Pods.xcodeproj">

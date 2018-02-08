@@ -55,7 +55,7 @@ class ProcessResults {
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
-    print(expression.description)
+    
     transferUtility.uploadFile(path as URL, bucket: "iosappbucket", key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
