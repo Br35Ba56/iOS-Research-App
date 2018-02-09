@@ -26,6 +26,7 @@
 		BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */; };
 		BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC81A8B31F6AF14900A69850 /* ProcessResults.swift */; };
 		BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */; };
+		BCAA5393202BE9DF00EA68EE /* OnboardingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA5392202BE9DF00EA68EE /* OnboardingTask.swift */; };
 		BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */; };
 		BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */; };
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
@@ -82,6 +83,7 @@
 		BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		BC81A8B31F6AF14900A69850 /* ProcessResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessResults.swift; sourceTree = "<group>"; };
 		BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewControllerResults.swift; sourceTree = "<group>"; };
+		BCAA5392202BE9DF00EA68EE /* OnboardingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTask.swift; sourceTree = "<group>"; };
 		BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSurvey.swift; sourceTree = "<group>"; };
 		BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResults.swift; sourceTree = "<group>"; };
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
@@ -154,21 +156,20 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
-				BC77595B1F4F591500AF2FC6 /* Survey Steps */,
+				BC21F3DE1F4F314E006629AC /* Activities */,
 				BC21F3AD1F4F3072006629AC /* AppDelegate.swift */,
+				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
+				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
+				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
+				BC21F3BB1F4F3072006629AC /* Info.plist */,
+				BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */,
+				BC21F3B31F4F3072006629AC /* Main.storyboard */,
+				BC21F3DD1F4F3138006629AC /* Onboarding */,
 				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
 				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
-				BC21F3DD1F4F3138006629AC /* Onboarding */,
-				BC21F3DE1F4F314E006629AC /* Activities */,
 				BCBBFC1C1F6527CC009AA9B9 /* Results */,
-				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
-				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
-				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
 				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
-				BC21F3B31F4F3072006629AC /* Main.storyboard */,
-				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
-				BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */,
-				BC21F3BB1F4F3072006629AC /* Info.plist */,
+				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 			);
 			path = "Breast Feeding NFP";
 			sourceTree = "<group>";
@@ -194,10 +195,11 @@
 		BC21F3DD1F4F3138006629AC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
 				BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */,
-				BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */,
 				BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */,
+				BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */,
+				BCAA5392202BE9DF00EA68EE /* OnboardingTask.swift */,
+				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -226,13 +228,6 @@
 			children = (
 			);
 			name = Dashboard;
-			sourceTree = "<group>";
-		};
-		BC77595B1F4F591500AF2FC6 /* Survey Steps */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Survey Steps";
 			sourceTree = "<group>";
 		};
 		BCBBFC1C1F6527CC009AA9B9 /* Results */ = {
@@ -570,6 +565,7 @@
 				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
 				BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
+				BCAA5393202BE9DF00EA68EE /* OnboardingTask.swift in Sources */,
 				BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */,
 				BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */,
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,

@@ -35,21 +35,24 @@ struct Onboarding {
   static let task = "OnboardingTaskID"
   private static let boolAnswerFormat = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
   
-  static let onboardingSurvey: ORKNavigableOrderedTask = {
+  static let onboardingSurvey: OnboardingTask = {
     let consentDocument = ConsentDocument()
     let consentStep = ORKVisualConsentStep(identifier: "VisualConsentStep", document: consentDocument)
     let signature = consentDocument.signatures!.first!
     let reviewConsentStep = ORKConsentReviewStep(identifier: "ConsentReviewStep", signature: signature, in: consentDocument)
     reviewConsentStep.text = "Review the consent form."
     reviewConsentStep.reasonForConsent = "Consent to join the Natural Family Planning Breast Feeding Study."
+    
+    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
+    
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
     passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
-    let registrationStep = ORKRegistrationStep(identifier: "Registration")
+    
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Welcome aboard."
     completionStep.text = "Thank you for joining this study."
 
-    let orderedTask = ORKNavigableOrderedTask(identifier: Onboarding.task, steps: [
+    let orderedTask = OnboardingTask(identifier: Onboarding.task, steps: [
       biologicalInfantStep,
       singletonBirthStep,
       babyHealthStep,
@@ -60,6 +63,7 @@ struct Onboarding {
       clearBlueMonitorStep,
       consentStep,
       reviewConsentStep,
+      registrationStep,
       participantBirthDateStep,
       babysBirthDateStep,
       ethnicityStep,
