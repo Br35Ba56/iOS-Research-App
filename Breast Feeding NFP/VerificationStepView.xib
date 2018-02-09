@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationStepViewController" customModule="Breast_Feeding_NFP" customModuleProvider="target">
+            <connections>
+                <outlet property="verificationStepView" destination="iN0-l3-epB" id="1nx-J7-ZnA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="7Bz-ti-NG7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igq-S0-WM6">
+                    <rect key="frame" x="147" y="215" width="78" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="Submit"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Verification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8f-YI-gzs">
+                    <rect key="frame" x="16" y="80" width="343" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZRD-ky-qvZ">
+                    <rect key="frame" x="95" y="150" width="185" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZc-0e-IKG">
+                    <rect key="frame" x="101" y="333" width="173" height="30"/>
+                    <state key="normal" title="Resend Verification Code"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="igq-S0-WM6" secondAttribute="trailing" constant="150" id="1fo-sp-tkK"/>
+                <constraint firstItem="U8f-YI-gzs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="7Zl-Gq-F9Q"/>
+                <constraint firstItem="U8f-YI-gzs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="60" id="Byf-o1-8aW"/>
+                <constraint firstItem="yZc-0e-IKG" firstAttribute="top" secondItem="igq-S0-WM6" secondAttribute="bottom" constant="79" id="C0l-yI-B2M"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yZc-0e-IKG" secondAttribute="trailing" constant="101" id="FuQ-qP-eS5"/>
+                <constraint firstItem="igq-S0-WM6" firstAttribute="top" secondItem="ZRD-ky-qvZ" secondAttribute="bottom" constant="35" id="Raa-3g-zN5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="U8f-YI-gzs" secondAttribute="trailing" constant="16" id="gUU-el-oc1"/>
+                <constraint firstItem="ZRD-ky-qvZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="95" id="hB2-NK-VtQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZRD-ky-qvZ" secondAttribute="trailing" constant="95" id="kH9-ic-bve"/>
+                <constraint firstItem="yZc-0e-IKG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="101" id="khU-uF-vcP"/>
+                <constraint firstItem="ZRD-ky-qvZ" firstAttribute="top" secondItem="U8f-YI-gzs" secondAttribute="bottom" constant="34" id="mEu-Dc-QcC"/>
+                <constraint firstItem="igq-S0-WM6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="147" id="tVR-2u-gRd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

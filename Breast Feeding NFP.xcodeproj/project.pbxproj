@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		403B1A9D9C3CB8EA0BF2F04D /* Pods_Breast_Feeding_NFPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */; };
+		BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC145E82202D4A0E004A516B /* VerificationStep.swift */; };
 		BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AD1F4F3072006629AC /* AppDelegate.swift */; };
 		BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AF1F4F3072006629AC /* FirstViewController.swift */; };
 		BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3B11F4F3072006629AC /* SecondViewController.swift */; };
@@ -31,6 +32,7 @@
 		BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */; };
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
 		BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */; };
+		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
 		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,7 @@
 		783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CECEBE3AA6C3A109BA502A3 /* Pods-Breast Feeding NFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.release.xcconfig"; sourceTree = "<group>"; };
 		B837E953CD14D151A4B75FE3 /* Pods_Breast_Feeding_NFPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC145E82202D4A0E004A516B /* VerificationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationStep.swift; sourceTree = "<group>"; };
 		BC21F3AA1F4F3072006629AC /* Breast Feeding NFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Feeding NFP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3AD1F4F3072006629AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC21F3AF1F4F3072006629AC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResults.swift; sourceTree = "<group>"; };
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
 		BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKDurationOrderedTask.swift; sourceTree = "<group>"; };
+		BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationStepView.xib; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				BCBBFC1C1F6527CC009AA9B9 /* Results */,
 				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
+				BC145E82202D4A0E004A516B /* VerificationStep.swift */,
+				BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */,
 			);
 			path = "Breast Feeding NFP";
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				BC21F3BA1F4F3072006629AC /* LaunchScreen.storyboard in Resources */,
 				BC21F3B71F4F3072006629AC /* Assets.xcassets in Resources */,
 				BC21F3B51F4F3072006629AC /* Main.storyboard in Resources */,
+				BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +583,7 @@
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
 				BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */,
+				BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */,
 				BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
