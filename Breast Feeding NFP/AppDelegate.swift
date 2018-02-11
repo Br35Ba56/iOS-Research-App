@@ -33,10 +33,11 @@ import ResearchKit
 import AWSMobileClient
 import AWSS3
 import AWSCore
+import AWSCognitoIdentityProvider
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  
+  var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
   var window: UIWindow?
   
   var containerViewController: ResearchContainerViewController? {
@@ -78,7 +79,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Displays connected to AWS Mobile message
     AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
     AWSDDLog.sharedInstance.logLevel = .info
-       
+    let region = AWSRegionType.USEast1
+    let serviceConfiguration = AWSServiceConfiguration.init(region: region, credentialsProvider: nil)
+    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSUserPoolKeys.appClientID, clientSecret: AWSUserPoolKeys.appClientSecret, poolId: AWSUserPoolKeys.poolID)
+    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: AWSUserPoolKeys.poolID)
+    
+    // fetch the user pool client we initialized in above step
+    let pool = AWSCognitoIdentityUserPool(forKey: "us-east-1_aJHgwdqvY")
+    pool.delegate = self
     return AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
   }
 
@@ -117,5 +125,54 @@ extension AppDelegate: ORKPasscodeDelegate {
   
   func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
     
+  }
+}
+//Perhaps not needed
+extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
+  
+  
+  func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
+    return self
+  }
+}
+
+// MARK:- AWSCognitoIdentityRememberDevice protocol delegate
+extension AppDelegate: AWSCognitoIdentityRememberDevice {
+  
+  func getRememberDevice(_ rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>) {
+    self.rememberDeviceCompletionSource = rememberDeviceCompletionSource
+    DispatchQueue.main.async {
+      // dismiss the view controller being present before asking to remember device
+      self.window?.rootViewController!.presentedViewController?.dismiss(animated: true, completion: nil)
+      let alertController = UIAlertController(title: "Remember Device",
+                                              message: "Do you want to remember this device?.",
+                                              preferredStyle: .actionSheet)
+      
+      let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+        self.rememberDeviceCompletionSource?.set(result: true)
+      })
+      let noAction = UIAlertAction(title: "No", style: .default, handler: { (action) in
+        self.rememberDeviceCompletionSource?.set(result: false)
+      })
+      alertController.addAction(yesAction)
+      alertController.addAction(noAction)
+      
+      self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+  }
+  
+  func didCompleteStepWithError(_ error: Error?) {
+    DispatchQueue.main.async {
+      if let error = error as NSError? {
+        let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
+                                                message: error.userInfo["message"] as? String,
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        DispatchQueue.main.async {
+          self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+      }
+    }
   }
 }

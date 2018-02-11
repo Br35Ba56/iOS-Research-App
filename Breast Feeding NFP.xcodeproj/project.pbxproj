@@ -17,6 +17,7 @@
 		BC21F3BA1F4F3072006629AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */; };
 		BC21F3C51F4F3072006629AC /* Breast_Feeding_NFPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3C41F4F3072006629AC /* Breast_Feeding_NFPTests.swift */; };
 		BC21F3D01F4F3072006629AC /* Breast_Feeding_NFPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3CF1F4F3072006629AC /* Breast_Feeding_NFPUITests.swift */; };
+		BC48D8E32030CF1B00EEEE35 /* DoNotCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */; };
 		BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */; };
 		BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */; };
 		BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */; };
@@ -80,6 +81,7 @@
 		BC21F3CB1F4F3072006629AC /* Breast Feeding NFPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Breast Feeding NFPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3CF1F4F3072006629AC /* Breast_Feeding_NFPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breast_Feeding_NFPUITests.swift; sourceTree = "<group>"; };
 		BC21F3D11F4F3072006629AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotCommit.swift; sourceTree = "<group>"; };
 		BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerSegue.swift; sourceTree = "<group>"; };
 		BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResearchContainerViewController.swift; sourceTree = "<group>"; };
 		BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */,
 				BCC77A71202FE97600D6798B /* LoginTask.swift */,
+				BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */,
 				BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */,
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,
+				BC48D8E32030CF1B00EEEE35 /* DoNotCommit.swift in Sources */,
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BCC77A6F202FE26B00D6798B /* LogInStepViewController.swift in Sources */,
