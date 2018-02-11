@@ -30,7 +30,9 @@
 
 import UIKit
 import ResearchKit
+import AWSMobileClient
 import AWSS3
+import AWSCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return window?.rootViewController as? ResearchContainerViewController
   }
   
+  func application(_ application: UIApplication, open url: URL,
+                   sourceApplication: String?, annotation: Any) -> Bool {
+    
+    return AWSMobileClient.sharedInstance().interceptApplication(
+      application, open: url,
+      sourceApplication: sourceApplication,
+      annotation: annotation)
+    
+  }
   func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
     /*
      Store the completion handler.
@@ -62,11 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
-  
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     lockApp()
-    return true
+    //Displays connected to AWS Mobile message
+    AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+    AWSDDLog.sharedInstance.logLevel = .info
+       
+    return AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
   }
+
+
   
   func applicationDidEnterBackground(_ application: UIApplication) {
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
@@ -89,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.makeKeyAndVisible()
     
     let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Welcome back to the Natural Family Planning Breastfeeding Research Study", delegate: self)
-    print("%%%%%%%%%%%%%Passcode view controller presented%%%%%%%%%%%%%%")
     containerViewController?.present(passcodeViewController, animated: false, completion: nil)
   }
 }
@@ -97,10 +112,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: ORKPasscodeDelegate {
   func passcodeViewControllerDidFinish(withSuccess viewController: UIViewController) {
     containerViewController?.contentHidden = false
-    print("!!!!!!Passcode entered!!!!")
     viewController.dismiss(animated: true, completion: nil)
   }
   
   func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
+    
   }
 }

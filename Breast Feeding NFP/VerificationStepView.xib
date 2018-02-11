@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationStepViewController" customModule="Breast_Feeding_NFP" customModuleProvider="target">
             <connections>
+                <outlet property="verificationCodeTextField" destination="ZRD-ky-qvZ" id="wA3-Te-D0I"/>
                 <outlet property="verificationStepView" destination="iN0-l3-epB" id="1nx-J7-ZnA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7Bz-ti-NG7"/>
             </connections>
@@ -25,6 +26,9 @@
                     <rect key="frame" x="147" y="215" width="78" height="39"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <state key="normal" title="Submit"/>
+                    <connections>
+                        <action selector="submitVerificationCode:" destination="-1" eventType="touchUpInside" id="CA7-CI-zQW"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Verification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8f-YI-gzs">
                     <rect key="frame" x="16" y="80" width="343" height="36"/>
@@ -41,6 +45,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZc-0e-IKG">
                     <rect key="frame" x="101" y="333" width="173" height="30"/>
                     <state key="normal" title="Resend Verification Code"/>
+                    <connections>
+                        <action selector="resendVerificationCode:" destination="-1" eventType="touchUpInside" id="ulg-r4-6dV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

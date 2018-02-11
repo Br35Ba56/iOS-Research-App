@@ -44,7 +44,7 @@ struct Onboarding {
     reviewConsentStep.reasonForConsent = "Consent to join the Natural Family Planning Breast Feeding Study."
     
     let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
-    let verificationStep = VerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
+    let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
     
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
     passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."

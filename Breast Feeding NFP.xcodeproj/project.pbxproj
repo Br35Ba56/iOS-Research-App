@@ -33,6 +33,10 @@
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
 		BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */; };
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
+		BCC77A6F202FE26B00D6798B /* LogInStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */; };
+		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
+		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
+		BCC7C239202FA4090068A7A9 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BCC7C238202FA4090068A7A9 /* awsconfiguration.json */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
 		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
 /* End PBXBuildFile section */
@@ -92,6 +96,10 @@
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
 		BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKDurationOrderedTask.swift; sourceTree = "<group>"; };
 		BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationStepView.xib; sourceTree = "<group>"; };
+		BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInStepViewController.swift; sourceTree = "<group>"; };
+		BCC77A71202FE97600D6798B /* LoginTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
+		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
+		BCC7C238202FA4090068A7A9 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,12 +168,14 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
+				BCC77A70202FE91B00D6798B /* Login */,
 				BC21F3DE1F4F314E006629AC /* Activities */,
 				BC21F3AD1F4F3072006629AC /* AppDelegate.swift */,
 				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
 				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
 				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
 				BC21F3BB1F4F3072006629AC /* Info.plist */,
+				BCC7C238202FA4090068A7A9 /* awsconfiguration.json */,
 				BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */,
 				BC21F3B31F4F3072006629AC /* Main.storyboard */,
 				BC21F3DD1F4F3138006629AC /* Onboarding */,
@@ -176,6 +186,7 @@
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 				BC145E82202D4A0E004A516B /* VerificationStep.swift */,
 				BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */,
+				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
 			);
 			path = "Breast Feeding NFP";
 			sourceTree = "<group>";
@@ -244,6 +255,15 @@
 				BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */,
 			);
 			name = Results;
+			sourceTree = "<group>";
+		};
+		BCC77A70202FE91B00D6798B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */,
+				BCC77A71202FE97600D6798B /* LoginTask.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		F494FE643A2D84102897AA90 /* Pods */ = {
@@ -383,6 +403,7 @@
 			files = (
 				BC21F3BA1F4F3072006629AC /* LaunchScreen.storyboard in Resources */,
 				BC21F3B71F4F3072006629AC /* Assets.xcassets in Resources */,
+				BCC7C239202FA4090068A7A9 /* awsconfiguration.json in Resources */,
 				BC21F3B51F4F3072006629AC /* Main.storyboard in Resources */,
 				BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */,
 			);
@@ -463,20 +484,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthUI/AWSAuthUI.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */,
 				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
 				BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
@@ -578,7 +608,9 @@
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
+				BCC77A6F202FE26B00D6798B /* LogInStepViewController.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */,
+				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,

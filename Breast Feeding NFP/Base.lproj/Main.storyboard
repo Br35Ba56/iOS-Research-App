@@ -164,8 +164,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-Z6-aJj">
+                                <rect key="frame" x="103" y="530" width="169" height="30"/>
+                                <state key="normal" title="Already a user?"/>
+                                <connections>
+                                    <action selector="alreadyAUser:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="pZ3-IR-LD5"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axo-ZP-cCp">
-                                <rect key="frame" x="151" y="318.5" width="73" height="30"/>
+                                <rect key="frame" x="151" y="356" width="73" height="30"/>
                                 <state key="normal" title="Join Study"/>
                                 <connections>
                                     <action selector="joinAction:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="Fgv-gy-ClK"/>
@@ -174,11 +181,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XLY-m4-yYD" firstAttribute="top" secondItem="8UR-e8-p4h" secondAttribute="bottom" constant="8" id="LM2-Pf-Mdj"/>
-                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="centerX" secondItem="697-va-bHk" secondAttribute="centerX" id="PgX-R5-PP0"/>
-                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="centerY" secondItem="697-va-bHk" secondAttribute="centerY" id="irJ-sl-LsV"/>
-                            <constraint firstItem="XLY-m4-yYD" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="55" id="n6A-vS-thV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="56" id="oHu-5v-qUL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFg-Z6-aJj" secondAttribute="trailing" constant="87" id="0BS-DZ-9al"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Axo-ZP-cCp" secondAttribute="trailing" constant="135" id="8ef-cU-FeV"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="55" id="DOj-XH-7uv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="56" id="EgU-Ax-jH8"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="top" secondItem="Axo-ZP-cCp" secondAttribute="bottom" constant="144" id="HyA-Zr-2t1"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="top" secondItem="8UR-e8-p4h" secondAttribute="bottom" constant="8" id="I3z-tx-UK6"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="87" id="L9d-Ou-aDH"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="top" secondItem="XLY-m4-yYD" secondAttribute="bottom" constant="307" id="hCn-7V-CNe"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="135" id="zbE-N0-Zal"/>
                         </constraints>
                     </view>
                     <connections>
@@ -188,7 +199,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUT-LY-uaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5UO-zu-eFE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="-675"/>
+            <point key="canvasLocation" x="-15.199999999999999" y="-675.11244377811101"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

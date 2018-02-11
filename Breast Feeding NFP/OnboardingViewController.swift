@@ -32,23 +32,37 @@ import UIKit
 import ResearchKit
 import AWSS3
 
+let loginUUID = UUID()
+
 class OnboardingViewController: UIViewController {
   @IBAction func joinAction(_ sender: Any) {
     let taskViewController = ORKTaskViewController(task: Onboarding.onboardingSurvey, taskRun: nil)
     taskViewController.delegate = self
     present(taskViewController, animated: true, completion: nil)
   }
+  @IBAction func alreadyAUser(_ sender: Any) {
+    let taskViewController = ORKTaskViewController(task: LoginStep.loginTask, taskRun: loginUUID)
+    taskViewController.delegate = self
+    present(taskViewController, animated: true, completion: nil)
+  }
 }
+
+
 
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     switch reason {
     case .completed:
+      if taskViewController.taskRunUUID == loginUUID {
+        performSegue(withIdentifier: "unwindToStudy", sender: nil)
+        break
+      }
       let deviceID = UIDevice.current.identifierForVendor!.uuidString
       UserDefaults.standard.set(deviceID, forKey: "User UUID")
       if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
         submitUserConsent(taskViewController: taskViewController)
         let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
+        
         ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
         performSegue(withIdentifier: "unwindToStudy", sender: nil)
       } else {

@@ -9,13 +9,15 @@
 import Foundation
 import ResearchKit
 
-class VerificationStep : ORKVerificationStep {
+/*class VerificationStep : ORKVerificationStep {
   
-}
+}*/
 
 class VerificationStepViewController : ORKVerificationStepViewController {
   
+  
   @IBOutlet var verificationStepView: UIView!
+  @IBOutlet weak var verificationCodeTextField: UITextField!
   
   override init(step: ORKStep, result: ORKResult) {
     super.init(step: step, result: result)
@@ -44,14 +46,30 @@ class VerificationStepViewController : ORKVerificationStepViewController {
     }
   }
   
-  func verifyCode() {
+
+  @IBAction func submitVerificationCode(_ sender: Any) {
+    if let verificationCode = verificationCodeTextField.text {
+      verifyCode(code: verificationCode)
+     self.goForward()
+    }
+  }
+  func verifyCode(code: String) {
     //AWS Cognito code to verify code.
+    print("verifiyCode \(code)")
+    
   }
 
+  @IBAction func resendVerificationCode(_ sender: Any) {
+    resendEmailButtonTapped()
+  }
+  
+  
   override func resendEmailButtonTapped() {
     //AWS Cognito code to resend email verification
     print("Resent email")
   }
+  
+
 }
 
 class VerificationStepView: UIView {

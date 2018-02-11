@@ -8,6 +8,8 @@
 
 import Foundation
 import ResearchKit
+import AWSCognito
+
 class OnboardingTask : ORKNavigableOrderedTask {
   override func step(after step: ORKStep?, with result: ORKTaskResult) -> ORKStep? {
     if (step?.identifier == "RegistrationStep") {
@@ -17,6 +19,7 @@ class OnboardingTask : ORKNavigableOrderedTask {
             if let stringResult = questionResult.answer {
               print(stringResult)
               //Once username and password are extracted, sign up via cognito, next step is verification
+              
             }
           }
         }
