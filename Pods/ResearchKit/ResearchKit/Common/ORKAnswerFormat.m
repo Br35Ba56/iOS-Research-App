@@ -48,6 +48,7 @@
 
 
 NSString *const EmailValidationRegularExpressionPattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+NSString *const PhoneNumberValidationRegularExpressionPattern = @"\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}";
 
 id ORKNullAnswerValue() {
     return [NSNull null];
@@ -394,6 +395,10 @@ NSNumberFormatterStyle ORKNumberFormattingStyleConvert(ORKNumberFormattingStyle 
 
 + (ORKEmailAnswerFormat *)emailAnswerFormat {
     return [ORKEmailAnswerFormat new];
+}
+
++ (ORKPhoneNumberAnswerFormat *)phoneNumberAnswerFormat {
+  return [ORKPhoneNumberAnswerFormat new];
 }
 
 + (ORKTimeIntervalAnswerFormat *)timeIntervalAnswerFormat {
@@ -2467,6 +2472,44 @@ static NSString *const kSecureTextEntryEscapeString = @"*";
 
 @end
 
+#pragma mark - ORKPhoneNumberAnswerFormat
+
+@implementation ORKPhoneNumberAnswerFormat {
+  ORKTextAnswerFormat *_impliedAnswerFormat;
+}
+
+- (ORKQuestionType)questionType {
+  return ORKQuestionTypeText;
+}
+
+-(Class)questionResultClass {
+  return [ORKTextQuestionResult class];
+}
+
+-(ORKAnswerFormat *)impliedAnswerFormat {
+  if (!_impliedAnswerFormat) {
+    NSRegularExpression *validationRegurlarExpression =
+    [NSRegularExpression regularExpressionWithPattern:PhoneNumberValidationRegularExpressionPattern
+                                              options:(NSRegularExpressionOptions)0
+                                                error:nil];
+    NSString *invalidMessage = ORKLocalizedString(@"INVALID_PHONE_NUMBER_ALERT_MESSAGE", nil);
+    _impliedAnswerFormat =[ORKTextAnswerFormat textAnswerFormatWithValidationRegularExpression: validationRegurlarExpression invalidMessage:invalidMessage];
+    
+    _impliedAnswerFormat.keyboardType = UIKeyboardTypeNumberPad;
+    _impliedAnswerFormat.multipleLines = NO;
+    _impliedAnswerFormat.spellCheckingType = UITextSpellCheckingTypeNo;
+    _impliedAnswerFormat.autocorrectionType = UITextAutocapitalizationTypeNone;
+    _impliedAnswerFormat.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+  }
+  return _impliedAnswerFormat;
+}
+
+- (NSString *)stringForAnser:(id)answer {
+  return [self.impliedAnswerFormat stringForAnswer:answer];
+}
+
+@end
 
 #pragma mark - ORKConfirmTextAnswerFormat
 

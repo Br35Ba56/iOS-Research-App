@@ -233,9 +233,10 @@ struct Onboarding {
     registrationInstructionStep.text = "In the next two steps you will register with our service and verify your account.  The verification code will be sent to the phone number you provide."
     return registrationInstructionStep
   }()
+  
   private static let registrationStep: ORKStep = {
     let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
-    let registrationStepOptions = ORKRegistrationStep
+   
     return registrationStep
   }()
   

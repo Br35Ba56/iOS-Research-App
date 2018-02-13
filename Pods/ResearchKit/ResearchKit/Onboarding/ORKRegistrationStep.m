@@ -37,6 +37,7 @@
 
 
 NSString *const ORKRegistrationFormItemIdentifierEmail = @"ORKRegistrationFormItemEmail";
+NSString *const ORKRegistrationFormItemIdentifierPhoneNumber = @"ORKRegistrationFormItemPhoneNumber";
 NSString *const ORKRegistrationFormItemIdentifierPassword = @"ORKRegistrationFormItemPassword";
 NSString *const ORKRegistrationFormItemIdentifierConfirmPassword = @"ORKRegistrationFormItemConfirmPassword";
 NSString *const ORKRegistrationFormItemIdentifierGivenName = @"ORKRegistrationFormItemGivenName";
@@ -61,8 +62,16 @@ static NSArray <ORKFormItem*> *ORKRegistrationFormItems(ORKRegistrationStepOptio
         item.placeholder = ORKLocalizedString(@"EMAIL_FORM_ITEM_PLACEHOLDER", nil);
         
         [formItems addObject:item];
+      ORKPhoneNumberAnswerFormat *phoneAnswerFormat = [ORKAnswerFormat phoneNumberAnswerFormat];
+      item = [[ORKFormItem alloc] initWithIdentifier: ORKRegistrationFormItemIdentifierPhoneNumber
+                                                             text: ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_TITLE", nil)
+                                                     answerFormat:phoneAnswerFormat
+                                                         optional:NO];
+      item.placeholder = ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_PLACEHOLDER", nil);
+      [formItems addObject:item];
     }
-    
+  
+  
     ORKFormItem *passwordFormItem;
     {
         ORKTextAnswerFormat *answerFormat = [ORKAnswerFormat textAnswerFormat];

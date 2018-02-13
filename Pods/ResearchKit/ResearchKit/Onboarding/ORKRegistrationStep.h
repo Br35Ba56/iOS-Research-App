@@ -62,6 +62,7 @@ typedef NS_OPTIONS(NSUInteger, ORKRegistrationStepOption) {
  These allow for convenient retrieval of user's inputted data from the result.
  */
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierEmail ORK_AVAILABLE_DECL;
+ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierPhoneNumber ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierPassword ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierGivenName ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierFamilyName ORK_AVAILABLE_DECL;

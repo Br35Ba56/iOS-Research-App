@@ -52,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class ORKDateAnswerFormat;
 @class ORKTextAnswerFormat;
 @class ORKEmailAnswerFormat;
+@class ORKPhoneNumberAnswerFormat;
 @class ORKTimeIntervalAnswerFormat;
 @class ORKHeightAnswerFormat;
 @class ORKLocationAnswerFormat;
@@ -155,6 +156,8 @@ ORK_CLASS_AVAILABLE
                                                           invalidMessage:(NSString *)invalidMessage;
 
 + (ORKEmailAnswerFormat *)emailAnswerFormat;
+
++ (ORKPhoneNumberAnswerFormat *)phoneNumberAnswerFormat;
 
 + (ORKTimeIntervalAnswerFormat *)timeIntervalAnswerFormat;
 + (ORKTimeIntervalAnswerFormat *)timeIntervalAnswerFormatWithDefaultInterval:(NSTimeInterval)defaultInterval
@@ -1338,6 +1341,16 @@ ORK_CLASS_AVAILABLE
 
 @end
 
+/**
+ The `ORKPhoneNumberAnswerFormat` class represents the answer format for questions that collect a phone
+ number response from the user.
+ 
+ An `ORKPhoneNumberAnswerFormat` object produces an `ORKTextQuestionResult` object.
+ */
+ORK_CLASS_AVAILABLE
+@interface ORKPhoneNumberAnswerFormat : ORKAnswerFormat
+
+@end
 
 /**
  The `ORKTimeIntervalAnswerFormat` class represents the answer format for questions that ask users
