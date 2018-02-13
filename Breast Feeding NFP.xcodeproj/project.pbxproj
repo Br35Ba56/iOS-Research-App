@@ -38,6 +38,7 @@
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
 		BCC7C239202FA4090068A7A9 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = BCC7C238202FA4090068A7A9 /* awsconfiguration.json */; };
+		BCDB9D1B2032759300B2436E /* RegistrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB9D1A2032759300B2436E /* RegistrationStep.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
 		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,7 @@
 		BCC77A71202FE97600D6798B /* LoginTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		BCC7C238202FA4090068A7A9 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		BCDB9D1A2032759300B2436E /* RegistrationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStep.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,8 +188,6 @@
 				BCBBFC1C1F6527CC009AA9B9 /* Results */,
 				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
-				BC145E82202D4A0E004A516B /* VerificationStep.swift */,
-				BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */,
 				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
 			);
 			path = "Breast Feeding NFP";
@@ -214,11 +214,14 @@
 		BC21F3DD1F4F3138006629AC /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				BC145E82202D4A0E004A516B /* VerificationStep.swift */,
+				BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */,
 				BC77595C1F4F593F00AF2FC6 /* ConsentDocument.swift */,
 				BC7759641F4F650800AF2FC6 /* IntroductionViewController.swift */,
 				BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */,
 				BCAA5392202BE9DF00EA68EE /* OnboardingTask.swift */,
 				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
+				BCDB9D1A2032759300B2436E /* RegistrationStep.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
+				BCDB9D1B2032759300B2436E /* RegistrationStep.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
 				BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */,
 				BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */,

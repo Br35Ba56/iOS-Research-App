@@ -43,9 +43,6 @@ struct Onboarding {
     reviewConsentStep.text = "Review the consent form."
     reviewConsentStep.reasonForConsent = "Consent to join the Natural Family Planning Breast Feeding Study."
     
-    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
-    let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
-    
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
     passcodeStep.text = "Now you will create a passcode to identify yourself to the app and protect access to information you've entered."
     
@@ -56,14 +53,19 @@ struct Onboarding {
     let orderedTask = OnboardingTask(identifier: Onboarding.task, steps: [
       biologicalInfantStep,
       singletonBirthStep,
-      babyHealthStep,
-      momHealthStep,
-      breastSurgeryStep, 
+      babyBornFullTermStep,
       participantAgeInRangeStep,
+      momHealthStep,
+      breastSurgeryStep,
       infantAgeInRangeStep,
       clearBlueMonitorStep,
+      canReadEnglishStep,
+      //TODO: add this step when question format is verified
+      //biologicalSexStep,
+      
       consentStep,
       reviewConsentStep,
+      registrationInstructionStep,
       registrationStep,
       verificationStep,
       participantBirthDateStep,
@@ -84,7 +86,7 @@ struct Onboarding {
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.singletonBirthStepID)
     let predicate2 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
-    resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.babyHealthStepID)
+    resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.babyBornFullTermStep)
     let predicate3 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.momHealthStepID)
@@ -102,6 +104,9 @@ struct Onboarding {
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.clearBlueMonitorStepID)
     let predicate8 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
+    resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.canReadEnglishStepID)
+    let predicate10 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    
     resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.maritalStatusStepID)
     let predicate9 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
 
@@ -114,16 +119,18 @@ struct Onboarding {
                                                                                               (predicate6, EligibilitySteps.ineligibleStepID),
                                                                                               (predicate7, EligibilitySteps.ineligibleStepID),
                                                                                               (predicate8, EligibilitySteps.ineligibleStepID),
+                                                                                              (predicate10, EligibilitySteps.ineligibleStepID),
                                                                                               (predicate9, DemographicSteps.howManyChildrenStepID)])
     
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.biologicalInfantStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.singletonBirthStepID)
-    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.babyHealthStepID)
+    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.babyBornFullTermStep)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.momHealthStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.breastSurgeryStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.participantAgeInRangeStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.infantAgeInRangeStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.clearBlueMonitorStepID)
+    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.canReadEnglishStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.maritalStatusStepID)
     
     let directRule = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
@@ -137,46 +144,27 @@ struct Onboarding {
     return ineligibleStep
   }()
   
+  //MARK: Eligibility Steps
+  
   private static let biologicalInfantStep: ORKStep = {
-    let title = "Did you give birth to the infant you are beastfeeding?"
+    let title = "Are you breastfeeding your biological infant?"
     let biologicalInfantStep = ORKQuestionStep(identifier: EligibilitySteps.biologicalInfantStepID, title: title, answer: boolAnswerFormat)
     biologicalInfantStep.isOptional = false
     return biologicalInfantStep
   }()
   
   private static let singletonBirthStep: ORKStep = {
-    let singletonBirthQuestionStepTitle = "Are you only breastfeeding a single infant?"
+    let singletonBirthQuestionStepTitle = "Are you breastfeeding a single infant?"
     let singletonBirthQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.singletonBirthStepID, title: singletonBirthQuestionStepTitle, answer: boolAnswerFormat)
     singletonBirthQuestionStep.isOptional = false
     return singletonBirthQuestionStep
   }()
   
-  private static let babyHealthStep: ORKStep = {
-    let title = "Is your baby healthy?"
-    let babyHealthStep = ORKQuestionStep(identifier: EligibilitySteps.babyHealthStepID, title: title, answer: boolAnswerFormat)
-    babyHealthStep.isOptional = false
-    return babyHealthStep
-  }()
-  
-  private static let momHealthStep: ORKStep = {
-    let title = "Have you ever been diagnosed with Poly Cystic Ovarian Disorder?"
-    let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, answer: boolAnswerFormat)
-    momHealthStep.isOptional = false
-    return momHealthStep
-  }()
-  
-  private static let breastSurgeryStep: ORKStep = {
-    let title = "Have you ever had breast surgery?"
-    let breastSurgeryStep = ORKQuestionStep(identifier: EligibilitySteps.breastSurgeryStepID, title: title, answer: boolAnswerFormat)
-    breastSurgeryStep.isOptional = false
-    return breastSurgeryStep
-  }()
-  
-  private static let clearBlueMonitorStep: ORKStep = {
-    let title = "Do you own a Clearblue Easy Fertility Monitor?"
-    let clearBlueMonitorStep = ORKQuestionStep(identifier: EligibilitySteps.clearBlueMonitorStepID, title: title, answer: boolAnswerFormat)
-    clearBlueMonitorStep.isOptional = false
-    return clearBlueMonitorStep
+  private static let babyBornFullTermStep: ORKStep = {
+    let babyBornFullTermQuestionStepTitle = "Was your baby born full-term(>/=37 weeks gestation)?"
+    let babyBornFullTermQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.babyBornFullTermStep, title: babyBornFullTermQuestionStepTitle, answer: boolAnswerFormat)
+    babyBornFullTermQuestionStep.isOptional = false
+    return babyBornFullTermQuestionStep
   }()
   
   private static let participantAgeInRangeStep: ORKStep = {
@@ -184,6 +172,33 @@ struct Onboarding {
     let participantAgeStep = ORKQuestionStep(identifier:  EligibilitySteps.participantAgeInRangeStepID, title: title, answer: boolAnswerFormat)
     participantAgeStep.isOptional = false
     return participantAgeStep
+  }()
+  
+  
+  //TODO: Delete this when verified no longer a question
+  /*
+  private static let babyHealthStep: ORKStep = {
+    let title = "Is your baby healthy?"
+    let babyHealthStep = ORKQuestionStep(identifier: EligibilitySteps.babyHealthStepID, title: title, answer: boolAnswerFormat)
+    babyHealthStep.isOptional = false
+    return babyHealthStep
+  }()
+  */
+  
+  private static let momHealthStep: ORKStep = {
+    let title = "Have you ever been diagnosed with any of the following?"
+    let text = "Poly Cystic Ovarian Syndrome, Gestational Diabetes or Type 2 Diabetes Mellitus"
+    let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, answer: boolAnswerFormat)
+    momHealthStep.text = text
+    momHealthStep.isOptional = false
+    return momHealthStep
+  }()
+  
+  private static let breastSurgeryStep: ORKStep = {
+    let title = "Have you ever had surgery to change the size of your breasts?"
+    let breastSurgeryStep = ORKQuestionStep(identifier: EligibilitySteps.breastSurgeryStepID, title: title, answer: boolAnswerFormat)
+    breastSurgeryStep.isOptional = false
+    return breastSurgeryStep
   }()
   
   private static let infantAgeInRangeStep: ORKStep = {
@@ -194,6 +209,42 @@ struct Onboarding {
     infantAgeInRangeStep.isOptional = false
     return infantAgeInRangeStep
   }()
+  
+  private static let clearBlueMonitorStep: ORKStep = {
+    let title = "Do you own a Clearblue Easy Fertility Monitor?"
+    let text = "original or touchscreen"
+    let clearBlueMonitorStep = ORKQuestionStep(identifier: EligibilitySteps.clearBlueMonitorStepID, title: title, answer: boolAnswerFormat)
+    clearBlueMonitorStep.text = text
+    clearBlueMonitorStep.isOptional = false
+    return clearBlueMonitorStep
+  }()
+  
+  private static let canReadEnglishStep: ORKStep = {
+    let title = "Are you comfortable reading and writing English on your phone?"
+    let canReadEnglishStep = ORKQuestionStep(identifier: EligibilitySteps.canReadEnglishStepID, title: title, answer: boolAnswerFormat)
+    canReadEnglishStep.isOptional = false
+    return canReadEnglishStep
+  }()
+  
+  //MARK: Registration Steps
+  private static let registrationInstructionStep: ORKStep = {
+    let registrationInstructionStep = ORKInstructionStep(identifier: "InstructionStep")
+    registrationInstructionStep.title = "Registration"
+    registrationInstructionStep.text = "In the next two steps you will register with our service and verify your account.  The verification code will be sent to the phone number you provide."
+    return registrationInstructionStep
+  }()
+  private static let registrationStep: ORKStep = {
+    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
+    let registrationStepOptions = ORKRegistrationStep
+    return registrationStep
+  }()
+  
+  private static let verificationStep: ORKStep = {
+      let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
+    return verificationStep
+  }()
+  
+  //MARK: Demographic Steps
   
   private static let participantBirthDateStep: ORKStep = {
     let title = "What is your birth date?"
@@ -268,19 +319,26 @@ struct Onboarding {
     let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenStepID, title: "How many children do you have?", answer: answerFormat)
     return howManyChildrenStep
   }()
-
 }
+
+//MARK: Step IDs
 
 struct EligibilitySteps {
   static let biologicalInfantStepID = "biologicalInfantStepID"
-  static let infantAgeInRangeStepID = "infantAgeInRangeStepID"
-  static let clearBlueMonitorStepID = "clearBlueMonitorStepID"
-  static let participantAgeInRangeStepID = "participantAgeInRangeStepID"
   static let singletonBirthStepID = "singletonBirthStepID"
-  static let babyHealthStepID = "babyHealthID"
+  static let babyBornFullTermStep = "babyFullTermStepID"
+  static let participantAgeInRangeStepID = "participantAgeInRangeStepID"
   static let momHealthStepID = "momHealthStepID"
   static let breastSurgeryStepID = "breastSurgeryStepID"
+  static let infantAgeInRangeStepID = "infantAgeInRangeStepID"
+  static let clearBlueMonitorStepID = "clearBlueMonitorStepID"
+  static let canReadEnglishStepID = "canReadEnglishStepID"
   static let ineligibleStepID = "ineligibleStepID"
+ 
+  //static let babyHealthStepID = "babyHealthID"
+  
+  
+  
 }
 
 struct DemographicSteps {

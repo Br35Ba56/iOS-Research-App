@@ -59,7 +59,7 @@ class BreastFeedingTaskResults: TaskResults {
 class OnboardingTaskResults: TaskResults {
   var results: [String : String] = [EligibilitySteps.biologicalInfantStepID: "-1",
                                     EligibilitySteps.singletonBirthStepID: "-1",
-                                    EligibilitySteps.babyHealthStepID: "-1",
+                                    EligibilitySteps.babyBornFullTermStep: "-1",
                                     EligibilitySteps.momHealthStepID: "-1",
                                     EligibilitySteps.breastSurgeryStepID: "-1",
                                     EligibilitySteps.participantAgeInRangeStepID: "-1",
@@ -79,7 +79,7 @@ class OnboardingTaskResults: TaskResults {
   }
   
   func getEntryString() -> String {
-    return "\(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyHealthStepID]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.maritalStatusStepID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyChildrenStepID]!)"
+    return "\(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyBornFullTermStep]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.maritalStatusStepID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyChildrenStepID]!)"
   }
   
 }
