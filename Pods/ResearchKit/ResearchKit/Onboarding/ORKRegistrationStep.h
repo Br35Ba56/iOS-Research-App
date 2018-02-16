@@ -53,7 +53,10 @@ typedef NS_OPTIONS(NSUInteger, ORKRegistrationStepOption) {
     ORKRegistrationStepIncludeGender = (1 << 3),
     
     /// Include the date of birth field.
-    ORKRegistrationStepIncludeDOB = (1 << 4)
+    ORKRegistrationStepIncludeDOB = (1 << 4),
+    
+    /// Include the user phone number.
+    ORKRegistrationStepIncludePhoneNumber = (1 << 5)
 } ORK_ENUM_AVAILABLE;
 
 

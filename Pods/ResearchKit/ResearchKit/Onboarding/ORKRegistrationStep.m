@@ -62,13 +62,6 @@ static NSArray <ORKFormItem*> *ORKRegistrationFormItems(ORKRegistrationStepOptio
         item.placeholder = ORKLocalizedString(@"EMAIL_FORM_ITEM_PLACEHOLDER", nil);
         
         [formItems addObject:item];
-      ORKPhoneNumberAnswerFormat *phoneAnswerFormat = [ORKAnswerFormat phoneNumberAnswerFormat];
-      item = [[ORKFormItem alloc] initWithIdentifier: ORKRegistrationFormItemIdentifierPhoneNumber
-                                                             text: ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_TITLE", nil)
-                                                     answerFormat:phoneAnswerFormat
-                                                         optional:NO];
-      item.placeholder = ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_PLACEHOLDER", nil);
-      [formItems addObject:item];
     }
   
   
@@ -100,7 +93,7 @@ static NSArray <ORKFormItem*> *ORKRegistrationFormItems(ORKRegistrationStepOptio
         [formItems addObject:item];
     }
     
-    if (options & (ORKRegistrationStepIncludeFamilyName | ORKRegistrationStepIncludeGivenName | ORKRegistrationStepIncludeDOB | ORKRegistrationStepIncludeGender)) {
+    if (options & (ORKRegistrationStepIncludeFamilyName | ORKRegistrationStepIncludeGivenName | ORKRegistrationStepIncludeDOB | ORKRegistrationStepIncludeGender | ORKRegistrationStepIncludePhoneNumber)) {
         ORKFormItem *item = [[ORKFormItem alloc] initWithSectionTitle:ORKLocalizedString(@"ADDITIONAL_INFO_SECTION_TITLE", nil)];
         
         [formItems addObject:item];
@@ -174,6 +167,17 @@ static NSArray <ORKFormItem*> *ORKRegistrationFormItems(ORKRegistrationStepOptio
                                                        answerFormat:answerFormat
                                                            optional:NO];
         item.placeholder = ORKLocalizedString(@"DOB_FORM_ITEM_PLACEHOLDER", nil);
+        
+        [formItems addObject:item];
+    }
+    
+    if (options & ORKRegistrationStepIncludePhoneNumber) {
+        ORKPhoneNumberAnswerFormat *phoneAnswerFormat = [ORKAnswerFormat phoneNumberAnswerFormat];
+        ORKFormItem *item = [[ORKFormItem alloc] initWithIdentifier: ORKRegistrationFormItemIdentifierPhoneNumber
+                                                  text: ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_TITLE", nil)
+                                          answerFormat:phoneAnswerFormat
+                                              optional:NO];
+        item.placeholder = ORKLocalizedString(@"PHONE_NUMBER_FORM_ITEM_PLACEHOLDER", nil);
         
         [formItems addObject:item];
     }

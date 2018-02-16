@@ -235,8 +235,8 @@ struct Onboarding {
   }()
   
   private static let registrationStep: ORKStep = {
-    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
-   
+    //let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
+   let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
     return registrationStep
   }()
   
