@@ -237,6 +237,14 @@ struct Onboarding {
   private static let registrationStep: ORKStep = {
     //let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
+    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "")
+    for item in registrationStep.formItems! {
+        if item.identifier == ORKRegistrationFormItemIdentifierPhoneNumber {
+            item.placeholder = "+15555555555"
+        }
+    }
+    registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][1-9]{10,10}$")
+    registrationStep.phoneNumberInvalidMessage = "Invalid phone number"
     return registrationStep
   }()
   
