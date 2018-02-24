@@ -8,7 +8,7 @@
 
 import Foundation
 import AWSS3
-
+import AWSCognitoIdentityProvider
 
 class ProcessResults {
   private var results: TaskResults!
@@ -16,9 +16,10 @@ class ProcessResults {
   private var uuid: UUID
   private var surveyType: String!
   static private var processResults: ProcessResults!
+    var user: AWSCognitoIdentityUser?
   
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
-  let transferUtility = AWSS3TransferUtility.default()
+  let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
 
   private init(taskResults: TaskResults!, uuid: UUID!) {
     if let results = taskResults as? CycleTaskResults {
@@ -55,8 +56,7 @@ class ProcessResults {
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
-    
-    transferUtility.uploadFile(path as URL, bucket: "iosappbucket", key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+    transferUtility.uploadFile(path as URL, bucket: "nfpbreastfeedingrese-deployments-mobilehub-128695951", key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
       }

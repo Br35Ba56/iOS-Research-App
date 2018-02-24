@@ -19,16 +19,19 @@ PODS:
     - AWSAuthCore (= 2.6.12)
     - AWSCognitoIdentityProvider (= 2.6.12)
   - ResearchKit (1.5.2)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - AWSAuthCore (~> 2.6.6)
   - AWSAuthUI (~> 2.6.6)
   - AWSCognito (~> 2.6.6)
+  - AWSCognitoIdentityProvider (~> 2.6.0)
   - AWSCore (~> 2.6.6)
   - AWSMobileClient (~> 2.6.6)
   - AWSS3 (~> 2.6.6)
   - AWSUserPoolsSignIn (~> 2.6.6)
   - ResearchKit (from `/Users/pinkman/ResearchKitMaster/ResearchKit`)
+  - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
   ResearchKit:
@@ -45,7 +48,8 @@ SPEC CHECKSUMS:
   AWSS3: c35608e0cdd5172f9e1d943221fd5fde01c5f749
   AWSUserPoolsSignIn: a731c43b295ac7d4cf9647c655ce580b3ced9397
   ResearchKit: 35c32ed3dc7ad48a26bb077515723d72fa1e8676
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 3fd5558748b2763ac3f4c5e71b8e77803176e7b9
+PODFILE CHECKSUM: 6f72b4c1e1fc60f4e4b356cb38504b58e1b3d081
 
 COCOAPODS: 1.4.0

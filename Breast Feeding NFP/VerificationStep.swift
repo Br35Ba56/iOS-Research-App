@@ -8,16 +8,18 @@
 
 import Foundation
 import ResearchKit
+import AWSCognitoIdentityProvider
 
-/*class VerificationStep : ORKVerificationStep {
-  
-}*/
+import SwiftKeychainWrapper
 
 class VerificationStepViewController : ORKVerificationStepViewController {
   
+  var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
+  var user: AWSCognitoIdentityUser?
   
   @IBOutlet var verificationStepView: UIView!
   @IBOutlet weak var verificationCodeTextField: UITextField!
+  @IBOutlet weak var submitButton: UIButton!
   
   override init(step: ORKStep, result: ORKResult) {
     super.init(step: step, result: result)
@@ -32,7 +34,7 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   }
   
   required init?(coder aDecoder: NSCoder) {
-     super.init(coder: aDecoder)
+    super.init(coder: aDecoder)
   }
   
   override func viewDidLoad() {
@@ -46,31 +48,58 @@ class VerificationStepViewController : ORKVerificationStepViewController {
     }
   }
   
-
+  
   @IBAction func submitVerificationCode(_ sender: Any) {
-    if let verificationCode = verificationCodeTextField.text {
-      verifyCode(code: verificationCode)
-     self.goForward()
+    if verificationCodeTextField.text != nil {
+      user = AppDelegate.user
+      verifyCode()
     }
   }
-  func verifyCode(code: String) {
-    //AWS Cognito code to verify code.
-    print("verifiyCode \(code)")
+  func verifyCode() {
+    guard let confirmationCodeValue = self.verificationCodeTextField.text, !confirmationCodeValue.isEmpty else {
+      let alertController = UIAlertController(title: "Confirmation code missing.",
+                                              message: "Please enter a valid confirmation code.",
+                                              preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+      alertController.addAction(okAction)
+      
+      self.present(alertController, animated: true, completion:  nil)
+      return
+    }
+    self.user?.confirmSignUp(self.verificationCodeTextField.text!, forceAliasCreation: true).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
+      guard let strongSelf = self else { return nil }
+      DispatchQueue.main.async(execute: {
+        if let error = task.error as NSError? {
+          let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
+                                                  message: error.userInfo["message"] as? String,
+                                                  preferredStyle: .alert)
+          let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+          alertController.addAction(okAction)
+          
+          strongSelf.present(alertController, animated: true, completion:  nil)
+        } else {
+          self?.goForward()
+        }
+      })
+      return nil
+    }
+    
     
   }
-
+  
+  
   @IBAction func resendVerificationCode(_ sender: Any) {
     resendEmailButtonTapped()
   }
   
   
   override func resendEmailButtonTapped() {
-    //AWS Cognito code to resend email verification
-    print("Resent email")
+    self.user?.resendConfirmationCode()
   }
   
-
+ 
 }
+
 
 class VerificationStepView: UIView {
   var verificationStepView: UIView!

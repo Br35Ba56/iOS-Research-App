@@ -68,6 +68,7 @@ struct Onboarding {
       registrationInstructionStep,
       registrationStep,
       verificationStep,
+      loginStep,
       participantBirthDateStep,
       babysBirthDateStep,
       ethnicityStep,
@@ -251,6 +252,11 @@ struct Onboarding {
   private static let verificationStep: ORKStep = {
       let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
     return verificationStep
+  }()
+  
+  private static let loginStep: ORKStep = {
+    let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Login", text: "Enter username and password", loginViewControllerClass: LoginViewController.self)
+    return loginStep
   }()
   
   //MARK: Demographic Steps

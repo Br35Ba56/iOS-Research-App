@@ -159,37 +159,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BreastFeeding research app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-m4-yYD">
-                                <rect key="frame" x="71" y="28" width="232" height="21"/>
+                                <rect key="frame" x="44" y="28" width="287" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-Z6-aJj">
-                                <rect key="frame" x="103" y="530" width="169" height="30"/>
-                                <state key="normal" title="Already a user?"/>
-                                <connections>
-                                    <action selector="alreadyAUser:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="pZ3-IR-LD5"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axo-ZP-cCp">
-                                <rect key="frame" x="151" y="356" width="73" height="30"/>
+                                <rect key="frame" x="127" y="318" width="121" height="30"/>
                                 <state key="normal" title="Join Study"/>
                                 <connections>
                                     <action selector="joinAction:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="Fgv-gy-ClK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-Z6-aJj">
+                                <rect key="frame" x="85" y="530" width="204" height="30"/>
+                                <state key="normal" title="Already a user?"/>
+                                <connections>
+                                    <action selector="alreadyAUser:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="pZ3-IR-LD5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="XFg-Z6-aJj" secondAttribute="trailing" constant="87" id="0BS-DZ-9al"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Axo-ZP-cCp" secondAttribute="trailing" constant="135" id="8ef-cU-FeV"/>
-                            <constraint firstItem="XLY-m4-yYD" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="55" id="DOj-XH-7uv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="56" id="EgU-Ax-jH8"/>
-                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="top" secondItem="Axo-ZP-cCp" secondAttribute="bottom" constant="144" id="HyA-Zr-2t1"/>
-                            <constraint firstItem="XLY-m4-yYD" firstAttribute="top" secondItem="8UR-e8-p4h" secondAttribute="bottom" constant="8" id="I3z-tx-UK6"/>
-                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="87" id="L9d-Ou-aDH"/>
-                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="top" secondItem="XLY-m4-yYD" secondAttribute="bottom" constant="307" id="hCn-7V-CNe"/>
-                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="135" id="zbE-N0-Zal"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="top" secondItem="XLY-m4-yYD" secondAttribute="bottom" constant="269" id="0Dl-t1-i2E"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="28" id="2kS-62-DLS"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="69" id="EbA-pZ-wb1"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="top" secondItem="Axo-ZP-cCp" secondAttribute="bottom" constant="182" id="HCH-VO-cLt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="28" id="KbA-wQ-Dg3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Axo-ZP-cCp" secondAttribute="trailing" constant="111" id="VzQ-BG-UFT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFg-Z6-aJj" secondAttribute="trailing" constant="70" id="ZGA-dt-bJd"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="top" secondItem="8UR-e8-p4h" secondAttribute="bottom" constant="8" id="ovA-5I-6YK"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="111" id="pU9-Sh-PVF"/>
                         </constraints>
                     </view>
                     <connections>

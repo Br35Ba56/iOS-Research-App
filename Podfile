@@ -13,8 +13,9 @@ target 'Breast Feeding NFP' do
   pod 'AWSAuthCore', '~> 2.6.6'
   pod 'AWSS3', '~> 2.6.6'
   pod 'AWSCognito', '~> 2.6.6'
+  pod 'AWSCognitoIdentityProvider', '~> 2.6.0'
   pod 'AWSCore', '~> 2.6.6'
-  
+  pod 'SwiftKeychainWrapper'
   target 'Breast Feeding NFPTests' do
     inherit! :search_paths
     # Pods for testing

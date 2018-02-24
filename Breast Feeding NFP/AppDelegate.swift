@@ -30,29 +30,34 @@
 
 import UIKit
 import ResearchKit
-import AWSMobileClient
+//import AWSMobileClient
 import AWSS3
 import AWSCore
 import AWSCognitoIdentityProvider
+import AWSCognito
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  
+  static var user: AWSCognitoIdentityUser?
+  var loginViewController: LoginViewController?
   var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
+  
   var window: UIWindow?
   
   var containerViewController: ResearchContainerViewController? {
     return window?.rootViewController as? ResearchContainerViewController
   }
   
-  func application(_ application: UIApplication, open url: URL,
+  /*func application(_ application: UIApplication, open url: URL,
                    sourceApplication: String?, annotation: Any) -> Bool {
-    
+   
     return AWSMobileClient.sharedInstance().interceptApplication(
       application, open: url,
       sourceApplication: sourceApplication,
       annotation: annotation)
     
-  }
+  }*/
   func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
     /*
      Store the completion handler.
@@ -74,23 +79,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
+  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     lockApp()
     //Displays connected to AWS Mobile message
     AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
     AWSDDLog.sharedInstance.logLevel = .info
-    let region = AWSRegionType.USEast1
-    let serviceConfiguration = AWSServiceConfiguration.init(region: region, credentialsProvider: nil)
-    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSUserPoolKeys.appClientID, clientSecret: AWSUserPoolKeys.appClientSecret, poolId: AWSUserPoolKeys.poolID)
-    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: AWSUserPoolKeys.poolID)
     
-    // fetch the user pool client we initialized in above step
-    let pool = AWSCognitoIdentityUserPool(forKey: "us-east-1_aJHgwdqvY")
+    let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:3c6c308d-80fd-4373-b195-33c2d652e189")
+
+    let region = AWSRegionType.USEast1
+    let serviceConfiguration = AWSServiceConfiguration.init(region: region, credentialsProvider: credentialsProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
+    AWSS3TransferUtility.register(with: serviceConfiguration!, forKey: "TransferUtility")
+    
+    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSUserPoolKeys.appClientID, clientSecret: AWSUserPoolKeys.appClientSecret, poolId: AWSUserPoolKeys.poolID)
+    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: "UserPool")
+    let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+
     pool.delegate = self
-    return AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
+    return true//AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
   }
-
-
   
   func applicationDidEnterBackground(_ application: UIApplication) {
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
@@ -127,10 +136,13 @@ extension AppDelegate: ORKPasscodeDelegate {
     
   }
 }
-//Perhaps not needed
+
 extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
   
-  
+  func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+    print("Start password auth")
+    return self.loginViewController! as AWSCognitoIdentityPasswordAuthentication
+  }
   func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
     return self
   }
@@ -175,4 +187,8 @@ extension AppDelegate: AWSCognitoIdentityRememberDevice {
       }
     }
   }
+}
+
+class CognitoUser {
+    static var user: AWSCognitoIdentityUser?
 }

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationStepViewController" customModule="Breast_Feeding_NFP" customModuleProvider="target">
             <connections>
+                <outlet property="submitButton" destination="igq-S0-WM6" id="i96-mb-Adc"/>
                 <outlet property="verificationCodeTextField" destination="ZRD-ky-qvZ" id="wA3-Te-D0I"/>
                 <outlet property="verificationStepView" destination="iN0-l3-epB" id="1nx-J7-ZnA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7Bz-ti-NG7"/>
