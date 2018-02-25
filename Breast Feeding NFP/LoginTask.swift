@@ -13,7 +13,7 @@ struct LoginStep {
   static let loginTaskID = "LoginTask"
   
   static let loginTask: ORKOrderedTask = {
-    let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Log in", text: "Enter your credentials to log in", loginViewControllerClass: LoginStepViewController.self)
+    let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Log in", text: "Enter your credentials to log in", loginViewControllerClass: LoginViewController.self)
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     let passcodeStep = ORKPasscodeStep(identifier: "Passcode")
     passcodeStep.text = ("Please create a passcode to identify yourself to the app and protect access to information you've entered.")

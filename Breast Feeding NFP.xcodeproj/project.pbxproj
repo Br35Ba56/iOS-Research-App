@@ -37,7 +37,6 @@
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
 		BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */; };
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
-		BCC77A6F202FE26B00D6798B /* LogInStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
@@ -103,7 +102,6 @@
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
 		BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKDurationOrderedTask.swift; sourceTree = "<group>"; };
 		BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationStepView.xib; sourceTree = "<group>"; };
-		BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInStepViewController.swift; sourceTree = "<group>"; };
 		BCC77A71202FE97600D6798B /* LoginTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 		BCC77A70202FE91B00D6798B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				BCC77A6E202FE26B00D6798B /* LogInStepViewController.swift */,
 				BCC77A71202FE97600D6798B /* LoginTask.swift */,
 				BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */,
 				BC9BA20F2040AA9200D651C6 /* LoginViewController.swift */,
@@ -620,7 +617,6 @@
 				BC48D8E32030CF1B00EEEE35 /* DoNotCommit.swift in Sources */,
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
-				BCC77A6F202FE26B00D6798B /* LogInStepViewController.swift in Sources */,
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,

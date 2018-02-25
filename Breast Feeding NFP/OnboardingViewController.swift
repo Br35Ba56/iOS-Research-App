@@ -103,7 +103,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         let expression = AWSS3TransferUtilityUploadExpression()
        // expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
         let uuidString = UUID().uuidString
-        transferUtility.uploadFile(consentPDF!, bucket: "nfpbreastfeedingrese-deployments-mobilehub-128695951", key: "Participant_Consent/Participant_Consent_\(uuidString).pdf", contentType: "consent/pdf", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+        transferUtility.uploadFile(consentPDF!, bucket: AWSConstants.bucket, key: "Participant_Consent/Participant_Consent_\(uuidString).pdf", contentType: "consent/pdf", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
           if let error = task.error {
             print(error.localizedDescription)
             

@@ -56,7 +56,7 @@ class ProcessResults {
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
-    transferUtility.uploadFile(path as URL, bucket: "nfpbreastfeedingrese-deployments-mobilehub-128695951", key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+    transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
       }

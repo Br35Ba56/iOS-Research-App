@@ -13,6 +13,9 @@ import SwiftKeychainWrapper
 import AWSUserPoolsSignIn
 
 class LoginViewController: ORKLoginStepViewController {
+  
+  var user: AWSCognitoIdentityUser?
+  var pool: AWSCognitoIdentityUserPool? = AWSCognitoIdentityUserPool(forKey: "UserPool")
   @IBOutlet var loginView: UIView!
   
   @IBOutlet weak var username: UITextField!
@@ -45,8 +48,15 @@ class LoginViewController: ORKLoginStepViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     stepDidChange()
-    username.text = KeychainWrapper.standard.string(forKey: "Username")!
-    password.text = KeychainWrapper.standard.string(forKey: "Password")!
+    if let  userName = KeychainWrapper.standard.string(forKey: "Username") {
+      self.username.text = userName
+    }
+    if let password = KeychainWrapper.standard.string(forKey: "Password") {
+      self.password.text = password
+    }
+    if (self.user == nil) {
+      self.user = self.pool?.currentUser()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -56,10 +66,9 @@ class LoginViewController: ORKLoginStepViewController {
   func signIn() {
     if (self.username.text != nil && self.password.text != nil) {
       let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.username.text!, password: self.password.text! )
-      print(AppDelegate.user?.username)
-      let user = AppDelegate.user!
-
-      user.getSession(username.text!, password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
+      
+    
+      user?.getSession(username.text!, password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
         (task:AWSTask!) -> AnyObject! in
         
         if task.error == nil {

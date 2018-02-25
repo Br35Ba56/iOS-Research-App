@@ -30,11 +30,8 @@
 
 import UIKit
 import ResearchKit
-//import AWSMobileClient
 import AWSS3
-import AWSCore
 import AWSCognitoIdentityProvider
-import AWSCognito
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,15 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return window?.rootViewController as? ResearchContainerViewController
   }
   
-  /*func application(_ application: UIApplication, open url: URL,
-                   sourceApplication: String?, annotation: Any) -> Bool {
-   
-    return AWSMobileClient.sharedInstance().interceptApplication(
-      application, open: url,
-      sourceApplication: sourceApplication,
-      annotation: annotation)
-    
-  }*/
   func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
     /*
      Store the completion handler.
@@ -82,23 +70,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     lockApp()
-    //Displays connected to AWS Mobile message
+
     AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
     AWSDDLog.sharedInstance.logLevel = .info
     
-    let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegionType.USEast1, identityPoolId: "us-east-1:3c6c308d-80fd-4373-b195-33c2d652e189")
-
-    let region = AWSRegionType.USEast1
-    let serviceConfiguration = AWSServiceConfiguration.init(region: region, credentialsProvider: credentialsProvider)
+    let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSConstants.region, identityPoolId: AWSConstants.identityPoolID)
+   
+    let serviceConfiguration = AWSServiceConfiguration.init(region: AWSConstants.region, credentialsProvider: credentialsProvider)
     AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
+    //S3
     AWSS3TransferUtility.register(with: serviceConfiguration!, forKey: "TransferUtility")
-    
-    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSUserPoolKeys.appClientID, clientSecret: AWSUserPoolKeys.appClientSecret, poolId: AWSUserPoolKeys.poolID)
+    //Cognito User Pools/Identity
+    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSConstants.appClientID, clientSecret: AWSConstants.appClientSecret, poolId: AWSConstants.poolID)
     AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: "UserPool")
     let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
 
     pool.delegate = self
-    return true//AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
+    return true
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
@@ -189,6 +177,3 @@ extension AppDelegate: AWSCognitoIdentityRememberDevice {
   }
 }
 
-class CognitoUser {
-    static var user: AWSCognitoIdentityUser?
-}
