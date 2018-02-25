@@ -18,7 +18,9 @@ struct AWSConstants {
   static let poolID = "YourCognitoPoolID"
   static let appClientID = "YourAppClientID"
   static let appClientSecret = "YourAppClientSecret"
+  static let identityPoolID = "YouIdentityPoolID"
   static let region = AWSRegionType.USEast1 //Which ever region your resources are held.
+  static let bucket = "YourS3BucketName"
 }
   ```
 Note: You'll need to change your AWS Region throughout the app if you aren't using USEast1
