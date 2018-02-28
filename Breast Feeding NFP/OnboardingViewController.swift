@@ -30,6 +30,8 @@
 
 import UIKit
 import ResearchKit
+import AWSCore
+import AWSCognitoIdentityProvider
 import AWSS3
 
 let loginUUID = UUID()
@@ -94,12 +96,10 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         }
         let pdf = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
         let consentPDF = pdf?.appendingPathComponent("consent.pdf")
+        //TODO: WHERE I LEFT OFF..........
         
-
-     
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
-        
-       
+        print(transferUtility.configuration.credentialsProvider)
         let expression = AWSS3TransferUtilityUploadExpression()
        // expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
         let uuidString = UUID().uuidString
@@ -111,9 +111,6 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
           if let _ = task.result {
             print("Before task result")
             print(task.result!.debugDescription)
-            print(task.isCompleted)
-            print(task.description)
-            print(task.result!.response?.description)
             
           }
           return nil

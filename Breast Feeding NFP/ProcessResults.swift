@@ -52,7 +52,7 @@ class ProcessResults {
   }
   
   func uploadResults(path: NSURL, fileName: String) {
- 
+  
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")

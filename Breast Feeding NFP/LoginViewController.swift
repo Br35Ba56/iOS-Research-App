@@ -73,14 +73,21 @@ class LoginViewController: ORKLoginStepViewController {
         
         if task.error == nil {
           print("No Error")
-          print(task.result?.accessToken?.tokenString)
+          print(task.result?.idToken?.tokenString)
           
+          AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider.credentials()
           self.goForward()
         } else {
           print("Some Error")
           print(task.error)
         }
         return nil
+      }).continueWith(block: {
+        (task:AWSTask!) -> AnyObject! in
+        if let error = task.error {
+          print("Auth Cred Errorr")
+        }
+        return task
       })
       print(AppDelegate.user?.isSignedIn)
  

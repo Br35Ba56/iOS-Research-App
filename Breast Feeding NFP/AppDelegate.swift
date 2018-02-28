@@ -30,12 +30,13 @@
 
 import UIKit
 import ResearchKit
+import AWSCore
 import AWSS3
 import AWSCognitoIdentityProvider
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  
+  var identityManager: AWSIdentityProviderManager?
   static var user: AWSCognitoIdentityUser?
   var loginViewController: LoginViewController?
   var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
@@ -73,22 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
     AWSDDLog.sharedInstance.logLevel = .info
-    
-    let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSConstants.region, identityPoolId: AWSConstants.identityPoolID)
-   
-    let serviceConfiguration = AWSServiceConfiguration.init(region: AWSConstants.region, credentialsProvider: credentialsProvider)
-    AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
-    //S3
-    AWSS3TransferUtility.register(with: serviceConfiguration!, forKey: "TransferUtility")
-    //Cognito User Pools/Identity
-    let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSConstants.appClientID, clientSecret: AWSConstants.appClientSecret, poolId: AWSConstants.poolID)
-    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: "UserPool")
-    let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
 
-    pool.delegate = self
+    
+    //Cognito User Pools/Identity
+    let serviceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: nil)
+    let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: AWSConstants.appClientID, clientSecret: AWSConstants.appClientSecret, poolId: AWSConstants.poolID)
+    AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: userPoolConfiguration, forKey: "UserPool")
+    let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+    let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: AWSConstants.identityPoolID, identityProviderManager:pool)
+    
+    AWSServiceManager.default().defaultServiceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
+    AWSS3TransferUtility.register(with: AWSServiceManager.default().defaultServiceConfiguration!, forKey: "TransferUtility")
     return true
   }
-  
+
   func applicationDidEnterBackground(_ application: UIApplication) {
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
       // Hide content so it doesn't appear in the app switcher.
@@ -136,6 +135,7 @@ extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
   }
 }
 
+
 // MARK:- AWSCognitoIdentityRememberDevice protocol delegate
 extension AppDelegate: AWSCognitoIdentityRememberDevice {
   
@@ -176,4 +176,3 @@ extension AppDelegate: AWSCognitoIdentityRememberDevice {
     }
   }
 }
-
