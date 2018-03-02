@@ -33,6 +33,7 @@ import ResearchKit
 import AWSCore
 import AWSS3
 import AWSCognitoIdentityProvider
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -71,10 +72,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     lockApp()
-
+    setUpAWSServices()
+    if checkForUser() == false {
+      print("False")
+      
+      self.containerViewController?.toLoginOrSignup()
+    } else {
+      print(true)
+    }
+    return true
+  }
+  
+  func checkForUser() -> Bool {
+    let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
+    if (pool.currentUser()?.isSignedIn)! {
+      guard let username = KeychainWrapper.standard.string(forKey: "Username"), let password = KeychainWrapper.standard.string(forKey: "Password") else {return false}
+      pool.currentUser()?.getSession(username, password: password, validationData: nil)
+    }
+    return true
+  }
+  
+  func setUpAWSServices() {
     AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
     AWSDDLog.sharedInstance.logLevel = .info
-
     
     //Cognito User Pools/Identity
     let serviceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: nil)
@@ -82,10 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: userPoolConfiguration, forKey: "UserPool")
     let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
     let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: AWSConstants.identityPoolID, identityProviderManager:pool)
-    
     AWSServiceManager.default().defaultServiceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
     AWSS3TransferUtility.register(with: AWSServiceManager.default().defaultServiceConfiguration!, forKey: "TransferUtility")
-    return true
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
@@ -96,18 +114,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func applicationWillEnterForeground(_ application: UIApplication) {
+   
     lockApp()
   }
-  
+ 
   func lockApp() {
     /*
      Only lock the app if there is a stored passcode and a passcode
      controller isn't already being shown.
      */
+  
     guard ORKPasscodeViewController.isPasscodeStoredInKeychain() && !(containerViewController?.presentedViewController is ORKPasscodeViewController) else { return }
     
     window?.makeKeyAndVisible()
-    
+  
     let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Welcome back to the Natural Family Planning Breastfeeding Research Study", delegate: self)
     containerViewController?.present(passcodeViewController, animated: false, completion: nil)
   }
@@ -120,20 +140,13 @@ extension AppDelegate: ORKPasscodeDelegate {
   }
   
   func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
+    //TODO:  What happens if user forgets passcode????
+    //Should challenge them to Cognito log in then reset passcode after authentication with cognito
     
   }
 }
 
-extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
-  
-  func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
-    print("Start password auth")
-    return self.loginViewController! as AWSCognitoIdentityPasswordAuthentication
-  }
-  func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
-    return self
-  }
-}
+
 
 
 // MARK:- AWSCognitoIdentityRememberDevice protocol delegate

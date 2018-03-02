@@ -7,7 +7,7 @@ target 'Breast Feeding NFP' do
 
   # Pods for Breast Feeding NFP
   pod 'ResearchKit', :path => "/Users/pinkman/ResearchKitMaster/ResearchKit"
-  pod 'AWSMobileClient', '~> 2.6.6'
+  pod 'AWSMobileAnalytics', '~> 2.6.6'
   pod 'AWSUserPoolsSignIn', '~> 2.6.6'
   pod 'AWSAuthUI', '~> 2.6.6'
   pod 'AWSAuthCore', '~> 2.6.6'

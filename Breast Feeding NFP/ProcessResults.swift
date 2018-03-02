@@ -16,7 +16,6 @@ class ProcessResults {
   private var uuid: UUID
   private var surveyType: String!
   static private var processResults: ProcessResults!
-    var user: AWSCognitoIdentityUser?
   
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
   let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")

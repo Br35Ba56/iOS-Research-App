@@ -30,6 +30,7 @@
 
 import UIKit
 import ResearchKit
+import AWSCognitoIdentityProvider
 
 class ResearchContainerViewController: UIViewController {
   
@@ -65,11 +66,19 @@ class ResearchContainerViewController: UIViewController {
   @IBAction func unwindToStudy(_ segue: UIStoryboardSegue) {
     toStudy()
   }
+  
   @IBAction func unwindToWithdrawl(_ segue: UIStoryboardSegue) {
     toWithdrawl()
   }
+  
+  @IBAction func unwindForSignOut(segue: UIStoryboardSegue) {
+    let pool = AWSCognitoIdentityUserPool.init(forKey: "UserPool")
+    pool.getUser().signOut()
+    toOnboarding()
+  }
+  
   func toLoginOrSignup() {
-    performSegue(withIdentifier: "toLoginOrSignup", sender: self)
+    performSegue(withIdentifier: "toOnboarding", sender: self)
   }
   //MARK: Transitions
   func toOnboarding() {

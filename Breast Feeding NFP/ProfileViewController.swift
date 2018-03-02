@@ -29,9 +29,17 @@
  */
 
 import UIKit
+import AWSCognitoIdentityProvider
 
-class SecondViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
+  @IBAction func signOutAction(_ sender: Any) {
+    let pool = AWSCognitoIdentityUserPool.init(forKey: "UserPool")
+    let user = pool.getUser()
+    user.signOut()
+    self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.

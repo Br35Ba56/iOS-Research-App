@@ -96,7 +96,6 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         }
         let pdf = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last
         let consentPDF = pdf?.appendingPathComponent("consent.pdf")
-        //TODO: WHERE I LEFT OFF..........
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
         print(transferUtility.configuration.credentialsProvider)

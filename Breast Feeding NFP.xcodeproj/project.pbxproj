@@ -11,7 +11,7 @@
 		BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC145E82202D4A0E004A516B /* VerificationStep.swift */; };
 		BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AD1F4F3072006629AC /* AppDelegate.swift */; };
 		BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3AF1F4F3072006629AC /* FirstViewController.swift */; };
-		BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3B11F4F3072006629AC /* SecondViewController.swift */; };
+		BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC21F3B11F4F3072006629AC /* ProfileViewController.swift */; };
 		BC21F3B51F4F3072006629AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC21F3B31F4F3072006629AC /* Main.storyboard */; };
 		BC21F3B71F4F3072006629AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC21F3B61F4F3072006629AC /* Assets.xcassets */; };
 		BC21F3BA1F4F3072006629AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */; };
@@ -71,7 +71,7 @@
 		BC21F3AA1F4F3072006629AC /* Breast Feeding NFP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breast Feeding NFP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC21F3AD1F4F3072006629AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC21F3AF1F4F3072006629AC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		BC21F3B11F4F3072006629AC /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BC21F3B11F4F3072006629AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC21F3B41F4F3072006629AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC21F3B61F4F3072006629AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC21F3B91F4F3072006629AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
 				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
 				BCBBFC1C1F6527CC009AA9B9 /* Results */,
-				BC21F3B11F4F3072006629AC /* SecondViewController.swift */,
+				BC21F3B11F4F3072006629AC /* ProfileViewController.swift */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
 				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
 			);
@@ -496,7 +496,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileAnalytics/AWSMobileAnalytics.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
 				"${BUILT_PRODUCTS_DIR}/ResearchKit/ResearchKit.framework",
@@ -510,7 +510,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileAnalytics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ResearchKit.framework",
@@ -618,7 +618,7 @@
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
-				BC21F3B21F4F3072006629AC /* SecondViewController.swift in Sources */,
+				BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,

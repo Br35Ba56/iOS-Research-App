@@ -63,76 +63,41 @@ class LoginViewController: ORKLoginStepViewController {
     super.didReceiveMemoryWarning()
   }
   
+  @IBAction func forgotPasswordAction(_ sender: Any) {
+    forgotPasswordButtonTapped()
+  }
+  @IBAction func signInButtonAction(_ sender: Any) {
+    signIn()
+  }
+  
+  override func forgotPasswordButtonTapped() {
+    user?.forgotPassword()
+  }
+  
   func signIn() {
     if (self.username.text != nil && self.password.text != nil) {
-      let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.username.text!, password: self.password.text! )
-      
-    
       user?.getSession(username.text!, password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
         (task:AWSTask!) -> AnyObject! in
-        
         if task.error == nil {
-          print("No Error")
-          print(task.result?.idToken?.tokenString)
-          
           AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider.credentials()
           self.goForward()
         } else {
-          print("Some Error")
-          print(task.error)
+          print(task.error.debugDescription)
         }
         return nil
       }).continueWith(block: {
         (task:AWSTask!) -> AnyObject! in
         if let error = task.error {
-          print("Auth Cred Errorr")
+          print(error)
         }
         return task
       })
-      print(AppDelegate.user?.isSignedIn)
- 
     } else {
       let alertController = UIAlertController(title: "Missing information",
                                               message: "Please enter a valid user name and password",
                                               preferredStyle: .alert)
       let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
       alertController.addAction(retryAction)
-    }
-  }
-  
-  override func forgotPasswordButtonTapped() {
-    print("Forgot password")
-  }
-  
-  @IBAction func signInButtonAction(_ sender: Any) {
-    signIn()
-    //let session = AppDelegate.user?.getSession()
-    //print(session.debugDescription)
-  }
-}
-extension LoginViewController: AWSCognitoIdentityPasswordAuthentication {
-  
-  public func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
-    self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
-    let debug = self.passwordAuthenticationCompletion.debugDescription
-    print("Debug getDetails")
-    print(debug)
-  }
-  
-  public func didCompleteStepWithError(_ error: Error?) {
-    print("IS ERROR FUNCTION RUNNING?")
-    DispatchQueue.main.async {
-      if let error = error as NSError? {
-        let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                message: error.userInfo["message"] as? String,
-                                                preferredStyle: .alert)
-        let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-        alertController.addAction(retryAction)
-        
-        self.present(alertController, animated: true, completion:  nil)
-      } else {
-        print("Success Signing In")
-      }
     }
   }
 }
