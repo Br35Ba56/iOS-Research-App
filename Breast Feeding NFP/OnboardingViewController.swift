@@ -49,8 +49,6 @@ class OnboardingViewController: UIViewController {
   }
 }
 
-
-
 extension OnboardingViewController: ORKTaskViewControllerDelegate {
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     switch reason {
