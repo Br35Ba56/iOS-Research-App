@@ -8,7 +8,7 @@
 
 import Foundation
 import AWSS3
-import AWSCognitoIdentityProvider
+import SwiftKeychainWrapper
 
 class ProcessResults {
   private var results: TaskResults!
@@ -55,7 +55,7 @@ class ProcessResults {
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
-    transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserUUID() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+    transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserName() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
       }
@@ -66,13 +66,11 @@ class ProcessResults {
     }
   }
   
-  private static func getUserUUID() -> String {
-    if let userUUID = UserDefaults.standard.object(forKey: "User UUID") {
-      if let userUUIDString = userUUID as? String {
-        return userUUIDString
-      }
+  private static func getUserName() -> String {
+    if let userName = KeychainWrapper.standard.string(forKey: "Username") {
+      return userName
     }
-    return ""
+    return "Unkown User"
   }
 }
 

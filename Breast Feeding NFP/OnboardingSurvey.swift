@@ -51,6 +51,9 @@ struct Onboarding {
     completionStep.text = "Thank you for joining this study."
 
     let orderedTask = OnboardingTask(identifier: Onboarding.task, steps: [
+      
+      //Eligibility
+      biologicalSexStep,
       biologicalInfantStep,
       singletonBirthStep,
       babyBornFullTermStep,
@@ -60,68 +63,90 @@ struct Onboarding {
       infantAgeInRangeStep,
       clearBlueMonitorStep,
       canReadEnglishStep,
-      //TODO: add this step when question format is verified
-      //biologicalSexStep,
       
+      //Consent Document
       consentStep,
       reviewConsentStep,
+      
+      //Demographic
+      participantBirthDateStep,
+      babysBirthDateStep,
+      babyFeedOnDemandStep,
+      breastPumpInfoStep,
+      ethnicityStep,
+      religionStep,
+      levelOfEducationStep,
+      relationshipStatusStep,
+      marriedLengthStep,
+      howManyTimesPregnant,
+      howManyBiologicalChildren,
+      howManyChildrenBreastFedStep,
+      howLongInPastBreastFedStep,
       registrationInstructionStep,
       registrationStep,
       verificationStep,
       loginStep,
-      participantBirthDateStep,
-      babysBirthDateStep,
-      ethnicityStep,
-      levelOfEducationStep,
-      maritalStatusStep,
-      marriedLengthStep,
-      howManyChildrenStep,
       passcodeStep,
       completionStep,
       ineligibleStep])
     
-    //Build predicates to direct to ineligible page.
+    //Mark: Ineligible Predicates
     var resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.biologicalInfantStepID)
-    let predicate1 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let biologicalInfantPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.singletonBirthStepID)
-    let predicate2 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let singletonBirthPredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.babyBornFullTermStep)
-    let predicate3 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let babyBornFullTermPredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.momHealthStepID)
-    let predicate4 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: true)
+    let momHealthPredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: true)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.breastSurgeryStepID)
-    let predicate5 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: true)
+    let breastSurgeryPredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: true)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.participantAgeInRangeStepID)
-    let predicate6 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let participantAgeInRangePredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.infantAgeInRangeStepID)
-    let predicate7 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let infantAgeInRangePredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.clearBlueMonitorStepID)
-    let predicate8 =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let clearBlueMonitorPredicate =  ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.canReadEnglishStepID)
-    let predicate10 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    let canReadEnglishPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
-    resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.maritalStatusStepID)
-    let predicate9 = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
+    //Mark: Demographic Predicates
+    resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.relationShipStatusID)
+    let relationshipStatusPredicateOne = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 1 as NSCoding & NSCopying & NSObjectProtocol)
+    let relationshipStatusPredicateTwo = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 2 as NSCoding & NSCopying & NSObjectProtocol)
+    let relationshipStatusPredicateThree =  ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 3 as NSCoding & NSCopying & NSObjectProtocol)
+    let relationshipStatusPredicateFour =  ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 4 as NSCoding & NSCopying & NSObjectProtocol)
+    let relationshipStatusPredicateFive =  ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 5 as NSCoding & NSCopying & NSObjectProtocol)
+    
+    resultSelector = ORKResultSelector(resultIdentifier: EligibilitySteps.biologicalSexStepID)
+    let biologicalSexPredicateMale = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 1 as NSCoding & NSCopying & NSObjectProtocol)
+    let biologicalSexPredicateOther = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 2 as NSCoding & NSCopying & NSObjectProtocol)
 
-
-    let rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate1, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate2, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate3, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate4, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate5, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate6, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate7, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate8, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate10, EligibilitySteps.ineligibleStepID),
-                                                                                              (predicate9, DemographicSteps.howManyChildrenStepID)])
+    //Mark: Navigation Rules
+    let rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(biologicalSexPredicateMale, EligibilitySteps.ineligibleStepID),
+                                                                                              (biologicalSexPredicateOther, EligibilitySteps.ineligibleStepID),
+                                                                                              (biologicalInfantPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (singletonBirthPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (babyBornFullTermPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (momHealthPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (breastSurgeryPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (participantAgeInRangePredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (infantAgeInRangePredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (clearBlueMonitorPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (canReadEnglishPredicate, EligibilitySteps.ineligibleStepID),
+                                                                                              (relationshipStatusPredicateOne, DemographicSteps.howManyBiologicalChildrenStepID),
+                                                                                              (relationshipStatusPredicateTwo, DemographicSteps.howManyBiologicalChildrenStepID),
+                                                                                              (relationshipStatusPredicateThree, DemographicSteps.howManyBiologicalChildrenStepID),
+                                                                                              (relationshipStatusPredicateFour, DemographicSteps.howManyBiologicalChildrenStepID),
+                                                                                              (relationshipStatusPredicateFive, DemographicSteps.howManyBiologicalChildrenStepID)])
     
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.biologicalInfantStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.singletonBirthStepID)
@@ -132,7 +157,8 @@ struct Onboarding {
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.infantAgeInRangeStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.clearBlueMonitorStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.canReadEnglishStepID)
-    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.maritalStatusStepID)
+    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.biologicalSexStepID)
+    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.relationShipStatusID)
     
     let directRule = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
     orderedTask.setNavigationRule(directRule, forTriggerStepIdentifier: "CompletionStep")
@@ -146,6 +172,18 @@ struct Onboarding {
   }()
   
   //MARK: Eligibility Steps
+  
+  private static let biologicalSexStep: ORKStep = {
+    let title = "What is your biological sex?"
+    let textChoices = [ORKTextChoice(text: "Female", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Male", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "None of the above", value: 2 as NSCoding & NSCopying & NSObjectProtocol)
+    ]
+    let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
+    let biologicalSexStep = ORKQuestionStep(identifier: EligibilitySteps.biologicalSexStepID, title: title, answer: answerFormat)
+    biologicalSexStep.isOptional = false
+    return biologicalSexStep
+  }()
   
   private static let biologicalInfantStep: ORKStep = {
     let title = "Are you breastfeeding your biological infant?"
@@ -174,17 +212,6 @@ struct Onboarding {
     participantAgeStep.isOptional = false
     return participantAgeStep
   }()
-  
-  
-  //TODO: Delete this when verified no longer a question
-  /*
-  private static let babyHealthStep: ORKStep = {
-    let title = "Is your baby healthy?"
-    let babyHealthStep = ORKQuestionStep(identifier: EligibilitySteps.babyHealthStepID, title: title, answer: boolAnswerFormat)
-    babyHealthStep.isOptional = false
-    return babyHealthStep
-  }()
-  */
   
   private static let momHealthStep: ORKStep = {
     let title = "Have you ever been diagnosed with any of the following?"
@@ -227,37 +254,6 @@ struct Onboarding {
     return canReadEnglishStep
   }()
   
-  //MARK: Registration Steps
-  private static let registrationInstructionStep: ORKStep = {
-    let registrationInstructionStep = ORKInstructionStep(identifier: "InstructionStep")
-    registrationInstructionStep.title = "Registration"
-    registrationInstructionStep.text = "In the next two steps you will register with our service and verify your account.  The verification code will be sent to the phone number you provide."
-    return registrationInstructionStep
-  }()
-  
-  private static let registrationStep: ORKStep = {
-    //let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
-   let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
-    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "")
-    for item in registrationStep.formItems! {
-        if item.identifier == ORKRegistrationFormItemIdentifierPhoneNumber {
-            item.placeholder = "+15555555555"
-        }
-    }
-    registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][1-9]{10,10}$")
-    registrationStep.phoneNumberInvalidMessage = "Invalid phone number"
-    return registrationStep
-  }()
-  
-  private static let verificationStep: ORKStep = {
-      let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
-    return verificationStep
-  }()
-  
-  private static let loginStep: ORKStep = {
-    let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Login", text: "Enter username and password", loginViewControllerClass: LoginViewController.self)
-    return loginStep
-  }()
   
   //MARK: Demographic Steps
   
@@ -285,6 +281,26 @@ struct Onboarding {
     return childBirthDateStep
   }()
   
+  private static let babyFeedOnDemandStep: ORKStep = {
+    let title = "Does you baby feed on demand or on a schedule?"
+    let textChoices = [ORKTextChoice(text: "On Demand", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "On Schedule", value: 1 as NSCoding & NSCopying & NSObjectProtocol)
+    ]
+    let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
+    let babyFeedOnDemandStep = ORKQuestionStep(identifier: DemographicSteps.babyFeedOnDemandStepID, title: title, answer: answerFormat)
+    babyFeedOnDemandStep.isOptional = false
+    return babyFeedOnDemandStep
+  }()
+  
+  private static let breastPumpInfoStep: ORKStep = {
+    let title = "Do you have a breast pump?"
+    let text = "If yes, what brand is it?"
+    let answerFormat = ORKTextAnswerFormat(maximumLength: 30)
+    let breastPumpInfoStep = ORKQuestionStep(identifier: DemographicSteps.breastPumpInfoStepID, title: title, answer: answerFormat)
+    breastPumpInfoStep.isOptional = true
+    return breastPumpInfoStep
+  }()
+  
   private static let ethnicityStep: ORKStep = {
     let title = "What race do you consider yourself to be?"
     let textChoices = [ORKTextChoice(text: "White or European-American", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
@@ -292,10 +308,26 @@ struct Onboarding {
                                ORKTextChoice(text: "Native American or American Indian", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Asian / Pacific Islander", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Hispanic or Latino", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "Some Other Race", value: 5 as NSCoding & NSCopying & NSObjectProtocol),
+                               ORKTextChoice(text: "Some Other Race", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
                                ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
     let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.ethnicityStepID, title: title, answer: answerFormat)
+    return ethnicityQuestionStep
+  }()
+  
+  private static let religionStep: ORKStep = {
+    let title = "What religion (if any) do you belong to or most closely identify with?"
+    let textChoices = [ORKTextChoice(text: "Catholic", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Lutheran", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Methodist", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Baptist", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Jewish", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Muslim", value: 5 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "No Religion", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
+                       ]
+    let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
+    let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.religionStepID, title: title, answer: answerFormat)
     return ethnicityQuestionStep
   }()
   
@@ -311,10 +343,17 @@ struct Onboarding {
     return levelOfEducationStep
   }()
   
-  private static let maritalStatusStep: ORKStep = {
-    let title = "What is your marital status?"
-    let answerFormat: ORKBooleanAnswerFormat = ORKBooleanAnswerFormat(yesString: "Married", noString: "Single")
-    let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.maritalStatusStepID, title: title, answer: answerFormat)
+  private static let relationshipStatusStep: ORKStep = {
+    let title = "What is your relationship status?"
+    let textChoices = [ORKTextChoice(text: "Married", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Not married, cohabitating", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "In a relationship, not cohabitating", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Single and not dating", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Single and dating", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
+    let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
+    let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.relationShipStatusID, title: title, answer: answerFormat)
+    maritalStatusStep.isOptional = false
     return maritalStatusStep
   }()
   
@@ -327,18 +366,78 @@ struct Onboarding {
     return marriedLengthStep
   }()
   
-  private static let howManyChildrenStep: ORKStep = {
-    let title = "How many children do you have?"
+  private static let howManyTimesPregnant: ORKStep = {
+    let title = "How many times have you been pregnant?"
+    let text = "Including miscarriages or abortions"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
-    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenStepID, title: "How many children do you have?", answer: answerFormat)
+    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyTimesPregnantStepID, title: title, answer: answerFormat)
+    howManyChildrenStep.text = text
     return howManyChildrenStep
   }()
+  
+  private static let howManyBiologicalChildren: ORKStep = {
+    let title = "How many biological children do you have?"
+    let numericStyle = ORKNumericAnswerStyle.integer
+    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
+    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyBiologicalChildrenStepID, title: title, answer: answerFormat)
+    return howManyChildrenStep
+  }()
+  
+  private static let howManyChildrenBreastFedStep: ORKStep = {
+    let title = "How many children have you breast fead?"
+    let numericStyle = ORKNumericAnswerStyle.integer
+    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
+    let howManyChildrenBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenBreastFedStepID, title: title, answer: answerFormat)
+    return howManyChildrenBreastFedStep
+  }()
+ 
+  private static let howLongInPastBreastFedStep: ORKStep = {
+    let title = "How long in the past have your breastfed?"
+    let numericStyle = ORKNumericAnswerStyle.integer
+    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "months", minimum: 1, maximum: 24)
+    let howLongInPastBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howLongInPastBreastFedStepID, title: title, answer: answerFormat)
+    return howLongInPastBreastFedStep
+  }()
+  
+  //MARK: Registration Steps
+  private static let registrationInstructionStep: ORKStep = {
+    let registrationInstructionStep = ORKInstructionStep(identifier: "InstructionStep")
+    registrationInstructionStep.title = "Registration"
+    registrationInstructionStep.text = "In the next two steps you will register with our service and verify your account.  The verification code will be sent to the phone number you provide."
+    return registrationInstructionStep
+  }()
+  
+  private static let registrationStep: ORKStep = {
+    //let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
+    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
+    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "")
+    for item in registrationStep.formItems! {
+      if item.identifier == ORKRegistrationFormItemIdentifierPhoneNumber {
+        item.placeholder = "+15555555555"
+      }
+    }
+    registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][1-9]{10,10}$")
+    registrationStep.phoneNumberInvalidMessage = "Invalid phone number"
+    return registrationStep
+  }()
+  
+  private static let verificationStep: ORKStep = {
+    let verificationStep = ORKVerificationStep(identifier: "VerificationStep", text: "Please verify the code sent to your email.", verificationViewControllerClass: VerificationStepViewController.self)
+    return verificationStep
+  }()
+  
+  private static let loginStep: ORKStep = {
+    let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Login", text: "Enter username and password", loginViewControllerClass: LoginViewController.self)
+    return loginStep
+  }()
+  
 }
 
 //MARK: Step IDs
 
 struct EligibilitySteps {
+  static let biologicalSexStepID = "biologicalSexStepID"
   static let biologicalInfantStepID = "biologicalInfantStepID"
   static let singletonBirthStepID = "singletonBirthStepID"
   static let babyBornFullTermStep = "babyFullTermStepID"
@@ -349,20 +448,20 @@ struct EligibilitySteps {
   static let clearBlueMonitorStepID = "clearBlueMonitorStepID"
   static let canReadEnglishStepID = "canReadEnglishStepID"
   static let ineligibleStepID = "ineligibleStepID"
- 
-  //static let babyHealthStepID = "babyHealthID"
-  
-  
-  
 }
 
 struct DemographicSteps {
-  static let demographicTaskID = "demographicTaskID"
   static let participantBirthDateStepID = "participantBirthDateStepID"
-  static let ethnicityStepID = "ethnicityStepID"
-  static let levelOfEducationStepID = "levelOfEducationID"
-  static let maritalStatusStepID = "maritalStepID"
-  static let marriedLengthStepID = "marriedLengthStepID"
   static let babysBirthDateStepID = "babyBirthDateStepID"
-  static let howManyChildrenStepID = "howManyChildrenStepID"
+  static let babyFeedOnDemandStepID = "babyFeedOnDemandStepID"
+  static let breastPumpInfoStepID = "breastPumpInfoStepID"
+  static let ethnicityStepID = "ethnicityStepID"
+  static let religionStepID = "religionStepID"
+  static let levelOfEducationStepID = "levelOfEducationID"
+  static let relationShipStatusID = "relationShipStatusStepID"
+  static let marriedLengthStepID = "marriedLengthStepID"
+  static let howManyTimesPregnantStepID = "howManyTimesPregnantStepID"
+  static let howManyBiologicalChildrenStepID = "howManyBiologicalChildrenStepID"
+  static let howManyChildrenBreastFedStepID = "howManyChildrenBreastFedStepID"
+  static let howLongInPastBreastFedStepID = "howLongInPastBreastFedStepID"
 }

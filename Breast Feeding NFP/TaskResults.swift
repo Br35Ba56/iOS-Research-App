@@ -57,31 +57,38 @@ class BreastFeedingTaskResults: TaskResults {
 }
 
 class OnboardingTaskResults: TaskResults {
-  var results: [String : String] = [EligibilitySteps.biologicalInfantStepID: "-1",
+  var results: [String : String] = [EligibilitySteps.biologicalSexStepID: "-1",
+                                    EligibilitySteps.biologicalInfantStepID: "-1",
                                     EligibilitySteps.singletonBirthStepID: "-1",
                                     EligibilitySteps.babyBornFullTermStep: "-1",
+                                    EligibilitySteps.participantAgeInRangeStepID: "-1",
                                     EligibilitySteps.momHealthStepID: "-1",
                                     EligibilitySteps.breastSurgeryStepID: "-1",
-                                    EligibilitySteps.participantAgeInRangeStepID: "-1",
                                     EligibilitySteps.infantAgeInRangeStepID: "-1",
                                     EligibilitySteps.clearBlueMonitorStepID: "-1",
+                                    EligibilitySteps.canReadEnglishStepID: "-1",
                                     DemographicSteps.participantBirthDateStepID: "-1",
                                     DemographicSteps.babysBirthDateStepID: "-1",
+                                    DemographicSteps.babyFeedOnDemandStepID: "-1",
+                                    DemographicSteps.breastPumpInfoStepID: "-1",
                                     DemographicSteps.ethnicityStepID: "-1",
+                                    DemographicSteps.religionStepID: "-1",
                                     DemographicSteps.levelOfEducationStepID: "-1",
-                                    DemographicSteps.maritalStatusStepID: "-1",
+                                    DemographicSteps.relationShipStatusID: "-1",
                                     DemographicSteps.marriedLengthStepID: "-1",
-                                    DemographicSteps.howManyChildrenStepID: "-1",
+                                    DemographicSteps.howManyTimesPregnantStepID: "-1",
+                                    DemographicSteps.howManyBiologicalChildrenStepID: "-1",
+                                    DemographicSteps.howManyChildrenBreastFedStepID: "-1",
+                                    DemographicSteps.howLongInPastBreastFedStepID: "-1"
                                     ]
   
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
   }
-  
+
   func getEntryString() -> String {
-    return "\(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyBornFullTermStep]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.maritalStatusStepID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyChildrenStepID]!)"
+    return "\(results[EligibilitySteps.biologicalSexStepID]!), \(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyBornFullTermStep]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[EligibilitySteps.canReadEnglishStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.babyFeedOnDemandStepID]!), \(results[DemographicSteps.breastPumpInfoStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.religionStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.relationShipStatusID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyTimesPregnantStepID]!), \(results[DemographicSteps.howManyBiologicalChildrenStepID]!), \(results[DemographicSteps.howManyChildrenBreastFedStepID]!), \(results[DemographicSteps.howLongInPastBreastFedStepID]!)"
   }
-  
 }
 
 struct StringFormatter {
