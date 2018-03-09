@@ -325,7 +325,7 @@ struct Onboarding {
                        ORKTextChoice(text: "Muslim", value: 5 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "No Religion", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
-                       ]
+    ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
     let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.religionStepID, title: title, answer: answerFormat)
     return ethnicityQuestionStep
@@ -333,11 +333,11 @@ struct Onboarding {
   
   private static let levelOfEducationStep: ORKStep = {
     let title = "What is your highest level of education completed?"
-    let textChoices = [ORKTextChoice(text: "High School", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "Associate Degree", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "Bachelor Degree", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "Master Degree", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
-                               ORKTextChoice(text: "Doctorate Degree", value: 4 as NSCoding & NSCopying & NSObjectProtocol)]
+    let textChoices = [ORKTextChoice(text: "High School or less", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Some college", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "College degree", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+                       ORKTextChoice(text: "Postgraduate school", value: 3 as NSCoding & NSCopying & NSObjectProtocol)
+    ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
     let levelOfEducationStep = ORKQuestionStep(identifier: DemographicSteps.levelOfEducationStepID, title: title, answer: answerFormat)
     return levelOfEducationStep
@@ -350,7 +350,8 @@ struct Onboarding {
                        ORKTextChoice(text: "In a relationship, not cohabitating", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Single and not dating", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Single and dating", value: 4 as NSCoding & NSCopying & NSObjectProtocol),
-                       ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)]
+                       ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
+    ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
     let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.relationShipStatusID, title: title, answer: answerFormat)
     maritalStatusStep.isOptional = false
@@ -385,7 +386,7 @@ struct Onboarding {
   }()
   
   private static let howManyChildrenBreastFedStep: ORKStep = {
-    let title = "How many children have you breast fead?"
+    let title = "How many children have you breastfed?"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
     let howManyChildrenBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenBreastFedStepID, title: title, answer: answerFormat)
@@ -409,9 +410,9 @@ struct Onboarding {
   }()
   
   private static let registrationStep: ORKStep = {
-    //let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Please fill out the form to register as a participant.")
     let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
-    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "")
+    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$^+=!*()@%&]).{8,10}$")
+    registrationStep.passcodeInvalidMessage = "Password must be atleast 8 characters long and contain atleast 1 upper character, 1 lower character, 1 number, and 1 special character"
     for item in registrationStep.formItems! {
       if item.identifier == ORKRegistrationFormItemIdentifierPhoneNumber {
         item.placeholder = "+15555555555"
@@ -431,7 +432,6 @@ struct Onboarding {
     let loginStep = ORKLoginStep(identifier: "LoginStep", title: "Login", text: "Enter username and password", loginViewControllerClass: LoginViewController.self)
     return loginStep
   }()
-  
 }
 
 //MARK: Step IDs

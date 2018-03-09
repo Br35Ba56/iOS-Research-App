@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -155,38 +156,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axo-ZP-cCp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axo-ZP-cCp">
                                 <rect key="frame" x="127" y="579" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Join Study"/>
                                 <connections>
                                     <action selector="joinAction:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="Fgv-gy-ClK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-Z6-aJj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-Z6-aJj">
                                 <rect key="frame" x="85" y="617" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Already a user?"/>
                                 <connections>
                                     <action selector="alreadyAUser:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="pZ3-IR-LD5"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-Os-WNh">
-                                <rect key="frame" x="16" y="57" width="343" height="521"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="Q7a-hl-dxo" kind="embed" id="haW-M4-fYH"/>
-                                </connections>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BreastFeeding research app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-m4-yYD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BreastFeeding research app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-m4-yYD">
                                 <rect key="frame" x="80" y="20" width="215" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfv-Os-WNh">
+                                <rect key="frame" x="16" y="96" width="343" height="474"/>
+                                <connections>
+                                    <segue destination="Q7a-hl-dxo" kind="embed" id="haW-M4-fYH"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XFg-Z6-aJj" secondAttribute="trailing" constant="70" id="2TP-70-miq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="64" id="3Jh-mO-Tth"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="top" secondItem="Axo-ZP-cCp" secondAttribute="bottom" constant="8" id="6p0-uI-j0S"/>
+                            <constraint firstItem="Qfv-Os-WNh" firstAttribute="trailing" secondItem="697-va-bHk" secondAttribute="trailingMargin" id="75H-7r-YcU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Axo-ZP-cCp" secondAttribute="trailing" constant="111" id="8Zv-WI-YAn"/>
+                            <constraint firstItem="XFg-Z6-aJj" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="69" id="M55-Ad-8PT"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="top" secondItem="Qfv-Os-WNh" secondAttribute="bottom" constant="9" id="OY6-Ev-07e"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="top" secondItem="8UR-e8-p4h" secondAttribute="bottom" id="QJP-bm-h6v"/>
+                            <constraint firstItem="Qfv-Os-WNh" firstAttribute="centerY" secondItem="697-va-bHk" secondAttribute="centerY" id="WcZ-ww-Maq"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="111" id="eqk-jX-Epb"/>
+                            <constraint firstItem="Axo-ZP-cCp" firstAttribute="top" secondItem="Qfv-Os-WNh" secondAttribute="bottom" constant="9" id="h2w-1q-Wbd"/>
+                            <constraint firstItem="Qfv-Os-WNh" firstAttribute="top" secondItem="XLY-m4-yYD" secondAttribute="bottom" constant="55" id="kom-Hf-qzh"/>
+                            <constraint firstItem="Qfv-Os-WNh" firstAttribute="centerX" secondItem="697-va-bHk" secondAttribute="centerX" id="l5Y-cX-qIh"/>
+                            <constraint firstItem="XLY-m4-yYD" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" constant="64" id="x5k-Pz-eOC"/>
+                            <constraint firstItem="Qfv-Os-WNh" firstAttribute="leading" secondItem="697-va-bHk" secondAttribute="leadingMargin" id="ykj-vs-KJn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="5UO-zu-eFE" kind="unwind" identifier="unwindToStudy" unwindAction="unwindToStudy:" id="xQ1-0w-t08"/>
@@ -275,8 +289,12 @@
         <scene sceneID="eoS-xo-AVV">
             <objects>
                 <viewController id="Q7a-hl-dxo" customClass="IntroductionViewController" customModule="Breast_Feeding_NFP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ja7-xo-oGz"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Ro-3k-bbM"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FAI-Zu-HLb">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="521"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="474"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>

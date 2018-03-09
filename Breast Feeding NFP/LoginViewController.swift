@@ -79,7 +79,6 @@ class LoginViewController: ORKLoginStepViewController {
       user?.getSession(username.text!, password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
         (task:AWSTask!) -> AnyObject! in
         if task.error == nil {
-          AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider.credentials()
           self.goForward()
         } else {
           print(task.error.debugDescription)
