@@ -56,9 +56,9 @@ class ActivityViewController: UITableViewController {
     guard let activity = Activity(rawValue: (indexPath as NSIndexPath).row) else { return }
     let taskViewController: ORKTaskViewController
     switch activity {
-    case .survey:
+    case .dailySurvey:
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
-    case .breastfeedingManual:
+    case .weeklySurvey:
       taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
       taskViewController.showsProgressInNavigationBar = false
       /*do {

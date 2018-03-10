@@ -35,7 +35,6 @@
 		BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */; };
 		BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */; };
 		BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */; };
-		BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */; };
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
@@ -100,7 +99,6 @@
 		BCBA36361F549E4F0057C7D8 /* OnboardingSurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSurvey.swift; sourceTree = "<group>"; };
 		BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskResults.swift; sourceTree = "<group>"; };
 		BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEnum.swift; sourceTree = "<group>"; };
-		BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORKDurationOrderedTask.swift; sourceTree = "<group>"; };
 		BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationStepView.xib; sourceTree = "<group>"; };
 		BCC77A71202FE97600D6798B /* LoginTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTask.swift; sourceTree = "<group>"; };
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
@@ -231,7 +229,6 @@
 				BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */,
 				BC7759621F4F619000AF2FC6 /* StudyTasks.swift */,
 				BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */,
-				BCBBFC231F653270009AA9B9 /* ORKDurationOrderedTask.swift */,
 			);
 			name = Activities;
 			sourceTree = "<group>";
@@ -611,7 +608,6 @@
 				BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
 				BCAA5393202BE9DF00EA68EE /* OnboardingTask.swift in Sources */,
-				BCBBFC241F653270009AA9B9 /* ORKDurationOrderedTask.swift in Sources */,
 				BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */,
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,
 				BC48D8E32030CF1B00EEEE35 /* DoNotCommit.swift in Sources */,

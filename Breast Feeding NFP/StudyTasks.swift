@@ -41,9 +41,7 @@ struct StudyTasks {
    //MARK: Daily Survey Task
   static let dailySurveyTask: ORKNavigableOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
-    instructionStep.title = "Daily Menstrual Cycle Events"
-    instructionStep.text = "Please provide information about your cycle."
-    
+    instructionStep.title = "Daily Survey"
     
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Thank you."
@@ -140,63 +138,92 @@ struct StudyTasks {
     return numOfTimesBabyFormulaFedStep
   }()
   
-  //MARK: BreastFeedTask
-  static let manualBreastFeedTask: ORKDurationOrderedTask = {
+  //MARK: Weekly Survey
+  static let manualBreastFeedTask: ORKOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "Instructions")
-    instructionStep.title = "Breast Feeding Entry"
-    instructionStep.text = "Please enter the start and stop times you breast fed your baby."
+    instructionStep.title = "Weekly Survey"
+    instructionStep.text = "Please complete this survey to determine if your still eligible for the study."
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Thank you for your entry!"
-    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "review")
 
-    let orderedTask = ORKDurationOrderedTask(identifier: DateTimeSurvey.taskID, steps: [
+    let orderedTask = ORKOrderedTask(identifier: WeeklySurvey.taskID, steps: [
       instructionStep,
-      manualBreastFedStartStep,
-      manualBreastFedStopStep,
-      reviewStep,
+      areYouPregnantStep,
+      usedAnyContraceptivesStep,
+      recentlyDiagnosedStep,
+      stillBreastfeedingStep,
+      didMenstruateThisWeekStep,
       completionStep
       ])
     
     return orderedTask
   }()
   
-  private static let manualBreastFedStartStep: ORKStep = {
-    let userCalendar = Calendar.current
-    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
-    let answerStyle = ORKDateAnswerStyle.dateAndTime
-    
-    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
-    let manualBreastFedStartStep = ORKQuestionStep(identifier: DateTimeSurvey.startTimeID, title: "Start Time", answer: answerFormat)
-    manualBreastFedStartStep.text = "Please enter a start time."
-    manualBreastFedStartStep.isOptional = false
-    return manualBreastFedStartStep
+  private static let areYouPregnantStep: ORKStep = {
+    let title = "Are you pregnant?"
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let areYouPregnantStep = ORKQuestionStep(identifier: WeeklySurvey.areYouPregnantStepID, title: title, answer: answerFormat)
+    areYouPregnantStep.isOptional = false
+    return areYouPregnantStep
   }()
   
-  private static var manualBreastFedStopStep: ORKStep = {
-    let userCalendar = Calendar.current
-    let minimumDate = userCalendar.date(byAdding: .day, value: -2, to: Date())
-    let answerStyle = ORKDateAnswerStyle.dateAndTime
-    let answerFormat = ORKDateAnswerFormat(style: answerStyle, defaultDate: Date(), minimumDate: minimumDate, maximumDate: Date(), calendar: userCalendar)
-    let manualBreastFedStopStep = ORKQuestionStep(identifier: DateTimeSurvey.stopTimeID, title: "Stop Time", answer: answerFormat)
-    manualBreastFedStopStep.isOptional = false
-    return manualBreastFedStopStep
+  private static let usedAnyContraceptivesStep: ORKStep = {
+    let title = "Contraceptives"
+    let text = "Have you used any hormonal contraceptives including emergency contraception this past week?"
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let usedAnyContraceptivesStep = ORKQuestionStep(identifier: WeeklySurvey.usedAnyContraceptivesStepID, title: title, text: text, answer: answerFormat)
+    usedAnyContraceptivesStep.isOptional = false
+    return usedAnyContraceptivesStep
   }()
+  
+  private static let recentlyDiagnosedStep: ORKStep = {
+    let title = "Diagnosed"
+    let text = "Have you recently been diagnosed with type 2 diabetes mellitus or polysticic ovarian syndrome?"
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let recentlyDiagnosedStep = ORKQuestionStep(identifier: WeeklySurvey.recentlyDiagnosedStepID, title: title, text: text, answer: answerFormat)
+    recentlyDiagnosedStep.isOptional = false
+    return recentlyDiagnosedStep
+  }()
+  
+  private static let stillBreastfeedingStep: ORKStep = {
+    let title = "Still Breastfeeding?"
+    let text = "Are you still breastfeeding?"
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let stillBreastFeedingStep = ORKQuestionStep(identifier: WeeklySurvey.stillBreastfeedingStepID, title: title, text: text, answer: answerFormat)
+    stillBreastFeedingStep.isOptional = false
+    return stillBreastFeedingStep
+  }()
+  
+  private static let didMenstruateThisWeekStep: ORKStep = {
+    let title = "Did you menstruate this week?"
+    let text = "Menstruation occured if bleeding occured with crescendo-decrescendo or decrescendo-crescendo-decrescendo pattern."
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let didMenstruateThisWeekStep = ORKQuestionStep(identifier: WeeklySurvey.didMenstruateThisWeekStepID, title: title, text: text, answer: answerFormat)
+    didMenstruateThisWeekStep.isOptional = false
+    return didMenstruateThisWeekStep
+  }()
+  
+  
+
 }
 
 //MARK: Step IDs
-struct DateTimeSurvey {
-  static let taskID = "DateTimeSurveyID"
-  static let startTimeID = "StartTimeID"
-  static let stopTimeID = "StopTimeID"
+struct WeeklySurvey {
+  static let taskID = "weeklySurveyID"
+  static let areYouPregnantStepID = "areYouPregnantStepID"
+  static let usedAnyContraceptivesStepID = "usedAnyContraceptivesStepID"
+  static let recentlyDiagnosedStepID = "recentlyDiagnosedStepID"
+  static let stillBreastfeedingStepID = "stillBreastfeedingStepID"
+  static let didMenstruateThisWeekStepID = "didMenstruateThisWeekStepID"
 }
 
 struct DailyCycleSurvey {
-  static let taskID = "DailyCycleSurveyID"
-  static let instructionID = "CycleDataIntroStepID"
-  static let clearBlueMonitorStepID = "ClearBlueMonitorStepID"
-  static let progesteroneQuestionStepID = "ProgesteroneStepID"
+  static let taskID = "dailyCycleSurveyID"
+  static let instructionID = "cycleDataIntroStepID"
+  static let clearBlueMonitorStepID = "clearBlueMonitorStepID"
+  static let progesteroneQuestionStepID = "progesteroneStepID"
   static let experienceBleedingStepID = "experienceBleedingStepID"
-  static let menstruationQuestionStepID = "MenstruationQuestionStepID"
+  static let menstruationQuestionStepID = "menstruationQuestionStepID"
   static let numOfTimesBabyBreastFedStepID = "numOfTimesBabyBreastFedStepID"
   static let numOfTimesBabyExpressFedStepID = "numOfTimesBabyExpressFedStepID"
   static let numOfTimesBabyFormulaFedStepID = "numOfTimesBabyFormulaFedStepID"

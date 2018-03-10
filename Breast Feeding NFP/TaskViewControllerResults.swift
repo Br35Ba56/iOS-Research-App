@@ -13,9 +13,9 @@ struct TaskViewControllerResults {
   public static func getViewControllerResults(taskViewController: ORKTaskViewController) -> TaskResults {
     var taskResults: TaskResults?
     if taskViewController.task!.identifier == DailyCycleSurvey.taskID {
-      taskResults = CycleTaskResults()
-    } else if taskViewController.task!.identifier == DateTimeSurvey.taskID {
-      taskResults = BreastFeedingTaskResults()
+      taskResults = DailyTaskResults()
+    } else if taskViewController.task!.identifier == WeeklySurvey.taskID {
+      taskResults = WeeklyTaskResults()
     } else if taskViewController.task!.identifier == Onboarding.task {
       taskResults = OnboardingTaskResults()
     }

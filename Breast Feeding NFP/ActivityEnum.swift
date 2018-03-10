@@ -9,8 +9,8 @@
 import Foundation
 
 enum Activity: Int {
-  case survey
-  case breastfeedingManual
+  case dailySurvey
+  case weeklySurvey
   static var allValues: [Activity] {
     var index = 0
     return Array (
@@ -24,18 +24,18 @@ enum Activity: Int {
   
   var title: String {
     switch self {
-    case .survey:
-      return "Daily Menstrual Cycle Events"
-    case .breastfeedingManual:
-      return "Breast Feeding Entry"
+    case .dailySurvey:
+      return "Daily Survey"
+    case .weeklySurvey:
+      return "Weekly Survey"
     }
   }
   var subtitle: String {
     switch self {
-    case .survey:
-      return "Description of survey"
-    case .breastfeedingManual:
-      return "Manual Entry"
+    case .dailySurvey:
+      return ""
+    case .weeklySurvey:
+      return ""
     }
   }
 }

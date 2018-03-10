@@ -14,7 +14,7 @@ protocol TaskResults {
   func enterTaskResult(identifier: String, result: String)
 }
 
-class CycleTaskResults: TaskResults {
+class DailyTaskResults: TaskResults {
 
   var results: [String: String] = [
     DailyCycleSurvey.clearBlueMonitorStepID: "-1",
@@ -35,27 +35,20 @@ class CycleTaskResults: TaskResults {
   }
 }
 
-class BreastFeedingTaskResults: TaskResults {
+class WeeklyTaskResults: TaskResults {
 
-  var results: [String: String] = [DateTimeSurvey.startTimeID : "",
-                                   DateTimeSurvey.stopTimeID : ""]
+  var results: [String: String] = [WeeklySurvey.areYouPregnantStepID : "-1",
+                                   WeeklySurvey.usedAnyContraceptivesStepID: "-1",
+                                   WeeklySurvey.recentlyDiagnosedStepID: "-1",
+                                   WeeklySurvey.stillBreastfeedingStepID: "-1",
+                                   WeeklySurvey.didMenstruateThisWeekStepID: "-1"]
   
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
   }
 
   func getEntryString() -> String {
-    let dateComponents = getDuration()
-    return "\(results[DateTimeSurvey.startTimeID]!), \(results[DateTimeSurvey.stopTimeID]!), \(String(describing: dateComponents.hour!)):\(String(describing: dateComponents.minute!))"
-  }
-  
-  private func getDuration() -> DateComponents {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-    let startDate: Date! = dateFormatter.date(from: results[DateTimeSurvey.startTimeID]!)
-    let endDate: Date! = dateFormatter.date(from: results[DateTimeSurvey.stopTimeID]!)
-    let dateComponents = Calendar.current.dateComponents([Calendar.Component.hour, Calendar.Component.minute], from: startDate, to: endDate)
-    return dateComponents
+    return "\(results[WeeklySurvey.areYouPregnantStepID]!), \(results[WeeklySurvey.usedAnyContraceptivesStepID]!), \(results[WeeklySurvey.recentlyDiagnosedStepID]!), \(results[WeeklySurvey.stillBreastfeedingStepID]!), \(results[WeeklySurvey.didMenstruateThisWeekStepID]!)"
   }
 }
 

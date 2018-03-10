@@ -21,17 +21,17 @@ class ProcessResults {
   let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
 
   private init(taskResults: TaskResults!, uuid: UUID!) {
-    if let results = taskResults as? CycleTaskResults {
+    if let results = taskResults as? DailyTaskResults {
       self.results = results
-      self.surveyType = "CycleTask"
+      self.surveyType = "Daily_Survey"
     }
     if let results = taskResults as? OnboardingTaskResults {
       self.results = results
       self.surveyType = "Onboarding"
     }
-    if let results = taskResults as? BreastFeedingTaskResults {
+    if let results = taskResults as? WeeklyTaskResults {
       self.results = results
-      self.surveyType = "BreastFeedingDateTime"
+      self.surveyType = "Weekly_Survey"
     }
     self.uuid = uuid
     self.date = Date()
