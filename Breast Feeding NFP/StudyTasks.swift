@@ -56,11 +56,13 @@ struct StudyTasks {
       experienceBleedingStep,
       menstruationStep,
       numOfTimesBabyBreastFedStep,
+      numOfTimesBabyExpressFedStep,
+      numOfTimesBabyFormulaFedStep,
       summaryStep])
     
     var resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.experienceBleedingStepID)
     let predicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
-    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, "SummaryStep")])
+    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.numOfTimesBabyBreastFedStepID)])
     task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.experienceBleedingStepID)
         
     return task
@@ -115,12 +117,29 @@ struct StudyTasks {
   }()
   
   private static let numOfTimesBabyBreastFedStep: ORKStep = {
-    let title = "Baby breastfed amount"
+    let title = "Baby fed amount"
     let text = "How many times did your baby breastfeed in the last 24 hours?"
-    let answerFormat = ORKAnswerFormat.scale(withMaximumValue: 13, minimumValue: 0, defaultValue: 0, step: 1, vertical: false, maximumValueDescription: "Max", minimumValueDescription: "Min")
-    let numOfTimesBabyBreastFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyBreastFedStep, title: title, text: text, answer: answerFormat)
+    let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
+    let numOfTimesBabyBreastFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyBreastFedStepID, title: title, text: text, answer: answerFormat)
     return numOfTimesBabyBreastFedStep
   }()
+  
+  private static let numOfTimesBabyExpressFedStep: ORKStep = {
+    let title = "Baby fed amount"
+    let text = "How many times did your baby recieve expressed breast milk in the last 24 hours?"
+    let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
+    let numOfTimesBabyExpressFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyExpressFedStepID, title: title, text: text, answer: answerFormat)
+    return numOfTimesBabyExpressFedStep
+  }()
+  
+  private static let numOfTimesBabyFormulaFedStep: ORKStep = {
+    let title = "Baby fed amount"
+    let text = "How many times did your baby recieve formula or other supplements in the last 24 hours?"
+    let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
+    let numOfTimesBabyFormulaFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyFormulaFedStepID, title: title, text: text, answer: answerFormat)
+    return numOfTimesBabyFormulaFedStep
+  }()
+  
   //MARK: BreastFeedTask
   static let manualBreastFeedTask: ORKDurationOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "Instructions")
@@ -178,5 +197,7 @@ struct DailyCycleSurvey {
   static let progesteroneQuestionStepID = "ProgesteroneStepID"
   static let experienceBleedingStepID = "experienceBleedingStepID"
   static let menstruationQuestionStepID = "MenstruationQuestionStepID"
-  static let numOfTimesBabyBreastFedStep = "numOfTimesBabyBreastFedStepID"
+  static let numOfTimesBabyBreastFedStepID = "numOfTimesBabyBreastFedStepID"
+  static let numOfTimesBabyExpressFedStepID = "numOfTimesBabyExpressFedStepID"
+  static let numOfTimesBabyFormulaFedStepID = "numOfTimesBabyFormulaFedStepID"
 }
