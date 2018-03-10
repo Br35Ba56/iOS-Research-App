@@ -53,24 +53,16 @@ struct StudyTasks {
       instructionStep,
       clearBlueMonitorStep,
       progesteroneStep,
-      progesteroneResultStep,
+      experienceBleedingStep,
       menstruationStep,
+      numOfTimesBabyBreastFedStep,
       summaryStep])
     
-    var resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
+    var resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.experienceBleedingStepID)
     let predicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
-    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.menstruationQuestionStepID)])
-    task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.progesteroneQuestionStepID)
-    
-    resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)
-    let expectedAnswer1 = 0 as NSCoding & NSCopying & NSObjectProtocol
-    let predicate1 = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: expectedAnswer1)
-    let expectedAnswer2 = 1 as NSCoding & NSCopying & NSObjectProtocol
-    let predicate2 = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: expectedAnswer2)
-    rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate1, DailyCycleSurvey.menstruationQuestionStepID),
-                                                                                          (predicate2, DailyCycleSurvey.menstruationQuestionStepID)])
-    task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.clearBlueMonitorStepID)
-    
+    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, "SummaryStep")])
+    task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.experienceBleedingStepID)
+        
     return task
   }()
   
@@ -89,24 +81,28 @@ struct StudyTasks {
   
   private static let progesteroneStep: ORKStep = {
     let title = "Did you take a progestorone test?"
-    let answerFormat = ORKBooleanAnswerFormat()
+    let textChoices = [
+      ORKTextChoice(text: "Positive", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Negative", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Not taken", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ]
+    let answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
     let progesteroneStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: title, answer: answerFormat)
     progesteroneStep.isOptional = false
     return progesteroneStep
   }()
   
-  private static let progesteroneResultStep: ORKStep = {
-    let title = "What was the result of the progestorone test?"
-    let answerFormat = ORKBooleanAnswerFormat(yesString: "Positive", noString: "Negative")
-    let progesteroneResultStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneResultStepID, title: title, answer: answerFormat)
-    progesteroneResultStep.isOptional = false
-    return progesteroneResultStep
+  private static let experienceBleedingStep: ORKStep = {
+    let title = "Did you experience any vaginal bleeding today?"
+    let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
+    let experienceAnyBleedingStep = ORKQuestionStep(identifier: DailyCycleSurvey.experienceBleedingStepID, title: title, answer: answerFormat)
+    experienceAnyBleedingStep.isOptional = false
+    return experienceAnyBleedingStep
   }()
   
   private static let menstruationStep: ORKStep = {
-    let title = "Are you experiencing any bleeding?"
+    let title = "Did you experience any vaginal bleeding today?"
     let textChoices = [
-      ORKTextChoice(text: "None", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
       ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
       ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
       ORKTextChoice(text: "Moderate", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
@@ -118,6 +114,13 @@ struct StudyTasks {
     return menstruationStep
   }()
   
+  private static let numOfTimesBabyBreastFedStep: ORKStep = {
+    let title = "Baby breastfed amount"
+    let text = "How many times did your baby breastfeed in the last 24 hours?"
+    let answerFormat = ORKAnswerFormat.scale(withMaximumValue: 13, minimumValue: 0, defaultValue: 0, step: 1, vertical: false, maximumValueDescription: "Max", minimumValueDescription: "Min")
+    let numOfTimesBabyBreastFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyBreastFedStep, title: title, text: text, answer: answerFormat)
+    return numOfTimesBabyBreastFedStep
+  }()
   //MARK: BreastFeedTask
   static let manualBreastFeedTask: ORKDurationOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "Instructions")
@@ -170,10 +173,10 @@ struct DateTimeSurvey {
 
 struct DailyCycleSurvey {
   static let taskID = "DailyCycleSurveyID"
-  //static let dailySurveyID = "DailySurveyID"
   static let instructionID = "CycleDataIntroStepID"
   static let clearBlueMonitorStepID = "ClearBlueMonitorStepID"
   static let progesteroneQuestionStepID = "ProgesteroneStepID"
-  static let progesteroneResultStepID = "ProgesteroneResultStepID"
+  static let experienceBleedingStepID = "experienceBleedingStepID"
   static let menstruationQuestionStepID = "MenstruationQuestionStepID"
+  static let numOfTimesBabyBreastFedStep = "numOfTimesBabyBreastFedStepID"
 }

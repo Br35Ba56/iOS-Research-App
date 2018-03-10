@@ -19,7 +19,7 @@ class CycleTaskResults: TaskResults {
   var results: [String: String] = [
     DailyCycleSurvey.clearBlueMonitorStepID: "-1",
     DailyCycleSurvey.progesteroneQuestionStepID : "-1",
-    DailyCycleSurvey.progesteroneResultStepID : "-1",
+    DailyCycleSurvey.experienceBleedingStepID : "-1",
     DailyCycleSurvey.menstruationQuestionStepID : "-1"
   ]
   
@@ -28,7 +28,7 @@ class CycleTaskResults: TaskResults {
   }
   
   func getEntryString() -> String{
-    return "\(String(describing: results[DailyCycleSurvey.clearBlueMonitorStepID]!)), \(String(describing: results[DailyCycleSurvey.progesteroneQuestionStepID]!)), \(String(describing: results[DailyCycleSurvey.progesteroneResultStepID]!)), \(String(describing: results[DailyCycleSurvey.menstruationQuestionStepID]!))"
+    return "\(String(describing: results[DailyCycleSurvey.clearBlueMonitorStepID]!)), \(String(describing: results[DailyCycleSurvey.progesteroneQuestionStepID]!)), \(String(describing: results[DailyCycleSurvey.experienceBleedingStepID]!)), \(String(describing: results[DailyCycleSurvey.menstruationQuestionStepID]!))"
   }
 }
 
