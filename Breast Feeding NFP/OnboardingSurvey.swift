@@ -418,7 +418,7 @@ struct Onboarding {
         item.placeholder = "+15555555555"
       }
     }
-    registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][1-9]{10,10}$")
+    registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][0-9]{10,10}$")
     registrationStep.phoneNumberInvalidMessage = "Invalid phone number"
     return registrationStep
   }()

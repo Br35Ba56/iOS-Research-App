@@ -9,6 +9,7 @@
 import Foundation
 
 enum Activity: Int {
+  
   case dailySurvey
   case weeklySurvey
   static var allValues: [Activity] {
@@ -30,6 +31,7 @@ enum Activity: Int {
       return "Weekly Survey"
     }
   }
+  
   var subtitle: String {
     switch self {
     case .dailySurvey:

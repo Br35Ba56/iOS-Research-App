@@ -58,24 +58,11 @@ class ActivityViewController: UITableViewController {
     switch activity {
     case .dailySurvey:
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
+      
     case .weeklySurvey:
       taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
       taskViewController.showsProgressInNavigationBar = false
-      /*do {
-       let defaultFileManager = FileManager.default
-       
-       // Identify the documents directory.
-       let documentsDirectory = try defaultFileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-       
-       // Create a directory based on the `taskRunUUID` to store output from the task.
-       let outputDirectory = documentsDirectory.appendingPathComponent(taskViewController.taskRunUUID.uuidString)
-       try defaultFileManager.createDirectory(at: outputDirectory, withIntermediateDirectories: true, attributes: nil)
-       
-       taskViewController.outputDirectory = outputDirectory
-       }
-       catch let error as NSError {
-       fatalError("The output directory for the task with UUID: \(taskViewController.taskRunUUID.uuidString) could not be created. Error: \(error.localizedDescription)")
-       }*/
+     
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)

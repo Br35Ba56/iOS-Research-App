@@ -33,6 +33,7 @@ import ResearchKit
 import AWSCore
 import AWSS3
 import AWSCognitoIdentityProvider
+import AWSCognito
 import AWSMobileAnalytics
 import SwiftKeychainWrapper
 
@@ -104,8 +105,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
     let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: AWSConstants.identityPoolID, identityProviderManager:pool)
     AWSServiceManager.default().defaultServiceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
+    
     AWSS3TransferUtility.register(with: AWSServiceManager.default().defaultServiceConfiguration!, forKey: "TransferUtility")
+  
     AWSMobileAnalytics.init(forAppId: AWSConstants.mobileAnalyticsAppID, configuration: AWSMobileAnalyticsConfiguration.init())
+    let syncClient = AWSCognito.default()
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
