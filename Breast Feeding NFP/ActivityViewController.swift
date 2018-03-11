@@ -90,6 +90,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     case .completed:
       let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
       ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
+      
     default: break
     }
     taskViewController.dismiss(animated: true, completion: nil)

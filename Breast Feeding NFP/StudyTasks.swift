@@ -34,18 +34,19 @@
 //  Created by Anthony Schneider on 8/24/17.
 //  Copyright © 2017 Anthony Schneider. All rights reserved.
 //
-//TODO: Refactor to be formatted as onboarding survey.
+
 import ResearchKit
 struct StudyTasks {
   
-   //MARK: Daily Survey Task
+   //MARK: Daily Survey
   static let dailySurveyTask: ORKNavigableOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "IntroStep")
     instructionStep.title = "Daily Survey"
-    
+    instructionStep.text = "Please enter information about your day.\nThank you for participating!"
     let summaryStep = ORKCompletionStep(identifier: "SummaryStep")
     summaryStep.title = "Thank you."
     summaryStep.text = "We appreciate your time."
+    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "Review")
 
     let task = ORKNavigableOrderedTask(identifier: DailyCycleSurvey.taskID, steps: [
       instructionStep,
@@ -53,55 +54,63 @@ struct StudyTasks {
       progesteroneStep,
       experienceBleedingStep,
       menstruationStep,
+      numOfTimesBabyFedInstructionStep,
       numOfTimesBabyBreastFedStep,
       numOfTimesBabyExpressFedStep,
       numOfTimesBabyFormulaFedStep,
+      reviewStep,
       summaryStep])
     
     var resultSelector = ORKResultSelector(resultIdentifier: DailyCycleSurvey.experienceBleedingStepID)
     let predicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
-    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.numOfTimesBabyBreastFedStepID)])
+    var rule = ORKPredicateStepNavigationRule(resultPredicatesAndDestinationStepIdentifiers: [(predicate, DailyCycleSurvey.numOfTimesBabyFedInstructionStepID)])
     task.setNavigationRule(rule, forTriggerStepIdentifier: DailyCycleSurvey.experienceBleedingStepID)
         
     return task
   }()
   
   private static let clearBlueMonitorStep: ORKStep = {
-    var title = "Clear Blue Monitor Low, Peek, or High"
+    var title = "Cycle Data Clear Blue Fertility Monitor"
+    var text = "What was your clear blue fertility monitor reading?"
     let textChoices = [
-      ORKTextChoice(text: "Low Fertility", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "High Fertility", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Peek Fertility", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Not Taken", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Low Fertility", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "High Fertility", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Peek Fertility", value: 3 as NSCoding & NSCopying & NSObjectProtocol),
       ]
     let answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
-    let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: title, answer: answerFormat)
+    let clearBlueMonitorQuestionStep = ORKQuestionStep(identifier: DailyCycleSurvey.clearBlueMonitorStepID, title: title, text: text, answer: answerFormat)
     clearBlueMonitorQuestionStep.isOptional = false
     return clearBlueMonitorQuestionStep
   }()
   
   private static let progesteroneStep: ORKStep = {
-    let title = "Did you take a progestorone test?"
+    let title = "Cycle Data Progestorone"
+    let text = "Did you take a progestorone test?\nIf yes, what was the result?"
     let textChoices = [
-      ORKTextChoice(text: "Positive", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Negative", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
-      ORKTextChoice(text: "Not taken", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Not taken", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Positive", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
+      ORKTextChoice(text: "Negative", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
       ]
     let answerFormat: ORKTextChoiceAnswerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
-    let progesteroneStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: title, answer: answerFormat)
+    let progesteroneStep = ORKQuestionStep(identifier: DailyCycleSurvey.progesteroneQuestionStepID, title: title, text: text, answer: answerFormat)
     progesteroneStep.isOptional = false
     return progesteroneStep
   }()
   
   private static let experienceBleedingStep: ORKStep = {
-    let title = "Did you experience any vaginal bleeding today?"
+    let title = "Cycle Data Bleeding Present?"
+    let text = "Did you experience any vaginal bleeding today?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let experienceAnyBleedingStep = ORKQuestionStep(identifier: DailyCycleSurvey.experienceBleedingStepID, title: title, answer: answerFormat)
+    let experienceAnyBleedingStep = ORKQuestionStep(identifier: DailyCycleSurvey.experienceBleedingStepID, title: title, text: text, answer: answerFormat)
     experienceAnyBleedingStep.isOptional = false
     return experienceAnyBleedingStep
   }()
   
   private static let menstruationStep: ORKStep = {
-    let title = "Did you experience any vaginal bleeding today?"
+    let title = "Cycle Data Bleeding"
+    let text = "Please record the amount of bleeding"
+    
     let textChoices = [
       ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
       ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
@@ -109,32 +118,45 @@ struct StudyTasks {
       ORKTextChoice(text: "Heavy", value: 4 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: textChoices)
-    let menstruationStep = ORKQuestionStep(identifier: DailyCycleSurvey.menstruationQuestionStepID, title: title, answer: answerFormat)
+    let menstruationStep = ORKQuestionStep(identifier: DailyCycleSurvey.menstruationQuestionStepID, title: title, text: text, answer: answerFormat)
     menstruationStep.isOptional = false
     return menstruationStep
   }()
+  //TODO: Instruction step
+  
+  private static let numOfTimesBabyFedInstructionStep: ORKStep = {
+    let title = "Infant Intake Instructions"
+    let text = "A breastfeeding event is defined as follows:\n\nThe baby has latched, milk letdown has occured, and the feeding is for at least 10 minutes.\n\nEach event is marked by a detachment from the breast for at least 10 minutes"
+    let numOfTimesBabyFedInstructionStep = ORKInstructionStep(identifier: DailyCycleSurvey.numOfTimesBabyFedInstructionStepID)
+    numOfTimesBabyFedInstructionStep.title = title
+    numOfTimesBabyFedInstructionStep.text = text
+    return numOfTimesBabyFedInstructionStep
+  }()
   
   private static let numOfTimesBabyBreastFedStep: ORKStep = {
-    let title = "Baby fed amount"
+    let title = "Infant Intake by Breast"
     let text = "How many times did your baby breastfeed in the last 24 hours?"
     let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
     let numOfTimesBabyBreastFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyBreastFedStepID, title: title, text: text, answer: answerFormat)
+    numOfTimesBabyBreastFedStep.isOptional = false
     return numOfTimesBabyBreastFedStep
   }()
   
   private static let numOfTimesBabyExpressFedStep: ORKStep = {
-    let title = "Baby fed amount"
+    let title = "Infant Intake by Expressed Breast Milk"
     let text = "How many times did your baby recieve expressed breast milk in the last 24 hours?"
     let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
     let numOfTimesBabyExpressFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyExpressFedStepID, title: title, text: text, answer: answerFormat)
+    numOfTimesBabyExpressFedStep.isOptional = false
     return numOfTimesBabyExpressFedStep
   }()
   
   private static let numOfTimesBabyFormulaFedStep: ORKStep = {
-    let title = "Baby fed amount"
+    let title = "Infant Intake by Formula"
     let text = "How many times did your baby recieve formula or other supplements in the last 24 hours?"
     let answerFormat = ORKNumericAnswerFormat.init(style: ORKNumericAnswerStyle.integer, unit: "amount", minimum: 0, maximum: 30)
     let numOfTimesBabyFormulaFedStep = ORKQuestionStep(identifier: DailyCycleSurvey.numOfTimesBabyFormulaFedStepID, title: title, text: text, answer: answerFormat)
+    numOfTimesBabyFormulaFedStep.isOptional = false
     return numOfTimesBabyFormulaFedStep
   }()
   
@@ -145,7 +167,7 @@ struct StudyTasks {
     instructionStep.text = "Please complete this survey to determine if your still eligible for the study."
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Thank you for your entry!"
-
+    let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "Review")
     let orderedTask = ORKOrderedTask(identifier: WeeklySurvey.taskID, steps: [
       instructionStep,
       areYouPregnantStep,
@@ -153,6 +175,7 @@ struct StudyTasks {
       recentlyDiagnosedStep,
       stillBreastfeedingStep,
       didMenstruateThisWeekStep,
+      reviewStep,
       completionStep
       ])
     
@@ -177,7 +200,7 @@ struct StudyTasks {
   }()
   
   private static let recentlyDiagnosedStep: ORKStep = {
-    let title = "Diagnosed"
+    let title = "Diagnosed with PCOS or Diabetes"
     let text = "Have you recently been diagnosed with type 2 diabetes mellitus or polysticic ovarian syndrome?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
     let recentlyDiagnosedStep = ORKQuestionStep(identifier: WeeklySurvey.recentlyDiagnosedStepID, title: title, text: text, answer: answerFormat)
@@ -196,15 +219,12 @@ struct StudyTasks {
   
   private static let didMenstruateThisWeekStep: ORKStep = {
     let title = "Did you menstruate this week?"
-    let text = "Menstruation occured if bleeding occured with crescendo-decrescendo or decrescendo-crescendo-decrescendo pattern."
+    let text = ""
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
     let didMenstruateThisWeekStep = ORKQuestionStep(identifier: WeeklySurvey.didMenstruateThisWeekStepID, title: title, text: text, answer: answerFormat)
     didMenstruateThisWeekStep.isOptional = false
     return didMenstruateThisWeekStep
   }()
-  
-  
-
 }
 
 //MARK: Step IDs
@@ -224,6 +244,7 @@ struct DailyCycleSurvey {
   static let progesteroneQuestionStepID = "progesteroneStepID"
   static let experienceBleedingStepID = "experienceBleedingStepID"
   static let menstruationQuestionStepID = "menstruationQuestionStepID"
+  static let numOfTimesBabyFedInstructionStepID = "numOfTimesBabyFedInstructionStepID"
   static let numOfTimesBabyBreastFedStepID = "numOfTimesBabyBreastFedStepID"
   static let numOfTimesBabyExpressFedStepID = "numOfTimesBabyExpressFedStepID"
   static let numOfTimesBabyFormulaFedStepID = "numOfTimesBabyFormulaFedStepID"

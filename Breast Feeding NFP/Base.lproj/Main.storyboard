@@ -216,7 +216,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="studyViewController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" selectionIndicatorImage="tab_activities" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -235,7 +235,7 @@
         <scene sceneID="8Nx-5i-dGC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6XG-m0-N5N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dash Board" image="tab_dashboard" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Dash Board" image="tab_dashboard" selectedImage="tab_dashboard" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tnx-of-lbO">
                         <autoresizingMask key="autoresizingMask"/>
@@ -253,7 +253,7 @@
         <scene sceneID="IBp-dz-vEg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CWI-Di-kiA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile" selectedImage="tab_profile" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w7c-U4-DNK">
                         <autoresizingMask key="autoresizingMask"/>
@@ -271,7 +271,7 @@
         <scene sceneID="lkp-Rk-0gx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="McK-c5-h7N" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activities" image="tab_activities" id="c13-ju-3eA"/>
+                    <tabBarItem key="tabBarItem" title="Activities" image="tab_activities" selectedImage="tab_activities" id="c13-ju-3eA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="um9-E1-BdP">
                         <autoresizingMask key="autoresizingMask"/>
