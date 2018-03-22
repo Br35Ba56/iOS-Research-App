@@ -38,6 +38,7 @@
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
+		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
 		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
+		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,22 +172,20 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
+				D9E9EA81205607F1004D7012 /* Container */,
 				BCC77A70202FE91B00D6798B /* Login */,
+				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
+				D9E9EA8220560809004D7012 /* Profile */,
 				BC21F3DE1F4F314E006629AC /* Activities */,
 				BC21F3AD1F4F3072006629AC /* AppDelegate.swift */,
-				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
 				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
-				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
 				BC21F3BB1F4F3072006629AC /* Info.plist */,
 				BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */,
 				BC21F3B31F4F3072006629AC /* Main.storyboard */,
 				BC21F3DD1F4F3138006629AC /* Onboarding */,
-				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
-				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
 				BCBBFC1C1F6527CC009AA9B9 /* Results */,
-				BC21F3B11F4F3072006629AC /* ProfileViewController.swift */,
 				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
-				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
+				D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */,
 			);
 			path = "Breast Feeding NFP";
 			sourceTree = "<group>";
@@ -244,6 +244,7 @@
 		BC77595A1F4F57AB00AF2FC6 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -261,12 +262,30 @@
 		BCC77A70202FE91B00D6798B /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
 				BCC77A71202FE97600D6798B /* LoginTask.swift */,
 				BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */,
 				BC9BA20F2040AA9200D651C6 /* LoginViewController.swift */,
 				BC9BA2102040AA9200D651C6 /* LoginViewController.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		D9E9EA81205607F1004D7012 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
+				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
+			);
+			name = Container;
+			sourceTree = "<group>";
+		};
+		D9E9EA8220560809004D7012 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BC21F3B11F4F3072006629AC /* ProfileViewController.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		F494FE643A2D84102897AA90 /* Pods */ = {
@@ -616,6 +635,7 @@
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
+				D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,

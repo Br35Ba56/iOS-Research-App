@@ -161,7 +161,7 @@ struct StudyTasks {
   }()
   
   //MARK: Weekly Survey
-  static let manualBreastFeedTask: ORKOrderedTask = {
+  static let weeklySurvey: ORKOrderedTask = {
     let instructionStep = ORKInstructionStep(identifier: "Instructions")
     instructionStep.title = "Weekly Survey"
     instructionStep.text = "Please complete this survey to determine if your still eligible for the study."

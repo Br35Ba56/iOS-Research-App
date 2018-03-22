@@ -42,6 +42,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
                             <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
@@ -63,6 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" id="k7m-1N-BOJ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -71,6 +73,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -109,11 +112,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
+                                    <action selector="signOutAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="epF-Ci-Zo1"/>
                                     <segue destination="sB4-0t-o3F" kind="unwind" unwindAction="unwindForSignOutWithSegue:" id="I9r-YF-7vW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="CZ6-5g-yd5"/>
                 </viewController>
@@ -170,7 +175,7 @@
                                     <action selector="alreadyAUser:" destination="MVI-6F-ZOf" eventType="touchUpInside" id="pZ3-IR-LD5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BreastFeeding research app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-m4-yYD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breastfeeding Fertility" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-m4-yYD">
                                 <rect key="frame" x="80" y="20" width="215" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -184,6 +189,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XFg-Z6-aJj" secondAttribute="trailing" constant="70" id="2TP-70-miq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XLY-m4-yYD" secondAttribute="trailing" constant="64" id="3Jh-mO-Tth"/>
@@ -315,20 +321,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-Fd-Ztg">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-hS-8d2">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">You will be presented with a daily survey that will ask you to answer questions related to the presence of urine hormones (estrogen, LH and progesterone) frequency of breastfeeding and presence of vaginal bleeding. Weekly surveys will assess your eligibility to continue in the study.  If you are directed to the exit survey you have been deemed ineligible. Eligibility based on vaginal bleeding that follows the pattern defined by this study will not disqualify you from winning the yearly supply of test strips.  With completion of the study you are eligible for a year supply of CBFM test strips ($514.00) and progesterone test strips ($500.00).</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2zL-Vq-U8U" firstAttribute="top" secondItem="ZZ5-hS-8d2" secondAttribute="bottom" constant="20" id="Kwo-nt-RPr"/>
+                            <constraint firstItem="ZZ5-hS-8d2" firstAttribute="trailing" secondItem="rNu-lA-w3H" secondAttribute="trailingMargin" id="TFq-Dd-n9d"/>
+                            <constraint firstItem="ZZ5-hS-8d2" firstAttribute="leading" secondItem="rNu-lA-w3H" secondAttribute="leadingMargin" id="kdO-kM-Leq"/>
+                            <constraint firstItem="ZZ5-hS-8d2" firstAttribute="top" secondItem="zK2-pp-kjB" secondAttribute="bottom" id="mnA-X3-pGT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQR-jw-S8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="-675"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="-675.11244377811101"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3Px-QN-3JK">
@@ -342,20 +354,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1e-ui-Saf">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZm-fQ-hwG">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Welcome to the Breastfeeding Fertility Study.  
+The breastfeeding fertility application uses surveys and tasks to help understand if patterns of breastfeeding affect ovarian activity that lead to ovulation and the potential for unintended pregnancy.  Our goal is to observe hormonal activity using point of care urine bio marker testing and daily breastfeeding frequencies you will document in this app.
+In the initial enrollment, you will be presented with a survey to determine eligibility. If you are determined to be eligible then you will be able to review the consent form providing your name and signature if you agree to the terms of this study.  A copy of your signed consent form will be sent to the email you registered with. Once registered you will have the option to choose a reminder to complete the daily survey.  </mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YZm-fQ-hwG" firstAttribute="trailing" secondItem="lB6-KI-1za" secondAttribute="trailingMargin" id="3zD-6L-F3Q"/>
+                            <constraint firstItem="YZm-fQ-hwG" firstAttribute="top" secondItem="AMl-bc-Dg2" secondAttribute="bottom" id="4H6-0Q-rq3"/>
+                            <constraint firstItem="YZm-fQ-hwG" firstAttribute="leading" secondItem="lB6-KI-1za" secondAttribute="leadingMargin" id="EXK-QI-X8i"/>
+                            <constraint firstItem="yzs-wM-RV0" firstAttribute="top" secondItem="YZm-fQ-hwG" secondAttribute="bottom" constant="20" id="KwI-Qg-w6G"/>
+                            <constraint firstItem="YZm-fQ-hwG" firstAttribute="centerX" secondItem="lB6-KI-1za" secondAttribute="centerX" id="WG7-pC-IYH"/>
+                            <constraint firstItem="YZm-fQ-hwG" firstAttribute="centerY" secondItem="lB6-KI-1za" secondAttribute="centerY" id="nzg-KB-e3Q"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dj4-4H-Wa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1799" y="-1327"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="-1327.2863568215894"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Jd-LV-7AG">
@@ -369,20 +391,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVN-sb-E1X">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vd-7w-Me7">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Participation in this study does require some time commitment, here is a breakdown of that commitment:
+
+1.	Initial eligibility and registration – 10-15 minutes (one time)
+2.	Daily survey 3-5 minutes.
+3.	Weekly survey 2-3minutes.
+4.	Exit survey 3-5 minutes (one time).
+
+Your study data will include your responses to surveys that will be encrypted.  The unidentified data will be analyzed by the research team.  
+
+Thank you for participating in this unique and very important study.  You are making a difference for your family and families around the world!
+</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Vd-7w-Me7" firstAttribute="trailing" secondItem="Ntt-dW-6A3" secondAttribute="trailingMargin" id="3MW-XC-W7v"/>
+                            <constraint firstItem="rA9-Xj-Apz" firstAttribute="top" secondItem="3Vd-7w-Me7" secondAttribute="bottom" constant="20" id="cuv-d9-2tE"/>
+                            <constraint firstItem="3Vd-7w-Me7" firstAttribute="top" secondItem="9aD-do-OEP" secondAttribute="bottom" id="d4J-5d-nWF"/>
+                            <constraint firstItem="3Vd-7w-Me7" firstAttribute="leading" secondItem="Ntt-dW-6A3" secondAttribute="leadingMargin" id="wOn-V4-bT5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFw-2e-fdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="-18"/>
+            <point key="canvasLocation" x="1797.5999999999999" y="-18.440779610194905"/>
         </scene>
     </scenes>
     <resources>

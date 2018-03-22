@@ -45,6 +45,8 @@ class ResearchContainerViewController: UIViewController {
   //MARK: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
+    //UIView.appearance(whenContainedInInstancesOf: [ORKTaskViewController.self]).tintColor = UIColor(red: 1, green: 0.8, blue: 0.0, alpha: 1.0)
+    
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
       toStudy()
     } else {
@@ -97,6 +99,11 @@ class ResearchContainerViewController: UIViewController {
 }
 
 extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
+  public func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+    taskViewController.currentStepViewController?.taskViewController?.navigationBar.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+    
+    taskViewController.currentStepViewController?.taskViewController?.view.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+  }
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     if taskViewController is WithdrawViewController {
       /*

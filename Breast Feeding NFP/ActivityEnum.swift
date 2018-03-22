@@ -12,6 +12,7 @@ enum Activity: Int {
   
   case dailySurvey
   case weeklySurvey
+  case withdrawSurvey
   static var allValues: [Activity] {
     var index = 0
     return Array (
@@ -29,6 +30,8 @@ enum Activity: Int {
       return "Daily Survey"
     case .weeklySurvey:
       return "Weekly Survey"
+    case .withdrawSurvey:
+      return "Withdraw Survey"
     }
   }
   
@@ -37,6 +40,8 @@ enum Activity: Int {
     case .dailySurvey:
       return ""
     case .weeklySurvey:
+      return ""
+    case .withdrawSurvey:
       return ""
     }
   }

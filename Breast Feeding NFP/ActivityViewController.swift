@@ -30,11 +30,20 @@
 
 import UIKit
 import ResearchKit
+import AWSCognito
+import AWSCognitoIdentityProvider
 
 class ActivityViewController: UITableViewController {
-  //var taskResults: CycleTaskResult? = CycleTaskResult()
   
   // MARK: UITableViewDataSource
+  override func viewWillAppear(_ animated: Bool) {
+    print("View appeared")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print("View did load")
+  }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard section == 0 else { return 0 }
@@ -47,22 +56,34 @@ class ActivityViewController: UITableViewController {
       cell.textLabel?.text = activity.title
       cell.detailTextLabel?.text = activity.subtitle
     }
+    if indexPath.row == 1 {
+      let cognitoSync = AWSCognito.default()
+      let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+      print("Row == 1")
+      print(dataSet.string(forKey: "WeeklyTaskDate"))
+      if let dateString = dataSet.string(forKey: "WeeklyTaskDate") {
+        let dateFormatter = DateFormatter()
+        let date = dateFormatter.date(from: dateString)
+        let timeInterval = date?.timeIntervalSince(Date())
+        print("Time interval \(String(describing: timeInterval))")
+      }
+     
+      cell.isUserInteractionEnabled = true
+    }
     return cell
   }
   
   // MARK: UITableViewDelegate
-  
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let activity = Activity(rawValue: (indexPath as NSIndexPath).row) else { return }
     let taskViewController: ORKTaskViewController
     switch activity {
     case .dailySurvey:
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
-      
     case .weeklySurvey:
-      taskViewController = ORKTaskViewController(task: StudyTasks.manualBreastFeedTask, taskRun: NSUUID() as UUID)
-      taskViewController.showsProgressInNavigationBar = false
-     
+      taskViewController = ORKTaskViewController(task: StudyTasks.weeklySurvey, taskRun: NSUUID() as UUID)
+    case .withdrawSurvey:
+      taskViewController = WithdrawViewController.init()
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)
@@ -70,11 +91,26 @@ class ActivityViewController: UITableViewController {
 }
 
 extension ActivityViewController : ORKTaskViewControllerDelegate {
+  public func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+    taskViewController.currentStepViewController?.taskViewController?.navigationBar.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+    taskViewController.currentStepViewController?.taskViewController?.view?.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
   
+  }
   func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     
     switch reason {
     case .completed:
+      if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier{
+        let cognitoSync = AWSCognito.default()
+        let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+        let todaysDate = Date()
+        print(todaysDate.description)
+        dataSet.setString(todaysDate.description, forKey: "WeeklyTaskDate")
+        dataSet.synchronize()
+      }
+      if taskViewController.task?.identifier == "Withdraw" {
+        self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
+      }
       let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
       ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
       

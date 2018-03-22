@@ -83,8 +83,6 @@ class VerificationStepViewController : ORKVerificationStepViewController {
       })
       return nil
     }
-    
-    
   }
   
   

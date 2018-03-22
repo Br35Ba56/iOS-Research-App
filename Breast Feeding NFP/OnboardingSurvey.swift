@@ -410,16 +410,16 @@ struct Onboarding {
   }()
   
   private static let registrationStep: ORKStep = {
-    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Register", text: "Register", options: [ORKRegistrationStepOption.includePhoneNumber])
-    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$^+=!*()@%&]).{8,10}$")
-    registrationStep.passcodeInvalidMessage = "Password must be atleast 8 characters long and contain atleast 1 upper character, 1 lower character, 1 number, and 1 special character"
+    let registrationStep = ORKRegistrationStep(identifier: "RegistrationStep", title: "Registration", text: "Register for an account to continue.", options: [ORKRegistrationStepOption.includePhoneNumber])
+    registrationStep.passcodeValidationRegularExpression = try? NSRegularExpression(pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$^+=!*()@%&]).{8,16}$")
+    registrationStep.passcodeInvalidMessage = "Password must be 8-16 characters long and contain atleast 1 upper character, 1 lower character, 1 number, and 1 special character"
     for item in registrationStep.formItems! {
       if item.identifier == ORKRegistrationFormItemIdentifierPhoneNumber {
         item.placeholder = "+15555555555"
       }
     }
     registrationStep.phoneNumberValidationRegularExpression = try! NSRegularExpression(pattern: "^[+][1][0-9]{10,10}$")
-    registrationStep.phoneNumberInvalidMessage = "Invalid phone number"
+    registrationStep.phoneNumberInvalidMessage = "Invalid phone number\nFormat "
     return registrationStep
   }()
   
@@ -434,6 +434,9 @@ struct Onboarding {
   }()
 }
 
+class CustomStepUI: ORKStep {
+  
+}
 //MARK: Step IDs
 
 struct EligibilitySteps {

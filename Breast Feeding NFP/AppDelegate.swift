@@ -90,8 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if (pool.currentUser()?.isSignedIn)! {
       guard let username = KeychainWrapper.standard.string(forKey: "Username"), let password = KeychainWrapper.standard.string(forKey: "Password") else {return false}
       pool.currentUser()?.getSession(username, password: password, validationData: nil)
+      return true
     }
-    return true
+    return false
   }
   
   func setUpAWSServices() {
@@ -109,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AWSS3TransferUtility.register(with: AWSServiceManager.default().defaultServiceConfiguration!, forKey: "TransferUtility")
   
     AWSMobileAnalytics.init(forAppId: AWSConstants.mobileAnalyticsAppID, configuration: AWSMobileAnalyticsConfiguration.init())
-    let syncClient = AWSCognito.default()
+    CognitoSync.synchronizeDataSet()
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {

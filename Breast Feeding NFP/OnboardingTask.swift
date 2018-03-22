@@ -35,13 +35,12 @@ class OnboardingTask : ORKNavigableOrderedTask {
             }
           }
           if !email.isEmpty && !password.isEmpty && !phoneNumber.isEmpty {
-            print("Sign up user executed once")
             signUpUser(email: email, password: password, phoneNumber: phoneNumber)
           }
         }
-        
       }
     }
+   
     let nextStep = super.step(after: step, with: result)
     return nextStep
   }
@@ -64,6 +63,7 @@ class OnboardingTask : ORKNavigableOrderedTask {
       }
       DispatchQueue.main.async(execute: {
         if let error = task.error as NSError? {
+          print("ERROR")
           print(error.description)
         } else if let result = task.result {
           if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {

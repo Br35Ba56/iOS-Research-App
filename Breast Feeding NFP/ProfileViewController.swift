@@ -30,6 +30,7 @@
 
 import UIKit
 import AWSCognitoIdentityProvider
+import SwiftKeychainWrapper
 
 class ProfileViewController: UIViewController {
 
@@ -37,19 +38,15 @@ class ProfileViewController: UIViewController {
     let pool = AWSCognitoIdentityUserPool.init(forKey: "UserPool")
     let user = pool.getUser()
     user.signOut()
-    self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
+    KeychainWrapper.standard.removeObject(forKey: "Password")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
-
-
 }
 
