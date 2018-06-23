@@ -10,7 +10,6 @@ import UIKit
 import AWSCognitoIdentityProvider
 import ResearchKit
 import SwiftKeychainWrapper
-import AWSUserPoolsSignIn
 
 class LoginViewController: ORKLoginStepViewController {
   

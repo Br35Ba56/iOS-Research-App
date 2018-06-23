@@ -8,9 +8,12 @@
 
 import Foundation
 import ResearchKit
+import SwiftKeychainWrapper
 
 struct TaskViewControllerResults {
+
   public static func getViewControllerResults(taskViewController: ORKTaskViewController) -> TaskResults {
+    
     var taskResults: TaskResults?
     if taskViewController.task!.identifier == DailyCycleSurvey.taskID {
       taskResults = DailyTaskResults()
@@ -48,6 +51,8 @@ struct TaskViewControllerResults {
           }
         }
       }
+      //TODO: Refractor into TaskResults.swift
+      taskResults?.enterTaskResult(identifier: "userName", result: KeychainWrapper.standard.string(forKey: "Username")!)
     }
     return taskResults!
   }

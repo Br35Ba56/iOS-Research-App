@@ -55,7 +55,6 @@ class OnboardingTask : ORKNavigableOrderedTask {
     phoneNumberAttribute?.name = "phone_number"
     phoneNumberAttribute?.value = phoneNumber
     attributes.append(phoneNumberAttribute!)
-    
     self.pool.signUp(email, password: password, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
       guard let strongSelf = self else {
         print("No user pool?")

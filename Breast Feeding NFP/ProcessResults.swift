@@ -39,11 +39,11 @@ class ProcessResults {
   
   static func saveResults(taskResults: TaskResults!, uuid: UUID!) {
     processResults = ProcessResults(taskResults: taskResults, uuid: uuid)
-    let fileName = processResults.surveyType + "_" + String(describing: Date()).replacingOccurrences(of: " ", with: "_").replacingOccurrences(of: "+", with: "").replacingOccurrences(of: ":", with: "-") + String(describing: processResults.uuid).replacingOccurrences(of: "+", with: "") + ".csv"
+    let fileName = String(describing: processResults.uuid) + ".json"
     let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
     
     do {
-      try processResults.results.getEntryString().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+      try processResults.results.getEntryJSON().write(to: path!, atomically: true, encoding: String.Encoding.utf8)
     } catch {
       print(error.localizedDescription)
     }
@@ -55,7 +55,7 @@ class ProcessResults {
     let expression = AWSS3TransferUtilityUploadExpression()
 
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
-    transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserName() + "/" + surveyType + "/" + fileName, contentType: "file/csv", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+    transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserName() + "/" + surveyType + "/" + fileName, contentType: "file/json", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
       if let error = task.error {
         print(error.localizedDescription)
       }

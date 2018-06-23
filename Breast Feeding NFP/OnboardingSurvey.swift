@@ -119,7 +119,7 @@ struct Onboarding {
     let canReadEnglishPredicate = ORKResultPredicate.predicateForBooleanQuestionResult(with: resultSelector, expectedAnswer: false)
     
     //Mark: Demographic Predicates
-    resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.relationShipStatusID)
+    resultSelector = ORKResultSelector(resultIdentifier: DemographicSteps.relationshipStatusID)
     let relationshipStatusPredicateOne = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 1 as NSCoding & NSCopying & NSObjectProtocol)
     let relationshipStatusPredicateTwo = ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 2 as NSCoding & NSCopying & NSObjectProtocol)
     let relationshipStatusPredicateThree =  ORKResultPredicate.predicateForChoiceQuestionResult(with: resultSelector, expectedAnswerValue: 3 as NSCoding & NSCopying & NSObjectProtocol)
@@ -158,7 +158,7 @@ struct Onboarding {
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.clearBlueMonitorStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.canReadEnglishStepID)
     orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: EligibilitySteps.biologicalSexStepID)
-    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.relationShipStatusID)
+    orderedTask.setNavigationRule(rule, forTriggerStepIdentifier: DemographicSteps.relationshipStatusID)
     
     let directRule = ORKDirectStepNavigationRule(destinationStepIdentifier: ORKNullStepIdentifier)
     orderedTask.setNavigationRule(directRule, forTriggerStepIdentifier: "CompletionStep")
@@ -291,7 +291,7 @@ struct Onboarding {
     babyFeedOnDemandStep.isOptional = false
     return babyFeedOnDemandStep
   }()
-  
+  //TODO: breastPumpInfoStep does not have a task result to retrieve result.
   private static let breastPumpInfoStep: ORKStep = {
     let title = "Do you have a breast pump?"
     let text = "If yes, what brand is it?"
@@ -353,7 +353,7 @@ struct Onboarding {
                        ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.relationShipStatusID, title: title, answer: answerFormat)
+    let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.relationshipStatusID, title: title, answer: answerFormat)
     maritalStatusStep.isOptional = false
     return maritalStatusStep
   }()
@@ -460,8 +460,8 @@ struct DemographicSteps {
   static let breastPumpInfoStepID = "breastPumpInfoStepID"
   static let ethnicityStepID = "ethnicityStepID"
   static let religionStepID = "religionStepID"
-  static let levelOfEducationStepID = "levelOfEducationID"
-  static let relationShipStatusID = "relationShipStatusStepID"
+  static let levelOfEducationStepID = "levelOfEducationStepID"
+  static let relationshipStatusID = "relationshipStatusStepID"
   static let marriedLengthStepID = "marriedLengthStepID"
   static let howManyTimesPregnantStepID = "howManyTimesPregnantStepID"
   static let howManyBiologicalChildrenStepID = "howManyBiologicalChildrenStepID"
