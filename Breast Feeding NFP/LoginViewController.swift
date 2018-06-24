@@ -73,10 +73,16 @@ class LoginViewController: ORKLoginStepViewController {
     user?.forgotPassword()
   }
   
+  func getUserName() -> String {
+    var userName = self.username.text?.lowercased()
+    userName = userName?.trimmingCharacters(in: (NSCharacterSet.whitespacesAndNewlines))
+    return userName!
+  }
+  
   func signIn() {
-    if (self.username.text != nil && self.password.text != nil) {
-      user?.getSession(username.text!, password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
-        (task:AWSTask!) -> AnyObject! in
+    if (!getUserName().isEmpty && self.password.text != nil) {
+      user?.getSession(getUserName(), password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
+        (task:AWSTask!) -> AnyObject? in
         if task.error == nil {
           if KeychainWrapper.standard.string(forKey: "Username") == nil {
             KeychainWrapper.standard.set(self.username.text!, forKey: "Username")
@@ -91,7 +97,7 @@ class LoginViewController: ORKLoginStepViewController {
         }
         return nil
       }).continueWith(block: {
-        (task:AWSTask!) -> AnyObject! in
+        (task:AWSTask!) -> AnyObject? in
         if let error = task.error {
           print(error)
         }

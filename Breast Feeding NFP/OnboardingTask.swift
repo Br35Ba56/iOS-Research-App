@@ -24,7 +24,9 @@ class OnboardingTask : ORKNavigableOrderedTask {
           if let questionResult = result as? ORKQuestionResult {
             if let stringResult = questionResult.answer {
               if questionResult.identifier == ORKRegistrationFormItemIdentifierEmail {
-                email = stringResult as! String
+                let unFormattedEmail = stringResult as! String
+                email = unFormattedEmail.trimmingCharacters(in: (NSCharacterSet.whitespacesAndNewlines))
+                email = email.lowercased()
               }
               if questionResult.identifier == ORKRegistrationFormItemIdentifierPassword {
                 password = stringResult as! String
