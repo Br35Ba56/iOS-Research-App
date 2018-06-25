@@ -16,6 +16,7 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   
   var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
   var user: AWSCognitoIdentityUser?
+  var verificationCode: String?
   
   @IBOutlet var verificationStepView: UIView!
   @IBOutlet weak var verificationCodeTextField: UITextField!
@@ -52,11 +53,13 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   @IBAction func submitVerificationCode(_ sender: Any) {
     if verificationCodeTextField.text != nil {
       user = AppDelegate.user
-      verifyCode()
+      verificationCode = verificationCodeTextField.text?.trimmingCharacters(in: (NSCharacterSet.whitespacesAndNewlines))
+      
+      verifyCode(verificationCode: verificationCode!)
     }
   }
-  func verifyCode() {
-    guard let confirmationCodeValue = self.verificationCodeTextField.text, !confirmationCodeValue.isEmpty else {
+  func verifyCode(verificationCode: String?) {
+    guard let confirmationCodeValue = verificationCode, !confirmationCodeValue.isEmpty else {
       let alertController = UIAlertController(title: "Confirmation code missing.",
                                               message: "Please enter a valid confirmation code.",
                                               preferredStyle: .alert)
@@ -66,7 +69,7 @@ class VerificationStepViewController : ORKVerificationStepViewController {
       self.present(alertController, animated: true, completion:  nil)
       return
     }
-    self.user?.confirmSignUp(self.verificationCodeTextField.text!, forceAliasCreation: true).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
+    self.user?.confirmSignUp(verificationCode!, forceAliasCreation: true).continueWith {[weak self] (task: AWSTask) -> AnyObject? in
       guard let strongSelf = self else { return nil }
       DispatchQueue.main.async(execute: {
         if let error = task.error as NSError? {
@@ -94,8 +97,6 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   override func resendEmailButtonTapped() {
     self.user?.resendConfirmationCode()
   }
-  
- 
 }
 
 

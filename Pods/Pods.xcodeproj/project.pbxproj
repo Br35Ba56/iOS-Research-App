@@ -1090,11 +1090,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00B4C9943AB9E1A29B6C9D73B64B2B70 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = en.lproj; sourceTree = "<group>"; };
+		00B4C9943AB9E1A29B6C9D73B64B2B70 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		01177FDAD43AF0B89685B45FFFADFE6D /* AWSTaskCompletionSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSTaskCompletionSource.h; path = AWSCore/Bolts/AWSTaskCompletionSource.h; sourceTree = "<group>"; };
 		01368ECF8DA2EB6C35D3B33DE2F66422 /* Pods-Breast Feeding NFP-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Breast Feeding NFP-resources.sh"; sourceTree = "<group>"; };
 		01786600AD80E2514C9104DD55E5DE09 /* ORKPageStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPageStep.h; sourceTree = "<group>"; };
-		01F243D3DED2421734FB809A0EAA452B /* consent_05@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_05@2x.m4v"; sourceTree = "<group>"; };
+		01F243D3DED2421734FB809A0EAA452B /* consent_05@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_05@2x.m4v"; sourceTree = "<group>"; };
 		0228184A1B9E85F6A8AD41FF3A814DE3 /* ORKImageCaptureStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKImageCaptureStepViewController.h; sourceTree = "<group>"; };
 		0270AE39063BCC7F03C244A865BFD783 /* AWSMobileAnalyticsConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsConfiguration.m; path = AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.m; sourceTree = "<group>"; };
 		028E30EBD3ED692F13B1AE3F368A3647 /* ORKVerificationStepView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVerificationStepView.h; sourceTree = "<group>"; };
@@ -1102,7 +1102,7 @@
 		03247D09D9DE6B81F2DA087C24C6938C /* AWSMobileAnalyticsWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsWriter.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsWriter.h; sourceTree = "<group>"; };
 		034E2347505F90D77662532132D0902C /* AWSMobileAnalyticsConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsConfiguration.h; path = AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h; sourceTree = "<group>"; };
 		03919FF2BB5E5757801FCFEAF3BF3B39 /* ORKCustomStepView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKCustomStepView_Internal.h; sourceTree = "<group>"; };
-		041FCCF3321521E08BBFE3B8FF8A9D9C /* tommath.c */ = {isa = PBXFileReference; includeInIndex = 1; name = tommath.c; path = AWSCognitoIdentityProvider/Internal/JKBigInteger/LibTomMath/tommath.c; sourceTree = "<group>"; };
+		041FCCF3321521E08BBFE3B8FF8A9D9C /* tommath.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = tommath.c; path = AWSCognitoIdentityProvider/Internal/JKBigInteger/LibTomMath/tommath.c; sourceTree = "<group>"; };
 		04468D8F470BE37D76FD1E02EEB4A07F /* ResearchKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ResearchKit-dummy.m"; sourceTree = "<group>"; };
 		045B0A5F85DA8ECD21AC6BBEAFA11F35 /* ORKHealthSampleQueryOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHealthSampleQueryOperation.m; sourceTree = "<group>"; };
 		048CBDF54EB60FE5B45C4D9497E678A7 /* ResearchKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ResearchKit-umbrella.h"; sourceTree = "<group>"; };
@@ -1115,16 +1115,16 @@
 		058E3670DFBA0C6DE582F323B5F0C5DA /* ORKShoulderRangeOfMotionStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKShoulderRangeOfMotionStepViewController.m; sourceTree = "<group>"; };
 		05F17138E2B518E7E83371FD1BF72F38 /* ORKVisualConsentStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVisualConsentStep.h; sourceTree = "<group>"; };
 		05F5804224C0863F7F2C966AF9FC77A4 /* FitnessTaskIntroduction.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = FitnessTaskIntroduction.png; path = docs/ActiveTasks/FitnessImages/FitnessTaskIntroduction.png; sourceTree = "<group>"; };
-		0624109658415EF40B682ACC765FDF86 /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ms.lproj; sourceTree = "<group>"; };
+		0624109658415EF40B682ACC765FDF86 /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ms.lproj; sourceTree = "<group>"; };
 		0627718972FCB992CCFCE6E3FE4EFF9C /* ORKWaitStepView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKWaitStepView.m; sourceTree = "<group>"; };
 		062CE88CFF9EC4C81623D126BEC4F7F6 /* ORKWalkingTaskStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKWalkingTaskStep.h; sourceTree = "<group>"; };
 		063A5CE59BEEA12FAE10161C409E8E75 /* AWSS3.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSS3.modulemap; sourceTree = "<group>"; };
 		068D4F2363DFCCCF37D688918515562D /* ORKCollector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKCollector.h; sourceTree = "<group>"; };
-		06C84AA5D1135798E4219A700C6A8BA6 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = sv.lproj; sourceTree = "<group>"; };
+		06C84AA5D1135798E4219A700C6A8BA6 /* sv.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = sv.lproj; sourceTree = "<group>"; };
 		06E2A49FF818A6E313D449B223A2E172 /* ResearchKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ResearchKit-prefix.pch"; sourceTree = "<group>"; };
 		0709DCF1F6FBDC2A5DDA4020D1779768 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		070AD4F8D4D8EE07C09B6B59DF78B247 /* AWSS3Resources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSS3Resources.h; path = AWSS3/AWSS3Resources.h; sourceTree = "<group>"; };
-		070C839A08BD7AE5E52EBBE8EBFBA310 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = pt.lproj; sourceTree = "<group>"; };
+		070C839A08BD7AE5E52EBBE8EBFBA310 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = pt.lproj; sourceTree = "<group>"; };
 		077CDF071B79D2498EDAFE10A16694AD /* ORKActiveStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKActiveStep.m; sourceTree = "<group>"; };
 		0799116EDD0D1DE8002389C7A039F662 /* ORKTintedImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTintedImageView.m; sourceTree = "<group>"; };
 		079CE052D9A1018CA3F64C5B7C4496A7 /* ORKStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKStepViewController.h; sourceTree = "<group>"; };
@@ -1133,7 +1133,7 @@
 		07FBADE87EE7DF0600B5158B7044B33C /* ORKDiscreteGraphChartView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKDiscreteGraphChartView.h; sourceTree = "<group>"; };
 		080334CA392370DB71AC2B4B93ACB71D /* AWSDDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDFileLogger.m; path = AWSCore/Logging/AWSDDFileLogger.m; sourceTree = "<group>"; };
 		089E5CCA8746976D6A8B553AAA9E822D /* ORKFitnessStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKFitnessStep.m; sourceTree = "<group>"; };
-		08C78AF74D3CE7E1776119F3F418C4CB /* _object.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _object.scss; path = docs/templates/html/css/scss/_object.scss; sourceTree = "<group>"; };
+		08C78AF74D3CE7E1776119F3F418C4CB /* _object.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _object.scss; path = docs/templates/html/css/scss/_object.scss; sourceTree = "<group>"; };
 		091D82FCC8535B4DBF46B869FD9B9F37 /* ORKPSATKeyboardView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPSATKeyboardView.h; sourceTree = "<group>"; };
 		093CD2016E3F7C7DCE98822A7CA50D1B /* SpatialMemoryTestStep4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = SpatialMemoryTestStep4.png; path = docs/ActiveTasks/SpatialSpanMemoryTaskImages/SpatialMemoryTestStep4.png; sourceTree = "<group>"; };
 		097A80FFB5C337173FEE9790498C5597 /* ORKSpatialSpanGame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSpatialSpanGame.h; sourceTree = "<group>"; };
@@ -1143,13 +1143,13 @@
 		0A70C69840E3DD8F1EB8CA5864080E3A /* ORKStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKStep.h; sourceTree = "<group>"; };
 		0A78E9E82B565C47EEF44DC667ED504E /* LineGraphChartMultipleLinesOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = LineGraphChartMultipleLinesOverview.png; path = docs/ChartsAndGraphs/ChartsImages/Overview/LineGraphChartMultipleLinesOverview.png; sourceTree = "<group>"; };
 		0ABB806E7A211D679F817E4B3789F1B0 /* ORKToneAudiometryPracticeStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKToneAudiometryPracticeStep.m; sourceTree = "<group>"; };
-		0AD39F7C7EF3D40F327FB906799578D4 /* MovieTintShader.vsh */ = {isa = PBXFileReference; includeInIndex = 1; path = MovieTintShader.vsh; sourceTree = "<group>"; };
+		0AD39F7C7EF3D40F327FB906799578D4 /* MovieTintShader.vsh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.glsl; path = MovieTintShader.vsh; sourceTree = "<group>"; };
 		0B0BD4BC62FC32D07A752692E207B1BB /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsVirtualMonetizationEventBuilder.m; path = AWSMobileAnalytics/AWSMobileAnalyticsVirtualMonetizationEventBuilder.m; sourceTree = "<group>"; };
-		0B6686C97DDDD20562A632098B6D12C9 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCognitoIdentityProvider.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B6686C97DDDD20562A632098B6D12C9 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognitoIdentityProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B690444CC47B2301849EABFD3761661 /* AWSCognitoIdentityProviderSrpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderSrpHelper.h; path = AWSCognitoIdentityProvider/Internal/AWSCognitoIdentityProviderSrpHelper.h; sourceTree = "<group>"; };
 		0BD6F714590CC7389829F1342DBEFE3A /* ORKActiveStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKActiveStepViewController.h; sourceTree = "<group>"; };
 		0C603F6639F9D4A1B0603095BA6CFEA7 /* AWSMobileAnalyticsErrorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsErrorUtils.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsErrorUtils.m; sourceTree = "<group>"; };
-		0C7E230B653560E9B6356569901EFEF7 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = nb.lproj; sourceTree = "<group>"; };
+		0C7E230B653560E9B6356569901EFEF7 /* nb.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = nb.lproj; sourceTree = "<group>"; };
 		0C81EC4C77C734C1398E0213C7C38893 /* ORKInstructionStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKInstructionStep.h; sourceTree = "<group>"; };
 		0C89790BC2B3457927B15B527CFDD58F /* CMPedometerData+ORKJSONDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CMPedometerData+ORKJSONDictionary.m"; sourceTree = "<group>"; };
 		0CBB25F3EB95F1EE206D1AF3D18CC7AA /* ORKPSATKeyboardView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPSATKeyboardView.m; sourceTree = "<group>"; };
@@ -1157,7 +1157,7 @@
 		0D53B29FEE55858DC7A1254A18C478CF /* Pods-Breast Feeding NFPTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Breast Feeding NFPTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		0DE9FF8444AB770F469F7B40FA0565F0 /* ORKScaleSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKScaleSliderView.m; sourceTree = "<group>"; };
 		0E427BC5CCD76DA5D339CE8B38293717 /* AWSMobileAnalyticsDefaultOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsDefaultOptions.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultOptions.h; sourceTree = "<group>"; };
-		0E472966AA317AF05DA6792C01DCFEEC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0E472966AA317AF05DA6792C01DCFEEC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0E4FDAE6782D037438C172A963575545 /* AWSMobileAnalyticsInactiveSessionState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsInactiveSessionState.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsInactiveSessionState.h; sourceTree = "<group>"; };
 		0E5936E6AC9B2FCCD9D979B46B7D4C6F /* ORKShoulderRangeOfMotionStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKShoulderRangeOfMotionStepViewController.h; sourceTree = "<group>"; };
 		0E72C512B491261F8CB9514004F7C8A6 /* ORKStroopStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStroopStepViewController.m; sourceTree = "<group>"; };
@@ -1177,7 +1177,7 @@
 		113AE62C1F59CC1EE1F65A38AF496C93 /* AWSCognitoIdentityUser_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityUser_Internal.h; path = AWSCognitoIdentityProvider/Internal/AWSCognitoIdentityUser_Internal.h; sourceTree = "<group>"; };
 		11EC920242E9DA6F0ACE9A9C9F5B28FB /* ORKLineGraphAccessibilityElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKLineGraphAccessibilityElement.h; sourceTree = "<group>"; };
 		1271A9CC275FBBBFA6DDEB16F8B4ED9A /* ORKSeparatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSeparatorView.h; sourceTree = "<group>"; };
-		128414FBE8F7AE2098131FFC6CD79035 /* zh_HK.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = zh_HK.lproj; sourceTree = "<group>"; };
+		128414FBE8F7AE2098131FFC6CD79035 /* zh_HK.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = zh_HK.lproj; sourceTree = "<group>"; };
 		12B3D8579D473704DFB06A985B6F9428 /* ORKGraphChartView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKGraphChartView_Internal.h; sourceTree = "<group>"; };
 		12BB55C6623EEC2D7ED9801C01AAE0DA /* ORKAudioContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAudioContentView.h; sourceTree = "<group>"; };
 		12BE4E5B6604C4A253BA740B6A9F0C30 /* PieChartOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = PieChartOverview.png; path = docs/ChartsAndGraphs/ChartsImages/Overview/PieChartOverview.png; sourceTree = "<group>"; };
@@ -1192,7 +1192,7 @@
 		159A7C67381A342F73AFBE1A8027B1B0 /* AWSCognitoSyncService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoSyncService.m; path = AWSCognito/CognitoSync/AWSCognitoSyncService.m; sourceTree = "<group>"; };
 		16076C006D5EB6D4EB8DEA7BB5E3EF55 /* ORKTableContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTableContainerView.h; sourceTree = "<group>"; };
 		163DF7ED6633C3282B1EF3B442C6896E /* AWSSTSResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSTSResources.h; path = AWSCore/STS/AWSSTSResources.h; sourceTree = "<group>"; };
-		164C1670D279BA7C7CDBB961075A398D /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = cs.lproj; sourceTree = "<group>"; };
+		164C1670D279BA7C7CDBB961075A398D /* cs.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = cs.lproj; sourceTree = "<group>"; };
 		16D3DE6AFD588ABC4F5C9AF401FE2C7A /* NSObject+AWSMTLComparisonAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+AWSMTLComparisonAdditions.h"; path = "AWSCore/Mantle/NSObject+AWSMTLComparisonAdditions.h"; sourceTree = "<group>"; };
 		16DFA3DE207AC72DFDE56179A08B3EF7 /* AWSMobileAnalyticsDelayedBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsDelayedBlock.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDelayedBlock.h; sourceTree = "<group>"; };
 		16F9235BDF38A1AA8C3D9F9580087BBB /* ShortWalkTaskStep7.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ShortWalkTaskStep7.png; path = docs/ActiveTasks/ShortWalkTaskImages/ShortWalkTaskStep7.png; sourceTree = "<group>"; };
@@ -1203,14 +1203,14 @@
 		17F2DC799973D6CEF22A9AB1A8723D57 /* Pods-Breast Feeding NFP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Breast Feeding NFP.release.xcconfig"; sourceTree = "<group>"; };
 		18200525C8297E68E7D9848CAF91B8B5 /* AWSDDContextFilterLogFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDContextFilterLogFormatter.m; path = AWSCore/Logging/Extensions/AWSDDContextFilterLogFormatter.m; sourceTree = "<group>"; };
 		18800B91489F182C8620B98DB010C504 /* ORKRoundTappingButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKRoundTappingButton.h; sourceTree = "<group>"; };
-		18B1FCA62CEED4CC74A99C7C867D8166 /* document-template.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "document-template.html"; path = "docs/templates/html/document-template.html"; sourceTree = "<group>"; };
+		18B1FCA62CEED4CC74A99C7C867D8166 /* document-template.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "document-template.html"; path = "docs/templates/html/document-template.html"; sourceTree = "<group>"; };
 		195FF5E238E0E84F6ADCDD139572DAAB /* disclosure_open.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = disclosure_open.png; path = docs/templates/html/img/disclosure_open.png; sourceTree = "<group>"; };
 		197139860B11F8A0A9012355D467BC3D /* ORKRegistrationStep_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKRegistrationStep_Internal.h; sourceTree = "<group>"; };
 		1999DC00B2E37AB8DD3C20AF7BE185AE /* ORKStroopStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKStroopStepViewController.h; sourceTree = "<group>"; };
 		19B1E72DD5848D71049CC08D60B0C117 /* AWSCognitoIdentityUserPool_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityUserPool_Internal.h; path = AWSCognitoIdentityProvider/Internal/AWSCognitoIdentityUserPool_Internal.h; sourceTree = "<group>"; };
 		19FDF338099557E420CCDE52CBB0BE14 /* AWSCognitoIdentityUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityUser.h; path = AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h; sourceTree = "<group>"; };
 		1A2290701175C4459DB9461569F53D30 /* AWSClientContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSClientContext.h; path = AWSCore/Service/AWSClientContext.h; sourceTree = "<group>"; };
-		1A27543DDA4E42E076E7B9643E729CBC /* coding-style-guide.md */ = {isa = PBXFileReference; includeInIndex = 1; name = "coding-style-guide.md"; path = "docs-standalone/coding-style-guide.md"; sourceTree = "<group>"; };
+		1A27543DDA4E42E076E7B9643E729CBC /* coding-style-guide.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = "coding-style-guide.md"; path = "docs-standalone/coding-style-guide.md"; sourceTree = "<group>"; };
 		1A660FE5C3EBDF2A611159D2F26C51F4 /* ORKTimedWalkContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTimedWalkContentView.h; sourceTree = "<group>"; };
 		1AA5AE824814354845AA879E12D03126 /* ORKPieChartLegendView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPieChartLegendView.h; sourceTree = "<group>"; };
 		1B1B8250D7B94755C0EA38E557003EFB /* TimeIntervalAnswerFormat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TimeIntervalAnswerFormat.png; path = docs/Survey/SurveyImages/TimeIntervalAnswerFormat.png; sourceTree = "<group>"; };
@@ -1286,7 +1286,7 @@
 		2A110393B12FE97BCE6FDC7CFC9EB9AD /* ORKWaitStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKWaitStepViewController.m; sourceTree = "<group>"; };
 		2A3357E330044B34CD446D0D942ABA46 /* AWSMobileAnalyticsDefaultEventClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsDefaultEventClient.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultEventClient.m; sourceTree = "<group>"; };
 		2AC82950FE765713DCFFFE60099719AB /* ORKNavigationContainerView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKNavigationContainerView_Internal.h; sourceTree = "<group>"; };
-		2B6A8890BC646BE3E42866A4528CE626 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCognitoIdentityProviderASF.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B6A8890BC646BE3E42866A4528CE626 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognitoIdentityProviderASF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C155C671FC3A2A6F8C97B8724265387 /* ORKTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTask.h; sourceTree = "<group>"; };
 		2C333A91AC631D84C6FBB132769EF018 /* AWSXMLWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSXMLWriter.m; path = AWSCore/XMLWriter/AWSXMLWriter.m; sourceTree = "<group>"; };
 		2C38AAF9D56062B16E289A55FB705958 /* ORKDateTimePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKDateTimePicker.h; sourceTree = "<group>"; };
@@ -1303,8 +1303,8 @@
 		2EF9016B4E75D7050AF226B7C258E172 /* AWSCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSCore.modulemap; sourceTree = "<group>"; };
 		2F7137B70CC98C66ED61A787C1603293 /* DiscreteGraphChartOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = DiscreteGraphChartOverview.png; path = docs/Charts/ChartsImages/Overview/DiscreteGraphChartOverview.png; sourceTree = "<group>"; };
 		2FA24B6B4BEB8642BC9230EC49B76196 /* ORKPieChartView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPieChartView_Internal.h; sourceTree = "<group>"; };
-		2FAA87DB558DCE618636464AB8E1E130 /* fi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = fi.lproj; sourceTree = "<group>"; };
-		2FAE0E9743C0CF429D15C11D3B42C4F3 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = fr.lproj; sourceTree = "<group>"; };
+		2FAA87DB558DCE618636464AB8E1E130 /* fi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = fi.lproj; sourceTree = "<group>"; };
+		2FAE0E9743C0CF429D15C11D3B42C4F3 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = fr.lproj; sourceTree = "<group>"; };
 		2FC15AF9D7DCD0D82575BD5EF184E08A /* AWSCognitoIdentityProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProvider.h; path = AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h; sourceTree = "<group>"; };
 		2FEAB5DEB6154F88EB311F7C9EAAEE2C /* AWSCognitoIdentityProviderModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderModel.h; path = AWSCognitoIdentityProvider/CognitoIdentityProvider/AWSCognitoIdentityProviderModel.h; sourceTree = "<group>"; };
 		2FFB7DB698ECD7DBAB30B7B8A706E512 /* ORKCompletionStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKCompletionStepViewController.m; sourceTree = "<group>"; };
@@ -1317,14 +1317,14 @@
 		309A634A2DA84B3906C8A71F3F34B355 /* ORKEAGLMoviePlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKEAGLMoviePlayerView.h; sourceTree = "<group>"; };
 		30CAAB01F2A655743C14267CF40B013A /* ORKNavigablePageStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKNavigablePageStep.m; sourceTree = "<group>"; };
 		30E4485128B0732618602146532A1946 /* UIImage+ResearchKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResearchKit.h"; sourceTree = "<group>"; };
-		31423E19EEC84A64464213923BF94BB0 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = de.lproj; sourceTree = "<group>"; };
+		31423E19EEC84A64464213923BF94BB0 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = de.lproj; sourceTree = "<group>"; };
 		3143D662191D79171A8F2D20506CC2BE /* LocationAnswerFormat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = LocationAnswerFormat.png; path = docs/Survey/SurveyImages/LocationAnswerFormat.png; sourceTree = "<group>"; };
 		315BA925A20A782844F0B5278861832D /* PSATStep3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = PSATStep3.png; path = docs/ActiveTasks/PsatTaskImages/PSATStep3.png; sourceTree = "<group>"; };
 		31A0AC53A2616647F65E382924C4CE2D /* ORKActiveStepTimer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKActiveStepTimer.m; sourceTree = "<group>"; };
 		31DA7E6BF8518FF322F5D71153BB1B0E /* ORKChoiceAnswerFormatHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKChoiceAnswerFormatHelper.h; sourceTree = "<group>"; };
 		31E256E54CF0563C3610D87E7BA9A827 /* AWSCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AWSCore-prefix.pch"; sourceTree = "<group>"; };
 		31EC6528EE3043539778BE13B6E903A2 /* AWSS3Service.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSS3Service.h; path = AWSS3/AWSS3Service.h; sourceTree = "<group>"; };
-		327ED7096AB94FF9F5FFCA4A97333706 /* zh_CN.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = zh_CN.lproj; sourceTree = "<group>"; };
+		327ED7096AB94FF9F5FFCA4A97333706 /* zh_CN.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = zh_CN.lproj; sourceTree = "<group>"; };
 		32B0AC80C57B0D92132349422DD428DB /* ORKTintedImageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTintedImageView.h; sourceTree = "<group>"; };
 		32BCAA59CCD8A9C711B82AB6382FE536 /* AWSMobileAnalyticsDeliveryPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsDeliveryPolicy.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDeliveryPolicy.h; sourceTree = "<group>"; };
 		32FA4C829ADE170234A4D2A0F0C14C72 /* ORKAudioLevelNavigationRule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAudioLevelNavigationRule.h; sourceTree = "<group>"; };
@@ -1332,17 +1332,17 @@
 		331A81F138C0F09FBCAB245D2F08B96C /* CMDeviceMotion+ORKJSONDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CMDeviceMotion+ORKJSONDictionary.m"; sourceTree = "<group>"; };
 		3330FF7A2F40D2C7FA193FB50E8F32B8 /* AWSCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AWSCore-dummy.m"; sourceTree = "<group>"; };
 		3370D6BC06698515FB969C7F609578DE /* AWSURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSURLRequestSerialization.m; path = AWSCore/Serialization/AWSURLRequestSerialization.m; sourceTree = "<group>"; };
-		337CBB416986AD7FF03F2E1AE1018C41 /* _xcode.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _xcode.scss; path = docs/templates/html/css/scss/_xcode.scss; sourceTree = "<group>"; };
+		337CBB416986AD7FF03F2E1AE1018C41 /* _xcode.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _xcode.scss; path = docs/templates/html/css/scss/_xcode.scss; sourceTree = "<group>"; };
 		3421CD2D7F05719FA7B724BD243FE0E6 /* ORKConsentSceneViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentSceneViewController.h; sourceTree = "<group>"; };
 		34241A9681E6C4A05261031109C66121 /* TimedWalkStep2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TimedWalkStep2.png; path = docs/ActiveTasks/TimedWalkTaskImages/TimedWalkStep2.png; sourceTree = "<group>"; };
 		3453A42884EB508D9CCB92B437A4CC23 /* AWSXMLDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSXMLDictionary.h; path = AWSCore/XMLDictionary/AWSXMLDictionary.h; sourceTree = "<group>"; };
 		3453B18984DC1AF359E0B5FB5F83F631 /* PSATStep5.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = PSATStep5.png; path = docs/ActiveTasks/PsatTaskImages/PSATStep5.png; sourceTree = "<group>"; };
 		34583176A34D9FAECD04D70E0D65CC21 /* AWSCognitoIdentityProviderASF-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProviderASF-umbrella.h"; sourceTree = "<group>"; };
-		349BB3EECA921EAC0AD598D22AFE4CE3 /* consent_05@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_05@3x.m4v"; sourceTree = "<group>"; };
+		349BB3EECA921EAC0AD598D22AFE4CE3 /* consent_05@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_05@3x.m4v"; sourceTree = "<group>"; };
 		34A003CDDC3B99950ED885D2D4456771 /* ORKFitnessStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKFitnessStepViewController.h; sourceTree = "<group>"; };
 		34A977F422E41DFBC9B6B57DAE49500B /* AWSFMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDatabase.h; path = AWSCore/FMDB/AWSFMDatabase.h; sourceTree = "<group>"; };
-		3529E18514F76B9E6BCEC122D0A62642 /* Pods_Breast_Feeding_NFPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Breast_Feeding_NFPTests.framework; path = "Pods-Breast Feeding NFPTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35548366ACE72ED629787933149BA802 /* AWSCognito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCognito.framework; path = AWSCognito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3529E18514F76B9E6BCEC122D0A62642 /* Pods_Breast_Feeding_NFPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35548366ACE72ED629787933149BA802 /* AWSCognito.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognito.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		355E25AAA7370193CBCCEDD940CCFCA5 /* AWSS3TransferUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSS3TransferUtility.m; path = AWSS3/AWSS3TransferUtility.m; sourceTree = "<group>"; };
 		35804CDCDFFEFB564FDBF03FD35FFFC5 /* ResearchKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ResearchKit.modulemap; sourceTree = "<group>"; };
 		35A5F2DE1A0132602F00FDBC1A8E9A64 /* ORKHelpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHelpers.m; sourceTree = "<group>"; };
@@ -1354,7 +1354,7 @@
 		36CCF37A9FA9397C7C00C1E7108CD6E3 /* AWSCognitoUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoUtil.h; path = AWSCognito/Internal/AWSCognitoUtil.h; sourceTree = "<group>"; };
 		36EB143CE322F430CA0DB4636B1082A2 /* AWSCognitoIdentityProviderASF.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSCognitoIdentityProviderASF.modulemap; sourceTree = "<group>"; };
 		37354A4FF98F7F63C989F64D42A6A3DE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		3776155821DDEDED3B248C0A698429C7 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSMobileAnalytics.framework; path = AWSMobileAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3776155821DDEDED3B248C0A698429C7 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSMobileAnalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37778A18D6FB7CAFF8863F48738E95A0 /* DiscereteGraphChartMultipleLinesOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = DiscereteGraphChartMultipleLinesOverview.png; path = docs/ChartsAndGraphs/ChartsImages/Overview/DiscereteGraphChartMultipleLinesOverview.png; sourceTree = "<group>"; };
 		378EAC990E3DD2E9CBC805C3F4821304 /* AWSSTSService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSTSService.m; path = AWSCore/STS/AWSSTSService.m; sourceTree = "<group>"; };
 		37C53648E0CC379F22E2BEE38E28A61E /* ORKVerificationStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVerificationStep.m; sourceTree = "<group>"; };
@@ -1422,9 +1422,9 @@
 		458264BE9119A5A071E98B1F8A51AC85 /* ScaleAnswerFormat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ScaleAnswerFormat.png; path = docs/Survey/SurveyImages/ScaleAnswerFormat.png; sourceTree = "<group>"; };
 		4598FBA66004B21A5B64D036FA6BA1DF /* ORKWalkingTaskStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKWalkingTaskStep.m; sourceTree = "<group>"; };
 		459BBC255586B0346C0FD1CCDAC74A0E /* ORKConsentSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentSection.h; sourceTree = "<group>"; };
-		459D830C535678FA62AABF2840C20EF5 /* _print.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _print.scss; path = docs/templates/html/css/scss/_print.scss; sourceTree = "<group>"; };
+		459D830C535678FA62AABF2840C20EF5 /* _print.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _print.scss; path = docs/templates/html/css/scss/_print.scss; sourceTree = "<group>"; };
 		45B7AF7C73DAD5A265063BA3AAD90419 /* ORKTableContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTableContainerView.m; sourceTree = "<group>"; };
-		46006323D72711BFEADB7C9294684C09 /* MovieTintShader.fsh */ = {isa = PBXFileReference; includeInIndex = 1; path = MovieTintShader.fsh; sourceTree = "<group>"; };
+		46006323D72711BFEADB7C9294684C09 /* MovieTintShader.fsh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.glsl; path = MovieTintShader.fsh; sourceTree = "<group>"; };
 		463E8922F5B13DB2072585CBC0079432 /* ORKReactionTimeContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKReactionTimeContentView.m; sourceTree = "<group>"; };
 		46942153F5B997C609237D1226EE939F /* ORKValuePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKValuePicker.m; sourceTree = "<group>"; };
 		47A0F0BCE0646BF1DB3EDA4732E1CE4A /* ORKCompletionStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKCompletionStepViewController.h; sourceTree = "<group>"; };
@@ -1450,7 +1450,7 @@
 		4C9D5767BBCFCE26F4FB834AD593F6C1 /* AWSCognitoIdentityProvider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSCognitoIdentityProvider.modulemap; sourceTree = "<group>"; };
 		4D8C9929507CF6FC1129444ABC51422B /* ShortWalkTaskStep1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ShortWalkTaskStep1.png; path = docs/ActiveTasks/ShortWalkTaskImages/ShortWalkTaskStep1.png; sourceTree = "<group>"; };
 		4D911CEA8E755FD4D665C5F8094413F5 /* AWSCognitoIdentityProviderModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderModel.m; path = AWSCognitoIdentityProvider/CognitoIdentityProvider/AWSCognitoIdentityProviderModel.m; sourceTree = "<group>"; };
-		4DA7D135684F31969B79EFB928A4C0FB /* _variables.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _variables.scss; path = docs/templates/html/css/scss/_variables.scss; sourceTree = "<group>"; };
+		4DA7D135684F31969B79EFB928A4C0FB /* _variables.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _variables.scss; path = docs/templates/html/css/scss/_variables.scss; sourceTree = "<group>"; };
 		4DAF495CA6C52CEE0F93A1A4DD915600 /* ShortWalkTaskStep4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ShortWalkTaskStep4.png; path = docs/ActiveTasks/ShortWalkTaskImages/ShortWalkTaskStep4.png; sourceTree = "<group>"; };
 		4DB2CDA807B851801165A12E7AEABCE0 /* ORKCompletionStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKCompletionStep.m; sourceTree = "<group>"; };
 		4DCA98B25FF450141CFDEC6941F98F1C /* ORKTaskViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTaskViewController.m; sourceTree = "<group>"; };
@@ -1472,7 +1472,7 @@
 		512DAE595F05697CA7FF89C3F513D280 /* ORKSubheadlineLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKSubheadlineLabel.m; sourceTree = "<group>"; };
 		5130B975B853D2E33B0FF640C79C1327 /* Verification.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = Verification.png; path = docs/Account/Verification.png; sourceTree = "<group>"; };
 		516CE50A5B7612215D59221CE3BA310E /* AWSMobileAnalyticsClientContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsClientContext.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsClientContext.m; sourceTree = "<group>"; };
-		51CAFFB600E95F430A4C8805DF40C8BE /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSCore.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51CAFFB600E95F430A4C8805DF40C8BE /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		520A553500C91BABAB607702CB09CCC1 /* ORKHolePegTestPlacePegView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHolePegTestPlacePegView.m; sourceTree = "<group>"; };
 		52A46C17AF3F17743C9FB80158F4C28D /* VisualStep_3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_3.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_3.png; sourceTree = "<group>"; };
 		52F19D1935794C828D41EC56EAD104D6 /* ORKQuestionStepView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKQuestionStepView.m; sourceTree = "<group>"; };
@@ -1486,13 +1486,13 @@
 		547F3842EFCBFF3A858C019008DBD10E /* NSDictionary+AWSMTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+AWSMTLManipulationAdditions.m"; path = "AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.m"; sourceTree = "<group>"; };
 		552ED588EDF076FF44F2EFBF743A5178 /* ORKHolePegTestRemovePegView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHolePegTestRemovePegView.m; sourceTree = "<group>"; };
 		552FCF0C1710E1E05F98BDDAB7F9AB74 /* ORKPieChartLegendCollectionViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPieChartLegendCollectionViewLayout.h; sourceTree = "<group>"; };
-		555FBADD5E28868C12629EE36F5D19A7 /* consent_02@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_02@3x.m4v"; sourceTree = "<group>"; };
+		555FBADD5E28868C12629EE36F5D19A7 /* consent_02@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_02@3x.m4v"; sourceTree = "<group>"; };
 		557A72284CA7F3C40C325D61DBD1ACD4 /* AWSNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSNetworking.h; path = AWSCore/Networking/AWSNetworking.h; sourceTree = "<group>"; };
 		557F862147A75BF80E465AF329268476 /* ORKTintedImageView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTintedImageView_Internal.h; sourceTree = "<group>"; };
 		55A338356132942FE52F6787EC7F8CE9 /* ORKBorderedButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKBorderedButton.m; sourceTree = "<group>"; };
 		55A6E90D1081018163ED65C2812C557E /* Pods-Breast Feeding NFPUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Breast Feeding NFPUITests-umbrella.h"; sourceTree = "<group>"; };
 		572F7EC60BF9D302423B277D5B7ECB4A /* ORKHolePegTestPlaceStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHolePegTestPlaceStepViewController.m; sourceTree = "<group>"; };
-		575B6824F711CACDD5EB056E63484D58 /* _index.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _index.scss; path = docs/templates/html/css/scss/_index.scss; sourceTree = "<group>"; };
+		575B6824F711CACDD5EB056E63484D58 /* _index.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _index.scss; path = docs/templates/html/css/scss/_index.scss; sourceTree = "<group>"; };
 		5763F5BF7A7D111F4994E2D11852C527 /* ORKSurveyAnswerCellForNumber.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSurveyAnswerCellForNumber.h; sourceTree = "<group>"; };
 		57BBCB87F1A53FB2FC605B2BB63D7D91 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		57C0ED5D9310F2589ECD5B5399EB0BFF /* ORKContinueButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKContinueButton.m; sourceTree = "<group>"; };
@@ -1508,7 +1508,7 @@
 		58FEA26C09539C9ADCD0DE424640674F /* Fabric+FABKits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Fabric+FABKits.h"; path = "AWSCore/Fabric/Fabric+FABKits.h"; sourceTree = "<group>"; };
 		593320913E8CAB04EDD2ACCCF3BAF9A7 /* AWSMobileAnalyticsFileEventStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsFileEventStore.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsFileEventStore.h; sourceTree = "<group>"; };
 		59386BFD2B4331026C322E1D5DD544A7 /* AWSMobileAnalyticsDefaultOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsDefaultOptions.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultOptions.m; sourceTree = "<group>"; };
-		59840B424208D9C6254A1DF23E6B7DDB /* consent_01@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_01@2x.m4v"; sourceTree = "<group>"; };
+		59840B424208D9C6254A1DF23E6B7DDB /* consent_01@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_01@2x.m4v"; sourceTree = "<group>"; };
 		598DFB0C1030949A4732EB18AAF89EB2 /* ORKSurveyAnswerCellForText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKSurveyAnswerCellForText.m; sourceTree = "<group>"; };
 		59990CBE6996CB1A230E3AAACFC0046A /* AWSModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSModel.h; path = AWSCore/Utility/AWSModel.h; sourceTree = "<group>"; };
 		59A05EBB60E9054A6B99925935FF821E /* ORKProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKProgressView.m; sourceTree = "<group>"; };
@@ -1523,7 +1523,7 @@
 		5B5DF95CA50AEF826094A26804EF41B6 /* VisualStep_7.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_7.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_7.png; sourceTree = "<group>"; };
 		5BE5FB8DF6822876D662D42BFFE4EDEE /* ORKVisualConsentStepViewController_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVisualConsentStepViewController_Internal.h; sourceTree = "<group>"; };
 		5BEA22CB47119387794AE2A5ABCD9599 /* AWSCognitoSyncModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoSyncModel.h; path = AWSCognito/CognitoSync/AWSCognitoSyncModel.h; sourceTree = "<group>"; };
-		5C067AA70DFDC55BE5A86455DD397E3B /* consent_06@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_06@2x.m4v"; sourceTree = "<group>"; };
+		5C067AA70DFDC55BE5A86455DD397E3B /* consent_06@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_06@2x.m4v"; sourceTree = "<group>"; };
 		5C54D571594E274558BBEAF6FDE5C51F /* ORKActiveStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKActiveStep.h; sourceTree = "<group>"; };
 		5CB0CAE7286B97543F22245F923B30AF /* AWSSignature.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSignature.h; path = AWSCore/Authentication/AWSSignature.h; sourceTree = "<group>"; };
 		5CC6CEC224985D64AA2103577FB297C6 /* AWSSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSerialization.m; path = AWSCore/Serialization/AWSSerialization.m; sourceTree = "<group>"; };
@@ -1540,11 +1540,11 @@
 		5F6102E6429E357F83B081742C087E6D /* AWSDDASLLogCapture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDASLLogCapture.m; path = AWSCore/Logging/AWSDDASLLogCapture.m; sourceTree = "<group>"; };
 		5FB9744B6192356AD71B4A18463F7841 /* ORKQuestionStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKQuestionStep.m; sourceTree = "<group>"; };
 		5FBE938BEFDEE1C8745054CE4DE76F5D /* ORKTextButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTextButton.m; sourceTree = "<group>"; };
-		5FF3D83C83A7124DE1741BCB636E64B0 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ja.lproj; sourceTree = "<group>"; };
+		5FF3D83C83A7124DE1741BCB636E64B0 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ja.lproj; sourceTree = "<group>"; };
 		6007CC70E33E9976B87528C11E2FF59F /* HKSample+ORKJSONDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HKSample+ORKJSONDictionary.m"; sourceTree = "<group>"; };
 		60309C0022E26E04AA88DB6A6EAA8B4D /* ORKReviewStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKReviewStep.h; sourceTree = "<group>"; };
 		603BD1E8ED4145EB09C7437D242FF461 /* ORKObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKObserver.h; sourceTree = "<group>"; };
-		609C07352663388DC193190131C49C87 /* ResearchKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ResearchKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		609C07352663388DC193190131C49C87 /* ResearchKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ResearchKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		60E2EE7050C1B77C029D23C12EAF7C9B /* ORKTrailmakingStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTrailmakingStepViewController.h; sourceTree = "<group>"; };
 		612A4EDA650E8C6B87430325E02F4B48 /* DiscreteGraphChart2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = DiscreteGraphChart2.png; path = docs/ChartsAndGraphs/ChartsImages/DiscreteGraphChart2.png; sourceTree = "<group>"; };
 		616E632B483B8BDD3709CB76ADE7FD8D /* AWSDDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDAbstractDatabaseLogger.m; path = AWSCore/Logging/AWSDDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
@@ -1597,8 +1597,8 @@
 		6B27E89EF61A625D791C16A58269F391 /* ORKAccelerometerRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKAccelerometerRecorder.m; sourceTree = "<group>"; };
 		6B3B96324E1BBFD2F96B815CB75397C8 /* ORKStroopStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStroopStep.m; sourceTree = "<group>"; };
 		6B4B0857FC4E10932D417BA9B98610DB /* ORKSpatialSpanGameState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKSpatialSpanGameState.m; sourceTree = "<group>"; };
-		6B4B64843414E0C7CC3E9F421B9CE6BB /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = el.lproj; sourceTree = "<group>"; };
-		6B558D6CFAA0DE4AB763BD48699D0E39 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = tr.lproj; sourceTree = "<group>"; };
+		6B4B64843414E0C7CC3E9F421B9CE6BB /* el.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = el.lproj; sourceTree = "<group>"; };
+		6B558D6CFAA0DE4AB763BD48699D0E39 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = tr.lproj; sourceTree = "<group>"; };
 		6B6F933E0D0F3599090C360993493C49 /* ORKNavigableOrderedTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKNavigableOrderedTask.m; sourceTree = "<group>"; };
 		6BD6F2E56C69AA74953CD781048B5920 /* ORKResultPredicate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKResultPredicate.m; sourceTree = "<group>"; };
 		6C200D020EAED42AF033C34547C2E681 /* ORKConsentSharingStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentSharingStep.h; sourceTree = "<group>"; };
@@ -1638,7 +1638,7 @@
 		737244D67F6C383E66BE119A02CD0443 /* ORKDeprecated.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ORKDeprecated.h; path = ResearchKit/ORKDeprecated.h; sourceTree = "<group>"; };
 		73A216E724B3264E8EBC9781FFEC4CF0 /* AWSJKBigDecimal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSJKBigDecimal.m; path = AWSCognitoIdentityProvider/Internal/JKBigInteger/AWSJKBigDecimal.m; sourceTree = "<group>"; };
 		73F4D8477B1F50C512473B082694430A /* ORKDeviceMotionRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKDeviceMotionRecorder.m; sourceTree = "<group>"; };
-		73F98704FED9851157CC303A64C3C90C /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = id.lproj; sourceTree = "<group>"; };
+		73F98704FED9851157CC303A64C3C90C /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = id.lproj; sourceTree = "<group>"; };
 		7425C09733A18DE81C27576DD51DE114 /* ORKLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKLabel.h; sourceTree = "<group>"; };
 		74381AC12DD4DE421011B9097B83A5A8 /* ORKPSATStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPSATStepViewController.m; sourceTree = "<group>"; };
 		74489FAE38F4A7047A23C78F843267CA /* ORKAudioGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKAudioGenerator.m; sourceTree = "<group>"; };
@@ -1663,7 +1663,7 @@
 		78DADA73B7853A73B147C999CB9CC931 /* ORKAnswerFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAnswerFormat.h; sourceTree = "<group>"; };
 		78DAE579987536AB0D023150CA15B42E /* AWSMobileAnalyticsDefaultEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsDefaultEvent.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultEvent.h; sourceTree = "<group>"; };
 		791DD14FEF9BE6CFA7598956106A255E /* AWSMobileAnalyticsConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsConstants.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsConstants.h; sourceTree = "<group>"; };
-		79332E6FF367E925198A4AF6A31602EF /* dependency-management.md */ = {isa = PBXFileReference; includeInIndex = 1; name = "dependency-management.md"; path = "docs-standalone/dependency-management.md"; sourceTree = "<group>"; };
+		79332E6FF367E925198A4AF6A31602EF /* dependency-management.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = "dependency-management.md"; path = "docs-standalone/dependency-management.md"; sourceTree = "<group>"; };
 		794984A6B84F430917AD49EF4C7FE14A /* CMMotionActivity+ORKJSONDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CMMotionActivity+ORKJSONDictionary.h"; sourceTree = "<group>"; };
 		79607EEB2D178B64D8E622073F5F8320 /* ORKConsentReviewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKConsentReviewController.m; sourceTree = "<group>"; };
 		796D330E13603B7F5D04B12CCEAF846A /* ORKTrailmakingContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTrailmakingContentView.h; sourceTree = "<group>"; };
@@ -1673,16 +1673,16 @@
 		7A482313C77080D9C17501DC13E9CAF8 /* AWSMobileAnalyticsDefaultSessionClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsDefaultSessionClient.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultSessionClient.h; sourceTree = "<group>"; };
 		7A49C56F4C5F45111F3A1A627F29CA41 /* ORKSurveyAnswerCellForImageSelection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSurveyAnswerCellForImageSelection.h; sourceTree = "<group>"; };
 		7A9F8A2904F297DA01925987203F6C46 /* ORKHolePegTestRemoveStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKHolePegTestRemoveStepViewController.h; sourceTree = "<group>"; };
-		7AA37BAEB94AAB786C07DF6CDCE9FD8B /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AWSS3.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA37BAEB94AAB786C07DF6CDCE9FD8B /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC4CD1E5BAFAA9495DAF4A869E76E19 /* ORKAudioStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAudioStepViewController.h; sourceTree = "<group>"; };
-		7AD58F6B2A6E251B4CA14EDF03F70128 /* he.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = he.lproj; sourceTree = "<group>"; };
+		7AD58F6B2A6E251B4CA14EDF03F70128 /* he.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = he.lproj; sourceTree = "<group>"; };
 		7B1DCA48C7283E2B16D2FA770CCE4D84 /* QuestionStep.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = QuestionStep.png; path = docs/Survey/SurveyImages/QuestionStep.png; sourceTree = "<group>"; };
-		7B3211A5CED10A510D8C212602DA79A5 /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ca.lproj; sourceTree = "<group>"; };
+		7B3211A5CED10A510D8C212602DA79A5 /* ca.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ca.lproj; sourceTree = "<group>"; };
 		7B4037650D2DDD8CF44AD4928764FF88 /* AWSUICKeyChainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSUICKeyChainStore.h; path = AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h; sourceTree = "<group>"; };
 		7B566F5012F4EC3FA45AB6B471D15BAF /* ORKSelectionSubTitleLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSelectionSubTitleLabel.h; sourceTree = "<group>"; };
 		7BFE3DE0D2021AF3F16A86A4B821EE19 /* ORKTimeIntervalPicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTimeIntervalPicker.m; sourceTree = "<group>"; };
 		7C085D0277732C4AC3FEB120D09E1A18 /* AWSMobileAnalyticsDefaultDeliveryClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsDefaultDeliveryClient.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDefaultDeliveryClient.m; sourceTree = "<group>"; };
-		7C7F6DB5D30F2DF1BE505B0261B3B738 /* style.css */ = {isa = PBXFileReference; includeInIndex = 1; name = style.css; path = docs/templates/html/css/style.css; sourceTree = "<group>"; };
+		7C7F6DB5D30F2DF1BE505B0261B3B738 /* style.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = style.css; path = docs/templates/html/css/style.css; sourceTree = "<group>"; };
 		7C8CF5BDA29C76D89B5A03560D69D2F6 /* ORKPageStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPageStepViewController.h; sourceTree = "<group>"; };
 		7C99037C875154CA1EB83FC30E06602B /* ORKTaskViewController_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTaskViewController_Private.h; sourceTree = "<group>"; };
 		7D24B475CE3FD9A35138C3A6078E11C1 /* ORKHolePegTestRemovePegView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKHolePegTestRemovePegView.h; sourceTree = "<group>"; };
@@ -1691,12 +1691,12 @@
 		7D9BB74440BA9D3534225253FB342446 /* Pods-Breast Feeding NFPTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Breast Feeding NFPTests-frameworks.sh"; sourceTree = "<group>"; };
 		7DC8C9297736235AA6CE1BE418F027CF /* AWSMobileAnalyticsConfigurationKeys.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsConfigurationKeys.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsConfigurationKeys.m; sourceTree = "<group>"; };
 		7DD04061113C8DDB744C3F7A05F17C5F /* ORKRangeOfMotionStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKRangeOfMotionStep.h; sourceTree = "<group>"; };
-		7E069D6D06CD5EBD32E4CC5BCB033298 /* documents-template */ = {isa = PBXFileReference; includeInIndex = 1; name = "documents-template"; path = "docs/templates/docset/Contents/Resources/Documents/documents-template"; sourceTree = "<group>"; };
+		7E069D6D06CD5EBD32E4CC5BCB033298 /* documents-template */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "documents-template"; path = "docs/templates/docset/Contents/Resources/Documents/documents-template"; sourceTree = "<group>"; };
 		7E51A8E4C9D43C353C500D0987E3CE10 /* AWSIdentityProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSIdentityProvider.m; path = AWSCore/Authentication/AWSIdentityProvider.m; sourceTree = "<group>"; };
 		7E5F1CC1C4ABE38A5D5CF8C71D6C1B4C /* AWSMobileAnalyticsVirtualMonetizationEventBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsVirtualMonetizationEventBuilder.h; path = AWSMobileAnalytics/AWSMobileAnalyticsVirtualMonetizationEventBuilder.h; sourceTree = "<group>"; };
 		7E8E83FEA27B6317A91E434BB741FCC9 /* AWSIdentityProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSIdentityProvider.h; path = AWSCore/Authentication/AWSIdentityProvider.h; sourceTree = "<group>"; };
 		7EF7C3CDFB03F46193A4CD059F0CA191 /* AWSService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSService.h; path = AWSCore/Service/AWSService.h; sourceTree = "<group>"; };
-		7F75BFE8F7521F3B54E605D0C8B5CF5B /* Pods_Breast_Feeding_NFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Breast_Feeding_NFP.framework; path = "Pods-Breast Feeding NFP.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F75BFE8F7521F3B54E605D0C8B5CF5B /* Pods_Breast_Feeding_NFP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD86B9A43A26F09E2374A3B93EFA6B3 /* ORKCollector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKCollector.m; sourceTree = "<group>"; };
 		8027F1F4AAB9D2B528EC727A2B1BB7DF /* ORKScaleRangeDescriptionLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKScaleRangeDescriptionLabel.m; sourceTree = "<group>"; };
 		81286CD9DE7EF5C149ECDCF9C62ADED7 /* ORKBarGraphChartView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKBarGraphChartView.m; sourceTree = "<group>"; };
@@ -1718,11 +1718,11 @@
 		8531E33D747D9BF3A8FB9EAE308C4D3A /* ORKTowerOfHanoiStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTowerOfHanoiStep.h; sourceTree = "<group>"; };
 		85939212F8D9398E9DF7FBC2B5C63C9A /* SwiftKeychainWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftKeychainWrapper-umbrella.h"; sourceTree = "<group>"; };
 		8598D60E135288E571E375F9D10FF8B9 /* AWSMTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLValueTransformer.m; path = AWSCore/Mantle/AWSMTLValueTransformer.m; sourceTree = "<group>"; };
-		85BFE41BEC76FBAA647D82AF1D4FD585 /* consent_07@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_07@2x.m4v"; sourceTree = "<group>"; };
+		85BFE41BEC76FBAA647D82AF1D4FD585 /* consent_07@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_07@2x.m4v"; sourceTree = "<group>"; };
 		85C2D07F55617495A15CB6AD49B606FD /* ORKConsentLearnMoreViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentLearnMoreViewController.h; sourceTree = "<group>"; };
 		861A2017CCFBBB2529DB65F8A13F984F /* ORKTextChoiceCellGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTextChoiceCellGroup.h; sourceTree = "<group>"; };
-		861FC53AFAE06633B4BE01A3C1D6B2D0 /* Pods_Breast_Feeding_NFPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Breast_Feeding_NFPUITests.framework; path = "Pods-Breast Feeding NFPUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		863BD89E3242123AB191459BE7853C87 /* nodes-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; name = "nodes-template.xml"; path = "docs/templates/docset/Contents/Resources/nodes-template.xml"; sourceTree = "<group>"; };
+		861FC53AFAE06633B4BE01A3C1D6B2D0 /* Pods_Breast_Feeding_NFPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breast_Feeding_NFPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		863BD89E3242123AB191459BE7853C87 /* nodes-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = "nodes-template.xml"; path = "docs/templates/docset/Contents/Resources/nodes-template.xml"; sourceTree = "<group>"; };
 		868C3D24EB4E54D0208ED6E40A9657A6 /* ORKWaitStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKWaitStepViewController.h; sourceTree = "<group>"; };
 		86DEA2051E11ED1449B3A25F62482FCC /* ORKStroopContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStroopContentView.m; sourceTree = "<group>"; };
 		871D3CB5ACD1356D28850EED8D383068 /* ORKResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKResult.m; sourceTree = "<group>"; };
@@ -1764,9 +1764,9 @@
 		8D5CDC95341757B679DB47B48284C4FB /* ORKSignatureView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSignatureView.h; sourceTree = "<group>"; };
 		8D931D4C9037057D31B5FA932F6E004A /* AWSMobileAnalyticsPausedSessionState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsPausedSessionState.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsPausedSessionState.h; sourceTree = "<group>"; };
 		8D98B8D8685F38D30AB8BC01E0E68755 /* ResearchKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ResearchKit.h; path = ResearchKit/ResearchKit.h; sourceTree = "<group>"; };
-		8DA650BDAD6E0FBB679AA8EFA33F06FB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		8DA650BDAD6E0FBB679AA8EFA33F06FB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8DAC65D19B3FC48B2F1D0EA8175E21D0 /* AWSExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSExecutor.m; path = AWSCore/Bolts/AWSExecutor.m; sourceTree = "<group>"; };
-		8DE7D713048D3BCCDF27FC4052C2E13F /* hierarchy-template.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "hierarchy-template.html"; path = "docs/templates/html/hierarchy-template.html"; sourceTree = "<group>"; };
+		8DE7D713048D3BCCDF27FC4052C2E13F /* hierarchy-template.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "hierarchy-template.html"; path = "docs/templates/html/hierarchy-template.html"; sourceTree = "<group>"; };
 		8DEB3CEA6219D5887AF2D2B0D01C0D1E /* ORKHealthSampleQueryOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKHealthSampleQueryOperation.h; sourceTree = "<group>"; };
 		8DF39CEBC326EE70F52D227CC9D3791E /* AudioTaskCompletionStep.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = AudioTaskCompletionStep.png; path = docs/ActiveTasks/AudioImages/AudioTaskCompletionStep.png; sourceTree = "<group>"; };
 		8DFD1CACE5C71206C25F01C68C2E027B /* Artwork.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Artwork.xcassets; path = ResearchKit/Artwork.xcassets; sourceTree = "<group>"; };
@@ -1777,7 +1777,7 @@
 		8F236691B29DD7C3A7B4E9321F9A779A /* FitnessTaskWalkStep.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = FitnessTaskWalkStep.png; path = docs/ActiveTasks/FitnessImages/FitnessTaskWalkStep.png; sourceTree = "<group>"; };
 		8F60F102D66C31D93D49BC569396A290 /* AWSMobileAnalyticsSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsSession.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsSession.h; sourceTree = "<group>"; };
 		8FBEAC78F7587E16C62FFED6FC377080 /* AWSCognitoSyncResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoSyncResources.h; path = AWSCognito/CognitoSync/AWSCognitoSyncResources.h; sourceTree = "<group>"; };
-		8FEFA0A07219BD8F70D9F33D29A41D3D /* _normalize.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _normalize.scss; path = docs/templates/html/css/scss/_normalize.scss; sourceTree = "<group>"; };
+		8FEFA0A07219BD8F70D9F33D29A41D3D /* _normalize.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _normalize.scss; path = docs/templates/html/css/scss/_normalize.scss; sourceTree = "<group>"; };
 		8FF4D47AA77ECAA8E539F550BE7437D8 /* ORKPSATContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPSATContentView.h; sourceTree = "<group>"; };
 		8FF4EF1AC4548D0C44050B5D0E0B83B3 /* ORKStepHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKStepHeaderView.h; sourceTree = "<group>"; };
 		8FF5092375E576B933297FEADD53A154 /* CustomizedLineGraph.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CustomizedLineGraph.png; path = docs/Charts/ChartsImages/CustomizedLineGraph.png; sourceTree = "<group>"; };
@@ -1796,7 +1796,7 @@
 		936C8640F47BBF278CF7B8163EBA33AC /* AWSFMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSFMDatabaseAdditions.m; path = AWSCore/FMDB/AWSFMDatabaseAdditions.m; sourceTree = "<group>"; };
 		938AD982D9508F732773758F8F1DE684 /* ORKStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStep.m; sourceTree = "<group>"; };
 		938E1EB36FD5A479816385CB75FC4C2D /* ORKSurveyAnswerCellForPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSurveyAnswerCellForPicker.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9423EAA9D3D7C3044B6348A0FBA12608 /* ORKFitnessContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKFitnessContentView.h; sourceTree = "<group>"; };
 		9490F2AEFB2B288A10376C243280F5D1 /* AWSFMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDatabasePool.h; path = AWSCore/FMDB/AWSFMDatabasePool.h; sourceTree = "<group>"; };
 		94E648894DBB5AECEB179658C6A9D8E7 /* ORKSignatureStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSignatureStepViewController.h; sourceTree = "<group>"; };
@@ -1836,23 +1836,23 @@
 		9B9BBD730A95308E6BB39FD3651E1D91 /* SpatialMemoryTestStep3_4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = SpatialMemoryTestStep3_4.png; path = docs/ActiveTasks/SpatialSpanMemoryTaskImages/SpatialMemoryTestStep3_4.png; sourceTree = "<group>"; };
 		9BBD7309548562512E0A3E202EECF5A9 /* AWSCognitoIdentityProviderService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderService.m; path = AWSCognitoIdentityProvider/CognitoIdentityProvider/AWSCognitoIdentityProviderService.m; sourceTree = "<group>"; };
 		9BD4F291D7817ACA14446FFC8B698067 /* AWSSignature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSignature.m; path = AWSCore/Authentication/AWSSignature.m; sourceTree = "<group>"; };
-		9BEC75E136C3962A122BBEFB2D210464 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = hr.lproj; sourceTree = "<group>"; };
+		9BEC75E136C3962A122BBEFB2D210464 /* hr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = hr.lproj; sourceTree = "<group>"; };
 		9BFC1C53283E1CE71D5DC9E9CC7F0AD1 /* NSArray+AWSMTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+AWSMTLManipulationAdditions.m"; path = "AWSCore/Mantle/NSArray+AWSMTLManipulationAdditions.m"; sourceTree = "<group>"; };
-		9C40B9C5AACFB96812A93A41F1275142 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = da.lproj; sourceTree = "<group>"; };
+		9C40B9C5AACFB96812A93A41F1275142 /* da.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = da.lproj; sourceTree = "<group>"; };
 		9C95C003C2A3ACCC5845CEFA0A9A46CA /* CustomizedChart.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CustomizedChart.png; path = docs/ChartsAndGraphs/ChartsImages/PieChart/CustomizedChart.png; sourceTree = "<group>"; };
 		9C9CF6E61E4C64AFDDB94F3DFADF2A59 /* ORKTowerOfHanoiStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTowerOfHanoiStep.m; sourceTree = "<group>"; };
 		9CB23025EE259DBBC45AB71BA6C92DF6 /* NSArray+AWSMTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+AWSMTLManipulationAdditions.h"; path = "AWSCore/Mantle/NSArray+AWSMTLManipulationAdditions.h"; sourceTree = "<group>"; };
 		9D5054B8992F9BB7BA5B625BE2C457F2 /* ORKRangeOfMotionStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKRangeOfMotionStepViewController.m; sourceTree = "<group>"; };
 		9D63C50D39A665695C44D913BDC5DEE5 /* ORKSelectionTitleLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKSelectionTitleLabel.h; sourceTree = "<group>"; };
 		9D7B418139C23C6E06292FE00BA41844 /* ORKDirectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKDirectionView.m; sourceTree = "<group>"; };
-		9D815330DB8B10F54534624E501D7540 /* consent_02@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_02@2x.m4v"; sourceTree = "<group>"; };
+		9D815330DB8B10F54534624E501D7540 /* consent_02@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_02@2x.m4v"; sourceTree = "<group>"; };
 		9D8360439D8315F8952F6884F50A375D /* AWSMobileAnalyticsSerializerFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsSerializerFactory.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsSerializerFactory.h; sourceTree = "<group>"; };
-		9D94619139BDCE5F27A51857695CC214 /* en_GB.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = en_GB.lproj; sourceTree = "<group>"; };
+		9D94619139BDCE5F27A51857695CC214 /* en_GB.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = en_GB.lproj; sourceTree = "<group>"; };
 		9DAF54D31BFD382411AEAA8E9512CE1D /* ORKImageSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKImageSelectionView.h; sourceTree = "<group>"; };
-		9E2F0B82779E171F35B8EBDB919C87F4 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = es.lproj; sourceTree = "<group>"; };
+		9E2F0B82779E171F35B8EBDB919C87F4 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = es.lproj; sourceTree = "<group>"; };
 		9E7D57129E8EF397AB4E57567FCEE4C8 /* VisualStep_9.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_9.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_9.png; sourceTree = "<group>"; };
 		9EAFE39BEEBFE347E7E46D7306BC355E /* ORKInstructionStepView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKInstructionStepView.m; sourceTree = "<group>"; };
-		9EB304C196FDDB92B0675394373539AB /* xml-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; name = "xml-template.xml"; path = "docs/templates/publish/xml-template.xml"; sourceTree = "<group>"; };
+		9EB304C196FDDB92B0675394373539AB /* xml-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = "xml-template.xml"; path = "docs/templates/publish/xml-template.xml"; sourceTree = "<group>"; };
 		9EF1A386E7993595947D53013A116417 /* ORKScaleValueLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKScaleValueLabel.m; sourceTree = "<group>"; };
 		9F6CC1822BB4E00C391D30592EC4D9D2 /* ORKPasscodeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPasscodeViewController.m; sourceTree = "<group>"; };
 		9FA189F5F4B56AA2FDEA7B62AE171ECC /* UIImage+ResearchKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResearchKit.m"; sourceTree = "<group>"; };
@@ -1862,7 +1862,7 @@
 		A0F69A2640A7EE340641BC365938EE16 /* AWSEXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSEXTScope.h; path = AWSCore/Mantle/extobjc/AWSEXTScope.h; sourceTree = "<group>"; };
 		A13E605F597D46891716484BA276A75B /* ORKVideoCaptureCameraPreviewView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVideoCaptureCameraPreviewView.m; sourceTree = "<group>"; };
 		A2AF4804F1C20682B11135E501150807 /* Pods-Breast Feeding NFPUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Breast Feeding NFPUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		A2F05374A3C4A599AF2B1FDBCDDC0AB4 /* style.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = style.scss; path = docs/templates/html/css/scss/style.scss; sourceTree = "<group>"; };
+		A2F05374A3C4A599AF2B1FDBCDDC0AB4 /* style.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = style.scss; path = docs/templates/html/css/scss/style.scss; sourceTree = "<group>"; };
 		A31A13AFD63C22FFB93C7DCD7DCE580D /* LineGraphChartMultipleLinesOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = LineGraphChartMultipleLinesOverview.png; path = docs/Charts/ChartsImages/Overview/LineGraphChartMultipleLinesOverview.png; sourceTree = "<group>"; };
 		A37D9730DD821BB881739F1773874179 /* AWSMobileAnalyticsRandomUUIDGenerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsRandomUUIDGenerator.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsRandomUUIDGenerator.h; sourceTree = "<group>"; };
 		A3BBEE82D5BF78C61E6287289BC9CB83 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1876,7 +1876,7 @@
 		A68BD1729C47C543F14A6A3004286787 /* ORKStep_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKStep_Private.h; sourceTree = "<group>"; };
 		A6B56621B482323B38CC7C921154E603 /* AWSCognito.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AWSCognito.modulemap; sourceTree = "<group>"; };
 		A6C551CA3234C2D9DF7C21CB7934FF77 /* ORKVisualConsentStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVisualConsentStep.m; sourceTree = "<group>"; };
-		A6F2482815D2A70DF9F5818013A19752 /* zh_TW.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = zh_TW.lproj; sourceTree = "<group>"; };
+		A6F2482815D2A70DF9F5818013A19752 /* zh_TW.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = zh_TW.lproj; sourceTree = "<group>"; };
 		A71D9B5B5085B9B6D1EAF0D091C7C27D /* ORKVerificationStep_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVerificationStep_Internal.h; sourceTree = "<group>"; };
 		A744E209D711CE8D02D2AE7A167D2B57 /* ORKAccessibilityFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAccessibilityFunctions.h; sourceTree = "<group>"; };
 		A74E1C0BDA46A51ED5CDD33B0A9A297F /* ORKHolePegTestRemoveContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKHolePegTestRemoveContentView.m; sourceTree = "<group>"; };
@@ -1936,17 +1936,17 @@
 		B14AA9AF35B0066863D8850CCB9AD753 /* ORKTableStepViewController_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKTableStepViewController_Internal.h; sourceTree = "<group>"; };
 		B1596FE333BB10179F63CA199B0C0FA9 /* aws_tommath_superclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aws_tommath_superclass.h; path = AWSCognitoIdentityProvider/Internal/JKBigInteger/LibTomMath/aws_tommath_superclass.h; sourceTree = "<group>"; };
 		B160B7C71BE637056C630688A89C9340 /* SpatialMemoryTestStep3_3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = SpatialMemoryTestStep3_3.png; path = docs/ActiveTasks/SpatialSpanMemoryTaskImages/SpatialMemoryTestStep3_3.png; sourceTree = "<group>"; };
-		B167AD49BF396E2B557527D77A0E49C7 /* fr_CA.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = fr_CA.lproj; sourceTree = "<group>"; };
+		B167AD49BF396E2B557527D77A0E49C7 /* fr_CA.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = fr_CA.lproj; sourceTree = "<group>"; };
 		B171C1185853F510223AE7EC9517BE58 /* ORKReactionTimeStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKReactionTimeStep.h; sourceTree = "<group>"; };
 		B1B8EFD9B2E0558374897E71FF33578D /* CMPedometerData+ORKJSONDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CMPedometerData+ORKJSONDictionary.h"; sourceTree = "<group>"; };
 		B1C99F0CB80C5D364FEF706CB2F423C8 /* AWSMobileAnalyticsEventClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsEventClient.h; path = AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h; sourceTree = "<group>"; };
 		B1CDD919546C40F37849213EFDC44AD0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1F6612F81C6F0EEA9E01A834E3140BE /* en_AU.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = en_AU.lproj; sourceTree = "<group>"; };
+		B1F6612F81C6F0EEA9E01A834E3140BE /* en_AU.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = en_AU.lproj; sourceTree = "<group>"; };
 		B239944924558A046947E6201644AD04 /* ORKVideoInstructionStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVideoInstructionStepViewController.h; sourceTree = "<group>"; };
 		B25BAA9EC31E790743FB271ED7C04EB7 /* ORKReviewStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKReviewStepViewController.h; sourceTree = "<group>"; };
 		B269E074AE4967902DEACAC322E304A5 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B274DFC37F621E622B67E61D84938052 /* ORKCountdownStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKCountdownStepViewController.h; sourceTree = "<group>"; };
-		B29198346DBBDC12DEE17CB7E2BD079A /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftKeychainWrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B29198346DBBDC12DEE17CB7E2BD079A /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A47C70DA3EF02884BA8AAD0541F83E /* AWSCognitoUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoUtil.m; path = AWSCognito/Internal/AWSCognitoUtil.m; sourceTree = "<group>"; };
 		B357498AC55728458A30A7D286414646 /* AWSCognitoSyncService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoSyncService.h; path = AWSCognito/CognitoSync/AWSCognitoSyncService.h; sourceTree = "<group>"; };
 		B3C6159F63013ECD8CA1CC6CDB86F703 /* ORKValuePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKValuePicker.h; sourceTree = "<group>"; };
@@ -1969,14 +1969,14 @@
 		B729260DEF8C27486EED665386822FDA /* ORKPieChartLegendCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPieChartLegendCollectionViewLayout.m; sourceTree = "<group>"; };
 		B72DEAA9EE4E12AD8C8B7D953B1B47A1 /* ORKToneAudiometryContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKToneAudiometryContentView.m; sourceTree = "<group>"; };
 		B743BBD2396DA8BD9F06DA08519F50DA /* ORKAnswerTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKAnswerTextField.m; sourceTree = "<group>"; };
-		B7ECA7DC7CB77646781CE1C2E4C77CFD /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ru.lproj; sourceTree = "<group>"; };
+		B7ECA7DC7CB77646781CE1C2E4C77CFD /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ru.lproj; sourceTree = "<group>"; };
 		B831796E0CBFDCA9D386007E37EF9631 /* ORKScaleRangeDescriptionLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKScaleRangeDescriptionLabel.h; sourceTree = "<group>"; };
 		B8F3299E405FCD7C7DFC72BDC76B3CD3 /* AWSMobileAnalytics.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AWSMobileAnalytics.xcconfig; sourceTree = "<group>"; };
 		B8F6A8B54F19B46BAD6836CAAB1B897B /* ORKAnswerFormat_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAnswerFormat_Internal.h; sourceTree = "<group>"; };
 		B934A08A41DF9630A44FC0D72B5CBC97 /* ORKHTMLPDFWriter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKHTMLPDFWriter.h; sourceTree = "<group>"; };
 		B9802DE5A5511545E6395851347540E1 /* ORKConsentSection_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentSection_Private.h; sourceTree = "<group>"; };
 		B9A31D0A579028057F0170BCE0E8ABCE /* ORKSeparatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKSeparatorView.m; sourceTree = "<group>"; };
-		B9BE124A2E3B8CBD83D7D9C4801B4832 /* consent_06@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_06@3x.m4v"; sourceTree = "<group>"; };
+		B9BE124A2E3B8CBD83D7D9C4801B4832 /* consent_06@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_06@3x.m4v"; sourceTree = "<group>"; };
 		B9ED6152CEF9A5F727161166D31FFF08 /* ORKWaitStepView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKWaitStepView.h; sourceTree = "<group>"; };
 		B9F03BB3B8AF61C035DC51221680579B /* TextAnswerFormat_1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TextAnswerFormat_1.png; path = docs/Survey/SurveyImages/TextAnswerFormat_1.png; sourceTree = "<group>"; };
 		B9F77537D7E4AE206F93C64EAD98CD21 /* UIBarButtonItem+ORKBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ORKBarButtonItem.h"; sourceTree = "<group>"; };
@@ -1986,8 +1986,8 @@
 		BAA91CC0F90E8E42D95E8EB6300DD2C7 /* AWSCognitoIdentityProviderService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderService.h; path = AWSCognitoIdentityProvider/CognitoIdentityProvider/AWSCognitoIdentityProviderService.h; sourceTree = "<group>"; };
 		BB4B294CCF58133BA3FA9B8219324C5F /* NSObject+AWSMTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AWSMTLComparisonAdditions.m"; path = "AWSCore/Mantle/NSObject+AWSMTLComparisonAdditions.m"; sourceTree = "<group>"; };
 		BB609680A223C64A1724AD679CC46CFF /* ORKInstructionStepView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKInstructionStepView.h; sourceTree = "<group>"; };
-		BB8909789F7CD925F31BB9FFD3BADFBD /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ko.lproj; sourceTree = "<group>"; };
-		BB8A1DF5F3AB655B0427CA2A2C02C479 /* object-template.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "object-template.html"; path = "docs/templates/html/object-template.html"; sourceTree = "<group>"; };
+		BB8909789F7CD925F31BB9FFD3BADFBD /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ko.lproj; sourceTree = "<group>"; };
+		BB8A1DF5F3AB655B0427CA2A2C02C479 /* object-template.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "object-template.html"; path = "docs/templates/html/object-template.html"; sourceTree = "<group>"; };
 		BBDCB03770EBFBFD15CC5613D4546742 /* ORKAnswerTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAnswerTextView.h; sourceTree = "<group>"; };
 		BC0287C0798937A8E08BBA0682AE5289 /* ORKImageCaptureCameraPreviewView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKImageCaptureCameraPreviewView.m; sourceTree = "<group>"; };
 		BC599E5227D5C30DFF2576A77007158A /* AWSMobileAnalyticsSDKInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsSDKInfo.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsSDKInfo.m; sourceTree = "<group>"; };
@@ -2008,24 +2008,24 @@
 		BEB9673EC65A9BEBE9C9F25D43C011C9 /* AWSCancellationTokenRegistration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCancellationTokenRegistration.h; path = AWSCore/Bolts/AWSCancellationTokenRegistration.h; sourceTree = "<group>"; };
 		BEC11D7A5F851B489B223580746BB0BD /* AWSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCategory.h; path = AWSCore/Utility/AWSCategory.h; sourceTree = "<group>"; };
 		BEC6B5697D615C87AE419989D226D725 /* TwoFingerTappingTaskStep3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TwoFingerTappingTaskStep3.png; path = docs/ActiveTasks/TwoFingerTappingTaskImages/TwoFingerTappingTaskStep3.png; sourceTree = "<group>"; };
-		BECC119E8BA58284730759A63F737DC1 /* consent_01@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_01@3x.m4v"; sourceTree = "<group>"; };
+		BECC119E8BA58284730759A63F737DC1 /* consent_01@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_01@3x.m4v"; sourceTree = "<group>"; };
 		BF50FBACC6416A26302E50C90CCBEBC7 /* ORKPedometerRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPedometerRecorder.h; sourceTree = "<group>"; };
 		BF648E6C437368E00E31351CDCD918FF /* ORKImageCaptureView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKImageCaptureView.m; sourceTree = "<group>"; };
 		BF78377457B849267CB92DEFB9029863 /* AWSDDOSLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSDDOSLogger.m; path = AWSCore/Logging/AWSDDOSLogger.m; sourceTree = "<group>"; };
 		BF7878430ADF9234351E35860C004949 /* AWSMobileAnalyticsOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsOptions.h; path = AWSMobileAnalytics/AWSMobileAnalyticsOptions.h; sourceTree = "<group>"; };
 		BF7CA0CC6FFB0E6C4D7384EBF4F6AC3D /* ORKDirectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKDirectionView.h; sourceTree = "<group>"; };
-		C0745A3E5052F2CFD009D57849A9C44A /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = nl.lproj; sourceTree = "<group>"; };
+		C0745A3E5052F2CFD009D57849A9C44A /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = nl.lproj; sourceTree = "<group>"; };
 		C07E48AE0CB70F046F8FD9E1A5BDDE56 /* ORKLoginStep_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKLoginStep_Internal.h; sourceTree = "<group>"; };
 		C0DD94249EAF65DB202A648595D679BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C10BB89AC40D52604309D09CA6041BF5 /* AWSMTLJSONAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMTLJSONAdapter.h; path = AWSCore/Mantle/AWSMTLJSONAdapter.h; sourceTree = "<group>"; };
-		C14FCC270BFEA6783815E1EF46982605 /* th.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = th.lproj; sourceTree = "<group>"; };
+		C14FCC270BFEA6783815E1EF46982605 /* th.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = th.lproj; sourceTree = "<group>"; };
 		C16355020935FB10F56C58466307BEFF /* ORKPieChartTitleTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPieChartTitleTextView.h; sourceTree = "<group>"; };
 		C24A88D266BC89C97FF67444A9150BB8 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCognitoIdentityProviderASF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29AF696CDDBA95BB3A7C55AC92CE735 /* ORKAnswerFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKAnswerFormat.m; sourceTree = "<group>"; };
 		C2A9F2AC36BC0253A71C3E92D05BC57A /* ORKCustomStepView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKCustomStepView.m; sourceTree = "<group>"; };
 		C342236C7B6B51180DD54B28749E7CFF /* AWSNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSNetworking.m; path = AWSCore/Networking/AWSNetworking.m; sourceTree = "<group>"; };
 		C3F19BF35C34D75C2C1C617CF9E61BE6 /* AppledocSettings.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = AppledocSettings.plist; path = docs/AppledocSettings.plist; sourceTree = "<group>"; };
-		C40BDF42EA0DBBFCD129F47C4CC7937C /* pt_PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = pt_PT.lproj; sourceTree = "<group>"; };
+		C40BDF42EA0DBBFCD129F47C4CC7937C /* pt_PT.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = pt_PT.lproj; sourceTree = "<group>"; };
 		C461001602C460938F5A2332BD8B23F6 /* AWSCognitoRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoRecord.h; path = AWSCognito/AWSCognitoRecord.h; sourceTree = "<group>"; };
 		C48F32A463AFB8823FA617E9E7200EB2 /* AWSMobileAnalyticsStringUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsStringUtils.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsStringUtils.h; sourceTree = "<group>"; };
 		C4F2BD1F1345A45487876B7E912F7537 /* ORKErrors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKErrors.m; sourceTree = "<group>"; };
@@ -2042,7 +2042,7 @@
 		C876355F2750CEEF25C83793092B850C /* AWSMobileAnalyticsBufferedReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsBufferedReader.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsBufferedReader.m; sourceTree = "<group>"; };
 		C8B2C572808AE565722FBF908035CB04 /* AWSMobileAnalyticsHttpConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsHttpConstants.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsHttpConstants.h; sourceTree = "<group>"; };
 		C8F541E3EA1A6F507ADC4EEF8647A5A9 /* AWSCognitoService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoService.m; path = AWSCognito/AWSCognitoService.m; sourceTree = "<group>"; };
-		C916E6D215010060260260D3525E0EF8 /* es_419.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = es_419.lproj; sourceTree = "<group>"; };
+		C916E6D215010060260260D3525E0EF8 /* es_419.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = es_419.lproj; sourceTree = "<group>"; };
 		C92E66821A35E3125E5E5E92B2EAD9C7 /* ORKConsentSignatureFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentSignatureFormatter.h; sourceTree = "<group>"; };
 		C941F1AA09F80AF09C6C0BCDC7950E24 /* ORKConsentSignatureFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKConsentSignatureFormatter.m; sourceTree = "<group>"; };
 		C96049260A902512DEA83D3C863F398D /* ORKReactionTimeStimulusView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKReactionTimeStimulusView.m; sourceTree = "<group>"; };
@@ -2059,9 +2059,9 @@
 		CC5616884D89F6337693C8A3704CCC23 /* ORKFormStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKFormStepViewController.m; sourceTree = "<group>"; };
 		CC646FCB48807CDFAFAAB382822AE712 /* AWSCognitoConflict.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoConflict.m; path = AWSCognito/AWSCognitoConflict.m; sourceTree = "<group>"; };
 		CCA38D6EFD7618AA7C61F1BC1E87EA4B /* ORKActiveStepViewController_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKActiveStepViewController_Internal.h; sourceTree = "<group>"; };
-		CCB1E3F58BF9E95EA7C2A76EC1C600CC /* consent_04@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_04@2x.m4v"; sourceTree = "<group>"; };
+		CCB1E3F58BF9E95EA7C2A76EC1C600CC /* consent_04@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_04@2x.m4v"; sourceTree = "<group>"; };
 		CCDD49E4D946921BCB7B7D219448C071 /* CustomizedChart.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CustomizedChart.png; path = docs/Charts/ChartsImages/CustomizedChart.png; sourceTree = "<group>"; };
-		CCE5DB37C82664091DC21340407B9345 /* index-template.html */ = {isa = PBXFileReference; includeInIndex = 1; name = "index-template.html"; path = "docs/templates/html/index-template.html"; sourceTree = "<group>"; };
+		CCE5DB37C82664091DC21340407B9345 /* index-template.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = "index-template.html"; path = "docs/templates/html/index-template.html"; sourceTree = "<group>"; };
 		CCE8BB41975EF5C357364C734D7336A8 /* TimedWalkStep7.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TimedWalkStep7.png; path = docs/ActiveTasks/TimedWalkTaskImages/TimedWalkStep7.png; sourceTree = "<group>"; };
 		CD72B4A5769F47BB7C8B23461AA00A76 /* ReactionTimeStep4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ReactionTimeStep4.png; path = docs/ActiveTasks/ReactionTimeTaskImages/ReactionTimeStep4.png; sourceTree = "<group>"; };
 		CD7D8AC49AB1249B7696DB09ECE8799D /* ORKShoulderRangeOfMotionStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKShoulderRangeOfMotionStep.m; sourceTree = "<group>"; };
@@ -2075,7 +2075,7 @@
 		CFB0FCA84C821A71D0482C5263018F0D /* ORKFormItem_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKFormItem_Internal.h; sourceTree = "<group>"; };
 		D036F1267EA50A58E0F6CF01926D273B /* AWSFMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSFMResultSet.m; path = AWSCore/FMDB/AWSFMResultSet.m; sourceTree = "<group>"; };
 		D03DFBD9B4C17C06B1FAC030E22FC17C /* AWSCognitoIdentityModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityModel.m; path = AWSCore/CognitoIdentity/AWSCognitoIdentityModel.m; sourceTree = "<group>"; };
-		D0CE45B1CE794786F2B9B401DD943986 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = uk.lproj; sourceTree = "<group>"; };
+		D0CE45B1CE794786F2B9B401DD943986 /* uk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = uk.lproj; sourceTree = "<group>"; };
 		D11DCFC799E39C2002D557337D56CB0B /* AWSMobileAnalyticsEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsEvent.h; path = AWSMobileAnalytics/AWSMobileAnalyticsEvent.h; sourceTree = "<group>"; };
 		D159C69B21DD37B52C0DA99CF3835CF8 /* ORKVideoCaptureView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVideoCaptureView.m; sourceTree = "<group>"; };
 		D19FB6E306476AAB2A069024D57B7487 /* AWSFMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDatabaseQueue.h; path = AWSCore/FMDB/AWSFMDatabaseQueue.h; sourceTree = "<group>"; };
@@ -2099,15 +2099,15 @@
 		D7ECD99A7F7A5EA75DC0B5127F7A8E2C /* ORKReactionTimeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKReactionTimeViewController.h; sourceTree = "<group>"; };
 		D7EF1FE4EEFE1979A9074C52FB0339B7 /* AWSTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTask.m; path = AWSCore/Bolts/AWSTask.m; sourceTree = "<group>"; };
 		D85E3127D4748207B7F50253075B681D /* ORKPSATStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKPSATStep.h; sourceTree = "<group>"; };
-		D8EF690E293C194502D42A4F174872D4 /* index-template.md */ = {isa = PBXFileReference; includeInIndex = 1; name = "index-template.md"; path = "docs/index-template.md"; sourceTree = "<group>"; };
+		D8EF690E293C194502D42A4F174872D4 /* index-template.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = "index-template.md"; path = "docs/index-template.md"; sourceTree = "<group>"; };
 		D8F6CED8076DD9808257EBF1EC3D7E89 /* ORKDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKDefines.h; sourceTree = "<group>"; };
-		D9124906F4D7D127CB97FE89FEBF4311 /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = sk.lproj; sourceTree = "<group>"; };
+		D9124906F4D7D127CB97FE89FEBF4311 /* sk.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = sk.lproj; sourceTree = "<group>"; };
 		D94B6AD51230C9757D520A383E475C5B /* ORKLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKLabel.m; sourceTree = "<group>"; };
 		D95E25B4EEC051E50AE4E154D6F87FC2 /* ORKShoulderRangeOfMotionStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKShoulderRangeOfMotionStep.h; sourceTree = "<group>"; };
 		D97364620E33881602A5A12EE7C5D677 /* ORKLineGraphAccessibilityElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKLineGraphAccessibilityElement.m; sourceTree = "<group>"; };
 		D981B36A9B730296CB33AE0E987C56F5 /* disclosure.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = disclosure.png; path = docs/templates/html/img/disclosure.png; sourceTree = "<group>"; };
-		D9D59976910C41634C6B6138DE4029D9 /* script.js */ = {isa = PBXFileReference; includeInIndex = 1; name = script.js; path = docs/templates/html/js/script.js; sourceTree = "<group>"; };
-		D9D66483C1EF4784E8ADCFFF9BDA31D3 /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = vi.lproj; sourceTree = "<group>"; };
+		D9D59976910C41634C6B6138DE4029D9 /* script.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = script.js; path = docs/templates/html/js/script.js; sourceTree = "<group>"; };
+		D9D66483C1EF4784E8ADCFFF9BDA31D3 /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = vi.lproj; sourceTree = "<group>"; };
 		D9EB24F727A57F2A9EBE6FCB5259E9F5 /* ORKPasscodeStepView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPasscodeStepView.m; sourceTree = "<group>"; };
 		D9F4B95F99D3B75C638085104F5A2093 /* ORKVideoCaptureStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVideoCaptureStep.m; sourceTree = "<group>"; };
 		DA4AE2B188B37B28AE76815C90F05901 /* AWSMobileAnalyticsRandomUUIDGenerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsRandomUUIDGenerator.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsRandomUUIDGenerator.m; sourceTree = "<group>"; };
@@ -2129,17 +2129,17 @@
 		DEAD3E9F3EDA954F12183C28A693BE4F /* AudioTaskStep.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = AudioTaskStep.png; path = docs/ActiveTasks/AudioImages/AudioTaskStep.png; sourceTree = "<group>"; };
 		DEE25BC4B224E657844A55407C3D8198 /* Pods-Breast Feeding NFPUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Breast Feeding NFPUITests-resources.sh"; sourceTree = "<group>"; };
 		DEF1969A6DCDDB4DAC0D03BCB90CEB23 /* NavigableOrderedTasks.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = NavigableOrderedTasks.png; path = docs/Survey/SurveyImages/NavigableOrderedTasks.png; sourceTree = "<group>"; };
-		DF39D85033C887A91B593A8E6ABC9EB1 /* hi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = hi.lproj; sourceTree = "<group>"; };
+		DF39D85033C887A91B593A8E6ABC9EB1 /* hi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = hi.lproj; sourceTree = "<group>"; };
 		DF75586D5CCCEA1990B72E790E8015EC /* UIResponder+ResearchKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ResearchKit.m"; sourceTree = "<group>"; };
 		DFA9CA269F252EFD66A2CB88DA0AB697 /* AWSDDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSDDLog.h; path = AWSCore/Logging/AWSDDLog.h; sourceTree = "<group>"; };
 		DFFC073328BF84068912C8DF3D473A7C /* ORKTextChoiceCellGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTextChoiceCellGroup.m; sourceTree = "<group>"; };
 		E00F08972B33F784B8F6F8F2B62D0C78 /* AWSS3TransferUtility+Validation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AWSS3TransferUtility+Validation.m"; path = "AWSS3/AWSS3TransferUtility+Validation.m"; sourceTree = "<group>"; };
 		E0B037AA2281BD281506DDF97A3084B7 /* ORKXAxisView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKXAxisView.h; sourceTree = "<group>"; };
-		E0BECF7EFF4A6250D9CB79D722622A2A /* consent_07@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_07@3x.m4v"; sourceTree = "<group>"; };
+		E0BECF7EFF4A6250D9CB79D722622A2A /* consent_07@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_07@3x.m4v"; sourceTree = "<group>"; };
 		E0E54A15FB57BEAD2E445701234AD72E /* ORKVoiceEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVoiceEngine.m; sourceTree = "<group>"; };
 		E0E5A9CC5334B72369B59845F433A03D /* CustomTitlePieChart.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = CustomTitlePieChart.png; path = docs/ChartsAndGraphs/ChartsImages/PieChart/CustomTitlePieChart.png; sourceTree = "<group>"; };
 		E134822B699AD880C5D91B48DCAD3A12 /* ORKStepHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStepHeaderView.m; sourceTree = "<group>"; };
-		E1B19B04B2F2C4AD4066C1E30A3F6694 /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ro.lproj; sourceTree = "<group>"; };
+		E1B19B04B2F2C4AD4066C1E30A3F6694 /* ro.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ro.lproj; sourceTree = "<group>"; };
 		E1C88325C4C06C4CCD9351C5794A3FA4 /* ORKLocationRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKLocationRecorder.h; sourceTree = "<group>"; };
 		E2250BE89DC56602A991BCA8804AE208 /* ORKRoundTappingButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKRoundTappingButton.m; sourceTree = "<group>"; };
 		E22FAEA932E310658AEE1599002881E3 /* AWSModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSModel.m; path = AWSCore/Utility/AWSModel.m; sourceTree = "<group>"; };
@@ -2166,7 +2166,7 @@
 		E4D4C366E5AF477D2D622623D3ADAB76 /* DiscreteGraphChartOverview.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = DiscreteGraphChartOverview.png; path = docs/ChartsAndGraphs/ChartsImages/Overview/DiscreteGraphChartOverview.png; sourceTree = "<group>"; };
 		E4EA20B1411C4CCEB8B6210507D38D16 /* ORKOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKOperation.m; sourceTree = "<group>"; };
 		E4F7552C7AF019DFD4C34E621B22F8B9 /* ORKVideoInstructionStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVideoInstructionStep.m; sourceTree = "<group>"; };
-		E50C7F2C144CC006BB43C4FFDAAC99E6 /* tokens-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; name = "tokens-template.xml"; path = "docs/templates/docset/Contents/Resources/tokens-template.xml"; sourceTree = "<group>"; };
+		E50C7F2C144CC006BB43C4FFDAAC99E6 /* tokens-template.xml */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = "tokens-template.xml"; path = "docs/templates/docset/Contents/Resources/tokens-template.xml"; sourceTree = "<group>"; };
 		E549DCC3C2672C67952A66ED8422C392 /* ORKVideoInstructionStep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKVideoInstructionStep.h; sourceTree = "<group>"; };
 		E55A4DDA81095F7AD7432D7C7FF7055D /* ORKConsentReviewStepViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKConsentReviewStepViewController.h; sourceTree = "<group>"; };
 		E5CC894699255F32615C7D655FC1A5E4 /* ORKChoiceViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKChoiceViewCell.m; sourceTree = "<group>"; };
@@ -2176,14 +2176,14 @@
 		E63230AC08D45642A88014D0760B0F31 /* Pods-Breast Feeding NFPUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Breast Feeding NFPUITests-dummy.m"; sourceTree = "<group>"; };
 		E66817D758D8BE11A264D2944D13594C /* AWSCognitoIdentityProviderHKDF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderHKDF.m; path = AWSCognitoIdentityProvider/Internal/AWSCognitoIdentityProviderHKDF.m; sourceTree = "<group>"; };
 		E69C56E2C5F434259D41116C191ECB8A /* AWSMobileAnalyticsSessionClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsSessionClient.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsSessionClient.h; sourceTree = "<group>"; };
-		E6BA834C43AD38750027CD1C2DC2C199 /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = ar.lproj; sourceTree = "<group>"; };
-		E6CFE6BA7B166E963B02620D569E255C /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = pl.lproj; sourceTree = "<group>"; };
+		E6BA834C43AD38750027CD1C2DC2C199 /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = ar.lproj; sourceTree = "<group>"; };
+		E6CFE6BA7B166E963B02620D569E255C /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = pl.lproj; sourceTree = "<group>"; };
 		E6F0275CA656092E26A264EF3956557F /* AWSMobileAnalyticsDelayedBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsDelayedBlock.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsDelayedBlock.m; sourceTree = "<group>"; };
 		E724CE159808D42371A3D7F2D14C6EA1 /* ORKImageCaptureStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKImageCaptureStepViewController.m; sourceTree = "<group>"; };
 		E73101979A57FE108975688ED413303D /* DiscreteGraphChart2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = DiscreteGraphChart2.png; path = docs/Charts/ChartsImages/DiscreteGraphChart2.png; sourceTree = "<group>"; };
 		E73D5DD58468E7DE6B32B2B65DD2CD9F /* ORKActiveStepQuantityView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKActiveStepQuantityView.m; sourceTree = "<group>"; };
 		E77F52F18BC597B2EF070873C2A11903 /* ResultsHierarchy.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ResultsHierarchy.png; path = docs/Survey/SurveyImages/ResultsHierarchy.png; sourceTree = "<group>"; };
-		E784E6783ECDD2BF2645DE6FB4955377 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ResearchKit.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E784E6783ECDD2BF2645DE6FB4955377 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C429CC810554EBC4650D4ADF994971 /* ORKVideoCaptureStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKVideoCaptureStepViewController.m; sourceTree = "<group>"; };
 		E7CF3DD7399FD6713908B556502DD997 /* AWSMobileAnalyticsERSModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsERSModel.h; path = AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h; sourceTree = "<group>"; };
 		E7E5DC9F05CEF67CF496949796B5F434 /* Passcode-template.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Passcode-template.markdown"; path = "docs/Passcode/Passcode-template.markdown"; sourceTree = "<group>"; };
@@ -2212,7 +2212,7 @@
 		EBE95636AA30E1A632FED3BEB0CC75E1 /* ORKSignatureStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKSignatureStep.m; sourceTree = "<group>"; };
 		EC2FD163CAC18EB0452D1323013A66CF /* AWSMTLModel+NSCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AWSMTLModel+NSCoding.m"; path = "AWSCore/Mantle/AWSMTLModel+NSCoding.m"; sourceTree = "<group>"; };
 		ECCB4EF32BD798560B96523319B1395C /* Pods-Breast Feeding NFP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Breast Feeding NFP-dummy.m"; sourceTree = "<group>"; };
-		ECE3869336FB98942696C8DC45B11AA4 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = hu.lproj; sourceTree = "<group>"; };
+		ECE3869336FB98942696C8DC45B11AA4 /* hu.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = hu.lproj; sourceTree = "<group>"; };
 		ED74F06E2FA4E70A07244EDA9A56FF5C /* AWSMobileAnalyticsFileEventStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMobileAnalyticsFileEventStore.m; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsFileEventStore.m; sourceTree = "<group>"; };
 		ED8EC587AC039B2ADC683C6BC33995F4 /* ReactionTimeStep3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ReactionTimeStep3.png; path = docs/ActiveTasks/ReactionTimeTaskImages/ReactionTimeStep3.png; sourceTree = "<group>"; };
 		EDC25FDF6FC6D425A6DAD20DEC32ED88 /* ORKChoiceViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKChoiceViewCell.h; sourceTree = "<group>"; };
@@ -2226,19 +2226,19 @@
 		EE6C3E5922E5AF9E36E16E426C5A6F95 /* VisualStep_4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_4.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_4.png; sourceTree = "<group>"; };
 		EE701385C54130EA67E7E01CF18348D9 /* ORKAccelerometerRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKAccelerometerRecorder.h; sourceTree = "<group>"; };
 		EE77690AF6678B79F6AB19F3636E0D19 /* ORKWalkingTaskStepViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKWalkingTaskStepViewController.m; sourceTree = "<group>"; };
-		EF1C976DF39919D09A48C4906FC49C73 /* es_MX.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = es_MX.lproj; sourceTree = "<group>"; };
+		EF1C976DF39919D09A48C4906FC49C73 /* es_MX.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = es_MX.lproj; sourceTree = "<group>"; };
 		EF4AF8C010DBEDE300D927207B6B3E06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4F73C484955E71FFDBD6D8DE419AE3 /* ORKKeychainWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKKeychainWrapper.h; sourceTree = "<group>"; };
-		EF7144FC9E3A78C42325A0B7F2CC7977 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = it.lproj; sourceTree = "<group>"; };
+		EF7144FC9E3A78C42325A0B7F2CC7977 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = it.lproj; sourceTree = "<group>"; };
 		EFB75CDB8645C63B4ADC570B39D8181C /* ORKReactionTimeStep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKReactionTimeStep.m; sourceTree = "<group>"; };
 		EFEC130B18D1C54A1AD033DF6DE1BFFB /* AboutTaskIntroduction.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = AboutTaskIntroduction.png; path = docs/ActiveTasks/AudioImages/AboutTaskIntroduction.png; sourceTree = "<group>"; };
-		F020E71B8D43F7CF34FC898D4D9AAF3D /* no.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = no.lproj; sourceTree = "<group>"; };
+		F020E71B8D43F7CF34FC898D4D9AAF3D /* no.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = no.lproj; sourceTree = "<group>"; };
 		F0609CF6B449C115C0D260E24E4B053F /* ORKFormSectionTitleLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKFormSectionTitleLabel.m; sourceTree = "<group>"; };
 		F07248CEF356E177052D672B7F4D51D6 /* ORKPieChartLegendView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKPieChartLegendView.m; sourceTree = "<group>"; };
 		F0811F9D028114794FC62A353876FB9C /* VisualStep_10.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_10.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_10.png; sourceTree = "<group>"; };
 		F0A1C198F34A428D7DD716DD092A9DDD /* AWSSynchronizedMutableDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSynchronizedMutableDictionary.h; path = AWSCore/Utility/AWSSynchronizedMutableDictionary.h; sourceTree = "<group>"; };
 		F0A2F501CE002AB544E3CE685728AE46 /* ActiveTasks-template.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "ActiveTasks-template.markdown"; path = "docs/ActiveTasks/ActiveTasks-template.markdown"; sourceTree = "<group>"; };
-		F0C426E5E10627CFDBE7218390B423C7 /* consent_04@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_04@3x.m4v"; sourceTree = "<group>"; };
+		F0C426E5E10627CFDBE7218390B423C7 /* consent_04@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_04@3x.m4v"; sourceTree = "<group>"; };
 		F0D25B619325947F347B7B38DA6FF616 /* AWSCognitoIdentityProvider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AWSCognitoIdentityProvider.xcconfig; sourceTree = "<group>"; };
 		F18D7697F8AF49CB9D54C02AE72723DE /* AWSMobileAnalyticsLifeCycleManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMobileAnalyticsLifeCycleManager.h; path = AWSMobileAnalytics/Internal/AWSMobileAnalyticsLifeCycleManager.h; sourceTree = "<group>"; };
 		F1E8DAEBD91449FEC47DBCB3B9CA23B6 /* VisualStep_8.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = VisualStep_8.png; path = docs/InformedConsent/VisualStep_Images/VisualStep_8.png; sourceTree = "<group>"; };
@@ -2257,7 +2257,7 @@
 		F57097DBCD4C843F3354D200363ED753 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F572E96368001BC9B5F09B6532D0B00B /* AWSCognitoIdentityProviderSrpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderSrpHelper.m; path = AWSCognitoIdentityProvider/Internal/AWSCognitoIdentityProviderSrpHelper.m; sourceTree = "<group>"; };
 		F59048FFFBA4FBACEFE468BB0337D45F /* ORKOrderedTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ORKOrderedTask.h; sourceTree = "<group>"; };
-		F5E2B56BCFE3CD872890EFCD6F13AF0A /* _layout.scss */ = {isa = PBXFileReference; includeInIndex = 1; name = _layout.scss; path = docs/templates/html/css/scss/_layout.scss; sourceTree = "<group>"; };
+		F5E2B56BCFE3CD872890EFCD6F13AF0A /* _layout.scss */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = _layout.scss; path = docs/templates/html/css/scss/_layout.scss; sourceTree = "<group>"; };
 		F5EE5B328EFB7283E8FB8AC4C4D22AD1 /* ORKStepNavigationRule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKStepNavigationRule.m; sourceTree = "<group>"; };
 		F60408E3319D9D5D54758724491E7C67 /* LineChart1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = LineChart1.png; path = docs/Charts/ChartsImages/LineChart/LineChart1.png; sourceTree = "<group>"; };
 		F614C630676D6FAAD96C740D903BFD5A /* ORKTimedWalkContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKTimedWalkContentView.m; sourceTree = "<group>"; };
@@ -2282,7 +2282,7 @@
 		FAD4366F5BE8D8555C842D2A9AF7E781 /* TimeOfTheDayAnswerFormat.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TimeOfTheDayAnswerFormat.png; path = docs/Survey/SurveyImages/TimeOfTheDayAnswerFormat.png; sourceTree = "<group>"; };
 		FAE32D6EAECB3B0155969FF8D4A99F60 /* CMDeviceMotion+ORKJSONDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CMDeviceMotion+ORKJSONDictionary.h"; sourceTree = "<group>"; };
 		FB31F9836FBBE24DE2370AF6B2626FE5 /* AWSSynchronizedMutableDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSynchronizedMutableDictionary.m; path = AWSCore/Utility/AWSSynchronizedMutableDictionary.m; sourceTree = "<group>"; };
-		FB611C1CF247E0CE18F05080D80EC20C /* consent_03@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_03@3x.m4v"; sourceTree = "<group>"; };
+		FB611C1CF247E0CE18F05080D80EC20C /* consent_03@3x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_03@3x.m4v"; sourceTree = "<group>"; };
 		FB862FBE84617A3C698F9378905707CE /* AWSCognito-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AWSCognito-prefix.pch"; sourceTree = "<group>"; };
 		FB9026790C2980BC5E83E2BC524B8190 /* TwoFingerTappingTaskStep1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = TwoFingerTappingTaskStep1.png; path = docs/ActiveTasks/TwoFingerTappingTaskImages/TwoFingerTappingTaskStep1.png; sourceTree = "<group>"; };
 		FBB72A52422BB0EF3884BC02B2B630E2 /* AWSEXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSEXTScope.m; path = AWSCore/Mantle/extobjc/AWSEXTScope.m; sourceTree = "<group>"; };
@@ -2305,7 +2305,7 @@
 		FED3C7264DE35314D5F0F7FDFB96511B /* AWSTMDiskCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTMDiskCache.m; path = AWSCore/TMCache/AWSTMDiskCache.m; sourceTree = "<group>"; };
 		FEE277A255F18DF4953696C539C581EE /* ORKDataCollectionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKDataCollectionManager.m; sourceTree = "<group>"; };
 		FFC00C9C74BF2490F9A973D16E3E0EA0 /* ORKScaleRangeImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ORKScaleRangeImageView.m; sourceTree = "<group>"; };
-		FFE0EB8CB9D4CF0AE4ED0358DC424DEF /* consent_03@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; path = "consent_03@2x.m4v"; sourceTree = "<group>"; };
+		FFE0EB8CB9D4CF0AE4ED0358DC424DEF /* consent_03@2x.m4v */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "consent_03@2x.m4v"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2698,7 +2698,6 @@
 				E00F08972B33F784B8F6F8F2B62D0C78 /* AWSS3TransferUtility+Validation.m */,
 				8D825AE26C013FE95C3780AA9B0F2E24 /* Support Files */,
 			);
-			name = AWSS3;
 			path = AWSS3;
 			sourceTree = "<group>";
 		};
@@ -2847,7 +2846,6 @@
 				10EEE5EF5E1C7078653BCA9CEDF79EF4 /* AWSMobileAnalyticsWriter.m */,
 				550CEF2223C434D92D29B0C33F84357C /* Support Files */,
 			);
-			name = AWSMobileAnalytics;
 			path = AWSMobileAnalytics;
 			sourceTree = "<group>";
 		};
@@ -2872,7 +2870,6 @@
 				B9BE124A2E3B8CBD83D7D9C4801B4832 /* consent_06@3x.m4v */,
 				E0BECF7EFF4A6250D9CB79D722622A2A /* consent_07@3x.m4v */,
 			);
-			name = "phone@3x";
 			path = "phone@3x";
 			sourceTree = "<group>";
 		};
@@ -3155,7 +3152,6 @@
 				4377DC1AF5063A97B9FF2EB60B6F90E4 /* SwiftKeychainWrapper.h */,
 				E44D05BA3251A82C572E3C2221229A9C /* Support Files */,
 			);
-			name = SwiftKeychainWrapper;
 			path = SwiftKeychainWrapper;
 			sourceTree = "<group>";
 		};
@@ -3273,7 +3269,6 @@
 				57F127BBDAD1C5C413053EC1F5692F73 /* Frameworks */,
 				846711514CC528B0DC09A6E808DD7E98 /* Support Files */,
 			);
-			name = AWSCognitoIdentityProviderASF;
 			path = AWSCognitoIdentityProviderASF;
 			sourceTree = "<group>";
 		};
@@ -3466,7 +3461,6 @@
 				C6E2D36CD64DF31E64C8C3D76920EC19 /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.m */,
 				A60B9AD8F27A25858EE24174DC9CFC2A /* Support Files */,
 			);
-			name = AWSCore;
 			path = AWSCore;
 			sourceTree = "<group>";
 		};
@@ -3502,7 +3496,6 @@
 				5C067AA70DFDC55BE5A86455DD397E3B /* consent_06@2x.m4v */,
 				85BFE41BEC76FBAA647D82AF1D4FD585 /* consent_07@2x.m4v */,
 			);
-			name = "phone@2x";
 			path = "phone@2x";
 			sourceTree = "<group>";
 		};
@@ -3585,7 +3578,6 @@
 				B2A47C70DA3EF02884BA8AAD0541F83E /* AWSCognitoUtil.m */,
 				F4133D268EBE857E340C95B2E74BD64E /* Support Files */,
 			);
-			name = AWSCognito;
 			path = AWSCognito;
 			sourceTree = "<group>";
 		};
@@ -3934,7 +3926,6 @@
 				041FCCF3321521E08BBFE3B8FF8A9D9C /* tommath.c */,
 				5585C7E62C628D57FFC728F31E95B3B2 /* Support Files */,
 			);
-			name = AWSCognitoIdentityProvider;
 			path = AWSCognitoIdentityProvider;
 			sourceTree = "<group>";
 		};
@@ -4771,7 +4762,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -6085,6 +6076,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
