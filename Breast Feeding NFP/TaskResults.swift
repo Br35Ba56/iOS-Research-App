@@ -11,7 +11,6 @@ import AWSCognitoIdentityProvider
 
 protocol TaskResults {
   var results: [String: String] {get}
-  func getEntryString() -> String
   func enterTaskResult(identifier: String, result: String)
   func getDateAsString() -> String
   func getEntryJSON() -> String
@@ -45,10 +44,6 @@ class DailyTaskResults: TaskResults {
     }
     return "ERROR PROCESSING SURVEY"
   }
-  func getEntryString() -> String{
-    
-    return "\(getDateAsString()), \(String(describing: results[DailyCycleSurvey.clearBlueMonitorStepID]!)), \(String(describing: results[DailyCycleSurvey.progesteroneQuestionStepID]!)), \(String(describing: results[DailyCycleSurvey.experienceBleedingStepID]!)), \(String(describing: results[DailyCycleSurvey.menstruationQuestionStepID]!)), \(String(describing: results[DailyCycleSurvey.numOfTimesBabyBreastFedStepID]!)), \(String(describing: results[DailyCycleSurvey.numOfTimesBabyExpressFedStepID]!)), \(String(describing: results[DailyCycleSurvey.numOfTimesBabyFormulaFedStepID]!)) "
-  }
   
   func getDateAsString() -> String {
     let dateFormatter = DateFormatter()
@@ -56,7 +51,6 @@ class DailyTaskResults: TaskResults {
     let dateString = dateFormatter.string(from: Date())
     return dateString
   }
-
 }
 
 class WeeklyTaskResults: TaskResults {
@@ -74,10 +68,6 @@ class WeeklyTaskResults: TaskResults {
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
   }
-
-  func getEntryString() -> String {
-    return "\(results[WeeklySurvey.areYouPregnantStepID]!), \(results[WeeklySurvey.usedAnyContraceptivesStepID]!), \(results[WeeklySurvey.recentlyDiagnosedStepID]!), \(results[WeeklySurvey.stillBreastfeedingStepID]!), \(results[WeeklySurvey.didMenstruateThisWeekStepID]!)"
-  }
   
   func getDateAsString() -> String {
     let dateFormatter = DateFormatter()
@@ -93,7 +83,7 @@ class WeeklyTaskResults: TaskResults {
     } catch {
       print(error.localizedDescription)
     }
-    return ""
+    return "ERROR PROCESSING SURVEY"
   }
 }
 
@@ -139,11 +129,7 @@ class OnboardingTaskResults: TaskResults {
     } catch {
       print(error.localizedDescription)
     }
-    return ""
-  }
-
-  func getEntryString() -> String {
-    return "\(results[EligibilitySteps.biologicalSexStepID]!), \(results[EligibilitySteps.biologicalInfantStepID]!), \(results[EligibilitySteps.singletonBirthStepID]!), \(results[EligibilitySteps.babyBornFullTermStep]!), \(results[EligibilitySteps.participantAgeInRangeStepID]!), \(results[EligibilitySteps.momHealthStepID]!), \(results[EligibilitySteps.breastSurgeryStepID]!), \(results[EligibilitySteps.infantAgeInRangeStepID]!), \(results[EligibilitySteps.clearBlueMonitorStepID]!), \(results[EligibilitySteps.canReadEnglishStepID]!), \(results[DemographicSteps.participantBirthDateStepID]!), \(results[DemographicSteps.babysBirthDateStepID]!), \(results[DemographicSteps.babyFeedOnDemandStepID]!), \(results[DemographicSteps.breastPumpInfoStepID]!), \(results[DemographicSteps.ethnicityStepID]!), \(results[DemographicSteps.religionStepID]!), \(results[DemographicSteps.levelOfEducationStepID]!), \(results[DemographicSteps.relationshipStatusID]!), \(results[DemographicSteps.marriedLengthStepID]!), \(results[DemographicSteps.howManyTimesPregnantStepID]!), \(results[DemographicSteps.howManyBiologicalChildrenStepID]!), \(results[DemographicSteps.howManyChildrenBreastFedStepID]!), \(results[DemographicSteps.howLongInPastBreastFedStepID]!)"
+    return "ERROR PROCESSING SURVEY"
   }
   
   func getDateAsString() -> String {
