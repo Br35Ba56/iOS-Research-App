@@ -388,15 +388,15 @@ struct Onboarding {
   private static let howManyChildrenBreastFedStep: ORKStep = {
     let title = "How many children have you breastfed?"
     let numericStyle = ORKNumericAnswerStyle.integer
-    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
+    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 0, maximum: 10)
     let howManyChildrenBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenBreastFedStepID, title: title, answer: answerFormat)
     return howManyChildrenBreastFedStep
   }()
  
   private static let howLongInPastBreastFedStep: ORKStep = {
-    let title = "How long in the past have your breastfed?"
+    let title = "How long in the past have you breastfed?"
     let numericStyle = ORKNumericAnswerStyle.integer
-    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "months", minimum: 1, maximum: 24)
+    let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "months", minimum: 0, maximum: 24)
     let howLongInPastBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howLongInPastBreastFedStepID, title: title, answer: answerFormat)
     return howLongInPastBreastFedStep
   }()

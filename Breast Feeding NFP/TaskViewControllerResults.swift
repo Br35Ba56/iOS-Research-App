@@ -49,6 +49,13 @@ struct TaskViewControllerResults {
               taskResults?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
             }
           }
+          if let questionResult = result as? ORKTextQuestionResult {
+            if let finalResult = questionResult.textAnswer {
+              if questionResult.identifier == DemographicSteps.breastPumpInfoStepID {
+                taskResults?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
+              }
+            }
+          }
         }
       }
       //TODO: Refractor into TaskResults.swift
