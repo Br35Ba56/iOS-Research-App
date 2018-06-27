@@ -34,6 +34,8 @@ import AWSCognito
 import AWSCognitoIdentityProvider
 
 class ActivityViewController: UITableViewController {
+  var daysTillWeeklySurvey: Int!
+  
   
   // MARK: UITableViewDataSource
   override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +44,11 @@ class ActivityViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("View did load")
+   /* let cognitoSync = AWSCognito.default()
+    let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+    dataSet.clear()
+    dataSet.synchronize()
+    print("View did load")*/
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,21 +62,43 @@ class ActivityViewController: UITableViewController {
       cell.textLabel?.text = activity.title
       cell.detailTextLabel?.text = activity.subtitle
     }
-    if indexPath.row == 1 {
+  
+    return cell
+  }
+  
+  private func isEligibleForWeekySurvey() -> Bool {
       let cognitoSync = AWSCognito.default()
       let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-      print("Row == 1")
-      print(dataSet.string(forKey: "WeeklyTaskDate"))
+      dataSet.synchronize()
       if let dateString = dataSet.string(forKey: "WeeklyTaskDate") {
         let dateFormatter = DateFormatter()
-        let date = dateFormatter.date(from: dateString)
-        let timeInterval = date?.timeIntervalSince(Date())
-        print("Time interval \(String(describing: timeInterval))")
-      }
-     
-      cell.isUserInteractionEnabled = true
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
+        let lastWeeklySurveyDate = dateFormatter.date(from: dateString)
+        let todaysDate = Date()
+        let diffInDays = Calendar.current.dateComponents([.day], from: lastWeeklySurveyDate!, to: todaysDate)
+        if diffInDays.day! < 7 {
+          daysTillWeeklySurvey = 7 - diffInDays.day!
+          return false
+        }
     }
-    return cell
+    return true
+  }
+  
+  private func isEligibleForDailySurvey() -> Bool {
+    let cognitoSync = AWSCognito.default()
+    let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+    dataSet.synchronize()
+    if let dateString = dataSet.string(forKey: "DailyTaskDate") {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
+      let lastDailySurveyDate = dateFormatter.date(from: dateString)
+      let todaysDate = Date()
+      let diffInDays = Calendar.current.dateComponents([.day], from: lastDailySurveyDate!, to: todaysDate)
+      if diffInDays.day! < 7 {
+        return false
+      }
+    }
+    return true
   }
   
   // MARK: UITableViewDelegate
@@ -79,8 +107,20 @@ class ActivityViewController: UITableViewController {
     let taskViewController: ORKTaskViewController
     switch activity {
     case .dailySurvey:
+      if !isEligibleForDailySurvey() {
+        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait till tommorow before taking the daily survey", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertViewController, animated: true)
+        return
+      }
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .weeklySurvey:
+      if !isEligibleForWeekySurvey() {
+        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait \(daysTillWeeklySurvey!) more days before taking the weekly survey", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertViewController, animated: true)
+        return
+      }
       taskViewController = ORKTaskViewController(task: StudyTasks.weeklySurvey, taskRun: NSUUID() as UUID)
     case .withdrawSurvey:
       taskViewController = WithdrawViewController.init()
@@ -100,11 +140,17 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     switch reason {
     case .completed:
+      if taskViewController.task?.identifier == StudyTasks.dailySurveyTask.identifier {
+        let cognitoSync = AWSCognito.default()
+        let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+        let todaysDate = Date()
+        dataSet.setString(todaysDate.description, forKey: "DailyTaskDate")
+        dataSet.synchronize()
+      }
       if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier{
         let cognitoSync = AWSCognito.default()
         let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
         let todaysDate = Date()
-        print(todaysDate.description)
         dataSet.setString(todaysDate.description, forKey: "WeeklyTaskDate")
         dataSet.synchronize()
       }
