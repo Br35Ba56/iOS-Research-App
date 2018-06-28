@@ -38,6 +38,7 @@
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
+		D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */; };
 		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
 		FBE0BF8ED3988D1FF031F613 /* Pods_Breast_Feeding_NFPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DFFBEDF0297014767E10EA /* Pods_Breast_Feeding_NFPTests.framework */; };
@@ -105,6 +106,7 @@
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
+		D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTiming.swift; sourceTree = "<group>"; };
 		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
+				D99D57A920E46BA800D0F3F5 /* SurveyTiming */,
 				D9E9EA81205607F1004D7012 /* Container */,
 				BCC77A70202FE91B00D6798B /* Login */,
 				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
@@ -269,6 +272,14 @@
 				BC9BA2102040AA9200D651C6 /* LoginViewController.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		D99D57A920E46BA800D0F3F5 /* SurveyTiming */ = {
+			isa = PBXGroup;
+			children = (
+				D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */,
+			);
+			name = SurveyTiming;
 			sourceTree = "<group>";
 		};
 		D9E9EA81205607F1004D7012 /* Container */ = {
@@ -627,6 +638,7 @@
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
+				D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */,

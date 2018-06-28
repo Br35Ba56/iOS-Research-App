@@ -35,7 +35,7 @@ import AWSCognitoIdentityProvider
 
 class ActivityViewController: UITableViewController {
   var daysTillWeeklySurvey: Int!
-  
+  let surveyTiming: SurveyTiming = SurveyTiming()
   
   // MARK: UITableViewDataSource
   override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +44,11 @@ class ActivityViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-   /* let cognitoSync = AWSCognito.default()
+    /*let cognitoSync = AWSCognito.default()
     let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
     dataSet.clear()
-    dataSet.synchronize()
-    print("View did load")*/
+    dataSet.synchronize()*/
+    print("View did load")
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,48 +66,13 @@ class ActivityViewController: UITableViewController {
     return cell
   }
   
-  private func isEligibleForWeekySurvey() -> Bool {
-      let cognitoSync = AWSCognito.default()
-      let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-      dataSet.synchronize()
-      if let dateString = dataSet.string(forKey: "WeeklyTaskDate") {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
-        let lastWeeklySurveyDate = dateFormatter.date(from: dateString)
-        let todaysDate = Date()
-        let diffInDays = Calendar.current.dateComponents([.day], from: lastWeeklySurveyDate!, to: todaysDate)
-        if diffInDays.day! < 7 {
-          daysTillWeeklySurvey = 7 - diffInDays.day!
-          return false
-        }
-    }
-    return true
-  }
-  
-  private func isEligibleForDailySurvey() -> Bool {
-    let cognitoSync = AWSCognito.default()
-    let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-    dataSet.synchronize()
-    if let dateString = dataSet.string(forKey: "DailyTaskDate") {
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzzz"
-      let lastDailySurveyDate = dateFormatter.date(from: dateString)
-      let todaysDate = Date()
-      let diffInDays = Calendar.current.dateComponents([.day], from: lastDailySurveyDate!, to: todaysDate)
-      if diffInDays.day! < 7 {
-        return false
-      }
-    }
-    return true
-  }
-  
   // MARK: UITableViewDelegate
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let activity = Activity(rawValue: (indexPath as NSIndexPath).row) else { return }
     let taskViewController: ORKTaskViewController
     switch activity {
     case .dailySurvey:
-      if !isEligibleForDailySurvey() {
+      if !surveyTiming.isEligibleForDailySurvey() {
         let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait till tommorow before taking the daily survey", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertViewController, animated: true)
@@ -115,8 +80,8 @@ class ActivityViewController: UITableViewController {
       }
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .weeklySurvey:
-      if !isEligibleForWeekySurvey() {
-        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait \(daysTillWeeklySurvey!) more days before taking the weekly survey", preferredStyle: .alert)
+      if !surveyTiming.isEligibleForWeekySurvey() {
+        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait \(surveyTiming.getDaysTillWeeklySurvey()) more days before taking the weekly survey", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertViewController, animated: true)
         return
@@ -141,18 +106,10 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     switch reason {
     case .completed:
       if taskViewController.task?.identifier == StudyTasks.dailySurveyTask.identifier {
-        let cognitoSync = AWSCognito.default()
-        let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-        let todaysDate = Date()
-        dataSet.setString(todaysDate.description, forKey: "DailyTaskDate")
-        dataSet.synchronize()
+        surveyTiming.setDailyDate(date: Date())
       }
-      if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier{
-        let cognitoSync = AWSCognito.default()
-        let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-        let todaysDate = Date()
-        dataSet.setString(todaysDate.description, forKey: "WeeklyTaskDate")
-        dataSet.synchronize()
+      if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier {
+        surveyTiming.setWeeklyDate(date: Date())
       }
       if taskViewController.task?.identifier == "Withdraw" {
         self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
