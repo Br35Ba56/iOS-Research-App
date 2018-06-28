@@ -38,17 +38,13 @@ class ActivityViewController: UITableViewController {
   let surveyTiming: SurveyTiming = SurveyTiming()
   
   // MARK: UITableViewDataSource
-  override func viewWillAppear(_ animated: Bool) {
-    print("View appeared")
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     /*let cognitoSync = AWSCognito.default()
-    let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
+    let dataSet = cognitoSync.openOrCreateDataset("SurveyTaskDataSet")
     dataSet.clear()
     dataSet.synchronize()*/
-    print("View did load")
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,8 +57,24 @@ class ActivityViewController: UITableViewController {
     if let activity = Activity(rawValue: (indexPath as NSIndexPath).row) {
       cell.textLabel?.text = activity.title
       cell.detailTextLabel?.text = activity.subtitle
+      if indexPath.row == 0 {
+        if surveyTiming.isEligibleForDailySurvey() {
+          cell.textLabel?.textColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+        } else {
+          cell.textLabel?.textColor = UIColor.red
+        }
+      }
+      if indexPath.row == 1 {
+        if surveyTiming.isEligibleForWeekySurvey() {
+          cell.textLabel?.textColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+        } else {
+          cell.textLabel?.textColor = UIColor.red
+        }
+      }
+      if indexPath.row == 2 {
+        cell.textLabel?.textColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+      }
     }
-  
     return cell
   }
   
@@ -73,16 +85,20 @@ class ActivityViewController: UITableViewController {
     switch activity {
     case .dailySurvey:
       if !surveyTiming.isEligibleForDailySurvey() {
-        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait till tommorow before taking the daily survey", preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alertViewController = UIAlertController(title: "Ineligible for survey.",
+                                                    message: "Please wait till tommorow before taking the daily survey",
+                                                    preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alertViewController, animated: true)
         return
       }
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .weeklySurvey:
       if !surveyTiming.isEligibleForWeekySurvey() {
-        let alertViewController = UIAlertController(title: "Ineligible for survey.", message: "Please wait \(surveyTiming.getDaysTillWeeklySurvey()) more days before taking the weekly survey", preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        let alertViewController = UIAlertController(title: "Ineligible for survey.",
+                                                    message: "Please wait \(surveyTiming.getDaysTillWeeklySurvey()) more days before taking the weekly survey",
+                                                    preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertViewController, animated: true)
         return
       }
@@ -107,9 +123,14 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     case .completed:
       if taskViewController.task?.identifier == StudyTasks.dailySurveyTask.identifier {
         surveyTiming.setDailyDate(date: Date())
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
       }
+      
       if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier {
         surveyTiming.setWeeklyDate(date: Date())
+        let indexPath = IndexPath(row: 1, section: 0)
+        tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
       }
       if taskViewController.task?.identifier == "Withdraw" {
         self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)

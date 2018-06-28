@@ -58,17 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-    let standardDefaults = UserDefaults.standard
+    /*let standardDefaults = UserDefaults.standard
     if standardDefaults.object(forKey: "ORKSampleFirstRun") == nil {
       ORKPasscodeViewController.removePasscodeFromKeychain()
       standardDefaults.setValue("ORKSampleFirstRun", forKey: "ORKSampleFirstRun")
-    }
-    
-    // Appearance customization
-    let pageControlAppearance = UIPageControl.appearance()
-    pageControlAppearance.pageIndicatorTintColor = UIColor.lightGray
-    pageControlAppearance.currentPageIndicatorTintColor = UIColor.black
-
+    }*/
     return true
   }
   
@@ -76,11 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lockApp()
     setUpAWSServices()
     if checkForUser() == false {
-      print("False")
-      
+      print("No user signed in.  AppDelegate")
       self.containerViewController?.toLoginOrSignup()
     } else {
-      print(true)
+      print("User Signed in.  AppDelegate")
     }
     return true
   }
@@ -121,7 +114,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func applicationWillEnterForeground(_ application: UIApplication) {
-   
     lockApp()
   }
  

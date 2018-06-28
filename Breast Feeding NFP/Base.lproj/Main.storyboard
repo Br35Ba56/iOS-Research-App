@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dz2-q1-Eep">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dz2-q1-Eep">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Helvetica.ttc">
-            <string>Helvetica</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
@@ -222,7 +217,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="studyViewController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" selectionIndicatorImage="tab_activities" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -244,6 +239,7 @@
                     <tabBarItem key="tabBarItem" title="Dash Board" image="tab_dashboard" selectedImage="tab_dashboard" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tnx-of-lbO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -262,6 +258,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="tab_profile" selectedImage="tab_profile" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w7c-U4-DNK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -280,6 +277,7 @@
                     <tabBarItem key="tabBarItem" title="Activities" image="tab_activities" selectedImage="tab_activities" id="c13-ju-3eA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="um9-E1-BdP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -324,7 +322,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ5-hS-8d2">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">You will be presented with a daily survey that will ask you to answer questions related to the presence of urine hormones (estrogen, LH and progesterone) frequency of breastfeeding and presence of vaginal bleeding. Weekly surveys will assess your eligibility to continue in the study.  If you are directed to the exit survey you have been deemed ineligible. Eligibility based on vaginal bleeding that follows the pattern defined by this study will not disqualify you from winning the yearly supply of test strips.  With completion of the study you are eligible for a year supply of CBFM test strips ($514.00) and progesterone test strips ($500.00).</mutableString>
+                                <string key="text">You will be presented with a daily survey that will ask you to answer questions related to the presence of urine hormones (estrogen, LH and progesterone) frequency of breastfeeding and presence of vaginal bleeding. Weekly surveys will assess your eligibility to continue in the study.  If you are directed to the exit survey you have been deemed ineligible. Eligibility based on vaginal bleeding that follows the pattern defined by this study will not disqualify you from winning the yearly supply of test strips.  With completion of the study you are eligible for a year supply of CBFM test strips ($514.00) and progesterone test strips ($500.00).</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -357,9 +355,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZm-fQ-hwG">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Welcome to the Breastfeeding Fertility Study.  
+                                <string key="text">Welcome to the Breastfeeding Fertility Study.  
 The breastfeeding fertility application uses surveys and tasks to help understand if patterns of breastfeeding affect ovarian activity that lead to ovulation and the potential for unintended pregnancy.  Our goal is to observe hormonal activity using point of care urine bio marker testing and daily breastfeeding frequencies you will document in this app.
-In the initial enrollment, you will be presented with a survey to determine eligibility. If you are determined to be eligible then you will be able to review the consent form providing your name and signature if you agree to the terms of this study.  A copy of your signed consent form will be sent to the email you registered with. Once registered you will have the option to choose a reminder to complete the daily survey.  </mutableString>
+In the initial enrollment, you will be presented with a survey to determine eligibility. If you are determined to be eligible then you will be able to review the consent form providing your name and signature if you agree to the terms of this study.  A copy of your signed consent form will be sent to the email you registered with. Once registered you will have the option to choose a reminder to complete the daily survey.  </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -394,7 +392,7 @@ In the initial enrollment, you will be presented with a survey to determine elig
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vd-7w-Me7">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Participation in this study does require some time commitment, here is a breakdown of that commitment:
+                                <string key="text">Participation in this study does require some time commitment, here is a breakdown of that commitment:
 
 1.	Initial eligibility and registration – 10-15 minutes (one time)
 2.	Daily survey 3-5 minutes.
@@ -404,7 +402,7 @@ In the initial enrollment, you will be presented with a survey to determine elig
 Your study data will include your responses to surveys that will be encrypted.  The unidentified data will be analyzed by the research team.  
 
 Thank you for participating in this unique and very important study.  You are making a difference for your family and families around the world!
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -38,6 +38,7 @@ import AWSS3
 let loginUUID = UUID()
 
 class OnboardingViewController: UIViewController {
+  let surveyTiming : SurveyTiming = SurveyTiming()
   @IBAction func joinAction(_ sender: Any) {
     let taskViewController = ORKTaskViewController(task: Onboarding.onboardingSurvey, taskRun: nil)
     taskViewController.delegate = self
@@ -65,30 +66,12 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         break
       } else {
         //User completed onboarding process
-        let cognitoSync = AWSCognito.default()
-        let dataSet = cognitoSync.openOrCreateDataset("weeklyTaskDataSet")
-        let todaysDate = Date()
-        print(todaysDate.description)
-        dataSet.setString(todaysDate.description, forKey: "WeeklyTaskDate")
-        let dateString = dataSet.string(forKey: "WeeklyTaskDate")
-        print("Date String recorded after onboarding: \(dateString)")
-        dataSet.synchronize().continueWith(block: {(task)->AnyObject? in
-          if task.isCancelled {
-            
-          } else if task.error != nil {
-            print("Error syncing.")
-            print(task.error.debugDescription)
-          } else {
-            print("Data was saved")
-          }
-          return task
-        })
+        surveyTiming.setWeeklyDate(date: Date())
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
         UserDefaults.standard.set(deviceID, forKey: "User UUID")
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {
           submitUserConsent(taskViewController: taskViewController)
           let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
-          
           ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
           performSegue(withIdentifier: "unwindToStudy", sender: nil)
         } else {
@@ -129,17 +112,12 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         transferUtility.uploadFile(consentPDF!, bucket: AWSConstants.bucket, key: "Participant_Consent/Participant_Consent_\(uuidString).pdf", contentType: "consent/pdf", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
           if let error = task.error {
             print(error.localizedDescription)
-            
           }
-          if let _ = task.result {
-            print("Before task result")
-            print(task.result!.debugDescription)
+          /*if let _ = task.result {
             
-          }
+          }*/
           return nil
-          
         }
-      
       })
     }
   }//end submitUserConsent
