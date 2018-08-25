@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import AWSCore
 @testable import Breast_Feeding_NFP
 
 class Breast_Feeding_NFPTests: XCTestCase {
@@ -21,9 +22,12 @@ class Breast_Feeding_NFPTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCorrectRegion() {
+      if AWSRegionType.USEast1 == AWSConstants.region {
+        XCTAssert(true)
+      } else {
+        XCTAssert(false)
+      }
     }
     
     func testPerformanceExample() {
