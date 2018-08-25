@@ -58,11 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-    /*let standardDefaults = UserDefaults.standard
-    if standardDefaults.object(forKey: "ORKSampleFirstRun") == nil {
-      ORKPasscodeViewController.removePasscodeFromKeychain()
-      standardDefaults.setValue("ORKSampleFirstRun", forKey: "ORKSampleFirstRun")
-    }*/
     return true
   }
   
@@ -140,8 +135,7 @@ extension AppDelegate: ORKPasscodeDelegate {
   
   func passcodeViewControllerDidFailAuthentication(_ viewController: UIViewController) {
     //TODO:  What happens if user forgets passcode????
-    //Should challenge them to Cognito log in then reset passcode after authentication with cognito
-    
+    //Should challenge them to Cognito log in then reset passcode after authentication with cognito?
   }
 }
 
