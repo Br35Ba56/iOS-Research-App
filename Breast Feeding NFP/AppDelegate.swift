@@ -41,7 +41,7 @@ import SwiftKeychainWrapper
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var identityManager: AWSIdentityProviderManager?
   static var user: AWSCognitoIdentityUser?
-  var loginViewController: LoginViewController?
+  var signInViewController: LoginViewController?
   var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
   
   var window: UIWindow?
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     setUpAWSServices()
     if checkForUser() == false {
       print("No user signed in.  AppDelegate")
-      self.containerViewController?.toLoginOrSignup()
+      self.containerViewController?.toOnboarding()
     } else {
       print("User Signed in.  AppDelegate")
     }
@@ -146,7 +146,16 @@ extension AppDelegate: ORKPasscodeDelegate {
 }
 
 
-
+extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
+  
+  func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+    return self.signInViewController!
+  }
+  
+  func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
+    return self
+  }
+}
 
 // MARK:- AWSCognitoIdentityRememberDevice protocol delegate
 extension AppDelegate: AWSCognitoIdentityRememberDevice {

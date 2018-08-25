@@ -29,8 +29,10 @@ class SurveyTiming {
   }
   
   public func isEligibleForWeekySurvey() -> Bool {
+    
     let cognitoSync = AWSCognito.default()
     let dataSet = cognitoSync.openOrCreateDataset("SurveyTaskDataSet")
+    //dataSet.clear()
     dataSet.synchronize()
     if let dateString = dataSet.string(forKey: "WeeklyTaskDate") {
       let dateFormatter = DateFormatter()
@@ -49,6 +51,7 @@ class SurveyTiming {
   public func isEligibleForDailySurvey() -> Bool {
     let cognitoSync = AWSCognito.default()
     let dataSet = cognitoSync.openOrCreateDataset("SurveyTaskDataSet")
+    //dataSet.clear()
     dataSet.synchronize()
     if let dateString = dataSet.string(forKey: "DailyTaskDate") {
       let dateFormatter = DateFormatter()

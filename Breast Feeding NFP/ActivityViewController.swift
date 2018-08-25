@@ -41,10 +41,6 @@ class ActivityViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    /*let cognitoSync = AWSCognito.default()
-    let dataSet = cognitoSync.openOrCreateDataset("SurveyTaskDataSet")
-    dataSet.clear()
-    dataSet.synchronize()*/
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,6 +49,7 @@ class ActivityViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
     let cell = tableView.dequeueReusableCell(withIdentifier: "activityCell", for: indexPath)
     if let activity = Activity(rawValue: (indexPath as NSIndexPath).row) {
       cell.textLabel?.text = activity.title
@@ -86,7 +83,7 @@ class ActivityViewController: UITableViewController {
     case .dailySurvey:
       if !surveyTiming.isEligibleForDailySurvey() {
         let alertViewController = UIAlertController(title: "Ineligible for survey.",
-                                                    message: "Please wait till tommorow before taking the daily survey",
+                                                    message: "Please wait 24 hours before taking the daily survey",
                                                     preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alertViewController, animated: true)
@@ -103,8 +100,8 @@ class ActivityViewController: UITableViewController {
         return
       }
       taskViewController = ORKTaskViewController(task: StudyTasks.weeklySurvey, taskRun: NSUUID() as UUID)
-    case .withdrawSurvey:
-      taskViewController = WithdrawViewController.init()
+   // case .withdrawSurvey:
+     // taskViewController = WithdrawViewController.init()
     }
     taskViewController.delegate = self
     navigationController?.present(taskViewController, animated: true, completion: nil)
@@ -132,9 +129,10 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         let indexPath = IndexPath(row: 1, section: 0)
         tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
       }
+      /*
       if taskViewController.task?.identifier == "Withdraw" {
         self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
-      }
+      }*/
       let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
       ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
       

@@ -112,6 +112,17 @@ class LoginViewController: ORKLoginStepViewController {
     }
   }
 }
+extension LoginViewController: AWSCognitoIdentityPasswordAuthentication {
+  func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
+    print("AWSCognitoIdentiyPasswordAuthentication LoginViewController")
+  }
+  
+  func didCompleteStepWithError(_ error: Error?) {
+    
+  }
+  
+  
+}
 class LoginViewControllerView: UIView {
   var loginViewControllerView: UIView!
   
