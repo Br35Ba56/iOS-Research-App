@@ -32,7 +32,7 @@ import Foundation
 import ResearchKit
 
 struct Onboarding {
-  static let task = "OnboardingTaskID"
+  static let taskID = "OnboardingTaskID"
   private static let boolAnswerFormat = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
   
   static let onboardingSurvey: OnboardingTask = {
@@ -50,7 +50,7 @@ struct Onboarding {
     completionStep.title = "Welcome aboard."
     completionStep.text = "Thank you for joining this study."
 
-    let orderedTask = OnboardingTask(identifier: Onboarding.task, steps: [
+    let orderedTask = OnboardingTask(identifier: Onboarding.taskID, steps: [
       
       //Eligibility
       biologicalSexStep,

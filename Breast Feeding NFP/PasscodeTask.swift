@@ -17,5 +17,4 @@ struct PasscodeTask {
     let orderedTask = ORKOrderedTask(identifier: "PasscodeTask", steps: [passcodeStep])
     return orderedTask
   }()
-  
 }

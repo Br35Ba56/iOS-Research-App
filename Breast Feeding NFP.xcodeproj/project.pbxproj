@@ -38,6 +38,8 @@
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
+		D98644382132D45C00A683F6 /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98644372132D45C00A683F6 /* ViewControllerTests.swift */; };
+		D986443A2132D7CF00A683F6 /* TopLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98644392132D7CF00A683F6 /* TopLevel.swift */; };
 		D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */; };
 		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
@@ -106,6 +108,8 @@
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
+		D98644372132D45C00A683F6 /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		D98644392132D7CF00A683F6 /* TopLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLevel.swift; sourceTree = "<group>"; };
 		D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTiming.swift; sourceTree = "<group>"; };
 		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,9 +200,11 @@
 		BC21F3C31F4F3072006629AC /* Breast Feeding NFPTests */ = {
 			isa = PBXGroup;
 			children = (
+				D98644372132D45C00A683F6 /* ViewControllerTests.swift */,
 				BC65FCAD203E46B2005D2A3A /* KeychainWrapperTests.swift */,
 				BC21F3C41F4F3072006629AC /* Breast_Feeding_NFPTests.swift */,
 				BC21F3C61F4F3072006629AC /* Info.plist */,
+				D98644392132D7CF00A683F6 /* TopLevel.swift */,
 			);
 			path = "Breast Feeding NFPTests";
 			sourceTree = "<group>";
@@ -658,6 +664,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D986443A2132D7CF00A683F6 /* TopLevel.swift in Sources */,
+				D98644382132D45C00A683F6 /* ViewControllerTests.swift in Sources */,
 				BC21F3C51F4F3072006629AC /* Breast_Feeding_NFPTests.swift in Sources */,
 				BC65FCAE203E46B2005D2A3A /* KeychainWrapperTests.swift in Sources */,
 			);

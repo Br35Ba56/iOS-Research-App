@@ -110,7 +110,6 @@ struct StudyTasks {
   private static let menstruationStep: ORKStep = {
     let title = "Cycle Data Bleeding"
     let text = "Please record the amount of bleeding"
-    
     let textChoices = [
       ORKTextChoice(text: "Spotting", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
       ORKTextChoice(text: "Light", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
@@ -178,7 +177,6 @@ struct StudyTasks {
       reviewStep,
       completionStep
       ])
-    
     return orderedTask
   }()
   

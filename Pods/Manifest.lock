@@ -1,15 +1,15 @@
 PODS:
-  - AWSCognito (2.6.20):
-    - AWSCore (= 2.6.20)
-  - AWSCognitoIdentityProvider (2.6.20):
+  - AWSCognito (2.6.27):
+    - AWSCore (= 2.6.27)
+  - AWSCognitoIdentityProvider (2.6.27):
     - AWSCognitoIdentityProviderASF (= 1.0.1)
-    - AWSCore (= 2.6.20)
+    - AWSCore (= 2.6.27)
   - AWSCognitoIdentityProviderASF (1.0.1)
-  - AWSCore (2.6.20)
-  - AWSMobileAnalytics (2.6.20):
-    - AWSCore (= 2.6.20)
-  - AWSS3 (2.6.20):
-    - AWSCore (= 2.6.20)
+  - AWSCore (2.6.27)
+  - AWSMobileAnalytics (2.6.27):
+    - AWSCore (= 2.6.27)
+  - AWSS3 (2.6.27):
+    - AWSCore (= 2.6.27)
   - ResearchKit (1.5.2)
   - SwiftKeychainWrapper (3.0.1)
 
@@ -27,12 +27,12 @@ EXTERNAL SOURCES:
     :path: /Users/anthonyschneider/Desktop/ResearchKit-master
 
 SPEC CHECKSUMS:
-  AWSCognito: 76b0fcfa24c6432b95059775c38e66ca7f18f839
-  AWSCognitoIdentityProvider: 82158b2c4555ceab8c04368f9cc9ef216bf862e6
+  AWSCognito: 582d098de9b4cc16bd9fad8e2fbea9f7280ec428
+  AWSCognitoIdentityProvider: 3bfcca5d995405ff6b96b1d20d2d4ab14f4c3800
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
-  AWSCore: dd4d3d4fcafdce68a42025c3e9e45b026cf1f33b
-  AWSMobileAnalytics: bc63d99856ef02bd8da890cfc831553049fa509d
-  AWSS3: 69589dec1883cdca872b4ddd1ea2ef814b0846fe
+  AWSCore: 87e3711bc0d7e055f9d85b6ef272d7f91f2e0796
+  AWSMobileAnalytics: 2269d22b979bcf56bcc8da68a5f7e744e905fad9
+  AWSS3: 2069e63aeac5dd9fd90a74b8d717cacae7a8bf67
   ResearchKit: 35c32ed3dc7ad48a26bb077515723d72fa1e8676
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
