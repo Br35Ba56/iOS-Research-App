@@ -12,26 +12,22 @@ import SwiftKeychainWrapper
 
 struct TaskViewControllerResults {
 
-  public static func getViewControllerResults(taskViewController: ORKTaskViewController) -> TaskResults {
+  public static func getViewControllerResults(taskViewControllerResults: [ORKStepResult], taskID: String) -> TaskResults {
     
     var taskResults: TaskResults?
-    if taskViewController.task!.identifier == DailyCycleSurvey.taskID {
+    if taskID == DailyCycleSurvey.taskID {
       taskResults = DailyTaskResults()
-    } else if taskViewController.task!.identifier == WeeklySurvey.taskID {
+    } else if taskID == WeeklySurvey.taskID {
       taskResults = WeeklyTaskResults()
-    } else if taskViewController.task!.identifier == Onboarding.task {
+    } else if taskID == Onboarding.taskID {
       taskResults = OnboardingTaskResults()
     }
-    if let results = taskViewController.result.results as? [ORKStepResult] {
-      for stepResult: ORKStepResult in results {
+    
+      for stepResult: ORKStepResult in taskViewControllerResults {
         for result in stepResult.results! {
-          if let questionResult = result as? ORKChoiceQuestionResult {
-            if let anotherResult = questionResult.answer {
-              let stringResult = StringFormatter.buildString(stepResultString: (anotherResult as AnyObject).description)
-              taskResults?.enterTaskResult(identifier: questionResult.identifier, result: stringResult)
-            }
-          }
+          
           if let questionResult = result as? ORKBooleanQuestionResult {
+            questionResult.booleanAnswer = false
             if let finalResult = questionResult.booleanAnswer?.intValue {
               taskResults?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
             }
@@ -45,6 +41,7 @@ struct TaskViewControllerResults {
             }
           }
           if let questionResult = result as? ORKNumericQuestionResult {
+            questionResult.numericAnswer = 44
             if let finalResult = questionResult.numericAnswer {
               taskResults?.enterTaskResult(identifier: questionResult.identifier, result: finalResult.description)
             }
@@ -60,7 +57,7 @@ struct TaskViewControllerResults {
       }
       //TODO: Refractor into TaskResults.swift
       taskResults?.enterTaskResult(identifier: "userName", result: KeychainWrapper.standard.string(forKey: "Username")!)
-    }
+    print(taskResults?.getEntryJSON())
     return taskResults!
   }
 }

@@ -81,14 +81,7 @@ class ActivityViewController: UITableViewController {
     let taskViewController: ORKTaskViewController
     switch activity {
     case .dailySurvey:
-      if !surveyTiming.isEligibleForDailySurvey() {
-        let alertViewController = UIAlertController(title: "Ineligible for survey.",
-                                                    message: "Please wait 24 hours before taking the daily survey",
-                                                    preferredStyle: .alert)
-        alertViewController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alertViewController, animated: true)
-        return
-      }
+      
       taskViewController = ORKTaskViewController(task: StudyTasks.dailySurveyTask, taskRun: NSUUID() as UUID)
     case .weeklySurvey:
       if !surveyTiming.isEligibleForWeekySurvey() {
@@ -118,12 +111,6 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     
     switch reason {
     case .completed:
-      if taskViewController.task?.identifier == StudyTasks.dailySurveyTask.identifier {
-        surveyTiming.setDailyDate(date: Date())
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
-      }
-      
       if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier {
         surveyTiming.setWeeklyDate(date: Date())
         let indexPath = IndexPath(row: 1, section: 0)
@@ -133,8 +120,12 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
       if taskViewController.task?.identifier == "Withdraw" {
         self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
       }*/
-      let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
-      ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
+      if let results = taskViewController.result.results as? [ORKStepResult] {
+        let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewControllerResults: results, taskID: (taskViewController.task?.identifier)!)
+        ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
+      }
+     // let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewController: taskViewController)
+      
       
     default: break
     }
