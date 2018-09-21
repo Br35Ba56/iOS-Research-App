@@ -66,7 +66,7 @@ extension OnboardingViewController: ORKTaskViewControllerDelegate {
         break
       } else {
         //User completed onboarding process
-        surveyTiming.setWeeklyDate(date: Date())
+        surveyTiming.setWeeklyDate(todaysDate: Date())
         let deviceID = UIDevice.current.identifierForVendor!.uuidString
         UserDefaults.standard.set(deviceID, forKey: "User UUID")
         if ORKPasscodeViewController.isPasscodeStoredInKeychain() == true {

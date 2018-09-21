@@ -232,8 +232,7 @@ struct Onboarding {
   private static let infantAgeInRangeStep: ORKStep = {
     let title = "Is your infant between 6 - 8 weeks of age?"
     let text = "Please email ___@email.com if your infant falls outside of this range so we can approve this by a case to case basis."
-    let answerFormat = ORKBooleanAnswerFormat(yesString: "Yes", noString: "No")
-    let infantAgeInRangeStep = ORKQuestionStep(identifier: EligibilitySteps.infantAgeInRangeStepID, title: title, text: text, answer: answerFormat)
+    let infantAgeInRangeStep = ORKQuestionStep(identifier: EligibilitySteps.infantAgeInRangeStepID, title: title, text: text, answer: boolAnswerFormat)
     infantAgeInRangeStep.isOptional = false
     return infantAgeInRangeStep
   }()
@@ -291,7 +290,7 @@ struct Onboarding {
     babyFeedOnDemandStep.isOptional = false
     return babyFeedOnDemandStep
   }()
-  //TODO: breastPumpInfoStep does not have a task result to retrieve result.
+  
   private static let breastPumpInfoStep: ORKStep = {
     let title = "Do you have a breast pump?"
     let text = "If yes, what brand is it?"

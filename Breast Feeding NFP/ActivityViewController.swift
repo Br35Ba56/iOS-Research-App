@@ -34,7 +34,7 @@ import AWSCognito
 import AWSCognitoIdentityProvider
 
 class ActivityViewController: UITableViewController {
-  var daysTillWeeklySurvey: Int!
+  
   let surveyTiming: SurveyTiming = SurveyTiming()
   
   // MARK: UITableViewDataSource
@@ -54,13 +54,7 @@ class ActivityViewController: UITableViewController {
     if let activity = Activity(rawValue: (indexPath as NSIndexPath).row) {
       cell.textLabel?.text = activity.title
       cell.detailTextLabel?.text = activity.subtitle
-      if indexPath.row == 0 {
-        if surveyTiming.isEligibleForDailySurvey() {
-          cell.textLabel?.textColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
-        } else {
-          cell.textLabel?.textColor = UIColor.red
-        }
-      }
+     
       if indexPath.row == 1 {
         if surveyTiming.isEligibleForWeekySurvey() {
           cell.textLabel?.textColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
@@ -112,7 +106,7 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
     switch reason {
     case .completed:
       if taskViewController.task?.identifier == StudyTasks.weeklySurvey.identifier {
-        surveyTiming.setWeeklyDate(date: Date())
+        surveyTiming.setWeeklyDate(todaysDate: Date())
         let indexPath = IndexPath(row: 1, section: 0)
         tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
       }
