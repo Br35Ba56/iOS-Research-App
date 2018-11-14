@@ -96,7 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AWSServiceManager.default().defaultServiceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
     
     AWSS3TransferUtility.register(with: AWSServiceManager.default().defaultServiceConfiguration!, forKey: "TransferUtility")
-  
     AWSMobileAnalytics.init(forAppId: AWSConstants.mobileAnalyticsAppID, configuration: AWSMobileAnalyticsConfiguration.init())
     CognitoSync.synchronizeDataSet()
   }

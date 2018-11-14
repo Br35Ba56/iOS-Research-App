@@ -277,6 +277,7 @@ struct Onboarding {
     let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: maximumDate!, minimumDate: minimumDate!, maximumDate: maximumDate!, calendar: userCalender)
     let childBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.babysBirthDateStepID, title: title, answer: answerFormat)
     childBirthDateStep.isOptional = false
+    
     return childBirthDateStep
   }()
   

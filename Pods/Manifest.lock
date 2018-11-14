@@ -1,41 +1,45 @@
 PODS:
-  - AWSCognito (2.6.30):
-    - AWSCore (= 2.6.30)
-  - AWSCognitoIdentityProvider (2.6.30):
+  - AWSAPIGateway (2.6.33):
+    - AWSCore (= 2.6.33)
+  - AWSCognito (2.6.33):
+    - AWSCore (= 2.6.33)
+  - AWSCognitoIdentityProvider (2.6.33):
     - AWSCognitoIdentityProviderASF (= 1.0.1)
-    - AWSCore (= 2.6.30)
+    - AWSCore (= 2.6.33)
   - AWSCognitoIdentityProviderASF (1.0.1)
-  - AWSCore (2.6.30)
-  - AWSMobileAnalytics (2.6.30):
-    - AWSCore (= 2.6.30)
-  - AWSS3 (2.6.30):
-    - AWSCore (= 2.6.30)
+  - AWSCore (2.6.33)
+  - AWSMobileAnalytics (2.6.33):
+    - AWSCore (= 2.6.33)
+  - AWSS3 (2.6.33):
+    - AWSCore (= 2.6.33)
   - ResearchKit (1.5.2)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
+  - AWSAPIGateway (~> 2.6.6)
   - AWSCognito (~> 2.6.6)
   - AWSCognitoIdentityProvider (~> 2.6.0)
   - AWSCore (~> 2.6.6)
   - AWSMobileAnalytics (~> 2.6.6)
   - AWSS3 (~> 2.6.6)
-  - ResearchKit (from `/Users/anthonyschneider/Desktop/ResearchKit-master`)
+  - ResearchKit (from `/Users/anthonyschneider/Documents/iOS-Research-App/ResearchKit-master`)
   - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
   ResearchKit:
-    :path: /Users/anthonyschneider/Desktop/ResearchKit-master
+    :path: /Users/anthonyschneider/Documents/iOS-Research-App/ResearchKit-master
 
 SPEC CHECKSUMS:
-  AWSCognito: 1f42162d003180ef67f13752f270d09e7ea57c91
-  AWSCognitoIdentityProvider: c887b1cfec7235c85cc90070defbb78354ec7065
+  AWSAPIGateway: 874d1d3262b0f701e39b530e6c2a4825d0aa0581
+  AWSCognito: 0d7106509da503589ea14ee468fa85cb7fab65ad
+  AWSCognitoIdentityProvider: 97c10594444863772447c9a056b17aff487552f3
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
-  AWSCore: 11e8bb89d8d2e3bb6e31caa8b944ca7dae4c87cd
-  AWSMobileAnalytics: 9fb631414a4d92ce099a0d6a895cf8e1d30993fe
-  AWSS3: 63f401ca496ebedd05988f40c9f4108a72828121
+  AWSCore: ed83f7e36fb6c0211b04a439d8e564aa23bfe37d
+  AWSMobileAnalytics: 26195f979faed40ac0eff38f91a70cfe80c5bd47
+  AWSS3: 6ead43a48f625609390881227cea17e066eab465
   ResearchKit: 35c32ed3dc7ad48a26bb077515723d72fa1e8676
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: b9f0b5ff2e678f37b38251520f2aec8ba38c9b9e
+PODFILE CHECKSUM: 0ef52f3da17df17859aa02667e4844125f74864f
 
 COCOAPODS: 1.4.0

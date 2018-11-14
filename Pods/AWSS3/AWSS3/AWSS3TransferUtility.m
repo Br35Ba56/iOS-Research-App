@@ -29,7 +29,7 @@ NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification = @"c
 
 
 // Private constants
-static NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
+static NSString *const AWSS3TransferUtilityDefaultIdentifier = @"com.amazonaws.AWSS3TransferUtility.Default.Identifier";
 static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
 static NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
@@ -314,7 +314,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
-                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityIdentifier, key]
+                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
                                                                                 completionHandler: completionHandler];
     [_serviceClients setObject:s3TransferUtility
                         forKey:key];
@@ -382,8 +382,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             _sessionIdentifier = identifier;
         }
         else {
-             NSString *uuid = [[NSUUID UUID] UUIDString];
-            _sessionIdentifier = [AWSS3TransferUtilityIdentifier stringByAppendingString:uuid];
+            _sessionIdentifier = AWSS3TransferUtilityDefaultIdentifier;
         }
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
@@ -1816,6 +1815,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
            completionHandler:(void (^)(void))completionHandler {
+    AWSDDLogDebug(@"interceptApplication called for URLSession [%@]", identifier);
+    
     // For the default service client
     if ([identifier isEqualToString:_defaultS3TransferUtility.sessionIdentifier]) {
         _defaultS3TransferUtility.backgroundURLSessionCompletionHandler = completionHandler;
@@ -1825,6 +1826,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
     for (NSString *key in [_serviceClients allKeys]) {
         AWSS3TransferUtility *transferUtility = [_serviceClients objectForKey:key];
         if ([identifier isEqualToString:transferUtility.sessionIdentifier]) {
+            AWSDDLogDebug(@"Setting completion handler for urlSession [%@]", identifier);
+            
             transferUtility.backgroundURLSessionCompletionHandler = completionHandler;
         }
     }
@@ -1833,12 +1836,16 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 #pragma mark - NSURLSessionDelegate
 
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session {
-    if (self.backgroundURLSessionCompletionHandler) {
-        self.backgroundURLSessionCompletionHandler();
-    }
+    AWSDDLogDebug(@"URLSessionDidFinishEventsForBackgroundURLSession called for NSURLSession %@", _sessionIdentifier);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.backgroundURLSessionCompletionHandler) {
+            self.backgroundURLSessionCompletionHandler();
+        }
+    });
 }
 
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
+     AWSDDLogDebug(@"didBecomeInvalidWithError called for NSURLSession %@", _sessionIdentifier);
     [[NSNotificationCenter defaultCenter] postNotificationName:AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification object:self];
     
     [_serviceClients removeObject:self];
@@ -1849,7 +1856,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
-    
+    AWSDDLogDebug(@"didCompleteWithError called for task %lu", (unsigned long)task.taskIdentifier);
     NSHTTPURLResponse *HTTPResponse = nil;
     NSMutableDictionary *userInfo = nil;
     
@@ -1927,6 +1934,11 @@ didCompleteWithError:(NSError *)error {
             //Mark status as completed if there is no error.
             if (! uploadTask.error ) {
                 uploadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
+                //Set progress to 100% and call the progress block
+                uploadTask.progress.completedUnitCount = uploadTask.progress.totalUnitCount;
+                if (uploadTask.expression.progressBlock) {
+                    uploadTask.expression.progressBlock(uploadTask, uploadTask.progress);
+                }
             }
             //Else mark as error.
             else {
@@ -2012,6 +2024,8 @@ didCompleteWithError:(NSError *)error {
             //Add it to completed parts and remove it from remaining parts.
             [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(subTask.taskIdentifier)];
             [transferUtilityMultiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(subTask.taskIdentifier)];
+            //Update progress
+            transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.completedUnitCount - subTask.totalBytesSent + AWSS3TransferUtilityMultiPartSize;
             
             //Delete the temporary upload file for this subTask
             [self removeFile:subTask.file];
@@ -2057,6 +2071,13 @@ didCompleteWithError:(NSError *)error {
                         AWSDDLogError(@"Error finishing up MultiPartForUpload Task[%@]", task.error);
                         transferUtilityMultiPartUploadTask.error = error;
                         transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusError;
+                    }
+                    else {
+                        //Set progress to 100% and call progressBlock.
+                        transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.totalUnitCount;
+                        if (transferUtilityMultiPartUploadTask.expression.progressBlock ) {
+                            transferUtilityMultiPartUploadTask.expression.progressBlock(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.progress);
+                        }
                     }
                     AWSDDLogInfo(@"Completed Multipart Transfer: %@", transferUtilityMultiPartUploadTask.uploadID);
                     transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
@@ -2115,6 +2136,12 @@ didCompleteWithError:(NSError *)error {
             downloadTask.error = updatedError;
         }
         
+        if (!downloadTask.error) {
+            downloadTask.progress.completedUnitCount = downloadTask.progress.totalUnitCount;
+            if (downloadTask.expression.progressBlock) {
+                downloadTask.expression.progressBlock(downloadTask, downloadTask.progress);
+            }
+        }
         if (downloadTask.expression.completionHandler) {
             downloadTask.expression.completionHandler(downloadTask,
                                                       downloadTask.location,
@@ -2127,92 +2154,12 @@ didCompleteWithError:(NSError *)error {
     }
 }
 
-- (void)handleS3Errors:(NSString *)responseString
-            userInfo:(NSMutableDictionary *)userInfo {
-  if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
-    AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
-    xmlParser.trimWhiteSpace = YES;
-    xmlParser.stripEmptyNodes = NO;
-    xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
-    xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
-    
-    NSDictionary *responseDict = [xmlParser dictionaryWithString: responseString];
-    userInfo[@"Error"] = responseDict[@"Error"];
-    AWSDDLogError(@"Error response received from S3: %@", responseDict);
-  }
-}
-
-- (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {
-    
-    //Add it to list of completed Tasks
-    [self.completedTaskDictionary setObject:task forKey:task.transferID];
-
-    //Remove all entries from taskDictionary.
-    for ( AWSS3TransferUtilityUploadSubTask *subTask in [task.inProgressPartsDictionary allValues] ) {
-        [self.taskDictionary removeObjectForKey:@(subTask.taskIdentifier)];
-        [self removeFile:subTask.file];
-    }
-
-    //Remove temporary file if required.
-    if (task.temporaryFileCreated) {
-        [self removeFile:task.file];
-    }
-
-    //Remove data from the Database.
-    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:task.transferID databaseQueue:_databaseQueue];
-
-}
-
-- (void) cleanupForUploadTask: (AWSS3TransferUtilityUploadTask *) uploadTask {
-    //Add it to list of completed Tasks
-    [self.completedTaskDictionary setObject:uploadTask forKey:uploadTask.transferID];
-
-    //Remove entry from taskDictionary
-    [self.taskDictionary removeObjectForKey:@(uploadTask.taskIdentifier)];
-
-    //Remove temporary file if required.
-    if (uploadTask.temporaryFileCreated) {
-        [self removeFile:uploadTask.file];
-    }
-
-    //Remove data from the Database.
-    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:uploadTask.transferID databaseQueue:_databaseQueue];
-}
-
-- (BOOL) isErrorRetriable:(NSInteger) HTTPStatusCode
-       responseFromServer:(NSString *) responseFromServer {
-    
-    // See https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html for S3 error responses
-    
-    //500 and 503 are retriable.
-    if (HTTPStatusCode == 500 || HTTPStatusCode == 503) {
-        return YES;
-    }
-    //If not 5XX or 400, error is not retriable.
-    if (HTTPStatusCode != 400) {
-        return NO;
-    }
-    
-    //If we didn't get any more info from the server, error is retriable
-    if (!responseFromServer ||[responseFromServer isEqualToString:@""]) {
-        return YES;
-    }
-    
-    if ([responseFromServer containsString:@"RequestTimeout"] ||
-        [responseFromServer containsString:@"ExpiredToken"] ||
-        [responseFromServer containsString:@"TokenRefreshRequired"]) {
-        return YES;
-    }
-    return NO;
-}
-
-
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
    didSendBodyData:(int64_t)bytesSent
     totalBytesSent:(int64_t)totalBytesSent
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
-    
+    AWSDDLogDebug(@"didSendBodyData called for task %lu", (unsigned long)task.taskIdentifier);
     //Check if the task is an uploadTask.
     if (![task isKindOfClass:[NSURLSessionUploadTask class]]) {
         return;
@@ -2254,11 +2201,106 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     }
 }
 
+#pragma mark - Helper methods
+
+- (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {
+    
+    //Add it to list of completed Tasks
+    [self.completedTaskDictionary setObject:task forKey:task.transferID];
+    
+    //Remove all entries from taskDictionary.
+    for ( AWSS3TransferUtilityUploadSubTask *subTask in [task.inProgressPartsDictionary allValues] ) {
+        [self.taskDictionary removeObjectForKey:@(subTask.taskIdentifier)];
+        [self removeFile:subTask.file];
+    }
+    
+    //Remove temporary file if required.
+    if (task.temporaryFileCreated) {
+        [self removeFile:task.file];
+    }
+    
+    //Remove data from the Database.
+    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:task.transferID databaseQueue:_databaseQueue];
+    
+}
+
+- (void) cleanupForUploadTask: (AWSS3TransferUtilityUploadTask *) uploadTask {
+    //Add it to list of completed Tasks
+    [self.completedTaskDictionary setObject:uploadTask forKey:uploadTask.transferID];
+    
+    //Remove entry from taskDictionary
+    [self.taskDictionary removeObjectForKey:@(uploadTask.taskIdentifier)];
+    
+    //Remove temporary file if required.
+    if (uploadTask.temporaryFileCreated) {
+        [self removeFile:uploadTask.file];
+    }
+    
+    //Remove data from the Database.
+    [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:uploadTask.transferID databaseQueue:_databaseQueue];
+}
+
+- (BOOL) isErrorRetriable:(NSInteger) HTTPStatusCode
+       responseFromServer:(NSString *) responseFromServer {
+    
+    // See https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html for S3 error responses
+    
+    //500 and 503 are retriable.
+    if (HTTPStatusCode == 500 || HTTPStatusCode == 503) {
+        return YES;
+    }
+    //If not 5XX or 400, error is not retriable.
+    if (HTTPStatusCode != 400) {
+        return NO;
+    }
+    
+    //If we didn't get any more info from the server, error is retriable
+    if (!responseFromServer ||[responseFromServer isEqualToString:@""]) {
+        return YES;
+    }
+    
+    if ([responseFromServer containsString:@"RequestTimeout"] ||
+        [responseFromServer containsString:@"ExpiredToken"] ||
+        [responseFromServer containsString:@"TokenRefreshRequired"]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)handleS3Errors:(NSString *)responseString
+              userInfo:(NSMutableDictionary *)userInfo {
+    if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
+        AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
+        xmlParser.trimWhiteSpace = YES;
+        xmlParser.stripEmptyNodes = NO;
+        xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
+        xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+        
+        NSDictionary *responseDict = [xmlParser dictionaryWithString: responseString];
+        userInfo[@"Error"] = responseDict[@"Error"];
+        AWSDDLogError(@"Error response received from S3: %@", responseDict);
+    }
+}
+
+- (void) removeFile: (NSString *) absolutePath
+{
+    if (!absolutePath || ![[NSFileManager defaultManager ] fileExistsAtPath:absolutePath]) {
+        return;
+    }
+    
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:absolutePath error:&error];
+    if (error) {
+        AWSDDLogError(@"Error deleting file[%@]: [%@]", absolutePath, error);
+    }
+}
+
 #pragma mark - NSURLSessionDownloadDelegate
 
 - (void)URLSession:(NSURLSession *)session
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location {
+    AWSDDLogDebug(@"didFinishDownloadingToURL called for Download task %lu", (unsigned long)downloadTask.taskIdentifier);
     AWSS3TransferUtilityDownloadTask *transferUtilityTask = [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
     if (!transferUtilityTask) {
         AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)downloadTask.taskIdentifier);
@@ -2288,7 +2330,7 @@ didFinishDownloadingToURL:(NSURL *)location {
       didWriteData:(int64_t)bytesWritten
  totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
-    
+    AWSDDLogDebug(@"didWriteData called for download task %lu", (unsigned long)downloadTask.taskIdentifier);
     AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask =
         [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
    
@@ -2310,49 +2352,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 }
 
 #pragma mark - NSURLSessionDataDelegate
-- (void)URLSession:(NSURLSession *)session
-        dataTask:(NSURLSessionDataTask *)dataTask
-        didReceiveData:(NSData *)data {
-    
-    if (data && [data length] != 0) {
-        //Get the response into a string
-        NSString *response =  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        AWSDDLogDebug(@"TaskIdentifier[%lu] Got response from Server: %@", (unsigned long)dataTask.taskIdentifier, response);
-        if (!response) {
-            //If response is null, no more work to do. Return
-            return;
-        }
-        //Put it into the responseData property of the transferUtilityUploadTask or the transferUtilityUploadSubTask
-        AWSS3TransferUtilityTask *transferUtilityTask = [self.taskDictionary objectForKey:@(dataTask.taskIdentifier)];
-        if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
-            AWSS3TransferUtilityUploadTask *uploadTask = [self.taskDictionary objectForKey:@(dataTask.taskIdentifier)];
-            uploadTask.responseData = [uploadTask.responseData stringByAppendingString:response];
-        }
-        else if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
-            //Get the multipart upload task
-            AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(dataTask.taskIdentifier)];
-            AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:@(dataTask.taskIdentifier)];
-            subTask.responseData = [subTask.responseData stringByAppendingString:response];
-        }
-        else if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityDownloadTask class]]) {
-            AWSS3TransferUtilityDownloadTask *downloadTask = [self.taskDictionary objectForKey:@(dataTask.taskIdentifier)];
-            downloadTask.responseData = [downloadTask.responseData stringByAppendingString:response];
-        }
-    }
-}
 
-- (void) removeFile: (NSString *) absolutePath
-{
-    if (!absolutePath || ![[NSFileManager defaultManager ] fileExistsAtPath:absolutePath]) {
-        return;
-    }
-    
-    NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtPath:absolutePath error:&error];
-    if (error) {
-        AWSDDLogError(@"Error deleting file[%@]: [%@]", absolutePath, error);
-    }
-}
 
 @end
 

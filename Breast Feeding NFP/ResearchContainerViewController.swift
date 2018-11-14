@@ -33,7 +33,7 @@ import ResearchKit
 import AWSCognitoIdentityProvider
 
 class ResearchContainerViewController: UIViewController {
-  
+  var indicatingView: UIActivityIndicatorView?
   //MARK: Properties
   var contentHidden = false {
     didSet {
@@ -41,12 +41,16 @@ class ResearchContainerViewController: UIViewController {
       childViewControllers.first?.view.isHidden = contentHidden
     }
   }
-  
+  override func loadView(){
+    super.loadView()
+    
+  }
   //MARK: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
     //UIView.appearance(whenContainedInInstancesOf: [ORKTaskViewController.self]).tintColor = UIColor(red: 1, green: 0.8, blue: 0.0, alpha: 1.0)
-    
+    indicatingView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    view.addSubview(indicatingView!)
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
       toStudy()
     } else {
@@ -109,11 +113,38 @@ extension ResearchContainerViewController: ORKTaskViewControllerDelegate {
       /*
        User withdrew from the study,
        */
+      let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+      alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
       if reason == .completed {
+        
+        indicatingView!.startAnimating()
         ORKPasscodeViewController.removePasscodeFromKeychain()
-        toOnboarding()
+        let client = NFPBFNFPBreastFeedingAPIClient.default()
+        let disableUser = NFPBFCognitouser()
+        disableUser?.username = "tonyschndr@gmail.com"
+        disableUser?.userpool = AWSConstants.poolID
+        client.cognitoDisableuserPost(body: disableUser!).continueWith {(task: AWSTask) -> AnyObject? in
+          self.showResult(task: task)
+          //Call toOnboarding in main thread
+          DispatchQueue.main.async {
+            self.toOnboarding()
+          }
+          
+          return nil
+        }
+        //toOnboarding()
       }
-    dismiss(animated: true, completion: nil)
+      dismiss(animated: true, completion: nil)
+    }
+  }
+  func showResult(task: AWSTask<AnyObject>) {
+    print(task.description)
+    if let error = task.error {
+      print("Error: \(error)")
+    } else if let result = task.result {
+      let res = result as! NSDictionary
+      print("NSDictionary: \(res)")
     }
   }
 }
