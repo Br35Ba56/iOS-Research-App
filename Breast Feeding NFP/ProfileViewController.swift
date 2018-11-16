@@ -31,9 +31,11 @@
 import UIKit
 import AWSCognitoIdentityProvider
 import SwiftKeychainWrapper
+import ResearchKit
 
 class ProfileViewController: UIViewController {
-
+  var indicatingView: UIActivityIndicatorView!
+  
   @IBAction func signOutAction(_ sender: Any) {
     let pool = AWSCognitoIdentityUserPool.init(forKey: "UserPool")
     let user = pool.getUser()
@@ -43,10 +45,68 @@ class ProfileViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    indicatingView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
+    self.view.addSubview(indicatingView)
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+  }
+  
+  @IBAction func withdrawAction(_ sender: Any) {
+    toWithdrawl()
+  }
+  
+  func toWithdrawl() {
+    let viewController = WithdrawViewController()
+    viewController.delegate = self
+    present(viewController, animated: true, completion: nil)
+  }
+}
+extension ProfileViewController: ORKTaskViewControllerDelegate {
+  public func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
+    taskViewController.currentStepViewController?.taskViewController?.navigationBar.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+    
+    taskViewController.currentStepViewController?.taskViewController?.view.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
+  }
+  public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+    if taskViewController is WithdrawViewController {
+     
+      if reason == .completed {
+        
+        ORKPasscodeViewController.removePasscodeFromKeychain()
+        let client = NFPBFNFPBreastFeedingAPIClient.default()
+        let disableUser = NFPBFCognitouser()
+        disableUser?.username = "tonyschndr@gmail.com"
+        disableUser?.userpool = AWSConstants.poolID
+        indicatingView?.startAnimating()
+        client.cognitoDisableuserPost(body: disableUser!).continueWith {(task: AWSTask) -> AnyObject? in
+          self.showResult(task: task)
+          
+          //Call toOnboarding in main thread
+          DispatchQueue.main.async {
+            self.indicatingView?.stopAnimating()
+            let containerViewController = UIApplication.shared.keyWindow!.rootViewController as! ResearchContainerViewController
+            containerViewController.toOnboarding()
+           
+          }
+          
+          return nil
+        }
+        //toOnboarding()
+      }
+      dismiss(animated: true, completion: nil)
+    }
+  }
+  func showResult(task: AWSTask<AnyObject>) {
+    print(task.description)
+    if let error = task.error {
+      print("Error: \(error)")
+    } else if let result = task.result {
+      let res = result as! NSDictionary
+      print("NSDictionary: \(res)")
+    }
   }
 }
 

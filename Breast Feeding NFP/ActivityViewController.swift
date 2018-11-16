@@ -110,10 +110,6 @@ extension ActivityViewController : ORKTaskViewControllerDelegate {
         let indexPath = IndexPath(row: 1, section: 0)
         tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.red
       }
-      /*
-      if taskViewController.task?.identifier == "Withdraw" {
-        self.performSegue(withIdentifier: "unwindToOnboarding", sender: nil)
-      }*/
       if let results = taskViewController.result.results as? [ORKStepResult] {
         let taskResults = TaskViewControllerResults.getViewControllerResults(taskViewControllerResults: results, taskID: (taskViewController.task?.identifier)!)
         ProcessResults.saveResults(taskResults: taskResults, uuid: taskViewController.taskRunUUID)
