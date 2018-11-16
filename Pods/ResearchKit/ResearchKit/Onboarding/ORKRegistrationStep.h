@@ -65,12 +65,12 @@ typedef NS_OPTIONS(NSUInteger, ORKRegistrationStepOption) {
  These allow for convenient retrieval of user's inputted data from the result.
  */
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierEmail ORK_AVAILABLE_DECL;
-ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierPhoneNumber ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierPassword ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierGivenName ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierFamilyName ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierGender ORK_AVAILABLE_DECL;
 ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierDOB ORK_AVAILABLE_DECL;
+ORK_EXTERN NSString *const ORKRegistrationFormItemIdentifierPhoneNumber ORK_AVAILABLE_DECL;
 
 
 /**
@@ -143,6 +143,24 @@ passcodeValidationRegularExpression:(nullable NSRegularExpression *)passcodeVali
  By default, there is no invalid message.
  */
 @property (nonatomic, copy, nullable) NSString *passcodeInvalidMessage;
+
+/**
+ The regular expression used to validate the phone number form item.
+ This is a transparent property pointing to its definition in `ORKTextAnswerFormat`.
+ 
+ The phone number invalid message property must also be set along with this property.
+ By default, there is no validation on the phone number.
+ */
+@property (nonatomic, copy, nullable) NSRegularExpression *phoneNumberValidationRegularExpression;
+
+/**
+ The invalid message displayed if the phone number does not match the validation regular expression.
+ This is a transparent property pointing to its definition in `ORKTextAnswerFormat`.
+ 
+ The phone number validation regular expression property must also be set along with this property.
+ By default, there is no invalid message.
+ */
+@property (nonatomic, copy, nullable) NSString *phoneNumberInvalidMessage;
 
 @end
 

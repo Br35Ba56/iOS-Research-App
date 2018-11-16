@@ -184,21 +184,21 @@
 		BC21F3AC1F4F3072006629AC /* Breast Feeding NFP */ = {
 			isa = PBXGroup;
 			children = (
-				D9326E7D219BD3BC0045FB64 /* APIGatewaySDK */,
-				D99D57A920E46BA800D0F3F5 /* SurveyTiming */,
-				D9E9EA81205607F1004D7012 /* Container */,
-				BCC77A70202FE91B00D6798B /* Login */,
-				BC77595A1F4F57AB00AF2FC6 /* Dashboard */,
-				D9E9EA8220560809004D7012 /* Profile */,
-				BC21F3DE1F4F314E006629AC /* Activities */,
+				D9326E82219E4DEB0045FB64 /* DashBoard */,
+				D9326E81219E4D920045FB64 /* Login */,
+				D9326E80219E4D7A0045FB64 /* Container */,
+				D9326E7F219E4D620045FB64 /* SurveyTiming */,
+				D9326E7E219E4D350045FB64 /* APIGatewaySDK */,
+				D9326E86219E4E670045FB64 /* Profile */,
+				D9326E87219E4EA80045FB64 /* Activities */,
 				BC21F3AD1F4F3072006629AC /* AppDelegate.swift */,
 				BC21F3B61F4F3072006629AC /* Assets.xcassets */,
 				BC21F3BB1F4F3072006629AC /* Info.plist */,
 				BC21F3B81F4F3072006629AC /* LaunchScreen.storyboard */,
 				BC21F3B31F4F3072006629AC /* Main.storyboard */,
-				BC21F3DD1F4F3138006629AC /* Onboarding */,
-				BCBBFC1C1F6527CC009AA9B9 /* Results */,
-				BC7759551F4F539F00AF2FC6 /* Withdrawl */,
+				D9326E89219E4F280045FB64 /* Results */,
+				D9326E88219E4F0A0045FB64 /* Onboarding */,
+				D9326E8A219E4FB10045FB64 /* Withdrawl */,
 				D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */,
 			);
 			path = "Breast Feeding NFP";
@@ -224,7 +224,74 @@
 			path = "Breast Feeding NFPUITests";
 			sourceTree = "<group>";
 		};
-		BC21F3DD1F4F3138006629AC /* Onboarding */ = {
+		D9326E7E219E4D350045FB64 /* APIGatewaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				D9326E78219BADBB0045FB64 /* AWSApiGatewayBridge.h */,
+				D9326E76219BADBB0045FB64 /* Bridging_Header.h */,
+				D9326E77219BADBB0045FB64 /* NFPBFCognitouser.swift */,
+				D9326E79219BADBB0045FB64 /* NFPBFError.swift */,
+				D9326E75219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift */,
+			);
+			path = APIGatewaySDK;
+			sourceTree = "<group>";
+		};
+		D9326E7F219E4D620045FB64 /* SurveyTiming */ = {
+			isa = PBXGroup;
+			children = (
+				D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */,
+			);
+			path = SurveyTiming;
+			sourceTree = "<group>";
+		};
+		D9326E80219E4D7A0045FB64 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
+				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		D9326E81219E4D920045FB64 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
+				BCC77A71202FE97600D6798B /* LoginTask.swift */,
+				BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */,
+				BC9BA20F2040AA9200D651C6 /* LoginViewController.swift */,
+				BC9BA2102040AA9200D651C6 /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D9326E82219E4DEB0045FB64 /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		D9326E86219E4E670045FB64 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				BC21F3B11F4F3072006629AC /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D9326E87219E4EA80045FB64 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */,
+				BC7759621F4F619000AF2FC6 /* StudyTasks.swift */,
+				BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		D9326E88219E4F0A0045FB64 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				BC145E82202D4A0E004A516B /* VerificationStep.swift */,
@@ -235,92 +302,25 @@
 				BCAA5392202BE9DF00EA68EE /* OnboardingTask.swift */,
 				BC7759581F4F561700AF2FC6 /* OnboardingViewController.swift */,
 			);
-			name = Onboarding;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		BC21F3DE1F4F314E006629AC /* Activities */ = {
-			isa = PBXGroup;
-			children = (
-				BC7759601F4F5A3C00AF2FC6 /* ActivityViewController.swift */,
-				BC7759621F4F619000AF2FC6 /* StudyTasks.swift */,
-				BCBBFC1F1F652825009AA9B9 /* ActivityEnum.swift */,
-			);
-			name = Activities;
-			sourceTree = "<group>";
-		};
-		BC7759551F4F539F00AF2FC6 /* Withdrawl */ = {
-			isa = PBXGroup;
-			children = (
-				BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */,
-			);
-			name = Withdrawl;
-			sourceTree = "<group>";
-		};
-		BC77595A1F4F57AB00AF2FC6 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				BC21F3AF1F4F3072006629AC /* FirstViewController.swift */,
-			);
-			name = Dashboard;
-			sourceTree = "<group>";
-		};
-		BCBBFC1C1F6527CC009AA9B9 /* Results */ = {
+		D9326E89219E4F280045FB64 /* Results */ = {
 			isa = PBXGroup;
 			children = (
 				BCBBFC1D1F6527F0009AA9B9 /* TaskResults.swift */,
 				BC81A8B31F6AF14900A69850 /* ProcessResults.swift */,
 				BC97E3971F705E9E00D7BD4B /* TaskViewControllerResults.swift */,
 			);
-			name = Results;
+			path = Results;
 			sourceTree = "<group>";
 		};
-		BCC77A70202FE91B00D6798B /* Login */ = {
+		D9326E8A219E4FB10045FB64 /* Withdrawl */ = {
 			isa = PBXGroup;
 			children = (
-				BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */,
-				BCC77A71202FE97600D6798B /* LoginTask.swift */,
-				BC48D8E22030CF1B00EEEE35 /* DoNotCommit.swift */,
-				BC9BA20F2040AA9200D651C6 /* LoginViewController.swift */,
-				BC9BA2102040AA9200D651C6 /* LoginViewController.xib */,
+				BC7759561F4F53BB00AF2FC6 /* WithdrawViewController.swift */,
 			);
-			name = Login;
-			sourceTree = "<group>";
-		};
-		D9326E7D219BD3BC0045FB64 /* APIGatewaySDK */ = {
-			isa = PBXGroup;
-			children = (
-				D9326E78219BADBB0045FB64 /* AWSApiGatewayBridge.h */,
-				D9326E76219BADBB0045FB64 /* Bridging_Header.h */,
-				D9326E77219BADBB0045FB64 /* NFPBFCognitouser.swift */,
-				D9326E79219BADBB0045FB64 /* NFPBFError.swift */,
-				D9326E75219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift */,
-			);
-			name = APIGatewaySDK;
-			sourceTree = "<group>";
-		};
-		D99D57A920E46BA800D0F3F5 /* SurveyTiming */ = {
-			isa = PBXGroup;
-			children = (
-				D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */,
-			);
-			name = SurveyTiming;
-			sourceTree = "<group>";
-		};
-		D9E9EA81205607F1004D7012 /* Container */ = {
-			isa = PBXGroup;
-			children = (
-				BC7759511F4F508400AF2FC6 /* ResearchContainerSegue.swift */,
-				BC7759531F4F50E900AF2FC6 /* ResearchContainerViewController.swift */,
-			);
-			name = Container;
-			sourceTree = "<group>";
-		};
-		D9E9EA8220560809004D7012 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				BC21F3B11F4F3072006629AC /* ProfileViewController.swift */,
-			);
-			name = Profile;
+			path = Withdrawl;
 			sourceTree = "<group>";
 		};
 		F494FE643A2D84102897AA90 /* Pods */ = {
@@ -785,12 +785,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Breast Feeding NFP/Bridging_Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Breast Feeding NFP/APIGatewaySDK/Bridging_Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = "";
 			};
@@ -839,10 +839,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Breast Feeding NFP/Bridging_Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "Breast Feeding NFP/APIGatewaySDK/Bridging_Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = "";
 				VALIDATE_PRODUCT = YES;
