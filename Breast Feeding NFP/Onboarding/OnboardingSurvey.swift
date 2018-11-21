@@ -51,7 +51,9 @@ struct Onboarding {
     completionStep.text = "Thank you for joining this study."
 
     let orderedTask = OnboardingTask(identifier: Onboarding.taskID, steps: [
-      
+      //TODO: DELETE - Moved for debugging
+      registrationStep,
+      verificationStep,
       //Eligibility
       biologicalSexStep,
       biologicalInfantStep,
@@ -83,8 +85,9 @@ struct Onboarding {
       howManyChildrenBreastFedStep,
       howLongInPastBreastFedStep,
       registrationInstructionStep,
-      registrationStep,
-      verificationStep,
+      //TODO: Uncomment after debugging
+      //registrationStep,
+      //verificationStep,
       loginStep,
       passcodeStep,
       completionStep,
@@ -167,7 +170,8 @@ struct Onboarding {
   
   private static let ineligibleStep: ORKStep = {
     let ineligibleStep = ORKInstructionStep(identifier: EligibilitySteps.ineligibleStepID)
-    ineligibleStep.title = "Were sorry, we have determined your are ineligible for this study"
+    ineligibleStep.title = "Sorry"
+    ineligibleStep.text = "We have determined your are ineligible for this study"
     return ineligibleStep
   }()
   
@@ -195,44 +199,47 @@ struct Onboarding {
   
   private static let singletonBirthStep: ORKStep = {
     let title = "Breastfeeding status"
-    let singletonBirthQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.singletonBirthStepID, title: title, question: "Are you breastfeeding a single infant?", answer: boolAnswerFormat)
+    let question = "Are you breastfeeding a single infant?"
+    let singletonBirthQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.singletonBirthStepID, title: title, question: question , answer: boolAnswerFormat)
     singletonBirthQuestionStep.isOptional = false
     return singletonBirthQuestionStep
   }()
   
   private static let babyBornFullTermStep: ORKStep = {
-    let babyBornFullTermQuestionStepTitle = "Baby's Birth"
-     let babyBornFullTermQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.babyBornFullTermStep, title: babyBornFullTermQuestionStepTitle, question: "Was your baby born full-term(>/=37 weeks gestation)?", answer: boolAnswerFormat)
+    let title = "Baby's Birth"
+    let question = "Was your baby born full-term(>/=37 weeks gestation)?"
+    let babyBornFullTermQuestionStep = ORKQuestionStep(identifier: EligibilitySteps.babyBornFullTermStep, title: title, question: question, answer: boolAnswerFormat)
     babyBornFullTermQuestionStep.isOptional = false
     return babyBornFullTermQuestionStep
   }()
   
   private static let participantAgeInRangeStep: ORKStep = {
+    let title = "Age"
     let question = "Are you between the ages of 18-42"
-    let participantAgeStep = ORKQuestionStep(identifier: EligibilitySteps.participantAgeInRangeStepID, title: "Age", question: question, answer: boolAnswerFormat)
+    let participantAgeStep = ORKQuestionStep(identifier: EligibilitySteps.participantAgeInRangeStepID, title: title, question: question, answer: boolAnswerFormat)
     participantAgeStep.isOptional = false
     return participantAgeStep
   }()
   
   private static let momHealthStep: ORKStep = {
-    let title = "Have you ever been diagnosed with any of the following?"
-    let text = "Poly Cystic Ovarian Syndrome, Gestational Diabetes or Type 2 Diabetes Mellitus"
+    let title = "Mom's Health"
+    let text = "Have you ever been diagnosed with Poly Cystic Ovarian Syndrome, Gestational Diabetes or Type 2 Diabetes Mellitus"
     let momHealthStep = ORKQuestionStep(identifier: EligibilitySteps.momHealthStepID, title: title, question: text, answer: boolAnswerFormat)
-    momHealthStep.text = text
     momHealthStep.isOptional = false
     return momHealthStep
   }()
   
   private static let breastSurgeryStep: ORKStep = {
+    let title = "Breast Surgery"
     let question = "Have you ever had surgery to change the size of your breasts?"
-    let breastSurgeryStep = ORKQuestionStep(identifier: EligibilitySteps.breastSurgeryStepID, title: "Breast Survery", question: question, answer: boolAnswerFormat)
+    let breastSurgeryStep = ORKQuestionStep(identifier: EligibilitySteps.breastSurgeryStepID, title: title, question: question, answer: boolAnswerFormat)
     breastSurgeryStep.isOptional = false
     return breastSurgeryStep
   }()
   
   private static let infantAgeInRangeStep: ORKStep = {
-    let title = "Is your infant between 6 - 8 weeks of age?"
-    let text = "Please email ___@email.com if your infant falls outside of this range so we can approve this by a case to case basis."
+    let title = "Infant Age"
+    let text = "Is your infant between 6 - 8 weeks of age?\nPlease email ___@email.com if your infant falls outside of this range so we can approve this by a case to case basis."
     
     let infantAgeInRangeStep = ORKQuestionStep(identifier: EligibilitySteps.infantAgeInRangeStepID, title: title, question: text, answer: boolAnswerFormat)
     infantAgeInRangeStep.isOptional = false
@@ -240,10 +247,8 @@ struct Onboarding {
   }()
   
   private static let clearBlueMonitorStep: ORKStep = {
-    let question = "Do you own a Clearblue Easy Fertility Monitor?"
-    let text = "original or touchscreen"
+    let question = "Do you own a Clearblue Easy Fertility Monitor?\n(original or touchscreen)"
     let clearBlueMonitorStep = ORKQuestionStep(identifier: EligibilitySteps.clearBlueMonitorStepID, title: "Clearblue Monitor", question: question, answer: boolAnswerFormat)
-    clearBlueMonitorStep.text = text
     clearBlueMonitorStep.isOptional = false
     return clearBlueMonitorStep
   }()
@@ -272,34 +277,36 @@ struct Onboarding {
   }()
   
   private static let babysBirthDateStep: ORKStep = {
-    let title = "How old is your baby?"
+    let title = "Baby's Age"
+    let question = "How old is your baby?"
     let dateAnswerStyle = ORKDateAnswerStyle.date
     let userCalender = Calendar.current
     let minimumDate = userCalender.date(byAdding: .day, value: -63, to: Date())
     let maximumDate = userCalender.date(byAdding: .day, value: -35, to: Date())
     let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: maximumDate!, minimumDate: minimumDate!, maximumDate: maximumDate!, calendar: userCalender)
-    let childBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.babysBirthDateStepID, title: title, answer: answerFormat)
+    let childBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.babysBirthDateStepID, title: title, question: question, answer: answerFormat)
     childBirthDateStep.isOptional = false
     
     return childBirthDateStep
   }()
   
   private static let babyFeedOnDemandStep: ORKStep = {
-    let title = "Does you baby feed on demand or on a schedule?"
+    let title = "Baby's Feeding Shedule"
+    let question = "Does you baby feed on demand or on a schedule?"
     let textChoices = [ORKTextChoice(text: "On Demand", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "On Schedule", value: 1 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let babyFeedOnDemandStep = ORKQuestionStep(identifier: DemographicSteps.babyFeedOnDemandStepID, title: title, answer: answerFormat)
+    let babyFeedOnDemandStep = ORKQuestionStep(identifier: DemographicSteps.babyFeedOnDemandStepID, title: title, question: question, answer: answerFormat)
     babyFeedOnDemandStep.isOptional = false
     return babyFeedOnDemandStep
   }()
   
   private static let breastPumpInfoStep: ORKStep = {
-    let title = "Do you have a breast pump?"
-    let text = "If yes, what brand is it?"
+    let title = "Breast Pump"
+    let question = "Do you use a Breast Pump?\nIf so, what brand is it?"
     let answerFormat = ORKTextAnswerFormat(maximumLength: 30)
-    let breastPumpInfoStep = ORKQuestionStep(identifier: DemographicSteps.breastPumpInfoStepID, title: title, answer: answerFormat)
+    let breastPumpInfoStep = ORKQuestionStep(identifier: DemographicSteps.breastPumpInfoStepID, title: title, question: question, answer: answerFormat)
     breastPumpInfoStep.isOptional = true
     return breastPumpInfoStep
   }()
@@ -437,11 +444,7 @@ struct Onboarding {
   }()
 }
 
-class CustomStepUI: ORKStep {
-  
-}
 //MARK: Step IDs
-
 struct EligibilitySteps {
   static let biologicalSexStepID = "biologicalSexStepID"
   static let biologicalInfantStepID = "biologicalInfantStepID"

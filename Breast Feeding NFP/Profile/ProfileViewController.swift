@@ -76,8 +76,9 @@ extension ProfileViewController: ORKTaskViewControllerDelegate {
       if reason == .completed {
         
         ORKPasscodeViewController.removePasscodeFromKeychain()
-        let client = NFPBFNFPBreastFeedingAPIClient.default()
-        let disableUser = NFPBFCognitouser()
+        let client = MUNFPBreastFeedingAPIClient.default()
+        let disableUser = MUCognitouser()
+        //TODO: Need to get user name.
         disableUser?.username = "tonyschndr@gmail.com"
         disableUser?.userpool = AWSConstants.poolID
         indicatingView?.startAnimating()

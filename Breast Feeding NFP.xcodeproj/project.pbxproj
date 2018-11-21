@@ -38,9 +38,9 @@
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
-		D9326E7A219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9326E75219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift */; };
-		D9326E7B219BADBB0045FB64 /* NFPBFCognitouser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9326E77219BADBB0045FB64 /* NFPBFCognitouser.swift */; };
-		D9326E7C219BADBB0045FB64 /* NFPBFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9326E79219BADBB0045FB64 /* NFPBFError.swift */; };
+		D963929921A6231F0046A85B /* MUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929521A6231F0046A85B /* MUError.swift */; };
+		D963929A21A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */; };
+		D963929B21A6231F0046A85B /* MUCognitouser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929821A6231F0046A85B /* MUCognitouser.swift */; };
 		D9836A6421534374008D26A5 /* SurveyTimingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9836A6321534374008D26A5 /* SurveyTimingTests.swift */; };
 		D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */; };
 		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
@@ -110,11 +110,11 @@
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
-		D9326E75219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFPBFNFPBreastFeedingAPIClient.swift; sourceTree = "<group>"; };
-		D9326E76219BADBB0045FB64 /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
-		D9326E77219BADBB0045FB64 /* NFPBFCognitouser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFPBFCognitouser.swift; sourceTree = "<group>"; };
-		D9326E78219BADBB0045FB64 /* AWSApiGatewayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSApiGatewayBridge.h; sourceTree = "<group>"; };
-		D9326E79219BADBB0045FB64 /* NFPBFError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NFPBFError.swift; sourceTree = "<group>"; };
+		D963929421A6231F0046A85B /* AWSApiGatewayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSApiGatewayBridge.h; sourceTree = "<group>"; };
+		D963929521A6231F0046A85B /* MUError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUError.swift; sourceTree = "<group>"; };
+		D963929621A6231F0046A85B /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
+		D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUNFPBreastFeedingAPIClient.swift; sourceTree = "<group>"; };
+		D963929821A6231F0046A85B /* MUCognitouser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUCognitouser.swift; sourceTree = "<group>"; };
 		D9836A6321534374008D26A5 /* SurveyTimingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimingTests.swift; sourceTree = "<group>"; };
 		D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTiming.swift; sourceTree = "<group>"; };
 		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
@@ -227,11 +227,11 @@
 		D9326E7E219E4D350045FB64 /* APIGatewaySDK */ = {
 			isa = PBXGroup;
 			children = (
-				D9326E78219BADBB0045FB64 /* AWSApiGatewayBridge.h */,
-				D9326E76219BADBB0045FB64 /* Bridging_Header.h */,
-				D9326E77219BADBB0045FB64 /* NFPBFCognitouser.swift */,
-				D9326E79219BADBB0045FB64 /* NFPBFError.swift */,
-				D9326E75219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift */,
+				D963929421A6231F0046A85B /* AWSApiGatewayBridge.h */,
+				D963929621A6231F0046A85B /* Bridging_Header.h */,
+				D963929821A6231F0046A85B /* MUCognitouser.swift */,
+				D963929521A6231F0046A85B /* MUError.swift */,
+				D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */,
 			);
 			path = APIGatewaySDK;
 			sourceTree = "<group>";
@@ -655,9 +655,9 @@
 			files = (
 				BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */,
 				BC7759651F4F650800AF2FC6 /* IntroductionViewController.swift in Sources */,
-				D9326E7A219BADBB0045FB64 /* NFPBFNFPBreastFeedingAPIClient.swift in Sources */,
 				BC81A8B41F6AF14900A69850 /* ProcessResults.swift in Sources */,
 				BC7759521F4F508400AF2FC6 /* ResearchContainerSegue.swift in Sources */,
+				D963929A21A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift in Sources */,
 				BCAA5393202BE9DF00EA68EE /* OnboardingTask.swift in Sources */,
 				BC97E3981F705E9E00D7BD4B /* TaskViewControllerResults.swift in Sources */,
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,
@@ -666,19 +666,19 @@
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
 				D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */,
-				D9326E7C219BADBB0045FB64 /* NFPBFError.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
+				D963929B21A6231F0046A85B /* MUCognitouser.swift in Sources */,
 				BC21F3B01F4F3072006629AC /* FirstViewController.swift in Sources */,
 				BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */,
 				BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
-				D9326E7B219BADBB0045FB64 /* NFPBFCognitouser.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
+				D963929921A6231F0046A85B /* MUError.swift in Sources */,
 				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

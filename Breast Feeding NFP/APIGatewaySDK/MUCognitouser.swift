@@ -14,5 +14,21 @@
  */
 
 
+import Foundation
+import AWSCore
 
-#import "AWSApiGatewayBridge.h"
+
+@objcMembers
+public class MUCognitouser : AWSModel {
+    
+    var userpool: String?
+    var username: String?
+    
+   	public override static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]!{
+		var params:[AnyHashable : Any] = [:]
+		params["userpool"] = "userpool"
+		params["username"] = "username"
+		
+        return params
+	}
+}

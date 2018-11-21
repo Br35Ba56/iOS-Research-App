@@ -14,5 +14,23 @@
  */
 
 
+import Foundation
+import AWSCore
 
-#import "AWSApiGatewayBridge.h"
+
+@objcMembers
+public class MUError : AWSModel {
+    
+    var code: NSNumber?
+    var fields: String?
+    var message: String?
+    
+   	public override static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]!{
+		var params:[AnyHashable : Any] = [:]
+		params["code"] = "code"
+		params["fields"] = "fields"
+		params["message"] = "message"
+		
+        return params
+	}
+}

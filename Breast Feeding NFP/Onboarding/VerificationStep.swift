@@ -19,8 +19,8 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   var verificationCode: String?
   
   @IBOutlet var verificationStepView: UIView!
-  @IBOutlet weak var verificationCodeTextField: UITextField!
-  @IBOutlet weak var submitButton: UIButton!
+  @IBOutlet var verificationCodeTextField: UITextField!
+  @IBOutlet var submitButton: UIButton!
   
   override init(step: ORKStep, result: ORKResult) {
     super.init(step: step, result: result)
@@ -92,7 +92,6 @@ class VerificationStepViewController : ORKVerificationStepViewController {
   @IBAction func resendVerificationCode(_ sender: Any) {
     resendEmailButtonTapped()
   }
-  
   
   override func resendEmailButtonTapped() {
     self.user?.resendConfirmationCode()
