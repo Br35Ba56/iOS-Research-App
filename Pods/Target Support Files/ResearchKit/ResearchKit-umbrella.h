@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "ORKEnvironmentSPLMeterResult.h"
 #import "ORKVideoInstructionStep.h"
 #import "ORKWaitStep.h"
 #import "ORKStepNavigationRule.h"
@@ -145,6 +146,7 @@
 #import "ORKAudioStepViewController.h"
 #import "ORKRecorder_Private.h"
 #import "ORKTouchRecorder.h"
+#import "ORKdBHLToneAudiometryOnboardingStep.h"
 #import "ORKTowerOfHanoiStep.h"
 #import "ORKHolePegTestRemoveStepViewController.h"
 #import "ORKPSATStepViewController.h"

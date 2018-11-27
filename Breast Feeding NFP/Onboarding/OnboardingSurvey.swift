@@ -51,9 +51,7 @@ struct Onboarding {
     completionStep.text = "Thank you for joining this study."
 
     let orderedTask = OnboardingTask(identifier: Onboarding.taskID, steps: [
-      //TODO: DELETE - Moved for debugging
-      registrationStep,
-      verificationStep,
+      
       //Eligibility
       biologicalSexStep,
       biologicalInfantStep,
@@ -85,9 +83,8 @@ struct Onboarding {
       howManyChildrenBreastFedStep,
       howLongInPastBreastFedStep,
       registrationInstructionStep,
-      //TODO: Uncomment after debugging
-      //registrationStep,
-      //verificationStep,
+      registrationStep,
+      verificationStep,
       loginStep,
       passcodeStep,
       completionStep,

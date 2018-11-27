@@ -6,7 +6,7 @@ target 'Breast Feeding NFP' do
   use_frameworks!
 
   # Pods for Breast Feeding NFP
-  pod 'ResearchKit', '~> 2.0.0'
+  pod 'ResearchKit', :path => '~/Research/iOS-Research-App/ResearchKit-master'
   pod 'AWSMobileAnalytics', '~> 2.6.6'
   pod 'AWSAPIGateway', '~> 2.6.6'
   #pod 'AWSUserPoolsSignIn', '~> 2.6.6'

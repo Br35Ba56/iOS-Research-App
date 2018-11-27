@@ -22,8 +22,12 @@ DEPENDENCIES:
   - AWSCore (~> 2.6.6)
   - AWSMobileAnalytics (~> 2.6.6)
   - AWSS3 (~> 2.6.6)
-  - ResearchKit (~> 2.0.0)
+  - ResearchKit (from `~/Research/iOS-Research-App/ResearchKit-master`)
   - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  ResearchKit:
+    :path: ~/Research/iOS-Research-App/ResearchKit-master
 
 SPEC CHECKSUMS:
   AWSAPIGateway: e68c89ba7925981c0b1e04e2725fb52a0cd43afd
@@ -33,9 +37,9 @@ SPEC CHECKSUMS:
   AWSCore: 2dab62ef2e5ca5d8c72c6cbdb3a6ea1532c27c2b
   AWSMobileAnalytics: b53f8a8d8f2eb8d6e9d8c6269c0ba7fd9494a9cd
   AWSS3: 282a590bb47e9cd88de24979fb28954399c41c52
-  ResearchKit: 06020ff370f830138b5efd10bd3606acc4de49d6
+  ResearchKit: 9e63155b701480f7dc11139c1c4ff390c4dce1f7
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 1919487abbcd5e07679a95c32d2854140b0cb610
+PODFILE CHECKSUM: d0f484aee4c94739f380e877cd4bbdaa1d34ba51
 
 COCOAPODS: 1.4.0
