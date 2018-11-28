@@ -262,13 +262,14 @@ struct Onboarding {
   //MARK: Demographic Steps
   
   private static let participantBirthDateStep: ORKStep = {
-    let title = "What is your birth date?"
+    let title = "Birth Date"
+    let question = "What is your birth date?"
     let dateAnswerStyle = ORKDateAnswerStyle.date
     let userCalander = Calendar.current
     let minimumDate = userCalander.date(byAdding: .year, value: -42, to: Date())
     let maximumDate = userCalander.date(byAdding: .year, value: -18, to: Date())
     let answerFormat = ORKDateAnswerFormat(style: dateAnswerStyle, defaultDate: minimumDate!, minimumDate: minimumDate, maximumDate: maximumDate, calendar: userCalander)
-    let participantBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.participantBirthDateStepID, title: title, answer: answerFormat)
+    let participantBirthDateStep = ORKQuestionStep(identifier: DemographicSteps.participantBirthDateStepID, title: title, question: question, answer: answerFormat)
     participantBirthDateStep.isOptional = false
     return participantBirthDateStep
   }()
@@ -309,7 +310,8 @@ struct Onboarding {
   }()
   
   private static let ethnicityStep: ORKStep = {
-    let title = "What race do you consider yourself to be?"
+    let title = "Ethnicity"
+    let question = "What race do you consider yourself to be?"
     let textChoices = [ORKTextChoice(text: "White or European-American", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Black or African American", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
                                ORKTextChoice(text: "Native American or American Indian", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
@@ -318,12 +320,13 @@ struct Onboarding {
                                ORKTextChoice(text: "Some Other Race", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
                                ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.ethnicityStepID, title: title, answer: answerFormat)
+    let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.ethnicityStepID, title: title, question: question, answer: answerFormat)
     return ethnicityQuestionStep
   }()
   
   private static let religionStep: ORKStep = {
-    let title = "What religion (if any) do you belong to or most closely identify with?"
+    let title = "Religion"
+    let question = "What religion (if any) do you belong to or most closely identify with?"
     let textChoices = [ORKTextChoice(text: "Catholic", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Lutheran", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Methodist", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
@@ -334,24 +337,26 @@ struct Onboarding {
                        ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let ethnicityQuestionStep = ORKQuestionStep(identifier: DemographicSteps.religionStepID, title: title, answer: answerFormat)
-    return ethnicityQuestionStep
+    let religionStep = ORKQuestionStep(identifier: DemographicSteps.religionStepID, title: title, question: question, answer: answerFormat)
+    return religionStep
   }()
   
   private static let levelOfEducationStep: ORKStep = {
-    let title = "What is your highest level of education completed?"
+    let title = "Education"
+    let question = "What is your highest level of education completed?"
     let textChoices = [ORKTextChoice(text: "High School or less", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Some college", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "College degree", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Postgraduate school", value: 3 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let levelOfEducationStep = ORKQuestionStep(identifier: DemographicSteps.levelOfEducationStepID, title: title, answer: answerFormat)
+    let levelOfEducationStep = ORKQuestionStep(identifier: DemographicSteps.levelOfEducationStepID, title: title, question: question, answer: answerFormat)
     return levelOfEducationStep
   }()
   
   private static let relationshipStatusStep: ORKStep = {
-    let title = "What is your relationship status?"
+    let title = "Relationship Status"
+    let question = "What is your relationship status?"
     let textChoices = [ORKTextChoice(text: "Married", value: 0 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "Not married, cohabitating", value: 1 as NSCoding & NSCopying & NSObjectProtocol),
                        ORKTextChoice(text: "In a relationship, not cohabitating", value: 2 as NSCoding & NSCopying & NSObjectProtocol),
@@ -360,51 +365,57 @@ struct Onboarding {
                        ORKTextChoice(text: "Other", value: 5 as NSCoding & NSCopying & NSObjectProtocol)
     ]
     let answerFormat = ORKAnswerFormat.choiceAnswerFormat(with: ORKChoiceAnswerStyle.singleChoice, textChoices: textChoices)
-    let maritalStatusStep = ORKQuestionStep(identifier: DemographicSteps.relationshipStatusID, title: title, answer: answerFormat)
-    maritalStatusStep.isOptional = false
-    return maritalStatusStep
+    let relationshipStatus = ORKQuestionStep(identifier: DemographicSteps.relationshipStatusID, title: title, question: question, answer: answerFormat)
+    relationshipStatus.isOptional = false
+    return relationshipStatus
   }()
   
   private static let marriedLengthStep: ORKStep = {
+    let title = "Years Married"
     //How long married, skipped if participant is not married.
-    let title = "How long have you been married?"
+    let question = "How long have you been married?"
     let marriedNumericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: marriedNumericStyle, unit: "years", minimum: 0, maximum: 35)
-    let marriedLengthStep = ORKQuestionStep(identifier: DemographicSteps.marriedLengthStepID, title: title, answer: answerFormat)
+    let marriedLengthStep = ORKQuestionStep(identifier: DemographicSteps.marriedLengthStepID, title: title, question: question, answer: answerFormat)
     return marriedLengthStep
   }()
   
   private static let howManyTimesPregnant: ORKStep = {
-    let title = "How many times have you been pregnant?"
+    let title = "Number of Pregnancies"
+    let question = "How many times have you been pregnant?"
     let text = "Including miscarriages or abortions"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
-    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyTimesPregnantStepID, title: title, answer: answerFormat)
-    howManyChildrenStep.text = text
-    return howManyChildrenStep
+    let howManyTimesPregnant = ORKQuestionStep(identifier: DemographicSteps.howManyTimesPregnantStepID, title: title, question: question, answer: answerFormat)
+    howManyTimesPregnant.text = text
+    return howManyTimesPregnant
   }()
   
   private static let howManyBiologicalChildren: ORKStep = {
-    let title = "How many biological children do you have?"
+    let title = "Number of Children"
+    let question = "How many biological children do you have?"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 1, maximum: 10)
-    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyBiologicalChildrenStepID, title: title, answer: answerFormat)
+    //let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyBiologicalChildrenStepID, title: title, answer: answerFormat)
+    let howManyChildrenStep = ORKQuestionStep(identifier: DemographicSteps.howManyBiologicalChildrenStepID, title: title, question: question, answer: answerFormat)
     return howManyChildrenStep
   }()
   
   private static let howManyChildrenBreastFedStep: ORKStep = {
-    let title = "How many children have you breastfed?"
+    let title = "Number Breastfed"
+    let question = "How many children have you breastfed?"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "quantity", minimum: 0, maximum: 10)
-    let howManyChildrenBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenBreastFedStepID, title: title, answer: answerFormat)
+    let howManyChildrenBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howManyChildrenBreastFedStepID, title: title, question: question, answer: answerFormat)
     return howManyChildrenBreastFedStep
   }()
  
   private static let howLongInPastBreastFedStep: ORKStep = {
-    let title = "How long in the past have you breastfed?"
+    let title = "Breastfeeding History"
+    let question = "How long in the past have you breastfed?"
     let numericStyle = ORKNumericAnswerStyle.integer
     let answerFormat = ORKNumericAnswerFormat(style: numericStyle, unit: "months", minimum: 0, maximum: 24)
-    let howLongInPastBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howLongInPastBreastFedStepID, title: title, answer: answerFormat)
+    let howLongInPastBreastFedStep = ORKQuestionStep(identifier: DemographicSteps.howLongInPastBreastFedStepID, title: title, question: question, answer: answerFormat)
     return howLongInPastBreastFedStep
   }()
   

@@ -51,6 +51,7 @@ ORK_CLASS_AVAILABLE
  Override this method to provide custom logic for the button action.
  */
 - (void)resendEmailButtonTapped;
+-(void)setupConstraints;
 
 @end
 

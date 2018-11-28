@@ -49,6 +49,12 @@ class VerificationStepViewController : ORKVerificationStepViewController {
     }
   }
   
+  override func setupConstraints() {
+    /*
+     *Override function from ORKVerificationStepViewController
+     *that crashes app when loading from nib
+     */
+  }
   
   @IBAction func submitVerificationCode(_ sender: Any) {
     if verificationCodeTextField.text != nil {
