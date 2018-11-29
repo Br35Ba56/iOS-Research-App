@@ -26,7 +26,8 @@ struct TaskViewControllerResults {
   public static func getViewControllerResults(taskViewControllerResults: [ORKStepResult], taskID: String) -> TaskResults {
     
     let taskResults: TaskResults? = getTaskResultType(taskID: taskID)
-    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
     for stepResult: ORKStepResult in taskViewControllerResults {
       for result in stepResult.results! {
         if let questionResult = result as? ORKChoiceQuestionResult {
@@ -42,8 +43,6 @@ struct TaskViewControllerResults {
         }
         if let questionResult = result as? ORKDateQuestionResult {
           if let finalResult = questionResult.dateAnswer {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
             let dateString = dateFormatter.string(from: finalResult)
             taskResults?.enterTaskResult(identifier: questionResult.identifier, result: dateString)
           }
@@ -63,6 +62,7 @@ struct TaskViewControllerResults {
       }
     }
     taskResults?.enterTaskResult(identifier: "userName", result: KeychainWrapper.standard.string(forKey: "Username")!)
+    taskResults?.enterTaskResult(identifier: "date", result: dateFormatter.string(from: Date()))
     return taskResults!
   }
 }

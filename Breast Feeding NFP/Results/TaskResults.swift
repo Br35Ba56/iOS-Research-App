@@ -21,7 +21,7 @@ class DailyTaskResults: TaskResults {
   var results: [String: String] = [
     "userName" : "",
     "date" : "",
-    "surveyType": "DailySurvey",
+    "type": "DailySurvey",
     DailyCycleSurvey.clearBlueMonitorStepID: "-1",
     DailyCycleSurvey.progesteroneQuestionStepID : "-1",
     DailyCycleSurvey.experienceBleedingStepID : "-1",
@@ -35,7 +35,6 @@ class DailyTaskResults: TaskResults {
     results[identifier] = result
   }
   func getEntryJSON() -> String {
-    results["date"] = getDateAsString()
     do {
       let jsonData = try JSONSerialization.data(withJSONObject: results, options: .prettyPrinted)
       return String(data: jsonData, encoding: .utf8)!
@@ -58,7 +57,7 @@ class WeeklyTaskResults: TaskResults {
   var results: [String: String] = [
     "userName" : "",
     "date" : "",
-    "surveyType": "WeeklySurvey",
+    "type": "WeeklySurvey",
     WeeklySurvey.areYouPregnantStepID : "-1",
     WeeklySurvey.usedAnyContraceptivesStepID: "-1",
     WeeklySurvey.recentlyDiagnosedStepID: "-1",
@@ -75,6 +74,7 @@ class WeeklyTaskResults: TaskResults {
     let dateString = dateFormatter.string(from: Date())
     return dateString
   }
+  
   func getEntryJSON() -> String {
     results["date"] = getDateAsString()
     do {
@@ -91,7 +91,7 @@ class OnboardingTaskResults: TaskResults {
   var results: [String : String] = [
     "userName" : "",
     "date" : "",
-    "surveyType": "OnboardingSurvey",
+    "type": "OnboardingSurvey",
     EligibilitySteps.biologicalSexStepID: "-1",
     EligibilitySteps.biologicalInfantStepID: "-1",
     EligibilitySteps.singletonBirthStepID: "-1",

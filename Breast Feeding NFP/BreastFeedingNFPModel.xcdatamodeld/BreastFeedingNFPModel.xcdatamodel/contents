@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DailySurvey" representedClassName=".DailySurvey" syncable="YES" codeGenerationType="class">
+        <attribute name="clearBlueMonitor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="experienceBleeding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="menstruation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numOfTimesBabyBreastFed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numOfTimesBabyExpressFed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numOfTimesBabyFormulaFed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="progesterone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DailySurvey" positionX="-63" positionY="-18" width="128" height="193"/>
+    </elements>
+</model>

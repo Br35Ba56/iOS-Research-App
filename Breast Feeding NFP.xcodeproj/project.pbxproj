@@ -41,6 +41,8 @@
 		D963929921A6231F0046A85B /* MUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929521A6231F0046A85B /* MUError.swift */; };
 		D963929A21A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */; };
 		D963929B21A6231F0046A85B /* MUCognitouser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929821A6231F0046A85B /* MUCognitouser.swift */; };
+		D968861D21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D968861B21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld */; };
+		D968864021AF5CD30039E0DA /* TaskResultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968863F21AF5CD30039E0DA /* TaskResultsTests.swift */; };
 		D9836A6421534374008D26A5 /* SurveyTimingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9836A6321534374008D26A5 /* SurveyTimingTests.swift */; };
 		D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */; };
 		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
@@ -115,6 +117,8 @@
 		D963929621A6231F0046A85B /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
 		D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUNFPBreastFeedingAPIClient.swift; sourceTree = "<group>"; };
 		D963929821A6231F0046A85B /* MUCognitouser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUCognitouser.swift; sourceTree = "<group>"; };
+		D968861C21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreastFeedingNFPModel.xcdatamodel; sourceTree = "<group>"; };
+		D968863F21AF5CD30039E0DA /* TaskResultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResultsTests.swift; sourceTree = "<group>"; };
 		D9836A6321534374008D26A5 /* SurveyTimingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimingTests.swift; sourceTree = "<group>"; };
 		D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTiming.swift; sourceTree = "<group>"; };
 		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				D9326E88219E4F0A0045FB64 /* Onboarding */,
 				D9326E8A219E4FB10045FB64 /* Withdrawl */,
 				D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */,
+				D968861B21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld */,
 			);
 			path = "Breast Feeding NFP";
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 		BC21F3C31F4F3072006629AC /* Breast Feeding NFPTests */ = {
 			isa = PBXGroup;
 			children = (
+				D968863F21AF5CD30039E0DA /* TaskResultsTests.swift */,
 				D9836A6321534374008D26A5 /* SurveyTimingTests.swift */,
 				BC65FCAD203E46B2005D2A3A /* KeychainWrapperTests.swift */,
 				BC21F3C41F4F3072006629AC /* TaskViewControllerResultsTests.swift */,
@@ -679,6 +685,7 @@
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
 				D963929921A6231F0046A85B /* MUError.swift in Sources */,
+				D968861D21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld in Sources */,
 				BC7759541F4F50E900AF2FC6 /* ResearchContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC21F3C51F4F3072006629AC /* TaskViewControllerResultsTests.swift in Sources */,
+				D968864021AF5CD30039E0DA /* TaskResultsTests.swift in Sources */,
 				D9836A6421534374008D26A5 /* SurveyTimingTests.swift in Sources */,
 				BC65FCAE203E46B2005D2A3A /* KeychainWrapperTests.swift in Sources */,
 			);
@@ -993,6 +1001,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D968861B21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D968861C21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodel */,
+			);
+			currentVersion = D968861C21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodel */;
+			path = BreastFeedingNFPModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BC21F3A21F4F3072006629AC /* Project object */;
 }

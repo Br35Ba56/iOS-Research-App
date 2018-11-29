@@ -229,23 +229,23 @@ struct StudyTasks {
 
 //MARK: Step IDs
 struct WeeklySurvey {
-  static let taskID = "weeklySurveyID"
-  static let areYouPregnantStepID = "areYouPregnantStepID"
-  static let usedAnyContraceptivesStepID = "usedAnyContraceptivesStepID"
-  static let recentlyDiagnosedStepID = "recentlyDiagnosedStepID"
-  static let stillBreastfeedingStepID = "stillBreastfeedingStepID"
-  static let didMenstruateThisWeekStepID = "didMenstruateThisWeekStepID"
+  static let taskID = "weeklySurvey"
+  static let areYouPregnantStepID = "areYouPregnant"
+  static let usedAnyContraceptivesStepID = "usedAnyContraceptives"
+  static let recentlyDiagnosedStepID = "recentlyDiagnosed"
+  static let stillBreastfeedingStepID = "stillBreastfeeding"
+  static let didMenstruateThisWeekStepID = "didMenstruateThisWeek"
 }
 
 struct DailyCycleSurvey {
-  static let taskID = "dailyCycleSurveyID"
-  static let instructionID = "cycleDataIntroStepID"
-  static let clearBlueMonitorStepID = "clearBlueMonitorStepID"
-  static let progesteroneQuestionStepID = "progesteroneStepID"
-  static let experienceBleedingStepID = "experienceBleedingStepID"
-  static let menstruationQuestionStepID = "menstruationQuestionStepID"
-  static let numOfTimesBabyFedInstructionStepID = "numOfTimesBabyFedInstructionStepID"
-  static let numOfTimesBabyBreastFedStepID = "numOfTimesBabyBreastFedStepID"
-  static let numOfTimesBabyExpressFedStepID = "numOfTimesBabyExpressFedStepID"
-  static let numOfTimesBabyFormulaFedStepID = "numOfTimesBabyFormulaFedStepID"
+  static let taskID = "dailyCycleSurvey"
+  static let instructionID = "cycleDataIntro"
+  static let clearBlueMonitorStepID = "clearBlueMonitor"
+  static let progesteroneQuestionStepID = "progesterone"
+  static let experienceBleedingStepID = "experienceBleeding"
+  static let menstruationQuestionStepID = "menstruation"
+  static let numOfTimesBabyFedInstructionStepID = "numOfTimesBabyFedInstruction"
+  static let numOfTimesBabyBreastFedStepID = "numOfTimesBabyBreastFed"
+  static let numOfTimesBabyExpressFedStepID = "numOfTimesBabyExpressFed"
+  static let numOfTimesBabyFormulaFedStepID = "numOfTimesBabyFormulaFed"
 }
