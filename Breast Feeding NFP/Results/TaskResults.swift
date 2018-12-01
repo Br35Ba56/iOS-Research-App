@@ -58,11 +58,11 @@ class WeeklyTaskResults: TaskResults {
     "userName" : "",
     "date" : "",
     "type": "WeeklySurvey",
-    WeeklySurvey.areYouPregnantStepID : "-1",
-    WeeklySurvey.usedAnyContraceptivesStepID: "-1",
-    WeeklySurvey.recentlyDiagnosedStepID: "-1",
-    WeeklySurvey.stillBreastfeedingStepID: "-1",
-    WeeklySurvey.didMenstruateThisWeekStepID: "-1"]
+    WeeklyEligibilitySurvey.areYouPregnantStepID : "-1",
+    WeeklyEligibilitySurvey.usedAnyContraceptivesStepID: "-1",
+    WeeklyEligibilitySurvey.recentlyDiagnosedStepID: "-1",
+    WeeklyEligibilitySurvey.stillBreastfeedingStepID: "-1",
+    WeeklyEligibilitySurvey.didMenstruateThisWeekStepID: "-1"]
   
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result

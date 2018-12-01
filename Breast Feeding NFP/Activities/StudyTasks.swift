@@ -169,7 +169,7 @@ struct StudyTasks {
     let completionStep = ORKCompletionStep(identifier: "CompletionStep")
     completionStep.title = "Thank you for your entry!"
     let reviewStep = ORKReviewStep.embeddedReviewStep(withIdentifier: "Review")
-    let orderedTask = ORKOrderedTask(identifier: WeeklySurvey.taskID, steps: [
+    let orderedTask = ORKOrderedTask(identifier: WeeklyEligibilitySurvey.taskID, steps: [
       instructionStep,
       areYouPregnantStep,
       usedAnyContraceptivesStep,
@@ -185,7 +185,7 @@ struct StudyTasks {
   private static let areYouPregnantStep: ORKStep = {
     let title = "Are you pregnant?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let areYouPregnantStep = ORKQuestionStep(identifier: WeeklySurvey.areYouPregnantStepID, title: title, question: "Are you pregnant", answer: answerFormat)
+    let areYouPregnantStep = ORKQuestionStep(identifier: WeeklyEligibilitySurvey.areYouPregnantStepID, title: title, question: "Are you pregnant", answer: answerFormat)
     areYouPregnantStep.isOptional = false
     return areYouPregnantStep
   }()
@@ -194,7 +194,7 @@ struct StudyTasks {
     let title = "Contraceptives"
     let text = "Have you used any hormonal contraceptives including emergency contraception this past week?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let usedAnyContraceptivesStep = ORKQuestionStep(identifier: WeeklySurvey.usedAnyContraceptivesStepID, title: title, question: text, answer: answerFormat)
+    let usedAnyContraceptivesStep = ORKQuestionStep(identifier: WeeklyEligibilitySurvey.usedAnyContraceptivesStepID, title: title, question: text, answer: answerFormat)
     usedAnyContraceptivesStep.isOptional = false
     return usedAnyContraceptivesStep
   }()
@@ -203,7 +203,7 @@ struct StudyTasks {
     let title = "Diagnosed with PCOS or Diabetes"
     let text = "Have you recently been diagnosed with type 2 diabetes mellitus or polysticic ovarian syndrome?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let recentlyDiagnosedStep = ORKQuestionStep(identifier: WeeklySurvey.recentlyDiagnosedStepID, title: title, question: text, answer: answerFormat)
+    let recentlyDiagnosedStep = ORKQuestionStep(identifier: WeeklyEligibilitySurvey.recentlyDiagnosedStepID, title: title, question: text, answer: answerFormat)
     recentlyDiagnosedStep.isOptional = false
     return recentlyDiagnosedStep
   }()
@@ -212,7 +212,7 @@ struct StudyTasks {
     let title = "Still Breastfeeding?"
     let text = "Are you still breastfeeding?"
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let stillBreastFeedingStep = ORKQuestionStep(identifier: WeeklySurvey.stillBreastfeedingStepID, title: title, question: text, answer: answerFormat)
+    let stillBreastFeedingStep = ORKQuestionStep(identifier: WeeklyEligibilitySurvey.stillBreastfeedingStepID, title: title, question: text, answer: answerFormat)
     stillBreastFeedingStep.isOptional = false
     return stillBreastFeedingStep
   }()
@@ -221,14 +221,14 @@ struct StudyTasks {
     let title = "Did you menstruate this week?"
     let text = ""
     let answerFormat = ORKAnswerFormat.booleanAnswerFormat(withYesString: "Yes", noString: "No")
-    let didMenstruateThisWeekStep = ORKQuestionStep(identifier: WeeklySurvey.didMenstruateThisWeekStepID, title: title, question: text, answer: answerFormat)
+    let didMenstruateThisWeekStep = ORKQuestionStep(identifier: WeeklyEligibilitySurvey.didMenstruateThisWeekStepID, title: title, question: text, answer: answerFormat)
     didMenstruateThisWeekStep.isOptional = false
     return didMenstruateThisWeekStep
   }()
 }
 
 //MARK: Step IDs
-struct WeeklySurvey {
+struct WeeklyEligibilitySurvey {
   static let taskID = "weeklySurvey"
   static let areYouPregnantStepID = "areYouPregnant"
   static let usedAnyContraceptivesStepID = "usedAnyContraceptives"
@@ -238,7 +238,7 @@ struct WeeklySurvey {
 }
 
 struct DailyCycleSurvey {
-  static let taskID = "dailyCycleSurvey"
+  static let taskID = "DailyCycleSurvey"
   static let instructionID = "cycleDataIntro"
   static let clearBlueMonitorStepID = "clearBlueMonitor"
   static let progesteroneQuestionStepID = "progesterone"

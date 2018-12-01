@@ -16,7 +16,7 @@ struct TaskViewControllerResults {
   private static func getTaskResultType(taskID: String) -> TaskResults {
     if taskID == DailyCycleSurvey.taskID {
       return DailyTaskResults()
-    } else if taskID == WeeklySurvey.taskID {
+    } else if taskID == WeeklyEligibilitySurvey.taskID {
       return WeeklyTaskResults()
     } else {
       return OnboardingTaskResults()

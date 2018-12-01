@@ -12,7 +12,6 @@ import SwiftKeychainWrapper
 
 class ProcessResults {
   private var surveyTaskResults: TaskResults!
- // private let date: Date
   private var uuid: UUID?
   private var surveyType: String!
   static private var processResults: ProcessResults!
@@ -20,55 +19,54 @@ class ProcessResults {
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
   let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
 
-  public init(taskResults: TaskResults!) {
+  private init(taskResults: TaskResults!) {
     if let results = taskResults as? DailyTaskResults {
       self.surveyTaskResults = results
       self.surveyType = "DailySurvey"
     }
     if let results = taskResults as? OnboardingTaskResults {
       self.surveyTaskResults = results
-      self.surveyType = "Onboarding"
+      self.surveyType = "OnboardingSurvey"
     }
     if let results = taskResults as? WeeklyTaskResults {
       self.surveyTaskResults = results
-      self.surveyType = "Weekly_Survey"
+      self.surveyType = "WeeklySurvey"
     }
-   //uuid = UUID()
   }
   
   private init(taskResults: TaskResults!, uuid: UUID!) {
+    print(taskResults.debugDescription)
     if let results = taskResults as? DailyTaskResults {
       self.surveyTaskResults = results
       self.surveyType = "DailySurvey"
     }
     if let results = taskResults as? OnboardingTaskResults {
       self.surveyTaskResults = results
-      self.surveyType = "Onboarding"
+      self.surveyType = "OnboardingSurvey"
     }
     if let results = taskResults as? WeeklyTaskResults {
       self.surveyTaskResults = results
-      self.surveyType = "Weekly_Survey"
+      self.surveyType = "WeeklySurvey"
     }
     self.uuid = uuid
-   //self.date = Date()
   }
   
   
-  func saveResultsToCoreData(taskResults: TaskResults!) {
-    
+  static func saveResultsToCoreData(taskResults: TaskResults!) {
+      processResults = ProcessResults(taskResults: taskResults)
       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
         return
       }
       
       let managedContext = appDelegate.persistentContainer.viewContext
-      
-      let entity = NSEntityDescription.entity(forEntityName: surveyType, in: managedContext)!
-      
+      let entity = NSEntityDescription.entity(forEntityName: processResults.surveyType, in: managedContext)!
       let survey = NSManagedObject(entity: entity, insertInto: managedContext)
     
     for result in taskResults.results {
       survey.setValue(result.value, forKey: result.key)
+      print("\(result.value)  \(result.key)")
     }
+    survey.setValue(false, forKey: "uploaded")
       
      
     do {

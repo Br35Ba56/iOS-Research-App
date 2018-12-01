@@ -10,9 +10,52 @@
         <attribute name="numOfTimesBabyFormulaFed" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="progesterone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="OnboardingSurvey" representedClassName="OnboardingSurvey" syncable="YES" codeGenerationType="class">
+        <attribute name="babyBirthDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="babyFeedOnDemand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="babyFullTerm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="biologicalInfant" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="biologicalSex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="breastPumpInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="breastSurgery" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="canReadEnglish" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clearBlueMonitor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ethnicity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="howLongInPastBreastFed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="howManyBiologicalChildren" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="howManyChildrenBreastFed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="howManyTimesPregnant" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="infantAgeInRange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="levelOfEducation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="marriedLength" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="momHealth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="participantAgeInRange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="participantBirthDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relationshipStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="religion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="singletonBirth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WeeklySurvey" representedClassName="WeeklySurvey" syncable="YES" codeGenerationType="class">
+        <attribute name="areYouPregnant" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="didMenstruateThisWeek" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recentlyDiagnosed" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stillBreastfeeding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="usedAnyContraceptives" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DailySurvey" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="DailySurvey" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="WeeklySurvey" positionX="-36" positionY="90" width="128" height="180"/>
+        <element name="OnboardingSurvey" positionX="-45" positionY="90" width="128" height="450"/>
     </elements>
 </model>
