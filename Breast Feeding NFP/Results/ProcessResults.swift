@@ -81,6 +81,20 @@ class ProcessResults {
   //TODO: saveResults and uploadResults should go directly to dynamodb table via APIGateway/Lambda
   //if upload to DynamoDB fails due to internet connection or other, save to core data and reattempt
   //upload at a later time.
+
+  static func saveResults(taskResults: TaskResults!) {
+    if taskResults is DailyTaskResults {
+     
+        let muDailyResult = MUDailysurvey.init(dictionary: taskResults.results)
+      
+   
+
+    } else if taskResults is WeeklyTaskResults {
+      
+    } else if taskResults is OnboardingTaskResults {
+      
+    }
+  }
   
   static func saveResults(taskResults: TaskResults!, uuid: UUID!) {
     processResults = ProcessResults(taskResults: taskResults, uuid: uuid)

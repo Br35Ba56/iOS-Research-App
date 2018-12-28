@@ -91,6 +91,7 @@ class LoginViewController: ORKLoginStepViewController {
           if KeychainWrapper.standard.string(forKey: "Password") == nil {
             KeychainWrapper.standard.set(self.password.text!, forKey: "Password")
           }
+          AppDelegate.idToken = task.result?.idToken?.tokenString
           self.goForward()
         } else {
           print(task.error.debugDescription)

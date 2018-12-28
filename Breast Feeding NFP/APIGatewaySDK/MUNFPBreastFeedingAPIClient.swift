@@ -141,7 +141,7 @@ public class MUNFPBreastFeedingAPIClient: AWSAPIGatewayClient {
 	    super.init()
 	
 	    self.configuration = configuration.copy() as! AWSServiceConfiguration
-	    var URLString: String = "https://mj0tgk043g.execute-api.us-east-1.amazonaws.com/NFPBreastFeedingAPI"
+	    var URLString: String = "https://mj0tgk043g.execute-api.us-east-1.amazonaws.com/Dev"
 	    if URLString.hasSuffix("/") {
 	        URLString = URLString.substring(to: URLString.index(before: URLString.endIndex))
 	    }
@@ -155,27 +155,57 @@ public class MUNFPBreastFeedingAPIClient: AWSAPIGatewayClient {
 
 	
     /*
-     
-     
      @param body 
-     
      return type: 
      */
-    public func cognitoDisableuserPost(body: MUCognitouser) -> AWSTask<AnyObject> {
+  public func cognitoDisableuserPost(body: MUCognitouser, idToken: String) -> AWSTask<AnyObject> {
 	    let headerParameters = [
                    "Content-Type": "application/json",
                    "Accept": "application/json",
-                   
+                   "cognito-authorizer" : "\(idToken)",
+	            ]
+	    
+	    let queryParameters:[String:Any] = [:]
+	    
+	    let pathParameters:[String:Any] = [:]
+	    print("headerParameters \(headerParameters)")
+	    return self.invokeHTTPRequest("POST", urlString: "/cognito/disableuser", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
+	}
+
+	
+    /*
+     @param body
+     return type: 
+     */
+  public func surveysDailysurveyPut(body: MUDailysurvey, idToken: String) -> AWSTask<AnyObject> {
+	    let headerParameters = [
+                   "Content-Type": "application/json",
+                   "Accept": "application/json",
+                   "cognito-authorizer" : "\(idToken)"
 	            ]
 	    
 	    let queryParameters:[String:Any] = [:]
 	    
 	    let pathParameters:[String:Any] = [:]
 	    
-	    return self.invokeHTTPRequest("POST", urlString: "/cognito/disableuser", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
+	    return self.invokeHTTPRequest("PUT", urlString: "/surveys/dailysurvey", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
 	}
-
-
-
-
+	
+    /*
+     @param body
+     return type: 
+     */
+  public func surveysWeeklysurveyPut(body: MUWeeklysurvey, idToken: String) -> AWSTask<AnyObject> {
+	    let headerParameters = [
+                   "Content-Type": "application/json",
+                   "Accept": "application/json",
+                   "cognito-authorizer" : "\(idToken)"
+	            ]
+	    
+	    let queryParameters:[String:Any] = [:]
+	    
+	    let pathParameters:[String:Any] = [:]
+	    
+	    return self.invokeHTTPRequest("PUT", urlString: "/surveys/weeklysurvey", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
+	}
 }

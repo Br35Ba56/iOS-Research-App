@@ -35,6 +35,8 @@ import ResearchKit
 
 class ProfileViewController: UIViewController {
   var indicatingView: UIActivityIndicatorView!
+  let defaultServiceConfiguration =  AWSServiceManager.default()?.defaultServiceConfiguration
+ 
   
   @IBAction func signOutAction(_ sender: Any) {
     let pool = AWSCognitoIdentityUserPool.init(forKey: "UserPool")
@@ -63,6 +65,7 @@ class ProfileViewController: UIViewController {
     viewController.delegate = self
     present(viewController, animated: true, completion: nil)
   }
+ 
 }
 extension ProfileViewController: ORKTaskViewControllerDelegate {
   public func taskViewController(_ taskViewController: ORKTaskViewController, stepViewControllerWillAppear stepViewController: ORKStepViewController) {
@@ -70,6 +73,7 @@ extension ProfileViewController: ORKTaskViewControllerDelegate {
     
     taskViewController.currentStepViewController?.taskViewController?.view.tintColor = UIColor(red: 0, green: 0.2, blue: 0.4, alpha: 1.0)
   }
+  
   public func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
     if taskViewController is WithdrawViewController {
      
@@ -77,31 +81,29 @@ extension ProfileViewController: ORKTaskViewControllerDelegate {
         
         ORKPasscodeViewController.removePasscodeFromKeychain()
         let client = MUNFPBreastFeedingAPIClient.default()
+  
         let disableUser = MUCognitouser()
         //TODO: Need to get user name.
-        disableUser?.username = "tonyschndr@gmail.com"
+        disableUser?.username = KeychainWrapper.standard.string(forKey: "Username")
         disableUser?.userpool = AWSConstants.poolID
         indicatingView?.startAnimating()
-        client.cognitoDisableuserPost(body: disableUser!).continueWith {(task: AWSTask) -> AnyObject? in
+        let idToken = AppDelegate.getSessionKey()
+        client.cognitoDisableuserPost(body: disableUser!, idToken: idToken).continueWith {(task: AWSTask) -> AnyObject? in
           self.showResult(task: task)
-          
           //Call toOnboarding in main thread
           DispatchQueue.main.async {
             self.indicatingView?.stopAnimating()
             let containerViewController = UIApplication.shared.keyWindow!.rootViewController as! ResearchContainerViewController
             containerViewController.toOnboarding()
-           
           }
-          
           return nil
         }
-        //toOnboarding()
       }
       dismiss(animated: true, completion: nil)
     }
   }
+  
   func showResult(task: AWSTask<AnyObject>) {
-    print(task.description)
     if let error = task.error {
       print("Error: \(error)")
     } else if let result = task.result {

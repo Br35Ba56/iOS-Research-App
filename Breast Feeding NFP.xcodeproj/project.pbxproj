@@ -38,6 +38,8 @@
 		BCC5EA92202E180F00F2B2D2 /* VerificationStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCC5EA91202E180F00F2B2D2 /* VerificationStepView.xib */; };
 		BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC77A71202FE97600D6798B /* LoginTask.swift */; };
 		BCC7C237202F7EBD0068A7A9 /* PasscodeTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */; };
+		D91FB5D321BB6C9900AADE61 /* MUDailysurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FB5D221BB6C9900AADE61 /* MUDailysurvey.swift */; };
+		D91FB5D521BB6CA100AADE61 /* MUWeeklysurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FB5D421BB6CA100AADE61 /* MUWeeklysurvey.swift */; };
 		D963929921A6231F0046A85B /* MUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929521A6231F0046A85B /* MUError.swift */; };
 		D963929A21A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */; };
 		D963929B21A6231F0046A85B /* MUCognitouser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D963929821A6231F0046A85B /* MUCognitouser.swift */; };
@@ -45,6 +47,8 @@
 		D968864221B1A17A0039E0DA /* CreateResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968864121B1A17A0039E0DA /* CreateResults.swift */; };
 		D968864421B1B06E0039E0DA /* SurveyCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968864321B1B06E0039E0DA /* SurveyCoreDataTests.swift */; };
 		D9836A6421534374008D26A5 /* SurveyTimingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9836A6321534374008D26A5 /* SurveyTimingTests.swift */; };
+		D986AA3321D5958000468CD6 /* AWSModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986AA3221D5958000468CD6 /* AWSModelTests.swift */; };
+		D986AA3521D5E12F00468CD6 /* MUOnboardingsurvey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986AA3421D5E12E00468CD6 /* MUOnboardingsurvey.swift */; };
 		D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */; };
 		D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */; };
 		EC74BA55CCC19AB3321596F9 /* Pods_Breast_Feeding_NFP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783F486C43D2031E4BBB3D79 /* Pods_Breast_Feeding_NFP.framework */; };
@@ -113,6 +117,8 @@
 		BCC7C236202F7EBD0068A7A9 /* PasscodeTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeTask.swift; sourceTree = "<group>"; };
 		C4B5A7E494C3455F01B1B9C2 /* Pods-Breast Feeding NFP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFP/Pods-Breast Feeding NFP.debug.xcconfig"; sourceTree = "<group>"; };
 		D7735B201353D8A78DB17A10 /* Pods-Breast Feeding NFPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.release.xcconfig"; sourceTree = "<group>"; };
+		D91FB5D221BB6C9900AADE61 /* MUDailysurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUDailysurvey.swift; sourceTree = "<group>"; };
+		D91FB5D421BB6CA100AADE61 /* MUWeeklysurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUWeeklysurvey.swift; sourceTree = "<group>"; };
 		D963929421A6231F0046A85B /* AWSApiGatewayBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSApiGatewayBridge.h; sourceTree = "<group>"; };
 		D963929521A6231F0046A85B /* MUError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUError.swift; sourceTree = "<group>"; };
 		D963929621A6231F0046A85B /* Bridging_Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging_Header.h; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 		D968864121B1A17A0039E0DA /* CreateResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateResults.swift; sourceTree = "<group>"; };
 		D968864321B1B06E0039E0DA /* SurveyCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCoreDataTests.swift; sourceTree = "<group>"; };
 		D9836A6321534374008D26A5 /* SurveyTimingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTimingTests.swift; sourceTree = "<group>"; };
+		D986AA3221D5958000468CD6 /* AWSModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSModelTests.swift; sourceTree = "<group>"; };
+		D986AA3421D5E12E00468CD6 /* MUOnboardingsurvey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MUOnboardingsurvey.swift; sourceTree = "<group>"; };
 		D99D57AA20E46BC300D0F3F5 /* SurveyTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTiming.swift; sourceTree = "<group>"; };
 		D9E9EA8320560899004D7012 /* AmazonCognitoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonCognitoSync.swift; sourceTree = "<group>"; };
 		E1273D268AA37A676A693EA0 /* Pods-Breast Feeding NFPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breast Feeding NFPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breast Feeding NFPTests/Pods-Breast Feeding NFPTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +222,7 @@
 		BC21F3C31F4F3072006629AC /* Breast Feeding NFPTests */ = {
 			isa = PBXGroup;
 			children = (
+				D986AA3221D5958000468CD6 /* AWSModelTests.swift */,
 				D968864321B1B06E0039E0DA /* SurveyCoreDataTests.swift */,
 				D9836A6321534374008D26A5 /* SurveyTimingTests.swift */,
 				BC65FCAD203E46B2005D2A3A /* KeychainWrapperTests.swift */,
@@ -236,8 +245,11 @@
 		D9326E7E219E4D350045FB64 /* APIGatewaySDK */ = {
 			isa = PBXGroup;
 			children = (
+				D986AA3421D5E12E00468CD6 /* MUOnboardingsurvey.swift */,
 				D963929421A6231F0046A85B /* AWSApiGatewayBridge.h */,
 				D963929621A6231F0046A85B /* Bridging_Header.h */,
+				D91FB5D421BB6CA100AADE61 /* MUWeeklysurvey.swift */,
+				D91FB5D221BB6C9900AADE61 /* MUDailysurvey.swift */,
 				D963929821A6231F0046A85B /* MUCognitouser.swift */,
 				D963929521A6231F0046A85B /* MUError.swift */,
 				D963929721A6231F0046A85B /* MUNFPBreastFeedingAPIClient.swift */,
@@ -672,12 +684,14 @@
 				BCBBFC1E1F6527F0009AA9B9 /* TaskResults.swift in Sources */,
 				BC48D8E32030CF1B00EEEE35 /* DoNotCommit.swift in Sources */,
 				BC77595D1F4F593F00AF2FC6 /* ConsentDocument.swift in Sources */,
+				D91FB5D521BB6CA100AADE61 /* MUWeeklysurvey.swift in Sources */,
 				BC7759631F4F619000AF2FC6 /* StudyTasks.swift in Sources */,
 				BC9BA2112040AA9200D651C6 /* LoginViewController.swift in Sources */,
 				D99D57AB20E46BC300D0F3F5 /* SurveyTiming.swift in Sources */,
 				BC21F3B21F4F3072006629AC /* ProfileViewController.swift in Sources */,
 				BCC77A72202FE97600D6798B /* LoginTask.swift in Sources */,
 				D9E9EA8420560899004D7012 /* AmazonCognitoSync.swift in Sources */,
+				D91FB5D321BB6C9900AADE61 /* MUDailysurvey.swift in Sources */,
 				BC21F3AE1F4F3072006629AC /* AppDelegate.swift in Sources */,
 				BCBBFC201F652825009AA9B9 /* ActivityEnum.swift in Sources */,
 				BC7759611F4F5A3C00AF2FC6 /* ActivityViewController.swift in Sources */,
@@ -686,6 +700,7 @@
 				BC145E83202D4A0E004A516B /* VerificationStep.swift in Sources */,
 				BC7759591F4F561700AF2FC6 /* OnboardingViewController.swift in Sources */,
 				BC7759571F4F53BB00AF2FC6 /* WithdrawViewController.swift in Sources */,
+				D986AA3521D5E12F00468CD6 /* MUOnboardingsurvey.swift in Sources */,
 				BCBA36371F549E4F0057C7D8 /* OnboardingSurvey.swift in Sources */,
 				D963929921A6231F0046A85B /* MUError.swift in Sources */,
 				D968861D21AE32640039E0DA /* BreastFeedingNFPModel.xcdatamodeld in Sources */,
@@ -700,6 +715,7 @@
 				D968864421B1B06E0039E0DA /* SurveyCoreDataTests.swift in Sources */,
 				D968864221B1A17A0039E0DA /* CreateResults.swift in Sources */,
 				BC21F3C51F4F3072006629AC /* TaskViewControllerResultsTests.swift in Sources */,
+				D986AA3321D5958000468CD6 /* AWSModelTests.swift in Sources */,
 				D9836A6421534374008D26A5 /* SurveyTimingTests.swift in Sources */,
 				BC65FCAE203E46B2005D2A3A /* KeychainWrapperTests.swift in Sources */,
 			);

@@ -44,13 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   static var user: AWSCognitoIdentityUser?
   var signInViewController: LoginViewController?
   var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
-  
+  static var idToken: String?
   var window: UIWindow?
   
   var containerViewController: ResearchContainerViewController? {
     return window?.rootViewController as? ResearchContainerViewController
   }
+ 
   
+  static func getSessionKey() -> String {
+    if idToken != nil {
+      return idToken!
+    }
+    return ""
+  }
   func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
     /*
      Store the completion handler.
@@ -70,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.containerViewController?.toOnboarding()
     } else {
       print("User Signed in.  AppDelegate")
+      self.containerViewController?.toStudy()
     }
     return true
   }
@@ -78,7 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let pool = AWSCognitoIdentityUserPool(forKey: "UserPool")
     if (pool.currentUser()?.isSignedIn)! {
       guard let username = KeychainWrapper.standard.string(forKey: "Username"), let password = KeychainWrapper.standard.string(forKey: "Password") else {return false}
-      pool.currentUser()?.getSession(username, password: password, validationData: nil)
+      pool.currentUser()?.getSession(username, password: password, validationData: nil).continueWith {(task: AWSTask) -> AnyObject? in
+        let result = task.result
+        AppDelegate.idToken = result?.idToken?.tokenString
+        return nil
+      }
       return true
     }
     return false
@@ -170,7 +182,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
   }
-  
 }
 
 extension AppDelegate: ORKPasscodeDelegate {
@@ -236,7 +247,4 @@ extension AppDelegate: AWSCognitoIdentityRememberDevice {
       }
     }
   }
-  
-  
-  
 }
