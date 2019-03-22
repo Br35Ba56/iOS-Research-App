@@ -42,7 +42,7 @@ public class MUWeeklysurvey : AWSModel {
         recentlyDiagnosed = result.value
       case "userName":
         userName = result.value
-      case "stillBreastFeeding":
+      case "stillBreastfeeding":
         stillBreastfeeding = result.value
       case "areYouPregnant":
         areYouPregnant = result.value

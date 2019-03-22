@@ -32,6 +32,8 @@ public class MUDailysurvey : AWSModel {
     var userName: String!
     var type: String!
   
+
+  
   func setValues(dailyResults: DailyTaskResults) {
     for result in dailyResults.results {
       

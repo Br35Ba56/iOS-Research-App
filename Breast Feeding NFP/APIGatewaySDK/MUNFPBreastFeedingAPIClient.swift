@@ -141,7 +141,7 @@ public class MUNFPBreastFeedingAPIClient: AWSAPIGatewayClient {
 	    super.init()
 	
 	    self.configuration = configuration.copy() as! AWSServiceConfiguration
-	    var URLString: String = "https://mj0tgk043g.execute-api.us-east-1.amazonaws.com/Dev"
+	    var URLString: String = "https://t3pzdswa0j.execute-api.us-east-1.amazonaws.com/Dev"
 	    if URLString.hasSuffix("/") {
 	        URLString = URLString.substring(to: URLString.index(before: URLString.endIndex))
 	    }
@@ -208,4 +208,23 @@ public class MUNFPBreastFeedingAPIClient: AWSAPIGatewayClient {
 	    
 	    return self.invokeHTTPRequest("PUT", urlString: "/surveys/weeklysurvey", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
 	}
+  
+  /*
+   @param body
+   return type:
+   */
+  public func surveysOnboardingsurveyPut(body: MUOnboardingsurvey, idToken: String) -> AWSTask<AnyObject> {
+    let headerParameters = [
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+      "cognito-authorizer" : "\(idToken)"
+      
+      ]
+    
+    let queryParameters:[String:Any] = [:]
+    
+    let pathParameters:[String:Any] = [:]
+    
+    return self.invokeHTTPRequest("PUT", urlString: "/surveys/onboardingsurvey", pathParameters: pathParameters, queryParameters: queryParameters, headerParameters: headerParameters, body: body, responseClass: nil)
+  }
 }

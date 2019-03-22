@@ -81,29 +81,11 @@ class LoginViewController: ORKLoginStepViewController {
   
   func signIn() {
     if (!getUserName().isEmpty && self.password.text != nil) {
-      user?.getSession(getUserName(), password: password.text!, validationData: nil).continueWith(executor: AWSExecutor.mainThread(), block: {
-        (task:AWSTask!) -> AnyObject? in
-        if task.error == nil {
-          if KeychainWrapper.standard.string(forKey: "Username") == nil {
-            KeychainWrapper.standard.set(self.username.text!, forKey: "Username")
-          }
-          
-          if KeychainWrapper.standard.string(forKey: "Password") == nil {
-            KeychainWrapper.standard.set(self.password.text!, forKey: "Password")
-          }
-          AppDelegate.idToken = task.result?.idToken?.tokenString
-          self.goForward()
-        } else {
-          print(task.error.debugDescription)
-        }
+      user?.getSession(getUserName(), password: password.text!, validationData: nil).continueWith
+        {(task: AWSTask!) -> AnyObject? in
+        self.checkTaskResults(task: task)
         return nil
-      }).continueWith(block: {
-        (task:AWSTask!) -> AnyObject? in
-        if let error = task.error {
-          print(error)
-        }
-        return task
-      })
+      }
     } else {
       let alertController = UIAlertController(title: "Missing information",
                                               message: "Please enter a valid user name and password",
@@ -111,6 +93,29 @@ class LoginViewController: ORKLoginStepViewController {
       let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
       alertController.addAction(retryAction)
     }
+  }
+  
+  func checkTaskResults(task: AWSTask<AWSCognitoIdentityUserSession>) {
+    if task.error == nil {
+      if KeychainWrapper.standard.string(forKey: "Username") == nil {
+        KeychainWrapper.standard.set(self.username.text!, forKey: "Username")
+      }
+      
+      if KeychainWrapper.standard.string(forKey: "Password") == nil {
+        KeychainWrapper.standard.set(self.password.text!, forKey: "Password")
+      }
+      AppDelegate.idToken = task.result?.idToken?.tokenString
+      print("idToken: \(AppDelegate.idToken)")
+      DispatchQueue.main.async {
+        self.goForward()
+      }
+    } else {
+      print(task.error.debugDescription)
+    }
+  }
+  
+  func setUserInfo() {
+    
   }
 }
 extension LoginViewController: AWSCognitoIdentityPasswordAuthentication {

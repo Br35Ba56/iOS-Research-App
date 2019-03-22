@@ -12,15 +12,42 @@ import XCTest
 
 class SurveyCoreDataTests: XCTestCase {
   
- 
-    override func setUp() {
-      eraseAllSurveys()
+  
+  override func setUp() {
+    eraseAllSurveys()
+  }
+  
+  override func tearDown() {
+    eraseAllSurveys()
+  }
+  
+  func testSurveyDelete() {
+    let createResults = CreateResults()
+    var surveyResultsOne = createResults.getWeeklyResultsOne()
+    var surveyResultsTwo = createResults.getWeeklyResultsTwo()
+    
+    surveyResultsOne.results["date"] = "2018-06-11"
+    surveyResultsTwo.results["date"] = "2018-06-18"
+    ProcessResults.saveResultsToCoreData(taskResults: surveyResultsOne)
+    ProcessResults.saveResultsToCoreData(taskResults: surveyResultsTwo)
+    
+    let coreDataSurveyManager = CoreDataSurveyManager()
+    coreDataSurveyManager.deleteUploadedSurvey(taskResult: surveyResultsOne)
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: surveyResultsOne.results["type"]!)
+    request.returnsObjectsAsFaults = false
+    do {
+      let result = try context.fetch(request)
+      let data = result as! [NSManagedObject]
+      if data.count == 1 {
+        XCTAssertTrue(true)
+      }
+    } catch {
+      XCTAssertTrue(false)
     }
-
-    override func tearDown() {
-     eraseAllSurveys()
-    }
-
+  }
+  
   func testDailySurveyCoreDataSave() {
     let createResults = CreateResults()
     let surveyResults = createResults.getDailyResults()
@@ -30,7 +57,6 @@ class SurveyCoreDataTests: XCTestCase {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = appDelegate.persistentContainer.viewContext
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DailySurvey")
-    //request.predicate = NSPredicate(format: "age = %@", "12")
     request.returnsObjectsAsFaults = false
     
     do {
@@ -54,7 +80,7 @@ class SurveyCoreDataTests: XCTestCase {
   func testWeeklySurveyCoreDataSave() {
     let createResults = CreateResults()
     let surveyResults = createResults.getWeeklyResultsTwo()
-  
+    
     ProcessResults.saveResultsToCoreData(taskResults: surveyResults)
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -103,8 +129,8 @@ class SurveyCoreDataTests: XCTestCase {
       XCTAssertEqual(data.value(forKey: EligibilitySteps.infantAgeInRangeStepID) as! String, "1")
       XCTAssertEqual(data.value(forKey: EligibilitySteps.clearBlueMonitorStepID) as! String, "1")
       XCTAssertEqual(data.value(forKey: EligibilitySteps.canReadEnglishStepID) as! String, "1")
-      XCTAssertEqual(data.value(forKey: DemographicSteps.participantBirthDateStepID) as! String, "1992-07-13")
-      XCTAssertEqual(data.value(forKey: DemographicSteps.babysBirthDateStepID) as! String, "2018-08-12")
+      XCTAssertEqual(data.value(forKey: DemographicSteps.participantBirthDateStepID) as! String, "1992-07-13 00:00:00")
+      XCTAssertEqual(data.value(forKey: DemographicSteps.babysBirthDateStepID) as! String, "2018-08-12 00:00:00")
       XCTAssertEqual(data.value(forKey: DemographicSteps.babyFeedOnDemandStepID) as! String, "0")
       XCTAssertEqual(data.value(forKey: DemographicSteps.breastPumpInfoStepID) as! String, "Some Pump")
       XCTAssertEqual(data.value(forKey: DemographicSteps.ethnicityStepID) as! String, "4")

@@ -50,14 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var containerViewController: ResearchContainerViewController? {
     return window?.rootViewController as? ResearchContainerViewController
   }
- 
   
-  static func getSessionKey() -> String {
-    if idToken != nil {
-      return idToken!
-    }
-    return ""
-  }
+  
   func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
     /*
      Store the completion handler.
@@ -72,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     lockApp()
     setUpAWSServices()
+    checkForCoreData()
     if checkForUser() == false {
       print("No user signed in.  AppDelegate")
       self.containerViewController?.toOnboarding()
@@ -79,7 +74,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("User Signed in.  AppDelegate")
       self.containerViewController?.toStudy()
     }
+   
     return true
+  }
+  
+  func applicationDidEnterBackground(_ application: UIApplication) {
+    if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
+      // Hide content so it doesn't appear in the app switcher.
+      containerViewController?.contentHidden = true
+    }
+  }
+  
+  func applicationWillEnterForeground(_ application: UIApplication) {
+    lockApp()
   }
   
   func checkForUser() -> Bool {
@@ -113,16 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     CognitoSync.synchronizeDataSet()
   }
 
-  func applicationDidEnterBackground(_ application: UIApplication) {
-    if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
-      // Hide content so it doesn't appear in the app switcher.
-      containerViewController?.contentHidden = true
-    }
-  }
   
-  func applicationWillEnterForeground(_ application: UIApplication) {
-    lockApp()
-  }
  
   func lockApp() {
     /*
@@ -136,6 +134,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
     let passcodeViewController = ORKPasscodeViewController.passcodeAuthenticationViewController(withText: "Welcome back to the Natural Family Planning Breastfeeding Research Study", delegate: self)
     containerViewController?.present(passcodeViewController, animated: false, completion: nil)
+  }
+  
+  static func getSessionKey() -> String {
+    if idToken != nil {
+      return idToken!
+    }
+    return ""
+  }
+  
+  func checkForCoreData() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DailySurvey")
+    request.returnsObjectsAsFaults = false
+    do {
+      let result = try context.fetch(request)
+      let dailySurveys = result as! [DailySurvey]
+      for survey in dailySurveys {
+        if survey.uploaded == false {
+        
+          print("upload surveys")
+        } else {
+          print("delete surveys")
+        }
+      }
+      print("No surveys found")
+      
+    } catch {
+      print("Error fetching daily survey")
+    }
   }
   
   // MARK: - Core Data stack

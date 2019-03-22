@@ -49,7 +49,6 @@ class ResearchContainerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     //UIView.appearance(whenContainedInInstancesOf: [ORKTaskViewController.self]).tintColor = UIColor(red: 1, green: 0.8, blue: 0.0, alpha: 1.0)
-    
     if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
       toStudy()
     } else {

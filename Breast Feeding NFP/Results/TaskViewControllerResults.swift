@@ -27,7 +27,7 @@ struct TaskViewControllerResults {
     
     let taskResults: TaskResults? = getTaskResultType(taskID: taskID)
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     for stepResult: ORKStepResult in taskViewControllerResults {
       for result in stepResult.results! {
         if let questionResult = result as? ORKChoiceQuestionResult {

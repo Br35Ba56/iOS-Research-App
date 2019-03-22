@@ -18,7 +18,7 @@ class ProcessResults {
   
   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
   let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "TransferUtility")
-
+  
   private init(taskResults: TaskResults!) {
     if let results = taskResults as? DailyTaskResults {
       self.surveyTaskResults = results
@@ -50,50 +50,104 @@ class ProcessResults {
     }
     self.uuid = uuid
   }
-  
-  
   static func saveResultsToCoreData(taskResults: TaskResults!) {
-      processResults = ProcessResults(taskResults: taskResults)
-      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        return
-      }
-      
-      let managedContext = appDelegate.persistentContainer.viewContext
-      let entity = NSEntityDescription.entity(forEntityName: processResults.surveyType, in: managedContext)!
-      let survey = NSManagedObject(entity: entity, insertInto: managedContext)
+    processResults = ProcessResults(taskResults: taskResults)
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+      return
+    }
     
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let entity = NSEntityDescription.entity(forEntityName: processResults.surveyType, in: managedContext)!
+    let survey = NSManagedObject(entity: entity, insertInto: managedContext)
     for result in taskResults.results {
       survey.setValue(result.value, forKey: result.key)
       print("\(result.value)  \(result.key)")
     }
     survey.setValue(false, forKey: "uploaded")
-      
-     
     do {
       try managedContext.save()
     } catch let error as NSError {
       print("Could not save. \(error), \(error.userInfo)")
     }
-   //   survey.setValue(self.results[DailyCycleSurvey.clearBlueMonitorStepID], forKey: DailyCycleSurvey.clearBlueMonitorStepID)
-    
-    
   }
   //TODO: saveResults and uploadResults should go directly to dynamodb table via APIGateway/Lambda
   //if upload to DynamoDB fails due to internet connection or other, save to core data and reattempt
   //upload at a later time.
-
+  
   static func saveResults(taskResults: TaskResults!) {
-    if taskResults is DailyTaskResults {
-     
-        let muDailyResult = MUDailysurvey.init(dictionary: taskResults.results)
-      
-   
-
-    } else if taskResults is WeeklyTaskResults {
-      
-    } else if taskResults is OnboardingTaskResults {
-      
+    uploadResults(taskResults: taskResults!, fromCoreData: false)
+  }
+  
+  static func saveResultsFromCoreData(taskResults: TaskResults!) {
+    uploadResults(taskResults: taskResults, fromCoreData: true)
+  }
+  
+  static func uploadResults(taskResults: TaskResults, fromCoreData: Bool) {
+    let client = MUNFPBreastFeedingAPIClient.default()
+    if checkNetworkAvailability() {
+      if taskResults is DailyTaskResults {
+        let muDailySurvey = MUDailysurvey()
+        muDailySurvey?.setValues(dailyResults: taskResults as! DailyTaskResults)
+        client.surveysDailysurveyPut(body: muDailySurvey!, idToken: AppDelegate.idToken!).continueWith{(task: AWSTask) -> AnyObject? in
+          self.getResult(task: task, taskResults: taskResults)
+          return nil
+        }
+      } else if taskResults is WeeklyTaskResults {
+        let muWeeklySurvey = MUWeeklysurvey()
+        muWeeklySurvey?.setValues(weeklyResults: taskResults as! WeeklyTaskResults)
+        client.surveysWeeklysurveyPut(body: muWeeklySurvey!, idToken: AppDelegate.idToken!).continueWith{(task: AWSTask) -> AnyObject? in
+          self.getResult(task: task, taskResults: taskResults)
+          return nil
+        }
+      } else if taskResults is OnboardingTaskResults {
+        let muOnboardingSurvey = MUOnboardingsurvey()
+        muOnboardingSurvey?.setValues(onboardingResults: taskResults as! OnboardingTaskResults)
+        client.surveysOnboardingsurveyPut(body: muOnboardingSurvey!, idToken: AppDelegate.idToken!).continueWith{(task: AWSTask) -> AnyObject? in
+          self.getResult(task: task, taskResults: taskResults)
+          return nil
+        }
+      }
+    } else {
+      DispatchQueue.main.async {
+        //If item is from core data, do not duplicate results upon failed upload
+        if !fromCoreData {
+          saveResultsToCoreData(taskResults: taskResults)
+        }
+      }
     }
+  }
+  
+  static func getResult(task: AWSTask<AnyObject>, taskResults: TaskResults!) {
+    if let error = task.error {
+      print("Error: \(error)")
+      saveResultsToCoreData(taskResults: taskResults)
+    } else if let result = task.result {
+      let res = result as! NSDictionary
+      let resDict = res as! Dictionary<String, Any>
+      let body = resDict["body"]
+      if body.debugDescription.contains("true") {
+        
+      }
+    }
+  }
+  
+  static func checkNetworkAvailability() -> Bool {
+    do {
+      Network.reachability = try Reachability(hostname: "www.google.com")
+      do {
+        try Network.reachability?.start()
+      } catch let error as Network.Error {
+        print(error)
+        return false
+      } catch {
+        print(error)
+        return false
+      }
+    } catch {
+      print(error)
+      return false
+    }
+    return true
   }
   
   static func saveResults(taskResults: TaskResults!, uuid: UUID!) {
@@ -110,9 +164,9 @@ class ProcessResults {
   }
   
   func uploadResults(path: NSURL, fileName: String) {
-  
+    
     let expression = AWSS3TransferUtilityUploadExpression()
-
+    
     expression.setValue("AES256", forRequestParameter: "x-amz-server-side-encryption")
     transferUtility.uploadFile(path as URL, bucket: AWSConstants.bucket, key: ProcessResults.getUserName() + "/" + surveyType + "/" + fileName, contentType: "file/json", expression: expression, completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
       if let error = task.error {
@@ -125,7 +179,7 @@ class ProcessResults {
     }
   }
   
- 
+  
   
   private static func getUserName() -> String {
     if let userName = KeychainWrapper.standard.string(forKey: "Username") {
@@ -134,4 +188,3 @@ class ProcessResults {
     return "Unkown User"
   }
 }
-

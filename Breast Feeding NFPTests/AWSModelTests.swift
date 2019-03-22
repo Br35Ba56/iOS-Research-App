@@ -7,12 +7,13 @@
 //
 
 import XCTest
+import SwiftKeychainWrapper
 @testable import Breast_Feeding_NFP
 
 class AWSModelTests: XCTestCase {
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        KeychainWrapper.standard.set("tonyschndr@gmail.com", forKey: "Username")
     }
 
     override func tearDown() {
@@ -46,7 +47,7 @@ class AWSModelTests: XCTestCase {
     XCTAssertTrue(weeklyModel?.recentlyDiagnosed == surveyResults.results["recentlyDiagnosed"])
     XCTAssertTrue(weeklyModel?.userName == surveyResults.results["userName"])
     XCTAssertTrue(weeklyModel?.type == surveyResults.results["type"])
-    XCTAssertTrue(weeklyModel?.stillBreastfeeding == surveyResults.results["stillBreastFeeding"])
+    XCTAssertTrue(weeklyModel?.stillBreastfeeding == surveyResults.results["stillBreastfeeding"])
     XCTAssertTrue(weeklyModel?.areYouPregnant == surveyResults.results["areYouPregnant"])
   }
   

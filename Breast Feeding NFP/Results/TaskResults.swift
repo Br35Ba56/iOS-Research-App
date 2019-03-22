@@ -10,7 +10,7 @@ import Foundation
 import AWSCognitoIdentityProvider
 
 protocol TaskResults {
-  var results: [String: String] {get}
+  var results: [String: String] {get set}
   func enterTaskResult(identifier: String, result: String)
   func getDateAsString() -> String
   func getEntryJSON() -> String
@@ -116,6 +116,35 @@ class OnboardingTaskResults: TaskResults {
     DemographicSteps.howManyChildrenBreastFedStepID: "-1",
     DemographicSteps.howLongInPastBreastFedStepID: "-1"
   ]
+  
+  func enterTaskResult(onboardingSurvey: OnboardingSurvey) {
+    results["userName"] = onboardingSurvey.userName
+    results["date"] = onboardingSurvey.date
+    results["type"] = onboardingSurvey.type
+    results[EligibilitySteps.biologicalSexStepID] = onboardingSurvey.biologicalSex
+    results[EligibilitySteps.biologicalInfantStepID] = onboardingSurvey.biologicalInfant
+    results[EligibilitySteps.singletonBirthStepID] = onboardingSurvey.singletonBirth
+    results[EligibilitySteps.babyBornFullTermStep] = onboardingSurvey.babyFullTerm
+    results[EligibilitySteps.participantAgeInRangeStepID] = onboardingSurvey.participantAgeInRange
+    results[EligibilitySteps.momHealthStepID] = onboardingSurvey.momHealth
+    results[EligibilitySteps.breastSurgeryStepID] = onboardingSurvey.breastSurgery
+    results[EligibilitySteps.infantAgeInRangeStepID] = onboardingSurvey.infantAgeInRange
+    results[EligibilitySteps.clearBlueMonitorStepID] = onboardingSurvey.clearBlueMonitor
+    results[EligibilitySteps.canReadEnglishStepID] = onboardingSurvey.canReadEnglish
+    results[DemographicSteps.participantBirthDateStepID] = onboardingSurvey.participantBirthDate
+    results[DemographicSteps.babysBirthDateStepID] = onboardingSurvey.babyBirthDate
+    results[DemographicSteps.babyFeedOnDemandStepID] = onboardingSurvey.babyFeedOnDemand
+    results[DemographicSteps.breastPumpInfoStepID] = onboardingSurvey.breastPumpInfo
+    results[DemographicSteps.ethnicityStepID] = onboardingSurvey.ethnicity
+    results[DemographicSteps.religionStepID] = onboardingSurvey.religion
+    results[DemographicSteps.levelOfEducationStepID] = onboardingSurvey.levelOfEducation
+    results[DemographicSteps.relationshipStatusID] = onboardingSurvey.relationshipStatus
+    results[DemographicSteps.marriedLengthStepID] = onboardingSurvey.marriedLength
+    results[DemographicSteps.howManyTimesPregnantStepID] = onboardingSurvey.howManyTimesPregnant
+    results[DemographicSteps.howManyBiologicalChildrenStepID] = onboardingSurvey.howManyBiologicalChildren
+    results[DemographicSteps.howManyChildrenBreastFedStepID] = onboardingSurvey.howManyChildrenBreastFed
+    results[DemographicSteps.howLongInPastBreastFedStepID] = onboardingSurvey.howLongInPastBreastFed
+  }
   
   func enterTaskResult(identifier: String, result: String) {
     results[identifier] = result
